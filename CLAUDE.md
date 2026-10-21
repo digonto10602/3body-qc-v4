@@ -21,7 +21,8 @@ graphify update .                              # rebuild graphify-out/ for this 
 #      Minuit2 (standalone or from ROOT; export MINUIT2_ROOT=...) for the fitter only
 ```
 - Python test deps: `pip install numpy scipy pytest`.
-- **Build:** `./build.sh all` (CPU tools; fitter needs Minuit2).
+- **Build:** `./build.sh all` (CPU tools + `qc3._core`; fitter only with Minuit2, `./build.sh fitter`). `./build.sh core` alone builds the Python extension (~8 s).
+- **Python package** `qc3` lives in `src/python/`: run scripts with `PYTHONPATH=src/python` (pytest adds it via `tests/acceptance/conftest.py`).
 - **Fast check (after every edit):** `python3 -m pytest -q tests --ignore=tests/acceptance` — never includes `tests/acceptance`.
 - **Acceptance (milestone N):** `python3 -m pytest -q tests/acceptance/mN`, then `.claude/bin/acceptance-check`.
 - Cloud sessions normally have **no GPU**. `build_gpu.sh`, `src/cachegen_gpu/` and `src/gpu_det/` cannot be compiled or timed there; CPU work can.

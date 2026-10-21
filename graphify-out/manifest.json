@@ -1,8 +1,8 @@
 {
   "build.sh": {
-    "mtime": 1792611426.0737422,
-    "seen": 1792611702.7457116,
-    "ast_hash": "3d3ed0dac1baa8b9a0f5c8ac7bc4642f",
+    "mtime": 1792614409.3827116,
+    "seen": 1792614550.358795,
+    "ast_hash": "5c871a59608cdf2df0cf2bf819c7c43f",
     "semantic_hash": ""
   },
   "build_gpu.sh": {
@@ -1485,6 +1485,12 @@
     "mtime": 1792614272.3397439,
     "seen": 1792614289.0717742,
     "ast_hash": "b868475b43dd6d3bf4f4938376b704f9",
+    "semantic_hash": ""
+  },
+  "src/qc3_core/module.cpp": {
+    "mtime": 1792614409.3619804,
+    "seen": 1792614550.358965,
+    "ast_hash": "c4f5e67dd81e40d8d64c8edadfde6135",
     "semantic_hash": ""
   }
 }
