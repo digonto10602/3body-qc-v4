@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `618bc5ae`
+- Built from commit: `812f9b95`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -135,7 +135,7 @@
 - acceptance-lock
 - EvalPoint
 - v32w_single_L_fitter/qc_fitter_norm_refine_v2.cpp
-- 000 — Consolidation and roadmap (starter plan from chat, 2026-10-21)
+- LatticeFileAuditRow
 - run_v33m_classifier_speed_search.py
 - RowResult
 - process_same_shape_group_true_batch_v15
@@ -167,7 +167,7 @@
 - main
 - EvalResult
 - ZeroPole
-- LatticeFileAuditRow
+- A — Physics core of the KKπ three-body quantization-condition code
 - functions_gpu_config_maker4.cuh
 - 001 — M1: a cache-free, CPU-only, single-energy three-body QC with an oracle and an independent reference
 - EvalResult
@@ -245,7 +245,7 @@
 - ScopedTimer
 - EnergyShapeKey
 - V32zuF2K2ValidationStats
-- evaluate_one_energy_cpu_eigen_v24_QC
+- 000 — Consolidation and roadmap (starter plan from chat, 2026-10-21)
 - RefineTask
 - Tools quick guide
 - Hot-window FCN checkpoint
@@ -254,6 +254,7 @@
 - run_v32w_QC_fitter_norm_refine_v2_fixedcoarse.sh
 - run_gpu_component_cachegen.sh
 - plot_v33p_classifier_det_family_interactive.py
+- 4. Chronological table v31v → v32y (Question 1)
 - module.cpp
 - Options
 - ROOT FINDING for the three-body QC
@@ -346,21 +347,20 @@
 - Tester report 005: M1 step 5, portability + three no-silent-failure fixes
 - 3. Cache formats and stored objects (Question 1)
 - F3iProjectedCache
+- evaluate_one_energy_cpu_eigen_v24_QC
+- 9. Q6 - Recommended minimal fitter file set for the consolidated repo
 - auditor.md
 - builder.md
 - string
 - unit/conftest.py
 - session_start.py
+- 4. GPU generator internals and performance (Question 2)
 - chi2_covariance_convention_check.py
-- qc.py
-- A — Physics core of the KKπ three-body quantization-condition code
-- 4. Chronological table v31v → v32y (Question 1)
+- project_Q
 - default_data_dir
 - HISTORY.md
 - 3body-qc-v4 — fitting the three-particle K matrix to lattice spectra
 - conftest.py
-- 9. Q6 - Recommended minimal fitter file set for the consolidated repo
-- 4. GPU generator internals and performance (Question 2)
 
 ## God Nodes (most connected - your core abstractions)
 1. `Code and function index` - 225 edges
@@ -863,9 +863,9 @@ Nodes (15): classify_final_v32s(), pair, vector, EvalPoint, det, E, from_refinem
 Cohesion: 0.21
 Nodes (14): classify(), cnorm(), Eval, det, E, proj_dim, success, y (+6 more)
 
-### Community 120 - "000 — Consolidation and roadmap (starter plan from chat, 2026-10-21)"
-Cohesion: 0.22
-Nodes (9): 000 — Consolidation and roadmap (starter plan from chat, 2026-10-21), Goal, Milestone 0 — consolidation (DONE, 2026-10-21), Milestone 1 — trustworthy baseline (decisions answered 2026-10-21; step 6 replaced, see the update above), Milestone 2 — root finding without human labels ("gradient change"), Milestone 3 — L24 and combined fit, Milestone 4 — speed and robustness, Milestone 5 — physics output (+1 more)
+### Community 120 - "LatticeFileAuditRow"
+Cohesion: 0.14
+Nodes (14): LatticeFileAuditRow, atP, filename, found, jk_avg_ecm, jk_avg_read, jk_err_ecm, jk_err_read (+6 more)
 
 ### Community 121 - "run_v33m_classifier_speed_search.py"
 Cohesion: 0.29
@@ -987,9 +987,9 @@ Nodes (12): EvalResult, det, dim1, dim2, Ecm, eig_min_proj, En, error (+4 more)
 Cohesion: 0.17
 Nodes (12): ZeroPole, E_left, E_mid, E_right, eig_index_left, eig_index_right, i_left, i_right (+4 more)
 
-### Community 152 - "LatticeFileAuditRow"
-Cohesion: 0.14
-Nodes (14): LatticeFileAuditRow, atP, filename, found, jk_avg_ecm, jk_avg_read, jk_err_ecm, jk_err_read (+6 more)
+### Community 152 - "A — Physics core of the KKπ three-body quantization-condition code"
+Cohesion: 0.22
+Nodes (5): 1. What was asked, 2. Actions taken, 4. What this means, 5. Problems and assumptions, A — Physics core of the KKπ three-body quantization-condition code
 
 ### Community 153 - "functions_gpu_config_maker4.cuh"
 Cohesion: 0.08
@@ -1299,9 +1299,9 @@ Nodes (5): EnergyShapeKey, dim1, dim2, total_dim, vdim
 Cohesion: 0.33
 Nodes (6): V32zuF2K2ValidationStats, chunks, max_abs_diff_F2, max_abs_diff_K2inv, max_rel_diff_F2, max_rel_diff_K2inv
 
-### Community 230 - "evaluate_one_energy_cpu_eigen_v24_QC"
-Cohesion: 0.48
-Nodes (5): build_F3i_projected_cache_entry_v25(), determinant_via_partial_piv_lu(), evaluate_one_energy_cpu_eigen_v24_QC(), evaluate_one_energy_cpu_eigen_v25_QC_cached(), comp
+### Community 230 - "000 — Consolidation and roadmap (starter plan from chat, 2026-10-21)"
+Cohesion: 0.22
+Nodes (9): 000 — Consolidation and roadmap (starter plan from chat, 2026-10-21), Goal, Milestone 0 — consolidation (DONE, 2026-10-21), Milestone 1 — trustworthy baseline (decisions answered 2026-10-21; step 6 replaced, see the update above), Milestone 2 — root finding without human labels ("gradient change"), Milestone 3 — L24 and combined fit, Milestone 4 — speed and robustness, Milestone 5 — physics output (+1 more)
 
 ### Community 231 - "RefineTask"
 Cohesion: 0.33
@@ -1334,6 +1334,10 @@ Nodes (3): run_gpu_component_cachegen.sh script, tagL(), usage()
 ### Community 238 - "plot_v33p_classifier_det_family_interactive.py"
 Cohesion: 0.60
 Nodes (4): energy(), main(), Path, rows()
+
+### Community 239 - "4. Chronological table v31v → v32y (Question 1)"
+Cohesion: 0.22
+Nodes (9): 4. Chronological table v31v → v32y (Question 1), Phase A — $F_2$/$G$/$FG$ diagnostics, projection audit, blind pole classifier (default `111_A2` → `110_A2`, $L=20$), Phase B — projected $F_3^{-1}$ zero finder (`110_A2`, $L=24$, waves $\{0,1\}$), Phase C — toy-mass sanity tests and scattering-parameter mapping, Phase D — classifier v1, s vs s+p waves, p-wave strength, $v_{\rm iso}$, Phase E — iterative refinement and lattice masses, Phase F — K3df fitter, caching, diagnostics, Phase G — classifier v2, normalization, true refinement, fitter baseline (+1 more)
 
 ### Community 240 - "module.cpp"
 Cohesion: 0.26
@@ -1491,6 +1495,14 @@ Nodes (7): 3.1 Physics objects stored per energy row, 3.2 Energy grid, 3.3 Combi
 Cohesion: 0.29
 Nodes (6): F3iProjectedCache, hits, misses, table, map, size_t
 
+### Community 334 - "evaluate_one_energy_cpu_eigen_v24_QC"
+Cohesion: 0.48
+Nodes (5): build_F3i_projected_cache_entry_v25(), determinant_via_partial_piv_lu(), evaluate_one_energy_cpu_eigen_v24_QC(), evaluate_one_energy_cpu_eigen_v25_QC_cached(), comp
+
+### Community 335 - "9. Q6 - Recommended minimal fitter file set for the consolidated repo"
+Cohesion: 0.33
+Nodes (6): 9.1 C++ sources (fitter executable `v33f_k3df_fitter_multiL_v33e`), 9.2 Python scripts (under `L20/scripts/`), 9.3 Configs and data, 9.4 Not needed in the consolidated fitter, 9.5 Suggested consolidation design for a fast FCN (based on what works), 9. Q6 - Recommended minimal fitter file set for the consolidated repo
+
 ### Community 336 - "auditor.md"
 Cohesion: 0.40
 Nodes (4): Checklist (state each item: OK / ISSUE / N/A, with file:line), Report (always), Return to the caller (short), Start
@@ -1507,17 +1519,13 @@ Nodes (7): string, time_point, L_tag(), LocalScopedTimer, debug, name, t0
 Cohesion: 0.83
 Nodes (3): latest(), main(), sh()
 
-### Community 344 - "qc.py"
+### Community 341 - "4. GPU generator internals and performance (Question 2)"
+Cohesion: 0.40
+Nodes (5): 4.1 Pipeline per irrep (`v32zt_generate_one_irrep`, `F3_gpu_cachegen_v32zu.cu:2308-2519`), 4.2 Streams and the host-pressure guard, 4.3 Fused vs separate F2/K2, 4.4 Performance numbers found (wall-clock seconds, GPU and host unspecified unless stated), 4. GPU generator internals and performance (Question 2)
+
+### Community 344 - "project_Q"
 Cohesion: 0.24
 Nodes (12): project_Q(), QC helpers (prompts/001 step 4): projection of the inverse and (sign, ln|det|)…, (L^-6) V^dag (F3inv + K3) V ; L = xi*Lbyas (so L**6 == (Lbyas*xi)**6). The…, (sign, ln|det Q|) by partial-pivot LU (LAPACK via NumPy). sign is an int in…, slogdet(), Root refinement (prompts/001 step 4)., M1 step 4 — qc3.qc implements Q = (L xi)^-6 V^dag (F3inv + K3) V and (sign,…, _synthetic() (+4 more)
-
-### Community 347 - "A — Physics core of the KKπ three-body quantization-condition code"
-Cohesion: 0.22
-Nodes (5): 1. What was asked, 2. Actions taken, 4. What this means, 5. Problems and assumptions, A — Physics core of the KKπ three-body quantization-condition code
-
-### Community 348 - "4. Chronological table v31v → v32y (Question 1)"
-Cohesion: 0.22
-Nodes (9): 4. Chronological table v31v → v32y (Question 1), Phase A — $F_2$/$G$/$FG$ diagnostics, projection audit, blind pole classifier (default `111_A2` → `110_A2`, $L=20$), Phase B — projected $F_3^{-1}$ zero finder (`110_A2`, $L=24$, waves $\{0,1\}$), Phase C — toy-mass sanity tests and scattering-parameter mapping, Phase D — classifier v1, s vs s+p waves, p-wave strength, $v_{\rm iso}$, Phase E — iterative refinement and lattice masses, Phase F — K3df fitter, caching, diagnostics, Phase G — classifier v2, normalization, true refinement, fitter baseline (+1 more)
 
 ### Community 349 - "default_data_dir"
 Cohesion: 0.32
@@ -1530,14 +1538,6 @@ Nodes (4): HISTORY — where this code came from, Lessons that must not be relea
 ### Community 351 - "3body-qc-v4 — fitting the three-particle K matrix to lattice spectra"
 Cohesion: 0.20
 Nodes (7): 3body-qc-v4 — fitting the three-particle K matrix to lattice spectra, Build, Layout, Running a fit needs external inputs, Status (2026-10-21), The hard part: finding the right roots, The idea that makes fits fast
-
-### Community 356 - "9. Q6 - Recommended minimal fitter file set for the consolidated repo"
-Cohesion: 0.33
-Nodes (6): 9.1 C++ sources (fitter executable `v33f_k3df_fitter_multiL_v33e`), 9.2 Python scripts (under `L20/scripts/`), 9.3 Configs and data, 9.4 Not needed in the consolidated fitter, 9.5 Suggested consolidation design for a fast FCN (based on what works), 9. Q6 - Recommended minimal fitter file set for the consolidated repo
-
-### Community 358 - "4. GPU generator internals and performance (Question 2)"
-Cohesion: 0.40
-Nodes (5): 4.1 Pipeline per irrep (`v32zt_generate_one_irrep`, `F3_gpu_cachegen_v32zu.cu:2308-2519`), 4.2 Streams and the host-pressure guard, 4.3 Fused vs separate F2/K2, 4.4 Performance numbers found (wall-clock seconds, GPU and host unspecified unless stated), 4. GPU generator internals and performance (Question 2)
 
 ## Knowledge Gaps
 - **3294 isolated node(s):** `build_gpu.sh script`, `.val500_100A2_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen_sep_f2k2.sh script`, `config_gpu_component_cachegen_sep_f2k2_coarse20000.sh script` (+3289 more)
