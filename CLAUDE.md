@@ -20,6 +20,10 @@ graphify update .                              # rebuild graphify-out/ for this 
 # C++: Eigen 3 (header-only, e.g. apt install libeigen3-dev; export EIGEN_INC=/usr/include/eigen3)
 #      Minuit2 (standalone or from ROOT; export MINUIT2_ROOT=...) for the fitter only
 ```
+- Python test deps: `pip install numpy scipy pytest`.
+- **Build:** `./build.sh all` (CPU tools; fitter needs Minuit2).
+- **Fast check (after every edit):** `python3 -m pytest -q tests --ignore=tests/acceptance` — never includes `tests/acceptance`.
+- **Acceptance (milestone N):** `python3 -m pytest -q tests/acceptance/mN`, then `.claude/bin/acceptance-check`.
 - Cloud sessions normally have **no GPU**. `build_gpu.sh`, `src/cachegen_gpu/` and `src/gpu_det/` cannot be compiled or timed there; CPU work can.
 - QC3_release (Blanton, Romero-López, Sharpe; github `ferolo2/QC3_release`) is **not** in this repo: it is not Digonto's code. It is only cited as the published reference implementation. Do not add it back.
 - Data in the repo: the L20 `.jack` spectra only. No cache binaries exist anywhere. The L24 `.jack` files are not here.
