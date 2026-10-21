@@ -42,7 +42,7 @@
   "40": "F2_gpu_safe_builder.cuh",
   "41": "string",
   "42": "RuntimeCacheMeta",
-  "43": "ScopedTimer",
+  "43": "real_wigner_d.hpp",
   "44": "ZeroRecord",
   "45": "F3_gpu_omp_cublas_pipeline_v9_inward_shape_refinement.cu",
   "46": "Full F3 GPU pipeline versions",
@@ -318,7 +318,7 @@
   "316": "4. Chronological table v31v → v32y (Question 1)",
   "317": "anchor_points",
   "318": "DeviceResidentResult",
-  "319": "test_qc_lattice_roots.py",
+  "319": "load_levels",
   "320": "4. Q2 - Exactly how the fast FCN works (L20 code)",
   "321": "V3Shoulder",
   "322": "Sector",
@@ -346,7 +346,12 @@
   "344": "qc.py",
   "345": "NeumaierDouble",
   "346": "SignFlip",
-  "347": "MissingRootError",
+  "347": "match_levels",
+  "348": "dig_tools.hpp",
   "349": "test_m1_portability.py",
-  "352": "conftest.py"
+  "350": "MatrixCompareStats",
+  "351": "test_qc_lattice_roots.py",
+  "352": "conftest.py",
+  "353": "MatrixCompareStats",
+  "354": "RepDiagnostics"
 }

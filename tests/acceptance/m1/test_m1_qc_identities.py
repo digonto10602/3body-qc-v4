@@ -54,11 +54,15 @@ def test_scale_applies_to_matrix_not_determinant():
     s0, l0 = np.linalg.slogdet(V.conj().T @ (M + K) @ V)
     assert abs((l1 - l0) + 6 * Nproj * np.log(L_BOX)) <= TOL
     assert s1 == int(np.sign(s0.real))
-    # flipping one eigenvalue of a full-rank projection flips the sign
+    # flipping the sign of one eigenvalue of a full-rank Hermitian matrix flips the sign of det and leaves
+    # |det| unchanged (M is Hermitian with no zero eigenvalue: seed 3 has min|w| = 0.51, 10 negative of 30).
+    # Amendment 2026-10-21 (acceptance-v2): the original wrote w2[0] = -abs(w2[0]); w[0] < 0 for seed 3, so
+    # M2 == M and the sign test could never pass.  Now the sign is genuinely flipped.
     w, U = np.linalg.eigh(M)
-    w2 = w.copy(); w2[0] = -abs(w2[0])
+    w2 = w.copy(); w2[0] = -w2[0]
     M2 = (U * w2) @ U.conj().T
     I = np.eye(M.shape[0])
-    sa, _ = slogdet(project_Q(M, I, 0 * K, L_BOX))
-    sb, _ = slogdet(project_Q(M2, I, 0 * K, L_BOX))
+    sa, la = slogdet(project_Q(M, I, 0 * K, L_BOX))
+    sb, lb = slogdet(project_Q(M2, I, 0 * K, L_BOX))
     assert sa == -sb
+    assert abs(la - lb) <= TOL

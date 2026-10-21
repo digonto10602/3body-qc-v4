@@ -120,6 +120,15 @@ Each step: builder implements → tester (mode `step`) runs the listed ids → c
 
 Tolerance changes go through the planner only. If a test cannot be met because the **oracle** is found wrong (e.g. an energy where the oracle's cube is not converged matters), stop and report; do not loosen.
 
+### Amendment 2026-10-21 (acceptance-v2): `test_m1_qc_identities.py::test_scale_applies_to_matrix_not_determinant`, last block
+
+Approved by Digonto 2026-10-21; narrow correction of a defective test construction, no tolerance or data change.
+
+- **What was wrong.** The last block means to flip the sign of one eigenvalue of the seeded Hermitian $M$ (`_synthetic(seed=3)`, $N=30$) and check that the LU sign flips. It wrote `w2[0] = -abs(w2[0])`. For seed 3 the eigenvalues are $w_{0..3}=(-6.341,-4.939,-4.616,-4.085)$ (10 of 30 negative, $\min|w|=0.51$), so $w_0<0$ already, `M2 == M` up to rounding, and `assert sa == -sb` was unsatisfiable for *every* correct `slogdet`. The test was wrong, not the code (reproduced by the coordinator and the planner).
+- **The fix.** `w2[0] = -w2[0]` (a genuine sign flip; $\|M_2-M\|/\|M\|=0.37$), and the block now also records $\ln|\det|$ of both matrices and asserts $|\ell_a-\ell_b|\le$ `TOL` $=10^{-10}$. Comments in the test explain the construction.
+- **Why it does not weaken the test.** (i) The intended check (one sign flip of a full-rank Hermitian matrix flips the LU sign) is now actually exercised; before, it could only fail. (ii) The added $|\det|$-equality check is exact in exact arithmetic ($\det M_2=-\det M$ since $M_2=U\,\mathrm{diag}(w_0\to-w_0)\,U^\dagger$, same scale $(L\xi)^{-6N}$ on both); numerically the reconstruction $U\,\mathrm{diag}(w_2)\,U^\dagger$ and the LU each contribute $\mathcal O(N\varepsilon)\sim10^{-14}$; measured $|\ell_a-\ell_b|=3.4\times10^{-13}$ against `TOL` $=10^{-10}$, margin 300, consistent with the existing §4 justification for this file ("float64 LU on $N_{\rm proj}\le40$: $\sim10^{-13}$"). No tolerance was changed. (iii) Verified against deliberately wrong implementations (throwaway `scratch/planner/verify_sign_flip_amendment*.py`, git-ignored): with NumPy's LU `slogdet` (the builder's `qc3.qc.slogdet`) the test passes; `sign` $\equiv+1$ fails (line 56, the earlier projected-sign check, because the seed-3 projected determinant is negative); `sign` $\equiv-1$, which passes every earlier check, is caught only by the amended `assert sa == -sb`; `sign = sign(tr Q)` is also caught there. So the amended block adds discriminating power that the rest of the test does not have.
+- **Collection count unchanged:** 33 tests in `tests/acceptance`. No other acceptance test, tolerance or data file was touched. Re-lock as `acceptance-v2`.
+
 ## 5. Interface (what the acceptance tests import; builder creates stubs in step 1)
 
 Package root: `src/python/qc3/` (added to `sys.path` by `tests/acceptance/conftest.py`). Compiled extension: `src/python/qc3/_core*.so` from `src/qc3_core/` via `./build.sh core`. All arrays `numpy.ndarray`, float64 or complex128 (tests cast to complex128), C-contiguous, row-major, basis-ordered as §2.1. Energies $E^*$ in $a_t^{-1}$.
