@@ -1336,5 +1336,11 @@
     "seen": 1792613226.8673506,
     "ast_hash": "57e96fb11ae165a88e365be7070f4e38",
     "semantic_hash": ""
+  },
+  "reports/research/007-single-energy-qc-methods-and-reference.md": {
+    "mtime": 1792613304.119217,
+    "seen": 1792613380.4489183,
+    "ast_hash": "8a9a62d23f42157bb24f571e63f01281",
+    "semantic_hash": ""
   }
 }

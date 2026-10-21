@@ -1,16 +1,16 @@
 # Graph Report - 3body-qc-v4  (2026-10-21)
 
 ## Corpus Check
-- 220 files · ~390,074 words
+- 222 files · ~392,901 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 5639 nodes · 10325 edges · 322 communities (263 shown, 57 thin omitted)
+- 5653 nodes · 10338 edges · 323 communities (264 shown, 57 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 357 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1eaf1fa1`
+- Built from commit: `cf1533c5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -58,7 +58,7 @@
 - F2_gpu_safe_builder.cuh
 - string
 - RuntimeCacheMeta
-- HostConfigFlat
+- CovarianceResult
 - ZeroRecord
 - F3_gpu_omp_cublas_pipeline_v9_inward_shape_refinement.cu
 - Full F3 GPU pipeline versions
@@ -66,9 +66,9 @@
 - KKpi Codebase Map for Codex
 - E — `threebody_fullmatrix_hpc_cuda_bench_v3_codex`: what it is and whether it belongs in 3body-qc-v4
 - K3_functions_2plus1.hpp
-- MomentumIrrepSpec
+- ZeroClassificationRow
 - fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp
-- DeviceResidentResult
+- dig_tools.hpp
 - F3_gpu_cachegen_v32zu.cu
 - PhysicsParams
 - vector
@@ -80,7 +80,7 @@
 - v32zt_generate_one_irrep
 - Version history summary
 - KKpi v33p Cache-Anchored Classifier/Fitter Checkpoint
-- DeviceProjectionTables
+- DeviceConfig
 - run_groups_concurrent
 - QCPointValue
 - FitResult
@@ -113,7 +113,7 @@
 - fitter/qc_fitter_norm_refine_v2.cpp
 - AcceptedZeroWindow
 - inspect_v32_f3inv_cache_mmap_progress.py
-- F — Development history v31 → v32y: lessons, bugs fixed, dead ends
+- 3. Results
 - F3MatrixSaveOptions
 - SignFlipCandidate
 - FitResult
@@ -139,7 +139,7 @@
 - run_v33m_classifier_speed_search.py
 - RowResult
 - process_same_shape_group_true_batch_v15
-- ofstream
+- v32zt_process_same_shape_chunk_cache
 - next-num
 - F3iProjectedCacheEntry
 - GroupStream
@@ -169,6 +169,7 @@
 - ZeroPole
 - 3. Results
 - functions_gpu_config_maker4.cuh
+- LatticeFileAuditRow
 - EvalResult
 - QCPointValue
 - ZeroPole
@@ -178,6 +179,7 @@
 - ScanPoint
 - make_refined_mesh_v32s
 - JumpRow
+- DeviceResidentResult
 - ScanPoint
 - AssignmentRow
 - KKpi v32w + v32y reproducibility package
@@ -186,12 +188,15 @@
 - 3.3 Question 2 — equations implemented
 - L20 full cutoff-dependence final report
 - run_v33p_classifier_sweep_L20_100_A2.py
+- V32ztAllObjWriter
 - SideClass
 - load_binary_f3inv_cache_v32f
 - save_binary_f3inv_cache_v32f
 - find_QC_zeros_refined
-- 4. Chronological table v31v → v32y (Question 1)
+- 3. Q1 - Which fitter source is newest, and what changed
 - L20 K3B/K3E zero tests and chi-square audit
+- comp
+- SignFlip
 - save_binary_f3inv_cache_v32f
 - DetInfo
 - config_gpu_component_cachegen_sep_f2k2.sh
@@ -236,7 +241,7 @@
 - main
 - build_l20_user_validated_windows.py
 - run_v33p_projected_basis_hotwindow_parallel.py
-- string
+- ScopedTimer
 - EnergyShapeKey
 - V32zuF2K2ValidationStats
 - LocalScopedTimer
@@ -314,26 +319,22 @@
 - compile_gpu_component_cachegen.sh
 - gpu_complex_read_convention_name
 - src/README.md
-- ScopedTimer
 - nonint3body_general_doublecover/README.md
 - process_same_shape_group_true_batch_v15
 - 4. Q2 - Exactly how the fast FCN works (L20 code)
 - /kickoff — start the physics loop here
 - HISTORY.md
-- A — Physics core of the KKπ three-body quantization-condition code
 - InwardShapeResult
 - fixer.md
 - tester.md
 - guard.py
 - 3body-qc-v4 — fitting the three-particle K matrix to lattice spectra
 - 3. Cache formats and stored objects (Question 1)
-- DeviceConfig
+- DeviceConfigView
 - 7. Q4 - Fit results achieved
 - 9. Q6 - Recommended minimal fitter file set for the consolidated repo
 - auditor.md
 - builder.md
-- 4. GPU generator internals and performance (Question 2)
-- 6. Problems found during this review (read before trusting any L20/v33n chi-square)
 - session_start.py
 
 ## God Nodes (most connected - your core abstractions)
@@ -363,7 +364,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (322 total, 57 thin omitted)
+## Communities (323 total, 57 thin omitted)
 
 ### Community 0 - "Code and function index"
 Cohesion: 0.01
@@ -386,8 +387,8 @@ Cohesion: 0.06
 Nodes (67): lattice_counts(), main(), covariance_status(), d(), main(), Path, read_csv(), write_csv() (+59 more)
 
 ### Community 5 - "projections_v1.hpp"
-Cohesion: 0.06
-Nodes (83): Derived, EigenBase, Func, Matrix, Matrix4d, MatrixBase, string, T (+75 more)
+Cohesion: 0.08
+Nodes (72): Derived, EigenBase, Matrix, Matrix4d, MatrixBase, all_perms_of_3(), analyze_projector_eigensystem(), blockDiag() (+64 more)
 
 ### Community 6 - "generate_swave_cpu_cache_qc.cpp"
 Cohesion: 0.05
@@ -395,7 +396,7 @@ Nodes (72): compute_diagnostics(), compute_F3iso_inv_from_F3inv_full(), Config, 
 
 ### Community 7 - "G_gpu_safe_builder.cuh"
 Cohesion: 0.07
-Nodes (73): G, boost_gpu(), cabs(), cabs2(), cadd(), cdiv(), cdiv_d(), cexp_c() (+65 more)
+Nodes (72): boost_gpu(), cabs(), cabs2(), cadd(), cdiv(), cdiv_d(), cexp_c(), cmul() (+64 more)
 
 ### Community 8 - "Options"
 Cohesion: 0.03
@@ -426,8 +427,8 @@ Cohesion: 0.05
 Nodes (56): bisect_eigen_min_candidate_v30s(), closest_zero_eigenpair_from_matrix_v30s(), collect_eigen_min_signflips_v30s(), MatrixXcd, PhysicsParams, string, vector, VectorXcd (+48 more)
 
 ### Community 15 - "lattice_data_covariance_cpp.hpp"
-Cohesion: 0.06
-Nodes (52): CovarianceTuple, tuple, MomentumList, convert_jackknife_energy_to_ecm(), covariance_between_states_szscl21_based(), covariance_between_states_szscl21_based_result(), CovarianceResult, correlation_mat (+44 more)
+Cohesion: 0.18
+Nodes (21): CovarianceTuple, tuple, convert_jackknife_energy_to_ecm(), covariance_between_states_szscl21_based(), covariance_between_states_szscl21_based_result(), default_szscl21_mass_path(), default_threebody_path(), E_to_Ecm() (+13 more)
 
 ### Community 16 - "fv_projector_cartesian_l1_v30m.hpp"
 Cohesion: 0.11
@@ -455,7 +456,7 @@ Nodes (43): optional, Args, gpu_cache_dir, irreps, k3, k3df_zero, Lbyas, outdir 
 
 ### Community 22 - "C. Fitter lineage and fast-fit caching design (K K-bar pi, RFT three-body QC)"
 Cohesion: 0.12
-Nodes (17): 0. Path abbreviations used in this report, 10. What the results mean (summary), 11. Problems and assumptions, 1. What was asked, 2. Concrete actions taken, 3.1 Hash/size table of the multi-L fitter `qc_fitter_norm_refine_v2_multiL.cpp`, 3.2 What changed V33P (1373) $\to$ MF (2021): the hot-window FCN (+648 / -~60 lines), 3.3 What changed MF (2021) $\to$ L20 (2107): chi-square audit trace only (88 diff lines) (+9 more)
+Nodes (16): 0. Path abbreviations used in this report, 10. What the results mean (summary), 11. Problems and assumptions, 1. What was asked, 2. Concrete actions taken, 5.1 Classifier generations, 5.2 Why human labels were needed, 5.3 Workflow (from `L20/README.md:64-75` and scripts) (+8 more)
 
 ### Community 23 - "RowOut"
 Cohesion: 0.05
@@ -463,15 +464,15 @@ Nodes (44): RowOut, const_norm_scale, critical_score, det, det_abs, det_imag, de
 
 ### Community 24 - "V31aEigPoint"
 Cohesion: 0.06
-Nodes (42): collect_v31a_flips(), MatrixXcd, string, vector, eigen_summary_from_projF3inv_v31a(), hermitize_v31a(), main(), v31a_point_from_eval() (+34 more)
+Nodes (41): collect_v31a_flips(), MatrixXcd, string, vector, eigen_summary_from_projF3inv_v31a(), hermitize_v31a(), v31a_point_from_eval(), V31aEigPoint (+33 more)
 
 ### Community 25 - "The physics loop (active when `notes/STATUS.md` exists in the project)"
 Cohesion: 0.13
 Nodes (14): Build loop, Code understanding: graphify first, Coordinator rules (main session), Escalation — objective triggers, counted in STATUS, Global rules (Digonto) — loaded in every Claude Code session, graphify, Hard rules for correctness, How to report to me (every session, every project) (+6 more)
 
 ### Community 26 - "debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp"
-Cohesion: 0.10
-Nodes (41): eigmin_point_from_eval_v30s(), basis_signature_v30q(), BranchPoint, eigvecs, success, build_cached_projector_v30q(), coarse_eigensystems_for_method(), comp (+33 more)
+Cohesion: 0.11
+Nodes (35): BranchPoint, eigvecs, success, build_cached_projector_v30q(), coarse_eigensystems_for_method(), collect_det_eigenbranch_candidates_from_adjacent_pairs(), comp, MatrixXcd (+27 more)
 
 ### Community 27 - "v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp"
 Cohesion: 0.14
@@ -482,8 +483,8 @@ Cohesion: 0.08
 Nodes (41): Args, coarseN, Emax, Emin, git_commit, irrep, L, outdir (+33 more)
 
 ### Community 29 - "projections_gpu_safe.cuh"
-Cohesion: 0.15
-Nodes (31): build_projection_Vsel_device(), build_projection_Vsel_device(), Vsel, all_perms_host(), build_PI_kernel(), build_projector_from_eigenvectors_near_one_gpu_real(), chi_host(), conj_class_host() (+23 more)
+Cohesion: 0.11
+Nodes (39): build_projection_Vsel_device(), build_projection_Vsel_device(), Vsel, all_perms_host(), build_PI_kernel(), build_projector_from_eigenvectors_near_one_gpu_real(), chi_host(), conj_class_host() (+31 more)
 
 ### Community 30 - "v33g_build_runtime_k3basis_cache.cpp"
 Cohesion: 0.11
@@ -530,16 +531,16 @@ Cohesion: 0.07
 Nodes (81): build_F2_2plus1_kernel(), check_cuda(), compare_F2_cpu_gpu(), cuDoubleComplex erfi_series_d(), cuDoubleComplex F2_ang_mom_d(), cuDoubleComplex I0F_d(), cuDoubleComplex I1F_d(), cuDoubleComplex I2F_d() (+73 more)
 
 ### Community 41 - "string"
-Cohesion: 0.20
-Nodes (34): bisection_eigenbranch_minabs_zero(), bisection_eigenbranch_reference_zero(), bisection_f3iso_zero(), bisection_method_zero(), classify_side_abs(), collect_det_eigenbranch_candidates_from_adjacent_pairs(), collect_zero_candidates_for_method(), PhysicsParams (+26 more)
+Cohesion: 0.19
+Nodes (37): basis_signature_v30q(), bisection_eigenbranch_minabs_zero(), bisection_eigenbranch_reference_zero(), bisection_f3iso_zero(), bisection_method_zero(), classify_side_abs(), collect_zero_candidates_for_method(), pair (+29 more)
 
 ### Community 42 - "RuntimeCacheMeta"
 Cohesion: 0.06
 Nodes (32): size_t, vector, RuntimeCacheMeta, alpha, atmK, atmpi, coarseN, created_by (+24 more)
 
-### Community 43 - "HostConfigFlat"
-Cohesion: 0.29
-Nodes (7): HostConfigFlat, ell, m, n, nx, ny, nz
+### Community 43 - "CovarianceResult"
+Cohesion: 0.13
+Nodes (17): MomentumList, CovarianceResult, correlation_mat, covariance_mat, file_audit, L_list, lattice_energy_type, nP_list (+9 more)
 
 ### Community 44 - "ZeroRecord"
 Cohesion: 0.07
@@ -569,21 +570,21 @@ Nodes (26): External data locations (source machine), QC3_release (reference Pyt
 Cohesion: 0.25
 Nodes (27): boost_cpp(), dot3(), ell_from_config(), flavor_mass(), from_stdvec(), comp, MatrixXcd, vector (+19 more)
 
-### Community 51 - "MomentumIrrepSpec"
-Cohesion: 0.07
-Nodes (28): append_zero_records(), array, ofstream, MomentumIrrepSpec, irrep, irrep_tag, label, nnP (+20 more)
+### Community 51 - "ZeroClassificationRow"
+Cohesion: 0.17
+Nodes (12): ZeroClassificationRow, classification, E_full, E_projected, E_ref, E_scalar, full_index, full_multiplicity (+4 more)
 
 ### Community 52 - "fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp"
 Cohesion: 0.20
 Nodes (26): assemble_QC(), build_cache_entry(), build_F3inv_only_cache(), closest_zero_eigenvalue(), det_real_projected_F3inv_v32f(), find_zero_poles_from_cache(), hermitize(), comp (+18 more)
 
-### Community 53 - "DeviceResidentResult"
-Cohesion: 0.18
-Nodes (11): DeviceResidentResult, build_sec, det, dim1, dim2, Ecm, En, i (+3 more)
+### Community 53 - "dig_tools.hpp"
+Cohesion: 0.14
+Nodes (11): Func, string, T, time_point, ManualTimer, t0, print_function_output_to_file(), printer() (+3 more)
 
 ### Community 54 - "F3_gpu_cachegen_v32zu.cu"
-Cohesion: 0.17
-Nodes (32): all_perms_of_3(), build_projector_from_eigenvectors_near_one(), cart_axis_from_m_v30m(), chi(), conj_class(), Convention, comp, cublasStatus_t (+24 more)
+Cohesion: 0.21
+Nodes (26): all_perms_of_3(), build_projector_from_eigenvectors_near_one(), cart_axis_from_m_v30m(), chi(), conj_class(), Convention, comp, cublasStatus_t (+18 more)
 
 ### Community 55 - "PhysicsParams"
 Cohesion: 0.07
@@ -594,12 +595,12 @@ Cohesion: 0.16
 Nodes (26): assign_block_model(), BlockInfo, file_irrep_hint, internal_irrep, L, target_indices, complex, ifstream (+18 more)
 
 ### Community 57 - "PhysicsParams"
-Cohesion: 0.07
+Cohesion: 0.08
 Nodes (25): PhysicsParams, alpha, atmK, atmpi, eig_tol, epsilon_h, eta_1, eta_2 (+17 more)
 
 ### Community 58 - "Report B — F3inv/Vsel cache generation (CPU + GPU) and root-finding lineage for the projected QC determinant"
-Cohesion: 0.14
-Nodes (14): 1. What was asked, 2. Actions taken, 5.1 Table of methods (oldest → newest), 5.2 How well things worked (numbers from reports), 5.3 Search result: gradient-, slope- or derivative-based root identification, 5. Root-finding lineage (Question 3), 6. Why the roots are hard: known pitfalls (Question 4), 7. Canonical generator and minimal regeneration file set (Question 5) (+6 more)
+Cohesion: 0.11
+Nodes (19): 1. What was asked, 2. Actions taken, 4.1 Pipeline per irrep (`v32zt_generate_one_irrep`, `F3_gpu_cachegen_v32zu.cu:2308-2519`), 4.2 Streams and the host-pressure guard, 4.3 Fused vs separate F2/K2, 4.4 Performance numbers found (wall-clock seconds, GPU and host unspecified unless stated), 4. GPU generator internals and performance (Question 2), 5.1 Table of methods (oldest → newest) (+11 more)
 
 ### Community 59 - "K2_functions_gpu_safe.cuh"
 Cohesion: 0.23
@@ -607,15 +608,15 @@ Nodes (23): abs_cx(), build_K2inv_2plus1_kernel(), __global__, __host__, cutoff_
 
 ### Community 60 - "SvdMinRecordV30r"
 Cohesion: 0.08
-Nodes (26): collect_svd_local_min_candidates_v30r(), near_any_dimension_jump_v30r(), refine_svd_candidates_parallel_v30r(), SvdMinCandidateV30r, coarse_i, E_left, E_mid, E_right (+18 more)
+Nodes (25): collect_svd_local_min_candidates_v30r(), near_any_dimension_jump_v30r(), refine_svd_candidates_parallel_v30r(), SvdMinCandidateV30r, coarse_i, E_left, E_mid, E_right (+17 more)
 
 ### Community 61 - "TargetLevel"
 Cohesion: 0.10
 Nodes (26): canonical_shell_momentum(), chi_square_v32f(), covariance_to_correlation_v32f(), diagonal_chi2(), array, FunctionMinimum, MatrixD, tuple (+18 more)
 
 ### Community 62 - "v32zt_generate_one_irrep"
-Cohesion: 0.19
-Nodes (20): cudaDeviceProp, array, PhysicsParams, string, v32zt_energy_shape_prepass_momentum_first(), v32zt_finalize_allobj_sidecars(), v32zt_generate_one_irrep(), v32zt_hostname_string() (+12 more)
+Cohesion: 0.16
+Nodes (25): cudaDeviceProp, array, PhysicsParams, string, main(), v32zt_default_irreps(), v32zt_energy_shape_prepass_momentum_first(), v32zt_finalize_allobj_sidecars() (+17 more)
 
 ### Community 63 - "Version history summary"
 Cohesion: 0.08
@@ -625,9 +626,9 @@ Nodes (24): Conversation Context Reconstruction, `F2iso` and `Giso`, Group-theor
 Cohesion: 0.08
 Nodes (24): Build, Build and smoke test, Cache format notes, Checkpoint status, Critical checkpoint, Current classifier state, Exact old scaling, External cache requirement (+16 more)
 
-### Community 65 - "DeviceProjectionTables"
-Cohesion: 0.25
-Nodes (6): DeviceProjectionTables, D1, D2, LG, R, weight
+### Community 65 - "DeviceConfig"
+Cohesion: 0.12
+Nodes (13): DeviceConfig, ell, m, n, nx, ny, nz, DeviceProjectionTables (+5 more)
 
 ### Community 66 - "run_groups_concurrent"
 Cohesion: 0.13
@@ -714,16 +715,16 @@ Cohesion: 0.29
 Nodes (19): load_runtime_cache(), load_runtime_cache_with_params(), load_runtime_meta(), main(), parse_fit_levels(), parse_fit_summary(), parse_zero_file(), memoryview (+11 more)
 
 ### Community 87 - "V32ztAllObjRowPayload"
-Cohesion: 0.11
-Nodes (19): V32ztAllObjRowPayload, Ecm, F2, F3, F3inv, grid_i, K2inv, klm_config (+11 more)
+Cohesion: 0.10
+Nodes (20): V32ztAllObjRowPayload, Ecm, F2, F3, F3inv, G, grid_i, K2inv (+12 more)
 
 ### Community 88 - "CachedProjectorV30q"
-Cohesion: 0.10
-Nodes (20): CachedProjectorV30q, fv_best_convention, fv_rep_closure_best, fv_rep_unitarity, P_I_herm_res, P_I_idem_res, PI_gap_selected_to_rejected, PI_largest_rejected_eval (+12 more)
+Cohesion: 0.06
+Nodes (36): append_zero_records(), CachedProjectorV30q, fv_best_convention, fv_rep_closure_best, fv_rep_unitarity, P_I_herm_res, P_I_idem_res, PI_gap_selected_to_rejected (+28 more)
 
 ### Community 89 - "main"
-Cohesion: 0.19
-Nodes (18): main(), map, evaluate_full_grid_parallel(), get_double(), get_int(), get_int_list(), get_string(), main() (+10 more)
+Cohesion: 0.16
+Nodes (23): eigmin_point_from_eval_v30s(), main(), main(), map, evaluate_full_grid_parallel(), get_double(), get_int(), get_int_list() (+15 more)
 
 ### Community 91 - "FinalBracket"
 Cohesion: 0.11
@@ -753,9 +754,9 @@ Nodes (19): AcceptedZeroWindow, bracket_id, center_row, E_left_bracket, E_right_
 Cohesion: 0.29
 Nodes (18): expected_grid(), f64(), has_near(), i32(), inspect_cache(), main(), need(), parse_one_entry() (+10 more)
 
-### Community 98 - "F — Development history v31 → v32y: lessons, bugs fixed, dead ends"
-Cohesion: 0.18
-Nodes (11): 0. Glossary (read first), 1. What was asked, 2. What I did, 3. Pre-v31 background (from the v31u context-transfer package), 6. Gradient / slope / derivative use (Question 3), 7.1 Recorded in the archive at the time, 7.2 Noticed during this review (**[my observations]**, need confirmation by running), 7. Open questions (Question 4) (+3 more)
+### Community 98 - "3. Results"
+Cohesion: 0.14
+Nodes (13): 007 — Single-energy QC: independent reference, speed-up candidates, p-wave $\mathcal K_2$ convention, 1. What was asked, 2. Actions taken, 3.1 The oracle: existing CPU path, 1 core, 1 energy, 3.2 Independent reference for $F$, $G$, $\mathcal K_2^{-1}$ (NumPy, from the paper), 3.3 Independent reference for $\mathcal K_{\rm df,3}$ (numerical angular projection), 3.4 Sensitivity of $\ln|\det Q|$ → tolerances, 3.5 Cost of the $F$ sum and the truncation bound (+5 more)
 
 ### Community 99 - "F3MatrixSaveOptions"
 Cohesion: 0.11
@@ -838,7 +839,7 @@ Cohesion: 0.21
 Nodes (14): classify(), cnorm(), Eval, det, E, proj_dim, success, y (+6 more)
 
 ### Community 120 - "STATUS"
-Cohesion: 0.22
+Cohesion: 0.14
 Nodes (6): Decisions from Digonto (answered 2026-10-21), Direction for the cloud session (D4, Digonto's words, paraphrased), Known-unverified, Next action, Open failures and attempt counters, STATUS
 
 ### Community 121 - "run_v33m_classifier_speed_search.py"
@@ -850,12 +851,12 @@ Cohesion: 0.13
 Nodes (15): RowResult, abs_diff, cache_index, det_cpu, det_gpu, Ecm, irrep, Lbyas (+7 more)
 
 ### Community 123 - "process_same_shape_group_true_batch_v15"
-Cohesion: 0.16
-Nodes (25): compute_one_energy_device_resident(), array, comp, cublasHandle_t, vector, cublas_lu_solve_inplace_batched_same_n(), determinant_colmajor_device_matrix(), device_lu_solve_inplace() (+17 more)
+Cohesion: 0.19
+Nodes (25): adaptive_final_zeros_device_resident(), classify_inward_shape(), compute_one_energy_device_resident(), array, comp, cublasHandle_t, string, vector (+17 more)
 
-### Community 124 - "ofstream"
-Cohesion: 0.13
-Nodes (19): ofstream, T, time_point, Entry, object, os, path, v32zt_close_allobj_writers() (+11 more)
+### Community 124 - "v32zt_process_same_shape_chunk_cache"
+Cohesion: 0.22
+Nodes (12): ofstream, T, time_point, v32zt_process_same_shape_chunk_cache(), v32zt_write_cache_record(), v32zt_write_exact(), v32zt_write_matrix_record(), v32zt_write_scalar() (+4 more)
 
 ### Community 126 - "F3iProjectedCacheEntry"
 Cohesion: 0.13
@@ -874,12 +875,12 @@ Cohesion: 0.14
 Nodes (13): Build and smoke test, Cache format notes, Critical checkpoint, Current classifier state, Exact old scaling, KKpi v33o Production Fitter, Known limits, Main workflow commands (+5 more)
 
 ### Community 130 - "F3_cpu_openmp_v24_K3_QC_multi_signflip_side_abs_refinement.cpp"
-Cohesion: 0.22
-Nodes (20): add_unique_zero(), classify_one_subflip_side_abs(), comp, MatrixXcd, pair, string, vector, determinant_via_partial_piv_lu() (+12 more)
+Cohesion: 0.38
+Nodes (13): add_unique_zero(), classify_one_subflip_side_abs(), pair, string, vector, evaluate_one_energy_cpu_eigen_v24_QC(), find_sign_flips(), L_tag() (+5 more)
 
 ### Community 131 - "EnergyPrepassInfo"
-Cohesion: 0.25
-Nodes (8): EnergyPrepassInfo, dim1, dim2, Ecm, En, i, total_dim, vdim
+Cohesion: 0.13
+Nodes (13): time_point, EnergyPrepassInfo, dim1, dim2, Ecm, En, i, total_dim (+5 more)
 
 ### Community 132 - "PhysicsParams"
 Cohesion: 0.14
@@ -890,8 +891,8 @@ Cohesion: 0.21
 Nodes (12): comp, string, generate_K3iso_L20_from_F3(), generate_K3iso_L20_from_F3inv(), generate_K3iso_using_F3_vs_En_KKpi_omp_single_irrep_centralvalue(), generate_K3iso_using_F3_vs_En_KKpi_omp_single_irrep_with_bounds(), main(), det_F3mat_poles_secant_method() (+4 more)
 
 ### Community 134 - "5. Key physics and numerics lessons (Question 2)"
-Cohesion: 0.14
-Nodes (14): 5.10 Covariance fix (v32l), cache-only fix (v32k), namespace fixes (v31z, v32i, v32r, v32y), 5.11 Lattice input conventions (v32p → v32s), 5.12 Memory (v32x → v32y), 5.13 Scattering-parameter plumbing, 5.1 Use slogdet, never the raw determinant, 5.2 Projection audit: the projector was not the problem, 5.3 Pole vs zero: a sign flip is not a level, 5.4 Inverse convention: project the QC, not $F_3$ (+6 more)
+Cohesion: 0.06
+Nodes (34): 0. Glossary (read first), 1. What was asked, 2. What I did, 3. Pre-v31 background (from the v31u context-transfer package), 4. Chronological table v31v → v32y (Question 1), 5.10 Covariance fix (v32l), cache-only fix (v32k), namespace fixes (v31z, v32i, v32r, v32y), 5.11 Lattice input conventions (v32p → v32s), 5.12 Memory (v32x → v32y) (+26 more)
 
 ### Community 135 - "CombinedRawGpuCacheRowHeader"
 Cohesion: 0.14
@@ -918,7 +919,7 @@ Cohesion: 0.15
 Nodes (13): 10. LOW — minor physics-core bugs (not on the production path), 11. LOW — portability, 12. Historical warnings (do not reuse these results), 1. BLOCKER (CONFIRMED by D1) — lattice covariance too large by $(N-1)^2=602^2\approx3.6\times10^5$, 2. HIGH — p-wave $\mathcal K_2^{-1}$ differs from the reference implementation, 3. HIGH — complex-number read convention (`variant_04_real_imag_swapped`), 4. HIGH — inputs needed to re-run fits are not in this repo, 5. HIGH — level matching and label-count mismatches (+5 more)
 
 ### Community 141 - ".upload"
-Cohesion: 0.30
+Cohesion: 0.28
 Nodes (8): host_comp, MatrixXcd, vector, DeviceScatterParams, d_im, d_re, K2inv_EREord2_2plus1_many_mat_gpu_safe(), K2inv_EREord2_2plus1_mat_gpu_safe()
 
 ### Community 142 - "K3iso_maker.py"
@@ -962,12 +963,16 @@ Cohesion: 0.17
 Nodes (12): ZeroPole, E_left, E_mid, E_right, eig_index_left, eig_index_right, i_left, i_right (+4 more)
 
 ### Community 152 - "3. Results"
-Cohesion: 0.29
-Nodes (7): 3.1 Formalism and references (as stated in the code), 3.2 Question 1 — the canonical, newest physics core, 3.4 Question 3 — variants and dead ends, 3.5 Question 4a — fixes visible by diffing old (V3) vs newest, 3.6 Question 4b — problems I found by reading (not noted in the code), 3.7 Question 5 — recommended minimal physics-core file set, 3. Results
+Cohesion: 0.17
+Nodes (12): 1. What was asked, 2. Actions taken, 3.1 Formalism and references (as stated in the code), 3.2 Question 1 — the canonical, newest physics core, 3.4 Question 3 — variants and dead ends, 3.5 Question 4a — fixes visible by diffing old (V3) vs newest, 3.6 Question 4b — problems I found by reading (not noted in the code), 3.7 Question 5 — recommended minimal physics-core file set (+4 more)
 
 ### Community 153 - "functions_gpu_config_maker4.cuh"
 Cohesion: 0.08
 Nodes (46): build_lm_list_from_waves(), candidate_count_per_energy(), compact_flags_to_entries_cpu_order(), config_maker_4_gpu_safe(), ConfigEntry, ell, m, nx (+38 more)
+
+### Community 154 - "LatticeFileAuditRow"
+Cohesion: 0.14
+Nodes (14): LatticeFileAuditRow, atP, filename, found, jk_avg_ecm, jk_avg_read, jk_err_ecm, jk_err_read (+6 more)
 
 ### Community 155 - "EvalResult"
 Cohesion: 0.17
@@ -1005,6 +1010,10 @@ Nodes (11): almost_same_E(), build_refined_entry_v32s(), FitSettings, IrrepCache
 Cohesion: 0.18
 Nodes (11): JumpRow, delta_Nfull, delta_Nproj, Ecm, jump_id, Nfull, Nproj, prev_Nfull (+3 more)
 
+### Community 164 - "DeviceResidentResult"
+Cohesion: 0.18
+Nodes (11): DeviceResidentResult, build_sec, det, dim1, dim2, Ecm, En, i (+3 more)
+
 ### Community 165 - "ScanPoint"
 Cohesion: 0.18
 Nodes (11): ScanPoint, abs_norm, det, Ecm, En, i, success, total_dim (+3 more)
@@ -1037,6 +1046,10 @@ Nodes (9): Ecm_cutoff=0.315, Ecm_cutoff=0.325, Ecm_cutoff=0.335, Ecm_cutoff=0.34
 Cohesion: 0.51
 Nodes (9): f(), linear_zero(), main(), previous_matrix_row(), Path, sign(), sign_flips(), v3_classify() (+1 more)
 
+### Community 173 - "V32ztAllObjWriter"
+Cohesion: 0.25
+Nodes (8): Entry, object, os, path, v32zt_close_allobj_writers(), v32zt_write_staged_allobj_rows(), V32ztAllObjWriter, entries
+
 ### Community 174 - "SideClass"
 Cohesion: 0.20
 Nodes (10): SideClass, classifier, left_decreasing, left_increasing, left_score, likely_pole, likely_zero, right_decreasing (+2 more)
@@ -1053,13 +1066,21 @@ Nodes (9): ostream, T, save_binary_f3inv_cache_v32f(), write_binary_raw_v32f(), 
 Cohesion: 0.56
 Nodes (9): build_entry(), FitSettings, K3dfParameters, PhysicsParams, ProjectedQCCacheEntry, eval_entry_QC(), find_QC_zeros_refined(), mesh() (+1 more)
 
-### Community 178 - "4. Chronological table v31v → v32y (Question 1)"
-Cohesion: 0.22
-Nodes (9): 4. Chronological table v31v → v32y (Question 1), Phase A — $F_2$/$G$/$FG$ diagnostics, projection audit, blind pole classifier (default `111_A2` → `110_A2`, $L=20$), Phase B — projected $F_3^{-1}$ zero finder (`110_A2`, $L=24$, waves $\{0,1\}$), Phase C — toy-mass sanity tests and scattering-parameter mapping, Phase D — classifier v1, s vs s+p waves, p-wave strength, $v_{\rm iso}$, Phase E — iterative refinement and lattice masses, Phase F — K3df fitter, caching, diagnostics, Phase G — classifier v2, normalization, true refinement, fitter baseline (+1 more)
+### Community 178 - "3. Q1 - Which fitter source is newest, and what changed"
+Cohesion: 0.33
+Nodes (6): 3.1 Hash/size table of the multi-L fitter `qc_fitter_norm_refine_v2_multiL.cpp`, 3.2 What changed V33P (1373) $\to$ MF (2021): the hot-window FCN (+648 / -~60 lines), 3.3 What changed MF (2021) $\to$ L20 (2107): chi-square audit trace only (88 diff lines), 3.4 Other L20-only refinements outside the fitter, 3.5 Earlier evolution (from docs), 3. Q1 - Which fitter source is newest, and what changed
 
 ### Community 179 - "L20 K3B/K3E zero tests and chi-square audit"
 Cohesion: 0.22
 Nodes (8): Chi-square normalization and FCN audit, Exact source audit points, L20 K3B/K3E zero tests and chi-square audit, Required output files, Table A, Table B, Table C, Table D
+
+### Community 180 - "comp"
+Cohesion: 0.50
+Nodes (3): comp, MatrixXcd, determinant_via_partial_piv_lu()
+
+### Community 181 - "SignFlip"
+Cohesion: 0.50
+Nodes (4): SignFlip, E_linear, left, right
 
 ### Community 182 - "save_binary_f3inv_cache_v32f"
 Cohesion: 0.58
@@ -1237,9 +1258,9 @@ Nodes (5): lattice_levels(), main(), Path, read_label_rows(), sha256()
 Cohesion: 0.60
 Nodes (5): main(), merge(), run_chunk(), split_windows(), write_chunk()
 
-### Community 227 - "string"
-Cohesion: 0.14
-Nodes (16): adaptive_final_zeros_device_resident(), classify_inward_shape(), string, time_point, DetRow, det_norm, det_raw, Ecm (+8 more)
+### Community 227 - "ScopedTimer"
+Cohesion: 0.33
+Nodes (5): time_point, ScopedTimer, debug, name, t0
 
 ### Community 228 - "EnergyShapeKey"
 Cohesion: 0.33
@@ -1337,13 +1358,9 @@ Nodes (3): comp, istream, read_gpu_cache_complex()
 Cohesion: 0.67
 Nodes (3): Options, debug, threads_per_block
 
-### Community 311 - "ScopedTimer"
-Cohesion: 0.33
-Nodes (5): time_point, ScopedTimer, debug, name, t0
-
 ### Community 318 - "process_same_shape_group_true_batch_v15"
-Cohesion: 0.18
-Nodes (27): adaptive_final_zeros_device_resident(), choose_projection_parity_v20(), classify_inward_shape(), classify_inward_shape_result(), compute_one_energy_device_resident(), array, comp, cublasHandle_t (+19 more)
+Cohesion: 0.16
+Nodes (27): choose_projection_parity_v20(), compute_one_energy_device_resident(), array, comp, cublasHandle_t, string, vector, cublas_lu_solve_inplace_batched_same_n() (+19 more)
 
 ### Community 320 - "4. Q2 - Exactly how the fast FCN works (L20 code)"
 Cohesion: 0.20
@@ -1354,16 +1371,12 @@ Cohesion: 0.22
 Nodes (8): 1. Scaffold (idempotent — never overwrite existing files), 2. Starter plan → prompts/000, 3. Code graph, 4. First commit, 5. Planner (kickoff mode), 6. Stubs and lock, 7. STATUS and go, /kickoff — start the physics loop here
 
 ### Community 324 - "HISTORY.md"
-Cohesion: 0.22
+Cohesion: 0.29
 Nodes (4): HISTORY — where this code came from, Lessons that must not be relearned, Phases (condensed), Source packages
 
-### Community 325 - "A — Physics core of the KKπ three-body quantization-condition code"
-Cohesion: 0.22
-Nodes (5): 1. What was asked, 2. Actions taken, 4. What this means, 5. Problems and assumptions, A — Physics core of the KKπ three-body quantization-condition code
-
 ### Community 327 - "InwardShapeResult"
-Cohesion: 0.25
-Nodes (8): InwardShapeResult, classification, decreasing_fraction, ezero, flip_left_index, flip_right_index, increasing_fraction, trend_score
+Cohesion: 0.12
+Nodes (19): adaptive_final_zeros_device_resident(), classify_inward_shape(), classify_inward_shape_result(), DetRow, det_norm, det_raw, Ecm, i (+11 more)
 
 ### Community 328 - "fixer.md"
 Cohesion: 0.29
@@ -1385,9 +1398,9 @@ Nodes (7): 3body-qc-v4 — fitting the three-particle K matrix to lattice spectr
 Cohesion: 0.29
 Nodes (7): 3.1 Physics objects stored per energy row, 3.2 Energy grid, 3.3 Combined raw cache `v32zu_Lbyas<L>_xi<xi>_irrep<label>_coarse<N>_F3inv_Vsel_gpu.bin`, 3.4 Combined-cache sidecar `<bin>.meta.json`, 3.5 Component caches (format `KKPI_COMPONENT_CACHE_V001`), CPU and GPU, 3.6 The `variant_04_real_imag_swapped` convention: where it comes from, 3. Cache formats and stored objects (Question 1)
 
-### Community 333 - "DeviceConfig"
-Cohesion: 0.12
-Nodes (15): DeviceConfig, ell, m, n, nx, ny, nz, DeviceConfigView (+7 more)
+### Community 333 - "DeviceConfigView"
+Cohesion: 0.29
+Nodes (7): DeviceConfigView, ell, m, n, nx, ny, nz
 
 ### Community 334 - "7. Q4 - Fit results achieved"
 Cohesion: 0.33
@@ -1405,21 +1418,13 @@ Nodes (4): Checklist (state each item: OK / ISSUE / N/A, with file:line), Report
 Cohesion: 0.40
 Nodes (4): Build, Not allowed (a guard hook enforces most of this), Return to the coordinator (short), Start
 
-### Community 338 - "4. GPU generator internals and performance (Question 2)"
-Cohesion: 0.40
-Nodes (5): 4.1 Pipeline per irrep (`v32zt_generate_one_irrep`, `F3_gpu_cachegen_v32zu.cu:2308-2519`), 4.2 Streams and the host-pressure guard, 4.3 Fused vs separate F2/K2, 4.4 Performance numbers found (wall-clock seconds, GPU and host unspecified unless stated), 4. GPU generator internals and performance (Question 2)
-
-### Community 339 - "6. Problems found during this review (read before trusting any L20/v33n chi-square)"
-Cohesion: 0.40
-Nodes (5): 6.1 The multi-L covariance is probably inflated by a factor $(N-1)^2 \approx 3.6\times10^{5}$, 6.2 Fit-quality caveats independent of 6.1, 6.3 Complex read convention: two swaps that cancel, 6.4 Portability of the release tree, 6. Problems found during this review (read before trusting any L20/v33n chi-square)
-
 ### Community 340 - "session_start.py"
 Cohesion: 0.83
 Nodes (3): latest(), main(), sh()
 
 ## Knowledge Gaps
-- **3168 isolated node(s):** `Direction for the cloud session (D4, Digonto's words, paraphrased)`, `Open failures and attempt counters`, `Known-unverified`, `Next action`, `K3dfFCN_v32f` (+3163 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 3407 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **3179 isolated node(s):** `1. What was asked`, `2. Actions taken`, `3.1 The oracle: existing CPU path, 1 core, 1 energy`, `3.2 Independent reference for $F$, $G$, $\mathcal K_2^{-1}$ (NumPy, from the paper)`, `3.3 Independent reference for $\mathcal K_{\rm df,3}$ (numerical angular projection)` (+3174 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 3419 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **57 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -1427,12 +1432,12 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `InwardShapeResult` connect `InwardShapeResult` to `F3_gpu_omp_cublas_pipeline_v9_inward_shape_refinement.cu`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **Why does `Cand` connect `Cand` to `find_QC_zeros_refined`, `string`, `fitter/qc_fitter_norm_refine_v2.cpp`?**
+- **Why does `parse_label()` connect `qc_fitter_norm_refine_v2_multiL.cpp` to `generate_swave_cpu_cache_qc.cpp`, `generate_cpu_component_cache.cpp`, `scan_projF3inv_digonto_classifier_v2.cpp`, `compare_gpu_cache_vs_cpu_openmp_det_oldscale.cpp`, `debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp`, `v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `run`, `v33g_build_runtime_k3basis_cache.cpp`, `v33h_patched_gpu_cache_oldscale_det_scan.cpp`, `make_refined_mesh_v32s`, `string`, `load_binary_f3inv_cache_v32f`, `v33g_runtime_k3basis_cache.hpp`, `fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `TargetLevel`, `FitResult`, `CachedProjectorV30q`, `main`, `FitResult`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **Why does `ProjectedQCCacheEntry` connect `ProjectedQCCacheEntry` to `CachedProjectorV30q`, `QCPointValue`, `v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `load_binary_f3inv_cache_v32f`?**
   _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Why does `Options` connect `Options` to `string`, `ZeroRecord`, `main`, `debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp`, `SvdMinRecordV30r`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **What connects `Direction for the cloud session (D4, Digonto's words, paraphrased)`, `Open failures and attempt counters`, `Known-unverified` to the rest of the system?**
-  _3168 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `1. What was asked`, `2. Actions taken`, `3.1 The oracle: existing CPU path, 1 core, 1 energy` to the rest of the system?**
+  _3179 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Code and function index` be split into smaller, more focused modules?**
   _Cohesion score 0.008849557522123894 - nodes in this community are weakly interconnected._
 - **Should `Package `corrected_reader`` be split into smaller, more focused modules?**
