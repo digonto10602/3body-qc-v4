@@ -23,7 +23,12 @@
 - Make the code fast enough that cache generation and saving are not needed.
 - Run a loop that takes a **single energy point** and finds what makes solving the QC (or one fit evaluation) take the least time, "using graphical manipulation", so that each point runs fast without caches.
 
-**Open question for Digonto at the cloud kickoff:** does "graphical manipulation" mean GPU (graphics processing unit) computation, or something else? Claude cloud sessions normally have **no GPU**, so CUDA code cannot be compiled or timed there.
+**D6 (answered 2026-10-21, cloud kickoff):** "graphical manipulation" means **symbolic manipulation**, not GPU.
+- No GPU. Goal: the lowest possible time to solve the QC at **one energy point** anywhere in $[E_{\rm cm,min},E_{\rm cm,max}]$, on CPU, without caches.
+- The existing CPU/GPU cache generators may be read to understand the computation.
+- Timings are compared on **1 CPU core**.
+- Loop: think → build optimised code → compare with an **oracle** (the last method that worked and has results, or the existing code run on 1 core for 1 energy point in 1 irrep).
+- The solution must generalise to all energy points and all irreps. Literature/web techniques or our own are both allowed.
 
 ## Open failures and attempt counters
 
