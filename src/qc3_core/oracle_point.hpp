@@ -71,6 +71,7 @@ struct Output {
     double sign_imag = 0.0;                  // |imaginary part of the LU phase product|, should be ~1e-16
     double lnabsdet = 0.0;
     std::map<std::string, double> timings;
+    std::map<std::string, double> stats;     // non-time diagnostics (fast path: lattice term counts, cache hit)
 };
 
 class Clock {
@@ -109,8 +110,8 @@ struct SingleThread {
 // Parameters and kinematics + basis, shared by the oracle and the fast path (qc3_fast), so that both use exactly
 // the same PhysicsParams objects and the same basis builder config_maker_4_momentum_first.
 struct Kin {
-    k3df_fit_v32f::PhysicsParams par;
-    k3df_fit_v32f::MomentumIrrepSpec spec;
+    PhysicsParams par;
+    MomentumIrrepSpec spec;
     double L = 0.0;
     std::vector<comp> total_P, nnP_config;
     comp En_c;

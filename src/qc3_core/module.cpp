@@ -6,6 +6,7 @@
 #include <pybind11/stl.h>
 
 #include "oracle_point.hpp"
+#include "fast_point.hpp"
 
 #ifndef QC3_GIT_COMMIT
 #define QC3_GIT_COMMIT "unknown"
@@ -24,7 +25,7 @@ py::array_t<std::complex<double>> to_numpy(const Eigen::MatrixXcd& M) {
   return a;
 }
 
-py::dict oracle_point(const py::dict& p) {
+qc3_oracle::Input parse_input(const py::dict& p) {
   qc3_oracle::Input in;
   in.irrep = p["irrep"].cast<std::string>();
   in.Lbyas = p["Lbyas"].cast<double>();
@@ -49,12 +50,10 @@ py::dict oracle_point(const py::dict& p) {
   if (c.size() != 4) throw std::invalid_argument("oracle_point: c must have 4 entries");
   for (int i = 0; i < 4; ++i) in.c[std::size_t(i)] = c[std::size_t(i)];
   in.compute_k3 = p["compute_k3"].cast<bool>();
+  return in;
+}
 
-  qc3_oracle::Output o;
-  {
-    py::gil_scoped_release release;
-    o = qc3_oracle::evaluate(in);
-  }
+py::dict output_to_dict(const qc3_oracle::Output& o) {
 
   py::dict d;
   d["Ecm"] = o.Ecm; d["E_lab"] = o.E_lab;
@@ -80,17 +79,46 @@ py::dict oracle_point(const py::dict& p) {
   }
   d["sign"] = o.sign; d["sign_imag"] = o.sign_imag; d["lnabsdet"] = o.lnabsdet;
   d["timings"] = o.timings;
+  d["stats"] = o.stats;
   return d;
+}
+
+py::dict oracle_point(const py::dict& p) {
+  const qc3_oracle::Input in = parse_input(p);
+  qc3_oracle::Output o;
+  {
+    py::gil_scoped_release release;
+    o = qc3_oracle::evaluate(in);
+  }
+  return output_to_dict(o);
+}
+
+py::dict fast_point(const py::dict& p, double trunc_eps) {
+  const qc3_oracle::Input in = parse_input(p);
+  qc3_fast::Options opt;
+  opt.trunc_eps = trunc_eps;
+  qc3_oracle::Output o;
+  {
+    py::gil_scoped_release release;
+    o = qc3_fast::evaluate(in, opt);
+  }
+  return output_to_dict(o);
 }
 
 }  // namespace
 
 PYBIND11_MODULE(_core, m) {
   m.doc() = "qc3 compiled core (oracle_point; fast path to follow)";
-  m.def("version", []() { return std::string("0.2.0-step2"); },
+  m.def("version", []() { return std::string("0.3.0-step6"); },
         "Version string of the compiled core.");
   m.def("git_commit", []() { return std::string(QC3_GIT_COMMIT); },
         "Short git commit the extension was built from ('unknown' if not in a git checkout).");
+  m.def("clear_caches", []() {
+    std::lock_guard<std::mutex> lock(g_projector_cache_mutex_v30q);
+    g_projector_cache_v30q.clear();
+  }, "Clear the in-memory projector cache (V_sel per basis signature).");
+  m.def("fast_point", &fast_point, py::arg("params"), py::arg("trunc_eps") = 1e-16,
+        "Fast path v1 (prompts/001 step 6); same params as oracle_point plus the truncation tolerance.");
   m.def("oracle_point", &oracle_point, py::arg("params"),
         "Oracle (existing CPU path, unchanged physics) at one energy on one core; see qc3.oracle.");
 }
