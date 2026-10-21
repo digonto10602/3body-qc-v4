@@ -1,4 +1,5 @@
 """Unit tests for qc3.qc, qc3.roots, qc3.lattice (prompts/001 step 4). Synthetic data, fixed seeds."""
+import pathlib
 import types
 
 import numpy as np
@@ -79,12 +80,76 @@ def test_sigma_is_sd_over_sqrt_N_for_per_config_file(tmp_path):
     assert abs(ls.Ecm[0] - x.mean()) <= 1e-13
 
 
-def test_jackknife_samples_input_gives_sqrt_N_minus_1_over_N_sum(tmp_path):
+def test_jackknife_mean_cov_vs_explicit_loops():
+    """Independent check: explicit double loops over samples and levels (no vectorised formula shared with the code)."""
     rng = np.random.default_rng(12)
-    y = 0.3 + 0.001 * rng.standard_normal((50, 1))
+    N, m = 40, 3
+    y = 0.3 + 0.001 * rng.standard_normal((N, m))
     mean, cov = jackknife_mean_cov(y)
-    N = 50
-    assert abs(np.sqrt(cov[0, 0]) - np.sqrt((N - 1) / N * np.sum((y[:, 0] - y.mean()) ** 2))) <= 1e-15
+    mean_ref = [sum(y[c][i] for c in range(N)) / N for i in range(m)]
+    cov_ref = np.zeros((m, m))
+    for i in range(m):
+        for j in range(m):
+            acc = 0.0
+            for c in range(N):
+                acc += (y[c][i] - mean_ref[i]) * (y[c][j] - mean_ref[j])
+            cov_ref[i, j] = (N - 1) / N * acc
+    assert np.allclose(mean, mean_ref, rtol=0, atol=1e-15)
+    assert np.allclose(cov, cov_ref, rtol=1e-12, atol=0)
+    # and the leave-one-out resample, loop version
+    x = rng.standard_normal(N)
+    yr = jackknife_resample(x)
+    for c in range(N):
+        assert abs(yr[c] - sum(x[k] for k in range(N) if k != c) / (N - 1)) < 1e-14
+
+
+def test_load_levels_nonfinite_ecm_raises_naming_file(tmp_path):
+    d = tmp_path / "L20"; d.mkdir()
+    # P for 100_A2 at L20 is 2 pi/68.88 = 0.0912; E_lab below it -> E_lab^2 < P^2
+    _write_jack(d / "20_001_A2_n0.jack", [0.05, 0.06, 0.05, 0.06, 0.05])
+    with pytest.raises(ValueError, match="20_001_A2_n0.jack"):
+        load_levels(tmp_path, 20, ["100_A2"], 1.0)
+
+
+def test_chi2_rejects_asymmetric_non_psd_and_nonpositive():
+    r = np.array([1.0, 2.0])
+    with pytest.raises(ValueError):
+        chi2(r, np.array([[1.0, 0.5], [0.0, 1.0]]))               # not symmetric
+    with pytest.raises(ValueError):
+        chi2(r, np.array([[1.0, 2.0], [2.0, 1.0]]))               # eigenvalue -1 < 0
+    with pytest.raises(ValueError):
+        chi2(r, np.zeros((2, 2)))                                 # lambda_max = 0
+    with pytest.raises(ValueError):
+        chi2(r, -np.eye(2))                                       # lambda_max < 0
+    with pytest.raises(ValueError):
+        chi2(r, np.eye(3))                                        # shape mismatch
+    assert chi2(r, np.eye(2)) == pytest.approx(5.0)               # fine case unchanged
+
+
+def test_load_levels_malformed_level_file_name_raises(tmp_path):
+    d = tmp_path / "L20"; d.mkdir()
+    _write_jack(d / "20_001_A2_n0.jack", [0.30, 0.31, 0.29])
+    _write_jack(d / "20_001_A2_nX.jack", [0.30, 0.31, 0.29])      # matches the prefix, bad suffix
+    with pytest.raises(ValueError, match="nX"):
+        load_levels(tmp_path, 20, ["100_A2"], 1.0)
+    (d / "20_001_A2_nX.jack").unlink()
+    _write_jack(d / "notes_other.jack", [1.0, 2.0, 3.0])          # does not match the pattern at all: ignored
+    _write_jack(d / "24_001_A2_n0.jack", [0.30, 0.31, 0.29])      # other L: ignored
+    ls = load_levels(tmp_path, 20, ["100_A2"], 1.0)
+    assert ls.labels == [("100_A2", 0)]
+
+
+def test_default_data_dir_env_and_repo_root(tmp_path, monkeypatch):
+    from qc3.lattice import default_data_dir
+    monkeypatch.setenv("QC_DATA_ROOT", "/nonexistent/qc_data")
+    assert default_data_dir() == pathlib.Path("/nonexistent/qc_data")
+    with pytest.raises(FileNotFoundError):                         # loud failure, not an empty LevelSet
+        load_levels(default_data_dir(), 20, ["000_A1m"], 1.0)
+    monkeypatch.delenv("QC_DATA_ROOT")
+    monkeypatch.chdir(tmp_path)                                    # independent of cwd
+    d = default_data_dir()
+    assert d == pathlib.Path(__file__).resolve().parents[2] / "data"
+    assert (d / "lattice" / "L20" / "20_000_A1m_n0.jack").exists()
 
 
 def test_cutoff_selection_and_cov_shape(tmp_path):

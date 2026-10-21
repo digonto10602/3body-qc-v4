@@ -8,7 +8,9 @@ Decision D1: a .jack file holds ONE VALUE PER GAUGE CONFIGURATION (N=603 for L20
 Decision D3: levels are matched by sorting both lists and pairing the lowest m QC levels with the m lattice levels."""
 from __future__ import annotations
 
+import os
 import pathlib
+import re
 
 import numpy as np
 
@@ -18,10 +20,16 @@ from .point import LevelSet, MissingRootError  # noqa: F401
 # file name code ddd  <->  irrep label
 _DDD_TO_IRREP = {"000": "000_A1m", "001": "100_A2", "002": "200_A2", "011": "110_A2", "111": "111_A2"}
 _IRREP_TO_DDD = {v: k for k, v in _DDD_TO_IRREP.items()}
+_NAME_RE = re.compile(r"^(\d+)_(\d{3})_([A-Za-z0-9]+)_n(\d+)\.jack$")
 
 
 def default_data_dir():
-    raise NotImplementedError("qc3.lattice.default_data_dir: prompts/001 step 5")
+    """Data root: $QC_DATA_ROOT if set (not checked for existence), else <repo>/data.
+    The repo root is derived from this file's location (src/python/qc3/lattice.py), never from the cwd."""
+    env = os.environ.get("QC_DATA_ROOT")
+    if env:
+        return pathlib.Path(env)
+    return pathlib.Path(__file__).resolve().parents[3] / "data"
 
 
 def read_jack(path):
@@ -95,19 +103,28 @@ def load_levels(data_dir, Lbyas, irreps, Ecm_cutoff, xi=3.444):
         nP = tuple(NNP[irrep])
         P = 2.0 * np.pi * np.sqrt(sum(v * v for v in nP)) / (xi * Lbyas)
         found = []
-        for f in d.glob(f"{Lbyas}_{ddd}_*_n*.jack"):
-            stem = f.stem  # e.g. 20_001_A2_n3
-            try:
-                found.append((int(stem.rsplit("_n", 1)[1]), f))
-            except ValueError:
+        prefix = f"{Lbyas}_{ddd}_"
+        for f in d.glob(f"{prefix}*.jack"):
+            m = _NAME_RE.match(f.name)
+            if m is None or not f.name.startswith(prefix):
+                # matches `<Lbyas>_<ddd>_*.jack` but not `..._n<k>.jack`: a malformed level file, never skip silently
+                raise ValueError(f"{f}: file name starts with {prefix!r} but does not match "
+                                 f"'<Lbyas>_<ddd>_<irrep>_n<k>.jack' (k a non-negative integer)")
+            if int(m.group(1)) != Lbyas or m.group(2) != ddd:
                 continue
+            found.append((int(m.group(4)), f))
         for n, f in sorted(found):
             header, x = read_jack(f)
             if Ncfg is None:
                 Ncfg = header["N"]
             elif header["N"] != Ncfg:
                 raise ValueError(f"{f}: N={header['N']} differs from {Ncfg}")
-            ecm = elab_to_ecm(jackknife_resample(x), P)
+            with np.errstate(invalid="ignore"):
+                ecm = elab_to_ecm(jackknife_resample(x), P)
+            if not np.all(np.isfinite(ecm)):
+                bad = int(np.sum(~np.isfinite(ecm)))
+                raise ValueError(f"{f}: nonfinite converted Ecm in {bad} of {len(ecm)} jackknife resamples "
+                                 f"(E_lab^2 < P^2 = {P**2:.6g})")
             mean = float(ecm.mean())
             if mean <= Ecm_cutoff:
                 labels.append((irrep, n)); nps.append(nP); files.append(str(f)); cols.append(ecm); means.append(mean)
@@ -136,10 +153,25 @@ def match_levels(E_lattice, E_qc):
 
 
 def chi2(residual, cov, eig_rel_cut=1e-12):
-    """chi^2 = r^T C^+ r with the eigenvalue pseudo-inverse dropping eigenvalues <= eig_rel_cut * lambda_max."""
+    """chi^2 = r^T C^+ r with the eigenvalue pseudo-inverse dropping eigenvalues <= eig_rel_cut * lambda_max.
+
+    Raises ValueError if C is not symmetric (relative 1e-12), has an eigenvalue < -eig_rel_cut*lambda_max
+    (not positive semi-definite) or lambda_max <= 0."""
     r = np.asarray(residual, dtype=np.float64)
     C = np.asarray(cov, dtype=np.float64)
+    if C.ndim != 2 or C.shape[0] != C.shape[1] or C.shape[0] != r.shape[0]:
+        raise ValueError(f"chi2: shapes inconsistent: residual {r.shape}, cov {C.shape}")
+    if not (np.all(np.isfinite(C)) and np.all(np.isfinite(r))):
+        raise ValueError("chi2: non-finite residual or covariance")
+    scale = np.abs(C).max()
+    if np.abs(C - C.T).max() > 1e-12 * scale:
+        raise ValueError("chi2: covariance is not symmetric (relative 1e-12)")
     w, U = np.linalg.eigh(0.5 * (C + C.T))
-    keep = w > eig_rel_cut * w.max()
+    wmax = w.max()
+    if not wmax > 0.0:
+        raise ValueError("chi2: covariance has no positive eigenvalue (lambda_max <= 0)")
+    if w.min() < -eig_rel_cut * wmax:
+        raise ValueError(f"chi2: covariance is not positive semi-definite (lambda_min/lambda_max = {w.min()/wmax:.3g})")
+    keep = w > eig_rel_cut * wmax
     proj = U[:, keep].T @ r
     return float(np.sum(proj ** 2 / w[keep]))
