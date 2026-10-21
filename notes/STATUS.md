@@ -2,7 +2,7 @@
 
 - **Updated:** 2026-10-21 (cloud kickoff)
 - **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
-- **Acceptance tag:** `acceptance-v2` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`; v2 = v1 plus the sign-flip fix in `test_scale_applies_to_matrix_not_determinant`, `prompts/001` §4 amendment). Check with `.claude/bin/acceptance-check`. Tags exist **only locally**, because this cloud session cannot push tags (HTTP 403). `acceptance-v1` = `7801d97` and `acceptance-v2` = bcf12cd. If they are missing, recreate them with `git tag -a <tag> <commit> -m ...`.
+- **Acceptance tag:** `acceptance-v3` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`; v2 = v1 plus the sign-flip fix; v3 = v2 plus the portability-test self-scan fix; both in the `prompts/001` §4 amendments, approved by Digonto). Check with `.claude/bin/acceptance-check`. Tags exist **only locally**, because this cloud session cannot push tags (HTTP 403). `acceptance-v1` = `7801d97` , `acceptance-v2` = `bcf12cd` and `acceptance-v3` = `e74f94b`. If they are missing, recreate them with `git tag -a <tag> <commit> -m ...`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
 - **Current step:** M1 **step 5**, portability (`default_data_dir`, `QC_DATA_ROOT`, no absolute home paths).
   - It also fixes three silent-failure paths in `lattice.py` that tester 004 found:
