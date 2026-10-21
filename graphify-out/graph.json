@@ -44533,7 +44533,7 @@
       "node_kind": "heading",
       "norm_label": "decisions already made by digonto (2026-10-21; details in `notes/status.md`)",
       "source_file": "CLAUDE.md",
-      "source_location": "L46"
+      "source_location": "L47"
     },
     {
       "id": "claude_orientation",
@@ -44545,7 +44545,7 @@
       "node_kind": "heading",
       "norm_label": "orientation",
       "source_file": "CLAUDE.md",
-      "source_location": "L31"
+      "source_location": "L32"
     },
     {
       "id": "claude_physics_invariants_never_change_silently",
@@ -44557,7 +44557,7 @@
       "node_kind": "heading",
       "norm_label": "physics invariants (never change silently)",
       "source_file": "CLAUDE.md",
-      "source_location": "L37"
+      "source_location": "L38"
     },
     {
       "id": "claude_pushing_to_github_pre_authorised_by_digonto_2026_10_21",
@@ -44569,7 +44569,7 @@
       "node_kind": "heading",
       "norm_label": "pushing to github (pre-authorised by digonto, 2026-10-21)",
       "source_file": "CLAUDE.md",
-      "source_location": "L59"
+      "source_location": "L60"
     },
     {
       "id": "claude_setting_up_a_fresh_cloud_checkout",
@@ -44593,7 +44593,7 @@
       "node_kind": "heading",
       "norm_label": "stop and ask digonto",
       "source_file": "CLAUDE.md",
-      "source_location": "L65"
+      "source_location": "L66"
     },
     {
       "id": "claude_things_that_are_known_to_be_wrong_or_unverified_see_docs_open_issues_md",
@@ -44605,7 +44605,7 @@
       "node_kind": "heading",
       "norm_label": "things that are known to be wrong or unverified (see `docs/open_issues.md`)",
       "source_file": "CLAUDE.md",
-      "source_location": "L53"
+      "source_location": "L54"
     },
     {
       "id": "legacy_root_finding_lineage_f3_cpu_openmp_v24_k3_qc_multi_signflip_side_abs_refinement_cpp_time_point",
@@ -152026,7 +152026,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -152037,7 +152037,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -152048,7 +152048,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L46",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -152059,7 +152059,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -152070,7 +152070,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L59",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
@@ -152081,7 +152081,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -193898,5 +193898,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5239739d620222511923c14dc256fb41bddbdcb8"
+  "built_at_commit": "cb903005c812387e1e8b91f91da24ea779653128"
 }

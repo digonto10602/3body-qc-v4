@@ -1,0 +1,4 @@
+{"commit_tested":"5239739 (code identical at HEAD cb90300; only CLAUDE.md + graphify-out changed)","prompt":"prompts/001","mode":"step",
+ "acceptance_collected":33,"acceptance_failed":33,"failure_types":{"NotImplementedError":33},
+ "core_build_s":7.4,"build_all_s":332,"core_version":"0.1.0-step1","acceptance_check":"PASS",
+ "unit_tests":"none (pytest rc=5, no tests collected)","machine":"linux 6.18, g++ 13.3.0, python 3.13.16, numpy 2.5.3, scipy 1.18.1, pybind11 3.1.0"}

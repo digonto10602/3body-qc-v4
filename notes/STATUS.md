@@ -4,9 +4,11 @@
 - **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
 - **Acceptance tag:** `acceptance-v1` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`). Check with `.claude/bin/acceptance-check`. The tag points at commit `7801d97`. It exists **only locally**: this cloud session cannot push tags (HTTP 403). If it is missing, recreate it with `git tag -a acceptance-v1 7801d97 -m "kickoff: prompts/001-m1-cache-free-single-energy-qc.md"`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **step 1**, "Build + stubs".
-  - Done: the Python stubs in `src/python/qc3/`. All 33 acceptance tests fail with `NotImplementedError` (checked by the coordinator).
-  - Remaining: the `./build.sh core` target (pybind11 module `qc3._core`, an empty module is fine), and `all` no longer requiring Minuit2.
+- **Current step:** M1 **step 2**, the oracle wrapper (`qc3.oracle.evaluate_point`, `src/qc3_core/oracle_point.hpp`).
+- **Step 1 DONE**, verified by `reports/tests/001-m1-step1-build-stubs.md` (PASS, 8/8 checks).
+  - `./build.sh core` takes 7.4 s.
+  - `./build.sh all` takes 5 m 32 s. It skips the fitter, because Minuit2 is not installed.
+  - All 33 acceptance tests fail with `NotImplementedError`, as expected at this stage.
 - **Last completed:** kickoff.
   - Planner report: `reports/research/007-single-energy-qc-methods-and-reference.md`.
   - Independent reference: `tests/acceptance/m1/qc3ref/`, NumPy code written from arXiv:2111.12734. It agrees with the oracle dumps to $\le 2.5\times10^{-14}$ (relative).
@@ -58,6 +60,8 @@ M1 counters (reset at kickoff, `acceptance-v1`):
 
 ## Next action
 
-1. M1 step 1 (rest): builder adds `./build.sh core` (pybind11) and makes `all` Minuit2-optional. Then the tester (mode `step`) runs the step-1 done-checks. Then commit.
-2. Step 2: oracle wrapper (`qc3.oracle.evaluate_point`, `src/qc3_core/oracle_point.hpp`).
-3. Steps 3–9 as in `prompts/001` §3.
+1. M1 step 2: the builder writes the oracle wrapper. Then the tester (mode `step`) runs the ids in `test_m1_oracle.py`, fast and slow.
+2. Steps 3–9 as in `prompts/001` §3.
+3. Notes for later steps:
+   - Step 8: `qc3.bench.main()` must parse `--out`, `--no-oracle` and `--threads`.
+   - The fast check has no unit tests until step 4 (pytest rc 5 = "no tests collected").

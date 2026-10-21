@@ -1,7 +1,7 @@
 # Graph Report - 3body-qc-v4  (2026-10-21)
 
 ## Corpus Check
-- 247 files · ~406,013 words
+- 247 files · ~406,043 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5239739d`
+- Built from commit: `cb903005`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -362,13 +362,13 @@
 ## Surprising Connections (you probably didn't know these)
 - `test_fast_root_vs_oracle_100_A2_windows()` --calls--> `refine_root()`  [INFERRED]
   tests/acceptance/m1/test_m1_fast_vs_oracle.py → src/python/qc3/roots.py
-- `main()` --calls--> `parse_label()`  [INFERRED]
-  legacy/cachegen_reference/generate_swave_cpu_cache_qc.cpp → src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp
+- `sector()` --uses--> `Sector`  [INFERRED]
+  tests/acceptance/m1/m1_helpers.py → src/python/qc3/sector.py
+- `write_fit_summary()` --calls--> `parse_label()`  [INFERRED]
+  legacy/v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp → src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp
 - `evaluate_one_energy_cpu_eigen_v24_QC()` --calls--> `F2_2plus1_mat()`  [INFERRED]
   legacy/root_finding_lineage/F3_cpu_openmp_v24_K3_QC_multi_signflip_side_abs_refinement.cpp → src/core/F2_functions_v2.h
 - `evaluate_one_energy_cpu_eigen_v24_QC()` --calls--> `config_maker_4()`  [INFERRED]
-  legacy/root_finding_lineage/F3_cpu_openmp_v24_K3_QC_multi_signflip_side_abs_refinement.cpp → src/core/functions.h
-- `evaluate_one_energy_cpu_eigen_v24_QC()` --calls--> `Ecm_to_E()`  [INFERRED]
   legacy/root_finding_lineage/F3_cpu_openmp_v24_K3_QC_multi_signflip_side_abs_refinement.cpp → src/core/functions.h
 
 ## Import Cycles
@@ -1465,18 +1465,20 @@ Cohesion: 0.47
 Nodes (5): default_data_dir(), _files(), M1 step 5 — no machine-specific absolute paths on the M1 production path;…, test_data_root_env_var(), test_no_absolute_home_paths_in_m1_code()
 
 ## Knowledge Gaps
-- **3202 isolated node(s):** `build_gpu.sh script`, `.val500_100A2_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen_sep_f2k2.sh script`, `config_gpu_component_cachegen_sep_f2k2_coarse20000.sh script` (+3197 more)
+- **3202 isolated node(s):** `Setting up a fresh (cloud) checkout`, `Orientation`, `Physics invariants (never change silently)`, `Decisions already made by Digonto (2026-10-21; details in `notes/STATUS.md`)`, `Things that are known to be wrong or unverified (see `docs/OPEN_ISSUES.md`)` (+3197 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 3510 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **59 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `SignFlipCandidate` connect `SignFlipCandidate` to `F3_gpu_omp_cublas_pipeline_v9_inward_shape_refinement.cu`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **Why does `Options` connect `Options` to `string`, `ZeroRecord`, `main`, `debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp`, `SvdMinRecordV30r`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Why does `FitSettings` connect `FitSettings` to `QCPointValue`, `v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `FitResult`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
-- **Why does `FitSettings` connect `FitSettings` to `TargetLevel`, `fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `FitResult`, `vector`?**
-  _High betweenness centrality (0.024) - this node is a cross-community bridge._
-- **What connects `build_gpu.sh script`, `.val500_100A2_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen.sh script` to the rest of the system?**
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+- **What connects `Setting up a fresh (cloud) checkout`, `Orientation`, `Physics invariants (never change silently)` to the rest of the system?**
   _3202 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Code and function index` be split into smaller, more focused modules?**
   _Cohesion score 0.008849557522123894 - nodes in this community are weakly interconnected._
@@ -1484,5 +1486,3 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.011764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Package `production_fitter`` be split into smaller, more focused modules?**
   _Cohesion score 0.011834319526627219 - nodes in this community are weakly interconnected._
-- **Should `Package `cache_generator`` be split into smaller, more focused modules?**
-  _Cohesion score 0.012658227848101266 - nodes in this community are weakly interconnected._
