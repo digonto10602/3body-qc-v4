@@ -46,8 +46,8 @@ Production uses $\epsilon_H=0$.
 
 ## 2. Basis — `config_maker_4_momentum_first` in `src/core/functions.h`
 
-- **Rows:** spectator momentum $\mathbf k=\frac{2\pi}{L}\mathbf n$ with $\mathbf n\in[-N,N]^3$, $N$=`max_shell_num`=20. A momentum is kept iff $z>0.02$.
-- **Order:** momentum outermost, then $(\ell,m)$.
+- **Rows:** spectator momentum $\mathbf k=\frac{2\pi}{L}\mathbf n$ with $\mathbf n\in[-N,N]^3$, $N$=`max_shell_num`=20. A momentum is kept iff $E>E^+_{\min}(\mathbf k)=\omega_k+\sqrt{\sigma_{\min}+(\mathbf P-\mathbf k)^2}$ with $\sigma_{\min}=|m_j^2-m_k^2|+2z_{\min}(m_j+m_k)\min(m_j,m_k)/(1+\epsilon_H)$, $z_{\min}=0.02$ (equivalent to $z>0.02$).
+- **Order (locked by `tests/acceptance/m1`):** loop $n_x,n_y,n_z$ each from $-N$ to $N$ (outer → inner); for each kept momentum the $(\ell,m)$ list $(0,0),(1,-1),(1,0),(1,1)$ (channel 1) or $(0,0)$ (channel 2); all channel-1 rows first, then channel 2. The reference implementation is `tests/acceptance/m1/qc3ref/basis.py`.
 - **Waves:** `waves_vec_1 = 0 1` (channel 1 has $s$ and $p$ waves); `waves_vec_2 = 0` (channel 2 has the $s$ wave only).
 - **Harmonics:** real, unnormalised $\mathcal Y_{\ell m}(\mathbf p)=\sqrt{4\pi}|\mathbf p|^\ell Y_{\ell m}(\hat{\mathbf p})$, so $\mathcal Y_{1,-1}=\sqrt3p_y$, $\mathcal Y_{10}=\sqrt3p_z$, $\mathcal Y_{11}=\sqrt3p_x$ (`src/core/spherical_functions.h`).
 
@@ -58,9 +58,13 @@ F^{(i)}_{\mathbf p\ell'm';\mathbf k\ell m}=\delta_{\mathbf p\mathbf k}\frac{H_i(
 S=\Big(\tfrac{2\pi}{L}\Big)^{\ell'+\ell}\sum_{\mathbf n_a}\frac{\mathcal Y_{\ell'm'}(\mathbf r)\mathcal Y_{\ell m}(\mathbf r)e^{\alpha(x^2-r^2)}}{x^2-r^2}
 $$
 
-- **Inside the sum:** $x=q^*_pL/2\pi$, and $\mathbf r$ is the boosted lattice vector.
+- **Inside the sum:** $x=q^*_pL/2\pi$ (complex below the pair threshold; every formula is evaluated with complex $x$ and the result is real), and $\mathbf r$ is the boosted lattice vector
+  $$\mathbf r=\mathbf n_\perp+\gamma^{-1}\big(\mathbf n_\parallel-\xi_{jk}\,\mathbf n_P\big),\qquad \mathbf n_P=\tfrac{L}{2\pi}(\mathbf P-\mathbf p),\quad \gamma=\tfrac{E-\omega_p}{\sqrt{\sigma_p}},\quad \xi_{jk}=\tfrac12\Big(1+\tfrac{m_j^2-m_k^2}{\sigma_p}\Big),$$
+  with $\mathbf n_{\parallel,\perp}$ the components along/perpendicular to $\mathbf n_P$ ($\mathbf r=\mathbf n$ when $\mathbf n_P=0$). Source: arXiv:2111.12734 App. A.2 (unequal-mass boosted sum as in Leskovec–Prelovsek / Göckeler et al. 2012).
 - **Regulator:** $\alpha=0.5$ (the Gaussian damping in $S$).
-- **Accuracy:** the sum is evaluated with a sorted Neumaier (compensated) sum in `long double`.
+- **Accuracy (oracle):** the sum is evaluated with a sorted Neumaier (compensated) sum in `long double` over the full cube.
+- **Truncation rule for the fast path (prompts/001 §2.3):** keep only $\mathbf n$ in the cube with $r^2\le R^2$, $R^2=\mathrm{Re}\,x^2+\ln(1/\epsilon_{\rm tr})/\alpha$, $\epsilon_{\rm tr}=10^{-16}$. Every omitted term is bounded by $e^{-\alpha(R^2-\mathrm{Re}x^2)}/(R^2-\mathrm{Re}x^2)$, so the oracle's cube sum is reproduced to $<10^{-14}$ for any $\gamma$. A sphere in $\mathbf n$ is **not** safe (spectator momenta near the $H$ cutoff have $\gamma$ up to ≈8; measured $3\times10^{-4}$ errors, `reports/research/007` §3.5).
+- **Class decomposition (optional rung, prompts/001 §2.3 #5):** for fixed (sector, $\mathbf p$) the pair $(n^2,\mathbf n\cdot\mathbf n_P)$ fixes $r^2$ and the weight; the harmonics products reduce to the energy-independent class moments $\sum1$, $\sum\mathbf n$, $\sum\mathbf n\otimes\mathbf n$.
 - **Subtracted integral:** $I_\ell$ is analytic, using `Faddeeva::erfi` (MIT-licensed, `src/core/Faddeeva.cc`).
 - **Normalisation:** `Q0norm=true`, so the harmonics carry $|q^*|^\ell$.
 - **Flavour matrix:** $\mathbf F=\mathrm{diag}(F^{(1)}[M_1,M_1,M_2],\,F^{(2)}[M_2,M_1,M_1])$.
@@ -93,7 +97,11 @@ $$
 | `scatter2_00` | $a_0$ of the $KK$ pair | 4.12 |
 
   All $r_\ell$ and $P_\ell$ are 0.
-- **⚠ Open issue:** the coded $B_1$ differs from the reference code, which uses $-1/a_1+q^{*2}|q^*|(1-H)$. See `docs/OPEN_ISSUES.md` issue 2.
+- **Two named p-wave forms (prompts/001 §2.2; `Sector.k2_pwave_form`):**
+  - `coded_v2` (production default until decision D6): $B_1+C_1=-\frac{1}{a_1q^{*2}}+q^{*2}|q^*|(1-H)$ — the scattering-volume term is in the $q$-normalised convention of 2111.12734 Eq. (15) while $F$, $G$ and the $(1-H)$ term are in the $Q_0$ convention of Eqs. (20)–(21): mixed.
+  - `q0_consistent`: $-\frac1{a_1}+q^{*2}|q^*|(1-H)$, i.e. $\hat Q\,\mathcal K_2^{-1}\hat Q$ with $q^{*3}\cot\delta_1=-1/a_1$ (Eq. 17). Same $a_1=-43.2$.
+- **Source of the values (research 007 §3.6):** HadSpec arXiv:1411.2004 (PRD 91, 054008) Sec. VI, $I=3/2$ $\pi K$ on this ensemble, ERE $k^{2\ell+1}\cot\delta_\ell=1/a_\ell+\tfrac12r_\ell k^2$ (their Eq. 9), global fit: $a_0=(-4.04\pm0.05\pm0.15)\,a_t$, $a_1=(43.2\pm3.7\pm15.4)\,a_t^3$; the code's $-1/a$ convention flips the sign. `q0_consistent` with $a_1=-43.2$ reproduces HadSpec exactly. $a_0^{KK}=4.12$: Digonto's earlier work (D2), no uncertainty recorded.
+- **Below the pair threshold:** $|q^*|=|\sqrt{q^{*2}}|$ (real magnitude of an imaginary $q^*$), as in the reference code.
 
 ## 6. $F_3$, $F_3^{-1}$ and the QC — `src/fitter/F3_cpu_openmp_v25_K3QC_cached_core.hpp`, `src/fitter/K3df_minuit_fit_v32f_*.hpp`
 
@@ -122,8 +130,9 @@ $$
 
 - **Fit parameters:** `K3iso0, K3iso1, K3B, K3E`.
 - **Pieces:** $\mathcal K_B$ and $\mathcal K_E$ are written directly in momenta; they are a port of `QC3_release/base_code/Kdf3/K3main.py`, `K3E.py`.
-- **Linearity:** $\mathcal K_{\rm df,3}$ is linear in $\vec c$. This is what makes the fast fit possible (§9).
-- **Cross-check:** C++ vs Python is tested by `tests/reference/compare_K3_cpp_vs_python.py`. No stored pass result was found.
+- **Linearity:** $\mathcal K_{\rm df,3}$ is linear in $\vec c$. The production interface returns the four basis matrices $B_{\rm iso0},B_{\rm iso1},B_B,B_E$ with $\mathcal K_{\rm df,3}(\vec c)=\sum_ic_iB_i$.
+- **Lorentz-invariant definition (arXiv:2111.12734 Eqs. 28–30):** $\mathcal K_{\rm df,3}=\mathcal K^{\rm iso,0}+\mathcal K^{\rm iso,1}\Delta+\mathcal K^B(\Delta_2+\Delta_2')+\mathcal K^E\tilde t_{22}$ with $\Delta_2=[(p_1+p_{1'})^2-4m_K^2]/M^2$ (the two kaons of the initial state; primed = final) and $\tilde t_{22}=(p_2-p_2')^2/M^2$ (pion momentum transfer). Partial waves in the $Q_0$ convention: $[\mathcal K]_{p\ell'm'i;k\ell mj}=\frac{c_{ij}}{4\pi(q^*_p)^{\ell'}(q^*_k)^{\ell}}\int d\Omega'd\Omega\,Y_{\ell'm'}(\hat a'^*)\mathcal K\,Y_{\ell m}(\hat a^*)$, where $\mathbf a^*$ is the momentum of the pair **kaon** in the pair rest frame.
+- **Cross-check (done, 2026-10-21):** the planner's independent reference `tests/acceptance/m1/qc3ref/k3.py` evaluates this projection numerically (Gauss–Legendre 6 × 12 azimuthal points, exact for the degree-≤2 integrand) and agrees with the C++ port to $8.7\times10^{-16}$ relative Frobenius on `tests/reference/data` and to $\le10^{-15}$ on the L20 oracle points (`reports/research/007` §3.3). The old `tests/reference/compare_K3_cpp_vs_python.py` (needs QC3_release) is superseded.
 
 ## 8. Irrep projector $V_{\rm sel}$ — `src/core/fv_projector_cartesian_l1_v30m.hpp`, `src/core/projections_v1.hpp`
 
@@ -145,7 +154,7 @@ $$
 
 - **Dimension jumps:** the number of kept columns $N_{\rm proj}$ jumps whenever a new momentum shell enters the basis. A determinant sign change across such a jump is **not** a root.
 
-## 9. Fast fit: projected $\mathcal K_3$ basis ("hot windows") — `src/cache_build/v33p_build_projected_basis_hotwindow_cache.cpp`, `src/fitter/qc_fitter_norm_refine_v2_multiL.cpp`
+## 9. Fast fit: projected $\mathcal K_3$ basis ("hot windows") — `src/cache_build/v33p_build_projected_basis_hotwindow_cache.cpp`, `src/fitter/qc_fitter_norm_refine_v2_multiL.cpp` — **historical (D4): superseded by the cache-free path of §15**
 
 Because $\mathcal K_{\rm df,3}=\sum_{i=1}^4c_i\mathcal K^{(i)}$:
 
@@ -173,11 +182,15 @@ $$
 - **Irrep renaming in file names:** `001→100`, `002→200`, `011→110`.
 - **χ²:** $\chi^2=r^TC^+r$, with $r_i=E^{\rm lat}_i-E^{\rm model}_i$. $C^+$ is an eigenvalue pseudoinverse that drops eigenvalues with $|\lambda|\le10^{-12}\lambda_{\max}$. The covariance is block-diagonal in $L$.
 - **Level matching:** the $k$-th model zero in a sector is matched to the $k$-th lattice level.
-- **⚠ Covariance convention:** the multi-L reader treats the 603 values as jackknife samples, $C=\frac{N-1}{N}\sum(\cdot)(\cdot)$. The legacy reader `lattice_data_covariance_cpp.hpp` treats them as per-configuration values and resamples first. The two differ by $(N-1)^2$. See `docs/OPEN_ISSUES.md` issue 1.
+- **Covariance convention (decided, D1; implemented in `qc3.lattice`, M1 step 4):** the file values $x_c$ are per-configuration (rescaled-ensemble) values. Recipe = the trusted v32w reader `lattice_data_covariance_cpp.hpp`:
+  $$y_c=\tfrac1{N-1}\sum_{c'\ne c}x_{c'},\qquad y_c\to E^*_c=\sqrt{y_c^2-P^2},\qquad \bar E^*=\tfrac1N\sum_cE^*_c,\qquad C_{ij}=\tfrac{N-1}{N}\sum_c(E^{*(i)}_c-\bar E^{*(i)})(E^{*(j)}_c-\bar E^{*(j)}),$$
+  which for a linear map equals $C=\frac1{N(N-1)}\sum_c(x_c-\bar x)(x_c-\bar x)^T$, i.e. $\sigma=\mathrm{s.d.}/\sqrt N$ ($\approx5\times10^{-4}$ for the L20 levels). The multi-L reader's formula (no resampling) is wrong by $(N-1)^2$ and must not be used. See `docs/OPEN_ISSUES.md` issue 1.
+- **Level matching (D3; `qc3.lattice.match_levels`):** sort both lists ascending; with $m$ lattice and $n\ge m$ QC levels pair the lowest $m$; $n<m$ raises `MissingRootError`.
 
 ## 12. Minimiser
 
-- **Library and calls:** Minuit2 `MnMigrad`, then `MnHesse` if the minimum is valid; $\mathrm{Up}=1$.
+- **Library and calls (legacy C++ fitter):** Minuit2 `MnMigrad`, then `MnHesse` if the minimum is valid; $\mathrm{Up}=1$.
+- **From M2 on:** the same Minuit2 through `iminuit` (https://scikit-hep.org/iminuit/, version 2.33 installs with pip in the cloud container; MIGRAD + HESSE, `errordef=1`), driving the cache-free fast path of §15.
 - **Settings:** steps $(10^3,10^4,10^3,10^4)$, `max_fcn=400`.
 - **Warm start:** each cutoff starts from the previous cutoff's best fit.
 - **Penalty:** a missing root returns `failure_penalty`$=10^{100}$, which makes χ² discontinuous (see `docs/ROOT_FINDING.md`).
@@ -189,3 +202,15 @@ Root finding has its own document: [`docs/ROOT_FINDING.md`](ROOT_FINDING.md). It
 ## 14. Non-interacting levels — `tools/nonint3body_general_doublecover/`
 
 Free three-particle energies $E=\sum_a\sqrt{m_a^2+\mathbf k_a^2}$ with $\sum\mathbf k_a=\mathbf P$, projected onto irreps (double-cover groups). This is used for plot overlays and for identifying where $F_3^{-1}$ has poles.
+
+## 15. Cache-free single-energy evaluation: oracle, fast path, tolerances — `src/python/qc3/`, `src/qc3_core/` (plan `prompts/001`)
+
+- **Oracle** (`qc3.oracle.evaluate_point`): the existing C++ path of §§1–8 bound unchanged (basis → $F,\mathcal K_2^{-1},G$ → $X=H^{-1}F$ by LU → $F_3=F/3-FX$ → $F_3^{-1}$ by LU of $F_3/\max|F_{3,ab}|$ → $V_{\rm sel}$ → $Q$), 1 thread. Measured 2.8 s ($N=56$) to 6.5 s ($N=100$–160) per energy on 1 core. Anchor values with provenance: `tests/acceptance/m1/data/oracle_anchors_L20.json`.
+- **Fast path** (`qc3.fast.evaluate_point`): same equations, same basis, with (i) one lattice-sum pass per spectator momentum for all $(\ell'm';\ell m)$, (ii) the $r^2\le R^2$ truncation of §3, (iii) real arithmetic, (iv) in-memory energy-independent pieces ($V_{\rm sel}$ per basis signature, momentum lists), $V^\dagger F_3^{-1}V$ as $V^\dagger X$ with $F_3X=V$ solved by LU (still the projection of the inverse), symmetric fills of $G$ and $\mathcal K_{\rm df,3}$; optionally (v) the class moment tables of §3. No disk cache anywhere.
+- **Agreement required (prompts/001 §4, from the sensitivity study in `reports/research/007` §3.4):** ingredients $\le10^{-12}$ relative Frobenius; $F_3^{-1}$ $\le10^{-9}$; $\lvert\Delta\ln|\det Q|\rvert\le10^{-6}$ with equal sign (the LU round-off floor is $1.4\times10^{-9}$ at $\kappa(F_3)=4.8\times10^8$); root positions $\le10^{-9}\,a_t^{-1}$. Measured sensitivity: $\delta\ln|\det Q|\approx10$–$100\,\varepsilon$ for a relative ingredient perturbation $\varepsilon$ at well-conditioned points.
+- **Root refinement for comparisons** (`qc3.roots.refine_root`): Brent's method on $f(E)=\mathrm{sign}\cdot e^{\ln|\det Q|-\ell_0}$ inside a bracket with a sign change ($\ell_0$ = the larger endpoint value, to avoid under/overflow). The classifier that decides *which* brackets are roots is M2 (`docs/ROOT_FINDING.md`).
+- **Benchmark metric:** median single-core wall time per point (`OMP_NUM_THREADS=1`, pinned), 5 irreps × 3 energies + the 12 anchors, 5 repeats after a warm-up; the χ² proxy is the time to refine the 12 labelled L20 roots at cutoff 0.335 (`prompts/001` §7).
+
+## 16. Independent reference implementation — `tests/acceptance/m1/qc3ref/` (planner-owned)
+
+NumPy/SciPy, written from arXiv:2111.12734 (Eqs. 3–15, 20–21, 28–31, App. A), not from the C++: `basis.py` (basis rule and order), `fgk.py` ($F$ with the full cube and `scipy.special.erfi`, $G$, both $\mathcal K_2^{-1}$ forms), `k3.py` ($\mathcal K_{\rm df,3}$ by numerical angular projection of the Lorentz invariants). Agreement with the oracle at the 12 L20 anchor points: basis exact; $F\le2.5\times10^{-14}$, $G\le2.4\times10^{-16}$, $\mathcal K_2^{-1}\le7\times10^{-15}$, $\mathcal K_{\rm df,3}\le10^{-15}$ (relative Frobenius). Cost: ≈0.2–1 s per point in Python. QC3_release is not used.

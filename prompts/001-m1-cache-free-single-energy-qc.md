@@ -74,7 +74,7 @@ For a linear map this equals $C_{ij}=\frac{1}{N(N-1)}\sum_c(x^{(i)}_c-\bar x^{(i
 
 ## 3. Milestones and steps
 
-Each step: builder implements → tester (mode `step`) runs the listed ids → commit. Test ids are `tests/acceptance/m1/<file>::<test>`. Fast tests run in < 2 min total on this container; tests marked `slow` (`-m slow`) are run at the milestone gate and after steps 6–7.
+Each step: builder implements → tester (mode `step`) runs the listed ids → commit. Test ids are `tests/acceptance/m1/<file>::<test>`. Commands: fast part `python3 -m pytest tests/acceptance/m1 -m "not slow" -q` (< 2 min on this container once the oracle is bound; ≈10 oracle calls, cached per module), slow part `python3 -m pytest tests/acceptance/m1 -m slow -q` (milestone gate and after steps 6–7), collection check `python3 -m pytest --collect-only -q tests/acceptance` (33 tests). Before any code exists, the suite must fail only with `NotImplementedError` — verified by the planner with a throwaway stub package (`scratch/planner/stubs/qc3`, 33/33 `NotImplementedError`, 0 other errors); the builder's real stubs in `src/python/qc3/` must give the same result in step 1.
 
 ### M1 — cache-free single-energy QC (this plan)
 

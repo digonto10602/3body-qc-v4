@@ -1342,5 +1342,11 @@
     "seen": 1792613380.4489183,
     "ast_hash": "8a9a62d23f42157bb24f571e63f01281",
     "semantic_hash": ""
+  },
+  "prompts/001-m1-cache-free-single-energy-qc.md": {
+    "mtime": 1792613586.0192337,
+    "seen": 1792613688.6172454,
+    "ast_hash": "b7e894836f581eacb35604dd4ca3b042",
+    "semantic_hash": ""
   }
 }

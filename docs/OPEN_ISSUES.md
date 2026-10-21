@@ -43,6 +43,7 @@ Nothing listed here has been fixed in the code yet. The code in `src/` is copied
 - **Consequence:** `scatter1_10=-43.2` does not mean the reference's $a_1$, and the near-threshold p-wave behaviour is different. The size of the effect is not yet quantified.
 - **Answer (D2, 2026-10-21):** the two-body inputs come from Digonto's earlier work and from Hadron Spectrum Collaboration papers.
 - **Still open (planner research):** find those papers and the parametrisation in which $a_1=-43.2$ is quoted, then use the matching $\mathcal K_2^{-1}$ form. Until then, the coded form is the production convention and must not be changed silently.
+- **Planner finding (2026-10-21, `reports/research/007` §3.6):** the values are HadSpec's $I=3/2$ $\pi K$ global fit (arXiv:1411.2004 Sec. VI, ERE $k^{2\ell+1}\cot\delta_\ell=1/a_\ell+\dots$): $a_0=(-4.04\pm0.05\pm0.15)\,a_t$, $a_1=(43.2\pm3.7\pm15.4)\,a_t^3$. In the code's $Q_0$ convention (2111.12734 Eqs. 15, 17, 20–21) the consistent element is $-1/a_1+q^{*2}|q^*|(1-H)$ with the existing $a_1=-43.2$ (the commented-out line 103), i.e. QC3_release's form. The coded form overstates the p-wave $\mathcal K_2^{-1}$ by $1/q^{*2}$. Both forms are now named (`coded_v2`, `q0_consistent`, `docs/METHODS.md` §5); production stays `coded_v2` until **decision D6** (after `prompts/001` step 9 reports the level shifts).
 
 ### 3. HIGH — complex-number read convention (`variant_04_real_imag_swapped`)
 
