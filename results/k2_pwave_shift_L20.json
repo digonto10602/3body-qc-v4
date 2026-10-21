@@ -1,0 +1,830 @@
+{
+  "description": "K2^{-1} p-wave form level shifts, L20, cutoff 0.335, baseline c (prompts/001 step 9, decision D7)",
+  "git_commit": "a25b1e1",
+  "git_tree_dirty": true,
+  "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONPATH=src/python python3 scripts/m1/k2_pwave_shift.py",
+  "machine": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+  "python": "3.13.16",
+  "production_constants": {
+    "xi": 3.444,
+    "atmK": 0.09698,
+    "atmpi": 0.06906,
+    "eta_1": 1.0,
+    "eta_2": 0.5,
+    "alpha": 0.5,
+    "epsilon_H": 0.0,
+    "max_shell_num": 20,
+    "waves_1": [
+      0,
+      1
+    ],
+    "waves_2": [
+      0
+    ],
+    "parity": -1,
+    "eig_tol": 0.05,
+    "scatter": {
+      "a0_Kpi": 4.04,
+      "a1_Kpi": -43.2,
+      "a0_KK": 4.12
+    },
+    "Q0norm": true,
+    "z_min": 0.02
+  },
+  "c_baseline": [
+    73735.84089401191,
+    -972421.1406075779,
+    347174.0554811695,
+    -1226756.7068845264
+  ],
+  "Lbyas": 20,
+  "Ecm_cutoff": 0.335,
+  "backend": "fast",
+  "covariance": "D1 (jackknife of per-configuration values, qc3.lattice.load_levels)",
+  "Ncfg": 603,
+  "widen_rows": 250,
+  "grid_dE": 4.845242262113106e-06,
+  "max_abs_coded_v2_minus_previous_model_zero": 4.354895050129315e-08,
+  "levels": [
+    {
+      "irrep": "000_A1m",
+      "level_index": 0,
+      "lattice_Ecm_window_csv": 0.2692266019900497,
+      "lattice_Ecm_mean": 0.2692266019900497,
+      "lattice_sigma": 0.000515296690388256,
+      "accepted_window": [
+        0.2693212910645532,
+        0.26932613630681534
+      ],
+      "previous_model_zero": 0.26932269955846955,
+      "coded_v2": {
+        "E_root": 0.26932269974456263,
+        "window_used": [
+          0.2693212910645532,
+          0.26932613630681534
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -73.99121879544984,
+        "lnabsdet_at_window_ends": [
+          -49.3679755621126,
+          -48.47597077512357
+        ],
+        "n_evaluations": 8,
+        "seconds": 0.4392540889994052
+      },
+      "q0_consistent": {
+        "E_root": 0.2693226784857993,
+        "window_used": [
+          0.2693212910645532,
+          0.26932613630681534
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -74.7476542658703,
+        "lnabsdet_at_window_ends": [
+          -49.3944249693139,
+          -48.48104991954116
+        ],
+        "n_evaluations": 8,
+        "seconds": 0.20805873599965707,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.26932267848578534,
+              "ln_root": -67.80754264879369,
+              "bracket": [
+                0.2693135992424621,
+                0.2693237136856843
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 0,
+          "n_evaluations": 247,
+          "seconds": 6.877444986000228
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.26932267848578534
+      },
+      "dE": -2.1258763305276318e-08,
+      "dE_over_sigma": -4.125538491089214e-05,
+      "dE_scan_assisted": -2.125877729408643e-08,
+      "dE_scan_assisted_over_sigma": -4.1255412057990834e-05,
+      "coded_v2_minus_previous_model_zero": 1.8609308538586333e-10
+    },
+    {
+      "irrep": "100_A2",
+      "level_index": 0,
+      "lattice_Ecm_window_csv": 0.2916083321793744,
+      "lattice_Ecm_mean": 0.29163263619161245,
+      "lattice_sigma": 0.0005050890353947644,
+      "accepted_window": [
+        0.29155126256312813,
+        0.29155610780539026
+      ],
+      "previous_model_zero": 0.29155609987916675,
+      "coded_v2": {
+        "E_root": 0.2915560996081883,
+        "window_used": [
+          0.29155126256312813,
+          0.29155610780539026
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -131.8259991913443,
+        "lnabsdet_at_window_ends": [
+          -109.13667445116741,
+          -115.5506130688809
+        ],
+        "n_evaluations": 8,
+        "seconds": 0.34697451700048987
+      },
+      "q0_consistent": {
+        "E_root": null,
+        "window_used": [
+          0.2903399519975999,
+          0.2927674183709185
+        ],
+        "note": "MissingRootError (plan rule): accepted window: no sign change of det Q on [0.29155126256312813, 0.29155610780539026] (sign -1, -1) | widened +-250 rows: no sign change of det Q on [0.2903399519975999, 0.2927674183709185] (sign -1, -1)",
+        "lnabsdet_at_root": null,
+        "lnabsdet_at_window_ends": null,
+        "n_evaluations": 4,
+        "seconds": 0.1322906450004666,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.2914252169900899,
+              "ln_root": -122.23992079886116,
+              "bracket": [
+                0.29142219742237113,
+                0.29143231186559326
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 1,
+          "n_evaluations": 278,
+          "seconds": 9.874188237999988
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.2914252169900899
+      },
+      "dE": null,
+      "dE_over_sigma": null,
+      "dE_scan_assisted": -0.00013088261809840462,
+      "dE_scan_assisted_over_sigma": -0.2591278149526849,
+      "coded_v2_minus_previous_model_zero": -2.709784618915023e-10
+    },
+    {
+      "irrep": "100_A2",
+      "level_index": 1,
+      "lattice_Ecm_window_csv": 0.30003551382783655,
+      "lattice_Ecm_mean": 0.30006664618553425,
+      "lattice_sigma": 0.0005836728933891783,
+      "accepted_window": [
+        0.3004374368718436,
+        0.30044228211410573
+      ],
+      "previous_model_zero": 0.30044149754668775,
+      "coded_v2": {
+        "E_root": 0.3004414964611617,
+        "window_used": [
+          0.3004374368718436,
+          0.30044228211410573
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -150.64360796793858,
+        "lnabsdet_at_window_ends": [
+          -127.60898380120994,
+          -129.25295575183986
+        ],
+        "n_evaluations": 8,
+        "seconds": 0.3592036170002757
+      },
+      "q0_consistent": {
+        "E_root": 0.3003162581565104,
+        "window_used": [
+          0.29922612630631534,
+          0.301653592679634
+        ],
+        "note": "widened +-250 rows; earlier: accepted window: no sign change of det Q on [0.3004374368718436, 0.30044228211410573] (sign 1, 1)",
+        "lnabsdet_at_root": -147.1781903508482,
+        "lnabsdet_at_window_ends": [
+          -121.49994012394458,
+          -122.13800502085053
+        ],
+        "n_evaluations": 14,
+        "seconds": 0.534212278999803,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.30031625815648344,
+              "ln_root": -146.98122376681738,
+              "bracket": [
+                0.3003083717310866,
+                0.30031848617430873
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 0,
+          "n_evaluations": 247,
+          "seconds": 8.970818868999231
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.30031625815648344
+      },
+      "dE": -0.00012523830465127617,
+      "dE_over_sigma": -0.2145693351014854,
+      "dE_scan_assisted": -0.00012523830467825459,
+      "dE_scan_assisted_over_sigma": -0.2145693351477072,
+      "coded_v2_minus_previous_model_zero": -1.0855260579312187e-09
+    },
+    {
+      "irrep": "110_A2",
+      "level_index": 0,
+      "lattice_Ecm_window_csv": 0.3073332928312637,
+      "lattice_Ecm_mean": 0.30737479461922135,
+      "lattice_sigma": 0.0005239092723404096,
+      "accepted_window": [
+        0.3067895494774739,
+        0.30679439471973596
+      ],
+      "previous_model_zero": 0.3067911009653987,
+      "coded_v2": {
+        "E_root": 0.3067910667228688,
+        "window_used": [
+          0.3067895494774739,
+          0.30679439471973596
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -184.0021558262209,
+        "lnabsdet_at_window_ends": [
+          -163.0391480292894,
+          -162.28633440106594
+        ],
+        "n_evaluations": 9,
+        "seconds": 0.38597114399999555
+      },
+      "q0_consistent": {
+        "E_root": null,
+        "window_used": [
+          0.30557823891194563,
+          0.3080057052852642
+        ],
+        "note": "MissingRootError (plan rule): accepted window: no sign change of det Q on [0.3067895494774739, 0.30679439471973596] (sign 1, 1) | widened +-250 rows: no sign change of det Q on [0.30557823891194563, 0.3080057052852642] (sign 1, 1)",
+        "lnabsdet_at_root": null,
+        "lnabsdet_at_window_ends": null,
+        "n_evaluations": 4,
+        "seconds": 0.21022592000008444,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.3066350722070048,
+              "ln_root": -176.85669124023175,
+              "bracket": [
+                0.3066301410070503,
+                0.3066402554502725
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 3,
+          "n_evaluations": 335,
+          "seconds": 12.970721243000298
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.3066350722070048
+      },
+      "dE": null,
+      "dE_over_sigma": null,
+      "dE_scan_assisted": -0.0001559945158640108,
+      "dE_scan_assisted_over_sigma": -0.29775101167259643,
+      "coded_v2_minus_previous_model_zero": -3.4242529867167804e-08
+    },
+    {
+      "irrep": "110_A2",
+      "level_index": 1,
+      "lattice_Ecm_window_csv": 0.31643789359657865,
+      "lattice_Ecm_mean": 0.3164747891003113,
+      "lattice_sigma": 0.0005154854743769491,
+      "accepted_window": [
+        0.3158259262963148,
+        0.3158307715385769
+      ],
+      "previous_model_zero": 0.31583037429108624,
+      "coded_v2": {
+        "E_root": 0.31583038476858455,
+        "window_used": [
+          0.3158259262963148,
+          0.3158307715385769
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -206.70496798702408,
+        "lnabsdet_at_window_ends": [
+          -178.6315411101355,
+          -181.0471902818861
+        ],
+        "n_evaluations": 9,
+        "seconds": 0.33177786899977946
+      },
+      "q0_consistent": {
+        "E_root": null,
+        "window_used": [
+          0.31461461573078653,
+          0.31704208210410517
+        ],
+        "note": "MissingRootError (plan rule): accepted window: no sign change of det Q on [0.3158259262963148, 0.3158307715385769] (sign 1, 1) | widened +-250 rows: sign change at E=0.31612911112995534 is a POLE (ln|det Q|=-157.16 vs ends -175.66, -153.02)",
+        "lnabsdet_at_root": null,
+        "lnabsdet_at_window_ends": null,
+        "n_evaluations": 47,
+        "seconds": 1.7874077839996971,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.31564501983275506,
+              "ln_root": -194.89733079783264,
+              "bracket": [
+                0.3156361744962248,
+                0.31564628893944696
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 2,
+          "n_evaluations": 308,
+          "seconds": 12.309601279000162
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.31564501983275506
+      },
+      "dE": null,
+      "dE_over_sigma": null,
+      "dE_scan_assisted": -0.00018536493582949065,
+      "dE_scan_assisted_over_sigma": -0.35959293722783436,
+      "coded_v2_minus_previous_model_zero": 1.047749831339928e-08
+    },
+    {
+      "irrep": "110_A2",
+      "level_index": 2,
+      "lattice_Ecm_window_csv": 0.31813597720593845,
+      "lattice_Ecm_mean": 0.31822066209720656,
+      "lattice_sigma": 0.0007704536064832192,
+      "accepted_window": [
+        0.3191546077303865,
+        0.31915945297264864
+      ],
+      "previous_model_zero": 0.31915497052908925,
+      "coded_v2": {
+        "E_root": 0.31915494272902056,
+        "window_used": [
+          0.3191546077303865,
+          0.31915945297264864
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -206.0114162066559,
+        "lnabsdet_at_window_ends": [
+          -188.6840550801952,
+          -186.16997959283984
+        ],
+        "n_evaluations": 9,
+        "seconds": 0.3700191839998297
+      },
+      "q0_consistent": {
+        "E_root": 0.3189395550629678,
+        "window_used": [
+          0.31794329716485825,
+          0.3203707635381769
+        ],
+        "note": "widened +-250 rows; earlier: accepted window: no sign change of det Q on [0.3191546077303865, 0.31915945297264864] (sign 1, 1)",
+        "lnabsdet_at_root": -197.36093473879328,
+        "lnabsdet_at_window_ends": [
+          -166.16707850863784,
+          -180.69693071454583
+        ],
+        "n_evaluations": 22,
+        "seconds": 0.9572022889997243,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.31893955506495353,
+              "ln_root": -204.21881987538137,
+              "bracket": [
+                0.31893451260063005,
+                0.3189446270438522
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 0,
+          "n_evaluations": 249,
+          "seconds": 10.6481528409995
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.31893955506495353
+      },
+      "dE": -0.00021538766605277981,
+      "dE_over_sigma": -0.2795595532817732,
+      "dE_scan_assisted": -0.0002153876640670349,
+      "dE_scan_assisted_over_sigma": -0.279559550704402,
+      "coded_v2_minus_previous_model_zero": -2.7800068691519186e-08
+    },
+    {
+      "irrep": "110_A2",
+      "level_index": 3,
+      "lattice_Ecm_window_csv": 0.3291548445548671,
+      "lattice_Ecm_mean": 0.32918842706990126,
+      "lattice_sigma": 0.0005175758231704666,
+      "accepted_window": [
+        0.32871427071353565,
+        0.3287191159557978
+      ],
+      "previous_model_zero": 0.3287180485505124,
+      "coded_v2": {
+        "E_root": 0.3287180438827592,
+        "window_used": [
+          0.32871427071353565,
+          0.3287191159557978
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -209.31369492908567,
+        "lnabsdet_at_window_ends": [
+          -190.61566110982392,
+          -191.879581990575
+        ],
+        "n_evaluations": 8,
+        "seconds": 0.3991170299996156
+      },
+      "q0_consistent": {
+        "E_root": 0.3286459066230466,
+        "window_used": [
+          0.3275029601480074,
+          0.32993042652132604
+        ],
+        "note": "widened +-250 rows; earlier: accepted window: no sign change of det Q on [0.32871427071353565, 0.3287191159557978] (sign -1, -1)",
+        "lnabsdet_at_root": -208.1621596647355,
+        "lnabsdet_at_window_ends": [
+          -182.50194979609068,
+          -154.9070911082218
+        ],
+        "n_evaluations": 17,
+        "seconds": 0.8151545310001893,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.3286459066229742,
+              "ln_root": -211.32419026637848,
+              "bracket": [
+                0.3286458922321116,
+                0.32865600667533373
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 0,
+          "n_evaluations": 247,
+          "seconds": 11.561806962999981
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.3286459066229742
+      },
+      "dE": -7.213725971261242e-05,
+      "dE_over_sigma": -0.13937524993097214,
+      "dE_scan_assisted": -7.213725978499896e-05,
+      "dE_scan_assisted_over_sigma": -0.13937525007082902,
+      "coded_v2_minus_previous_model_zero": -4.667753183973389e-09
+    },
+    {
+      "irrep": "111_A2",
+      "level_index": 0,
+      "lattice_Ecm_window_csv": 0.3203580134880505,
+      "lattice_Ecm_mean": 0.3204177735564091,
+      "lattice_sigma": 0.0005613951040659231,
+      "accepted_window": [
+        0.31942109605480273,
+        0.31942594129706486
+      ],
+      "previous_model_zero": 0.3194218456477709,
+      "coded_v2": {
+        "E_root": 0.31942186191178557,
+        "window_used": [
+          0.31942109605480273,
+          0.31942594129706486
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -120.79020357489051,
+        "lnabsdet_at_window_ends": [
+          -107.32843738125902,
+          -105.63028718990459
+        ],
+        "n_evaluations": 8,
+        "seconds": 0.3019394610000745
+      },
+      "q0_consistent": {
+        "E_root": null,
+        "window_used": [
+          0.3182097854892745,
+          0.3206372518625931
+        ],
+        "note": "MissingRootError (plan rule): accepted window: no sign change of det Q on [0.31942109605480273, 0.31942594129706486] (sign -1, -1) | widened +-250 rows: sign change at E=0.3195543911709816 is a POLE (ln|det Q|=-85.65 vs ends -100.96, -103.51)",
+        "lnabsdet_at_root": null,
+        "lnabsdet_at_window_ends": null,
+        "n_evaluations": 42,
+        "seconds": 1.6214802270005748,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.3192435345105379,
+              "ln_root": -128.7609517121423,
+              "bracket": [
+                0.3192414586979349,
+                0.31925157314115704
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 2,
+          "n_evaluations": 307,
+          "seconds": 11.323816242999783
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.3192435345105379
+      },
+      "dE": null,
+      "dE_over_sigma": null,
+      "dE_scan_assisted": -0.00017832740124767987,
+      "dE_scan_assisted_over_sigma": -0.31765043897985146,
+      "coded_v2_minus_previous_model_zero": 1.626401469057015e-08
+    },
+    {
+      "irrep": "111_A2",
+      "level_index": 1,
+      "lattice_Ecm_window_csv": 0.3341317314959343,
+      "lattice_Ecm_mean": 0.33423289648408283,
+      "lattice_sigma": 0.0007695249581111229,
+      "accepted_window": [
+        0.3343299064953248,
+        0.33433475173758687
+      ],
+      "previous_model_zero": 0.3343321665267262,
+      "coded_v2": {
+        "E_root": 0.3343321229777757,
+        "window_used": [
+          0.3343299064953248,
+          0.33433475173758687
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -181.96076274213704,
+        "lnabsdet_at_window_ends": [
+          -162.15152520034712,
+          -162.01709683247267
+        ],
+        "n_evaluations": 9,
+        "seconds": 0.48787421799988806
+      },
+      "q0_consistent": {
+        "E_root": 0.33403517451625425,
+        "window_used": [
+          0.33311859592979653,
+          0.3355460623031151
+        ],
+        "note": "widened +-250 rows; earlier: accepted window: no sign change of det Q on [0.3343299064953248, 0.33433475173758687] (sign 1, 1)",
+        "lnabsdet_at_root": -175.21667589852353,
+        "lnabsdet_at_window_ends": [
+          -142.94227285761585,
+          -163.06625036299383
+        ],
+        "n_evaluations": 18,
+        "seconds": 0.8788049300001148,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.33403517451766274,
+              "ln_root": -174.30208188784508,
+              "bracket": [
+                0.334028895819791,
+                0.3340390102630132
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 0,
+          "n_evaluations": 248,
+          "seconds": 11.823918632000641
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.33403517451766274
+      },
+      "dE": -0.00029694846152145127,
+      "dE_over_sigma": -0.3858854198184051,
+      "dE_scan_assisted": -0.00029694846011296683,
+      "dE_scan_assisted_over_sigma": -0.3858854179880753,
+      "coded_v2_minus_previous_model_zero": -4.354895050129315e-08
+    },
+    {
+      "irrep": "200_A2",
+      "level_index": 0,
+      "lattice_Ecm_window_csv": 0.2866396248038105,
+      "lattice_Ecm_mean": 0.2867557247369239,
+      "lattice_sigma": 0.0006089793216434028,
+      "accepted_window": [
+        0.2862408770438522,
+        0.2862457222861143
+      ],
+      "previous_model_zero": 0.2862443472262731,
+      "coded_v2": {
+        "E_root": 0.28624436431121125,
+        "window_used": [
+          0.2862408770438522,
+          0.2862457222861143
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -135.58232206411617,
+        "lnabsdet_at_window_ends": [
+          -110.04435494682986,
+          -110.97006485926981
+        ],
+        "n_evaluations": 9,
+        "seconds": 0.2901275690001057
+      },
+      "q0_consistent": {
+        "E_root": 0.28605537552657084,
+        "window_used": [
+          0.28502956647832395,
+          0.28745703285164254
+        ],
+        "note": "widened +-250 rows; earlier: accepted window: no sign change of det Q on [0.2862408770438522, 0.2862457222861143] (sign 1, 1)",
+        "lnabsdet_at_root": -126.28343856843603,
+        "lnabsdet_at_window_ends": [
+          -106.21991317765875,
+          -105.3309479694686
+        ],
+        "n_evaluations": 17,
+        "seconds": 0.537065292999614,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.2860553755272191,
+              "ln_root": -133.00624084930834,
+              "bracket": [
+                0.2860511252437622,
+                0.2860612396869843
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 2,
+          "n_evaluations": 306,
+          "seconds": 9.515973255000063
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.2860553755272191
+      },
+      "dE": -0.00018898878464040925,
+      "dE_over_sigma": -0.31033694893022085,
+      "dE_scan_assisted": -0.00018898878399215002,
+      "dE_scan_assisted_over_sigma": -0.31033694786571964,
+      "coded_v2_minus_previous_model_zero": 1.7084938130906835e-08
+    },
+    {
+      "irrep": "200_A2",
+      "level_index": 1,
+      "lattice_Ecm_window_csv": 0.2993265535424013,
+      "lattice_Ecm_mean": 0.29942353678479317,
+      "lattice_sigma": 0.0005832224978048792,
+      "accepted_window": [
+        0.2991776738836942,
+        0.2991825191259563
+      ],
+      "previous_model_zero": 0.299178293717562,
+      "coded_v2": {
+        "E_root": 0.2991782676914368,
+        "window_used": [
+          0.2991776738836942,
+          0.2991825191259563
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -138.39093876208844,
+        "lnabsdet_at_window_ends": [
+          -118.80191742138302,
+          -116.88249771136834
+        ],
+        "n_evaluations": 9,
+        "seconds": 0.4749202909997621
+      },
+      "q0_consistent": {
+        "E_root": 0.2991156800151645,
+        "window_used": [
+          0.29796636331816595,
+          0.30039382969148454
+        ],
+        "note": "widened +-250 rows; earlier: accepted window: no sign change of det Q on [0.2991776738836942, 0.2991825191259563] (sign 1, 1)",
+        "lnabsdet_at_root": -132.3619589899819,
+        "lnabsdet_at_window_ends": [
+          -88.45074405367498,
+          -119.49353674673443
+        ],
+        "n_evaluations": 21,
+        "seconds": 0.9211523320000197,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.2991156800123485,
+              "ln_root": -130.5315193367926,
+              "bracket": [
+                0.2991092954022701,
+                0.2991194098454923
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 0,
+          "n_evaluations": 248,
+          "seconds": 10.793096198999592
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.2991156800123485
+      },
+      "dE": -6.258767627231876e-05,
+      "dE_over_sigma": -0.1073135493021702,
+      "dE_scan_assisted": -6.258767908828844e-05,
+      "dE_scan_assisted_over_sigma": -0.10731355413046419,
+      "coded_v2_minus_previous_model_zero": -2.6026125199418715e-08
+    },
+    {
+      "irrep": "200_A2",
+      "level_index": 2,
+      "lattice_Ecm_window_csv": 0.3309425474900397,
+      "lattice_Ecm_mean": 0.33102432154850525,
+      "lattice_sigma": 0.0006107080590675553,
+      "accepted_window": [
+        0.33097699884994247,
+        0.3309818440922046
+      ],
+      "previous_model_zero": 0.3309818290076919,
+      "coded_v2": {
+        "E_root": 0.3309818287145227,
+        "window_used": [
+          0.33097699884994247,
+          0.3309818440922046
+        ],
+        "note": "accepted window",
+        "lnabsdet_at_root": -173.25951403959388,
+        "lnabsdet_at_window_ends": [
+          -150.23976958622458,
+          -156.0087354296021
+        ],
+        "n_evaluations": 8,
+        "seconds": 0.69317837699964
+      },
+      "q0_consistent": {
+        "E_root": null,
+        "window_used": [
+          0.3297656882844142,
+          0.33219315465773286
+        ],
+        "note": "MissingRootError (plan rule): accepted window: no sign change of det Q on [0.33097699884994247, 0.3309818440922046] (sign -1, -1) | widened +-250 rows: no sign change of det Q on [0.3297656882844142, 0.33219315465773286] (sign -1, -1)",
+        "lnabsdet_at_root": null,
+        "lnabsdet_at_window_ends": null,
+        "n_evaluations": 4,
+        "seconds": 0.4019191729994418,
+        "scan": {
+          "npts": 241,
+          "zeros_in_widened_window": [
+            {
+              "E": 0.33077631011278064,
+              "ln_root": -171.38574983884092,
+              "bracket": [
+                0.33076701816340814,
+                0.33077713260663033
+              ]
+            }
+          ],
+          "n_pole_sign_changes": 1,
+          "n_evaluations": 276,
+          "seconds": 15.785337439000614
+        },
+        "E_root_scan_nearest_to_coded_v2": 0.33077631011278064
+      },
+      "dE": null,
+      "dE_over_sigma": null,
+      "dE_scan_assisted": -0.00020551860174206071,
+      "dE_scan_assisted_over_sigma": -0.3365251181650555,
+      "coded_v2_minus_previous_model_zero": -2.9316921112965133e-10
+    }
+  ],
+  "timings_seconds": {
+    "000_A1m_0_coded_v2": 0.4392540889994052,
+    "000_A1m_0_q0_consistent": 0.20805873599965707,
+    "100_A2_0_coded_v2": 0.34697451700048987,
+    "100_A2_0_q0_consistent": 0.1322906450004666,
+    "100_A2_1_coded_v2": 0.3592036170002757,
+    "100_A2_1_q0_consistent": 0.534212278999803,
+    "110_A2_0_coded_v2": 0.38597114399999555,
+    "110_A2_0_q0_consistent": 0.21022592000008444,
+    "110_A2_1_coded_v2": 0.33177786899977946,
+    "110_A2_1_q0_consistent": 1.7874077839996971,
+    "110_A2_2_coded_v2": 0.3700191839998297,
+    "110_A2_2_q0_consistent": 0.9572022889997243,
+    "110_A2_3_coded_v2": 0.3991170299996156,
+    "110_A2_3_q0_consistent": 0.8151545310001893,
+    "111_A2_0_coded_v2": 0.3019394610000745,
+    "111_A2_0_q0_consistent": 1.6214802270005748,
+    "111_A2_1_coded_v2": 0.48787421799988806,
+    "111_A2_1_q0_consistent": 0.8788049300001148,
+    "200_A2_0_coded_v2": 0.2901275690001057,
+    "200_A2_0_q0_consistent": 0.537065292999614,
+    "200_A2_1_coded_v2": 0.4749202909997621,
+    "200_A2_1_q0_consistent": 0.9211523320000197,
+    "200_A2_2_coded_v2": 0.69317837699964,
+    "200_A2_2_q0_consistent": 0.4019191729994418
+  },
+  "total_seconds": 146.35727152300024
+}
