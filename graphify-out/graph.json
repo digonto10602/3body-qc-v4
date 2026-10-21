@@ -54939,6 +54939,17 @@
       "source_location": ""
     },
     {
+      "id": "src_python_qc3_init",
+      "label": "qc3/__init__.py",
+      "_origin": "ast",
+      "community": 322,
+      "community_name": "Sector",
+      "file_type": "code",
+      "norm_label": "qc3/__init__.py",
+      "source_file": "src/python/qc3/__init__.py",
+      "source_location": "L1"
+    },
+    {
       "id": "src_python_qc3_sector_py_ndarray",
       "label": "ndarray",
       "_origin": "ast",
@@ -54969,6 +54980,17 @@
       "file_type": "code",
       "norm_label": "test_sector_oracle.py",
       "source_file": "tests/unit/test_sector_oracle.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_python_qc3_init_rationale_1",
+      "label": "qc3: cache-free single-energy three-body quantization condition (prompts/001).\u2026",
+      "_origin": "ast",
+      "community": 322,
+      "community_name": "Sector",
+      "file_type": "rationale",
+      "norm_label": "qc3: cache-free single-energy three-body quantization condition (prompts/001)....",
+      "source_file": "src/python/qc3/__init__.py",
       "source_location": "L1"
     },
     {
@@ -55427,17 +55449,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_python_qc3_init",
-      "label": "qc3/__init__.py",
-      "_origin": "ast",
-      "community": 327,
-      "community_name": "k2_pwave_shift.py",
-      "file_type": "code",
-      "norm_label": "qc3/__init__.py",
-      "source_file": "src/python/qc3/__init__.py",
-      "source_location": "L1"
-    },
-    {
       "id": "src_python_qc3_roots",
       "label": "roots.py",
       "_origin": "ast",
@@ -55491,17 +55502,6 @@
       "norm_label": "supplementary (not the plan rule): scan [lo,hi] on npts points, brent-refine...",
       "source_file": "scripts/m1/k2_pwave_shift.py",
       "source_location": "L81"
-    },
-    {
-      "id": "src_python_qc3_init_rationale_1",
-      "label": "qc3: cache-free single-energy three-body quantization condition (prompts/001).\u2026",
-      "_origin": "ast",
-      "community": 327,
-      "community_name": "k2_pwave_shift.py",
-      "file_type": "rationale",
-      "norm_label": "qc3: cache-free single-energy three-body quantization condition (prompts/001)....",
-      "source_file": "src/python/qc3/__init__.py",
-      "source_location": "L1"
     },
     {
       "id": "src_python_qc3_lattice_rationale_142",
@@ -78018,18 +78018,6 @@
     },
     {
       "source": "scripts_m1_k2_pwave_shift_find_root",
-      "target": "src_python_qc3_roots_refine_root",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "scripts/m1/k2_pwave_shift.py",
-      "source_location": "L67",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_m1_k2_pwave_shift_find_root",
       "target": "scripts_m1_k2_pwave_shift_ev",
       "relation": "calls",
       "_origin": "ast",
@@ -78122,18 +78110,6 @@
       "context": "call",
       "source_file": "scripts/m1/k2_pwave_shift.py",
       "source_location": "L84",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_m1_k2_pwave_shift_scan_roots",
-      "target": "src_python_qc3_roots_refine_root",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "scripts/m1/k2_pwave_shift.py",
-      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -133190,18 +133166,6 @@
       "context": "import",
       "source_file": "tests/reference/test_K3mat_2plus1_cpp_dump.cpp",
       "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_m1_k2_pwave_shift",
-      "target": "src_python_qc3_init",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "scripts/m1/k2_pwave_shift.py",
-      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -197948,6 +197912,30 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_m1_k2_pwave_shift_find_root",
+      "target": "src_python_qc3_roots_refine_root",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "scripts/m1/k2_pwave_shift.py",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_m1_k2_pwave_shift_scan_roots",
+      "target": "src_python_qc3_roots_refine_root",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "scripts/m1/k2_pwave_shift.py",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_plot_plot_v33g_runtime_qc_det_compare_load_runtime_cache",
       "target": "runtimeerror",
       "relation": "calls",
@@ -201236,28 +201224,6 @@
       "weight": 1.0
     },
     {
-      "source": "scripts_m1_k2_pwave_shift_find_root",
-      "target": "src_python_qc3_point_missingrooterror",
-      "relation": "uses",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "scripts/m1/k2_pwave_shift.py",
-      "source_location": "L68",
-      "weight": 0.8
-    },
-    {
-      "source": "scripts_m1_k2_pwave_shift_main",
-      "target": "src_python_qc3_sector_sector",
-      "relation": "uses",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "scripts/m1/k2_pwave_shift.py",
-      "source_location": "L119",
-      "weight": 0.8
-    },
-    {
       "source": "src_python_qc3_point_pointresult",
       "target": "src_python_qc3_sector_sector",
       "relation": "uses",
@@ -201424,5 +201390,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a25b1e1e8906048ea0d411810039a1475567ee49"
+  "built_at_commit": "7f81b4641b4ee77033d8bd53c4bbc56ca21b4db3"
 }

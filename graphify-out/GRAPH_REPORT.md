@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 6103 nodes · 11157 edges · 356 communities (294 shown, 60 thin omitted)
+- 6103 nodes · 11154 edges · 356 communities (294 shown, 60 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 430 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a25b1e1e`
+- Built from commit: `7f81b464`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -385,14 +385,14 @@
 ## Surprising Connections (you probably didn't know these)
 - `test_match_levels_D3()` --calls--> `match_levels()`  [INFERRED]
   tests/acceptance/m1/test_m1_lattice.py → src/python/qc3/lattice.py
-- `main()` --calls--> `parse_label()`  [INFERRED]
-  legacy/cachegen_reference/generate_swave_cpu_cache_qc.cpp → src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp
+- `sector()` --uses--> `Sector`  [INFERRED]
+  tests/acceptance/m1/m1_helpers.py → src/python/qc3/sector.py
+- `test_refine_root_finds_simple_zero_and_raises_without_sign_change()` --uses--> `MissingRootError`  [INFERRED]
+  tests/unit/test_qc_lattice_roots.py → src/python/qc3/point.py
+- `write_fit_summary()` --calls--> `parse_label()`  [INFERRED]
+  legacy/v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp → src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp
 - `evaluate_one_energy_cpu_eigen_v24_QC()` --calls--> `F2_2plus1_mat()`  [INFERRED]
   legacy/root_finding_lineage/F3_cpu_openmp_v24_K3_QC_multi_signflip_side_abs_refinement.cpp → src/core/F2_functions_v2.h
-- `evaluate_one_energy_cpu_eigen_v24_QC()` --calls--> `config_maker_4()`  [INFERRED]
-  legacy/root_finding_lineage/F3_cpu_openmp_v24_K3_QC_multi_signflip_side_abs_refinement.cpp → src/core/functions.h
-- `evaluate_one_energy_cpu_eigen_v24_QC()` --calls--> `Ecm_to_E()`  [INFERRED]
-  legacy/root_finding_lineage/F3_cpu_openmp_v24_K3_QC_multi_signflip_side_abs_refinement.cpp → src/core/functions.h
 
 ## Import Cycles
 - None detected.
@@ -1456,8 +1456,8 @@ Cohesion: 0.40
 Nodes (5): V3Shoulder, kind, n, reason, score
 
 ### Community 322 - "Sector"
-Cohesion: 0.14
-Nodes (20): parametrize, ndarray, Production sector (CLAUDE.md invariant 3); `overrides` replace individual…, Sector, Unit tests for the fast path v1 (prompts/001 step 6). Small points only., Ellipsoid truncation at trunc_eps=1e-16 vs an (almost) untruncated sum…, _rel(), test_both_pwave_forms_follow_oracle() (+12 more)
+Cohesion: 0.13
+Nodes (21): parametrize, qc3: cache-free single-energy three-body quantization condition (prompts/001).…, ndarray, Production sector (CLAUDE.md invariant 3); `overrides` replace individual…, Sector, Unit tests for the fast path v1 (prompts/001 step 6). Small points only., Ellipsoid truncation at trunc_eps=1e-16 vs an (almost) untruncated sum…, _rel() (+13 more)
 
 ### Community 323 - "/kickoff — start the physics loop here"
 Cohesion: 0.22
@@ -1476,8 +1476,8 @@ Cohesion: 0.25
 Nodes (10): K3_basis_matrices(), Reference K_df,3 basis matrices by numerical angular projection…, Four-momenta (n,4) of (kaon_1, kaon_2, pion) for spectator k of flavour flav…, basis_list: [(flavour, pvec, ell, m)], pvec = 2 pi n/L. Returns dict iso0,…, sphere_grid(), _state(), boost_from_frame(), Orthonormal real spherical harmonics on unit vectors (App. A.1): Y_00 =… (+2 more)
 
 ### Community 327 - "k2_pwave_shift.py"
-Cohesion: 0.15
-Nodes (19): _ev(), find_root(), _is_zero(), main(), M1 step 9: p-wave K2^{-1} form quantification for decision D7 (prompts/001 sec…, Brent also converges to POLES (a sign change of det Q). Validate: ln|det Q| at…, Plan rule: refine_root in [left,right]; if no sign change, or the sign change…, Supplementary (not the plan rule): scan [lo,hi] on npts points, Brent-refine… (+11 more)
+Cohesion: 0.16
+Nodes (18): _ev(), find_root(), _is_zero(), main(), M1 step 9: p-wave K2^{-1} form quantification for decision D7 (prompts/001 sec…, Brent also converges to POLES (a sign change of det Q). Validate: ln|det Q| at…, Plan rule: refine_root in [left,right]; if no sign change, or the sign change…, Supplementary (not the plan rule): scan [lo,hi] on npts points, Brent-refine… (+10 more)
 
 ### Community 328 - "fixer.md"
 Cohesion: 0.29
@@ -1576,7 +1576,7 @@ Cohesion: 0.50
 Nodes (4): SignFlip, E_linear, left, right
 
 ## Knowledge Gaps
-- **3301 isolated node(s):** `build_gpu.sh script`, `.val500_100A2_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen_sep_f2k2.sh script`, `config_gpu_component_cachegen_sep_f2k2_coarse20000.sh script` (+3296 more)
+- **3301 isolated node(s):** `K3dfFCN_v32f`, `K3dfFCN_v32f`, `Convention`, ``L20_spectrum_plotter_model_true_zeros_yaxis_fixed.py``, ``packaging/generate_function_index.py`` (+3296 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 3643 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **60 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1584,12 +1584,12 @@ Nodes (4): SignFlip, E_linear, left, right
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `FitSettings` connect `FitSettings` to `QCPointValue`, `v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `FitResult`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+  _High betweenness centrality (0.024) - this node is a cross-community bridge._
+- **Why does `MultiConfig` connect `MultiConfig` to `MultiTarget`, `RuntimeBlock`, `MultiLFCN`, `qc_fitter_norm_refine_v2_multiL.cpp`, `vector`, `CacheKey`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **Why does `parse_label()` connect `qc_fitter_norm_refine_v2_multiL.cpp` to `generate_swave_cpu_cache_qc.cpp`, `generate_cpu_component_cache.cpp`, `scan_projF3inv_digonto_classifier_v2.cpp`, `main`, `compare_gpu_cache_vs_cpu_openmp_det_oldscale.cpp`, `debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp`, `v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `run`, `v33g_build_runtime_k3basis_cache.cpp`, `v33h_patched_gpu_cache_oldscale_det_scan.cpp`, `make_refined_mesh_v32s`, `string`, `load_binary_f3inv_cache_v32f`, `v33g_runtime_k3basis_cache.hpp`, `fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `TargetLevel`, `FitResult`, `oracle_point.hpp`, `CachedProjectorV30q`, `FitResult`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **Why does `FitSettings` connect `FitSettings` to `TargetLevel`, `fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `FitResult`, `vector`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
-- **What connects `build_gpu.sh script`, `.val500_100A2_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen.sh script` to the rest of the system?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+- **What connects `K3dfFCN_v32f`, `K3dfFCN_v32f`, `Convention` to the rest of the system?**
   _3301 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Code and function index` be split into smaller, more focused modules?**
   _Cohesion score 0.008849557522123894 - nodes in this community are weakly interconnected._
