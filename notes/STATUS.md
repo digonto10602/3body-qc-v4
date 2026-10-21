@@ -4,11 +4,13 @@
 - **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
 - **Acceptance tag:** `acceptance-v1` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`). Check with `.claude/bin/acceptance-check`. The tag points at commit `7801d97`. It exists **only locally**: this cloud session cannot push tags (HTTP 403). If it is missing, recreate it with `git tag -a acceptance-v1 7801d97 -m "kickoff: prompts/001-m1-cache-free-single-energy-qc.md"`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **step 2**, the oracle wrapper (`qc3.oracle.evaluate_point`, `src/qc3_core/oracle_point.hpp`).
-- **Step 1 DONE**, verified by `reports/tests/001-m1-step1-build-stubs.md` (PASS, 8/8 checks).
-  - `./build.sh core` takes 7.4 s.
-  - `./build.sh all` takes 5 m 32 s. It skips the fitter, because Minuit2 is not installed.
-  - All 33 acceptance tests fail with `NotImplementedError`, as expected at this stage.
+- **Current step:** M1 **step 3**, the reference checks plus the `q0_consistent` p-wave form in the oracle.
+- **Step 2 DONE**, verified by `reports/tests/002-m1-step2-oracle-wrapper.md` (PASS).
+  - All 7 tests in `test_m1_oracle.py` pass.
+  - 3 tests in `test_m1_reference.py` already pass.
+  - The oracle takes 2.0–10.4 s per point on 1 thread; $F$ is 87–98% of that.
+  - The final $Q$ and slogdet are computed in NumPy, so they match the anchors bit for bit. The Eigen LU values are kept in the metadata.
+- **Step 1 DONE**, verified by `reports/tests/001` (PASS).
 - **Last completed:** kickoff.
   - Planner report: `reports/research/007-single-energy-qc-methods-and-reference.md`.
   - Independent reference: `tests/acceptance/m1/qc3ref/`, NumPy code written from arXiv:2111.12734. It agrees with the oracle dumps to $\le 2.5\times10^{-14}$ (relative).
@@ -50,6 +52,17 @@ M1 counters (reset at kickoff, `acceptance-v1`):
 | check | builder attempts | tester rounds | fixer | planner |
 |---|---|---|---|---|
 | — | 0 | 0 | 0 | 0 |
+
+## Notes for the M1 auditor (from tester 002)
+- **Anchor tolerances are below the round-off floor at ill-conditioned points.**
+  - Tolerances: oracle vs anchors $10^{-10}$ (with $\vec c=0$) and $10^{-9}$ (with baseline $\vec c$).
+  - At 100_A2 0.2915561 with baseline $\vec c$, $\kappa(Q)=3.8\times10^{12}$. At 200_A2 0.34738, $\kappa(F_3)=4.8\times10^{8}$.
+  - These tests pass only because the oracle uses the same LAPACK `slogdet` as the anchor script. The margin is 7.3×; it is robust to thread count.
+  - So they test reproducibility, not physical accuracy. An independent `eigvalsh` determinant differs by $4\times10^{-7}$ at the worst point.
+  - They may fail on a different CPU or BLAS. Changing them is the planner's decision; it is not a blocker now.
+- **A tautological assertion.** The last assertion of `test_oracle_reality_hermiticity_isometry` compares NumPy `slogdet` with itself.
+- **Commit hash can go stale.** `metadata["git_commit"]` is fixed when `_core` is built. Rebuild `_core` after committing before producing any result that leaves the project.
+- **Projector build counted in the oracle time.** The oracle rebuilds the projector on every call: 5.3 s at 000_A1m 0.34538. The speed-up benchmark must report the gain stage by stage.
 
 ## Known-unverified
 
