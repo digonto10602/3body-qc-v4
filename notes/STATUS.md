@@ -4,11 +4,14 @@
 - **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
 - **Acceptance tag:** `acceptance-v3` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`; v2 = v1 plus the sign-flip fix; v3 = v2 plus the portability-test self-scan fix; both in the `prompts/001` §4 amendments, approved by Digonto). Check with `.claude/bin/acceptance-check`. Tags exist **only locally**, because this cloud session cannot push tags (HTTP 403). `acceptance-v1` = `7801d97` , `acceptance-v2` = `bcf12cd` and `acceptance-v3` = `e74f94b`. If they are missing, recreate them with `git tag -a <tag> <commit> -m ...`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **step 5**, portability (`default_data_dir`, `QC_DATA_ROOT`, no absolute home paths).
-  - It also fixes three silent-failure paths in `lattice.py` that tester 004 found:
-    1. `load_levels` drops levels whose $E^*$ is NaN without telling anyone;
-    2. `chi2` ignores negative eigenvalues and an all-zero covariance;
-    3. file names with a bad `_n<k>` suffix are skipped without a message.
+- **Current step:** M1 **step 6**, fast path v1 (rungs 1–4), in `src/qc3_core/fast_point.hpp` and `qc3.fast`.
+- **Step 5 DONE**, verified by `reports/tests/005-m1-step5-portability.md` (PASS).
+  - `default_data_dir` honours `QC_DATA_ROOT`, otherwise `<repo>/data`, independent of the working directory.
+  - The three silent-failure paths now raise.
+  - The real L20 numbers are bit-identical to report 004.
+  - 147 legacy files outside the M1 path still contain `/home/digonto`-style paths. They are not touched; the counts per directory are in report 005.
+  - `accepted_windows.csv` keeps such paths in its provenance column only. That is acceptable (`prompts/001` §4, amendment v3).
+  - Minor note: `chi2` on an empty covariance raises with an unclear NumPy message.
 - **Step 4 DONE**, verified by `reports/tests/004-m1-step4-qc-lattice.md` (PASS).
   - 12 of 12 step-4 tests and 16 unit tests pass.
   - D1 is confirmed. The legacy reader's variance is $602^2$ times too large: $\sigma=0.3102$ against the correct $5.153\times10^{-4}$ for 20_000_A1m_n0.
