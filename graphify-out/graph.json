@@ -251,6 +251,19 @@
       "source_location": "L49"
     },
     {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow",
+      "label": "DetRow",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "detrow",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L852"
+    },
+    {
       "id": "src_cachegen_gpu_f3_gpu_cachegen_v32zu_v32ztstopwatch",
       "label": "V32ztStopwatch",
       "_callable": true,
@@ -576,19 +589,6 @@
       "source_location": "L74"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow",
-      "label": "DetRow",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "detrow",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L848"
-    },
-    {
       "id": "src_fitter_lattice_data_covariance_cpp_covarianceresult",
       "label": "CovarianceResult",
       "_callable": true,
@@ -771,19 +771,6 @@
       "source_location": "L30"
     },
     {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics",
-      "label": "RepDiagnostics",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "repdiagnostics",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L49"
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_cpu_openmp_v24_k3_qc_multi_signflip_side_abs_refinement_scanpoint",
       "label": "ScanPoint",
       "_callable": true,
@@ -959,7 +946,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 195,
-      "community_name": "ScopedTimer",
+      "community_name": "string",
       "file_type": "code",
       "norm_label": "scopedtimer",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
@@ -1232,7 +1219,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 227,
-      "community_name": "string",
+      "community_name": "ScopedTimer",
       "file_type": "code",
       "norm_label": "scopedtimer",
       "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
@@ -1629,17 +1616,30 @@
       "source_location": "L178"
     },
     {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow",
-      "label": "DetRow",
+      "id": "src_core_dig_tools_manualtimer",
+      "label": "ManualTimer",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 310,
-      "community_name": "DetRow",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
       "file_type": "code",
-      "norm_label": "detrow",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L852"
+      "norm_label": "manualtimer",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L48"
+    },
+    {
+      "id": "src_core_dig_tools_scopedtimer",
+      "label": "ScopedTimer",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "scopedtimer",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L24"
     },
     {
       "id": "src_cache_io_v33h_patched_gpu_cache_oldscale_det_scan_v33hbridgerow",
@@ -1653,6 +1653,19 @@
       "norm_label": "v33hbridgerow",
       "source_file": "src/cache_io/v33h_patched_gpu_cache_oldscale_det_scan.cpp",
       "source_location": "L511"
+    },
+    {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics",
+      "label": "RepDiagnostics",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "repdiagnostics",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L49"
     },
     {
       "id": "src_fitter_qc_fitter_norm_refine_v2_v3shoulder",
@@ -1681,6 +1694,32 @@
       "source_location": "L12"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow",
+      "label": "DetRow",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 324,
+      "community_name": "DetRow",
+      "file_type": "code",
+      "norm_label": "detrow",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L848"
+    },
+    {
+      "id": "src_python_qc3_point_levelset",
+      "label": "LevelSet",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 327,
+      "community_name": "load_levels",
+      "file_type": "code",
+      "norm_label": "levelset",
+      "source_file": "src/python/qc3/point.py",
+      "source_location": "L46"
+    },
+    {
       "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_evaldata",
       "label": "EvalData",
       "_callable": true,
@@ -1705,6 +1744,19 @@
       "norm_label": "f3iprojectedcache",
       "source_file": "src/fitter/F3_cpu_openmp_v25_K3QC_cached_core.hpp",
       "source_location": "L183"
+    },
+    {
+      "id": "src_python_qc3_point_missingrooterror",
+      "label": "MissingRootError",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 335,
+      "community_name": "MissingRootError",
+      "file_type": "code",
+      "norm_label": "missingrooterror",
+      "source_file": "src/python/qc3/point.py",
+      "source_location": "L15"
     },
     {
       "id": "src_fitter_f3_cpu_openmp_v25_k3qc_cached_core_localscopedtimer",
@@ -1796,19 +1848,6 @@
       "norm_label": "targetlevel",
       "source_file": "scripts/classifier/plot_classifier_algorithm_sweep_v33l.py",
       "source_location": "L87"
-    },
-    {
-      "id": "src_python_qc3_point_missingrooterror",
-      "label": "MissingRootError",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 344,
-      "community_name": "MissingRootError",
-      "file_type": "code",
-      "norm_label": "missingrooterror",
-      "source_file": "src/python/qc3/point.py",
-      "source_location": "L15"
     },
     {
       "id": "src_core_f2_functions_v2_neumaierdouble",
@@ -1952,32 +1991,6 @@
       "norm_label": "detnormrow",
       "source_file": "legacy/root_finding_lineage/F3_gpu_omp_cublas_pipeline_v9_inward_shape_refinement.cu",
       "source_location": "L1627"
-    },
-    {
-      "id": "src_core_dig_tools_manualtimer",
-      "label": "ManualTimer",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "manualtimer",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L48"
-    },
-    {
-      "id": "src_core_dig_tools_scopedtimer",
-      "label": "ScopedTimer",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "scopedtimer",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L24"
     },
     {
       "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_momentumirrepspec",
@@ -2199,19 +2212,6 @@
       "norm_label": "v32ztirrepspec",
       "source_file": "src/cachegen_gpu/F3_gpu_cachegen_v32zu.cu",
       "source_location": "L654"
-    },
-    {
-      "id": "src_python_qc3_point_levelset",
-      "label": "LevelSet",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 65,
-      "community_name": "point.py",
-      "file_type": "code",
-      "norm_label": "levelset",
-      "source_file": "src/python/qc3/point.py",
-      "source_location": "L46"
     },
     {
       "id": "src_python_qc3_point_pointresult",
@@ -4392,6 +4392,18 @@
       "source_location": "L67"
     },
     {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_adaptive_final_zeros_device_resident",
+      "label": "adaptive_final_zeros_device_resident()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "adaptive_final_zeros_device_resident()",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L1741"
+    },
+    {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_build_projection_vsel_device",
       "label": "build_projection_Vsel_device()",
       "_callable": true,
@@ -4402,6 +4414,18 @@
       "norm_label": "build_projection_vsel_device()",
       "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
       "source_location": "L594"
+    },
+    {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_classify_inward_shape",
+      "label": "classify_inward_shape()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "classify_inward_shape()",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L1704"
     },
     {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_compute_one_energy_device_resident",
@@ -4464,6 +4488,30 @@
       "source_location": "L887"
     },
     {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_linear_zero",
+      "label": "linear_zero()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "linear_zero()",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L1697"
+    },
+    {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L1803"
+    },
+    {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_make_scatter_params_1",
       "label": "make_scatter_params_1()",
       "_callable": true,
@@ -4522,6 +4570,30 @@
       "norm_label": "run_scan_device_resident()",
       "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
       "source_location": "L1499"
+    },
+    {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_sign_flip",
+      "label": "sign_flip()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "sign_flip()",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L1692"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_devicescatterparams_view",
+      "label": ".view()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": ".view()",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L336"
     },
     {
       "id": "src_cachegen_gpu_f3_gpu_cachegen_v32zu_v32zt_process_same_shape_chunk_cache",
@@ -6264,30 +6336,6 @@
       "source_location": "L590"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_choose_projection_parity_v20",
-      "label": "choose_projection_parity_v20()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "choose_projection_parity_v20()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1512"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_classify_inward_shape",
-      "label": "classify_inward_shape()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "classify_inward_shape()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1895"
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_compute_one_energy_device_resident",
       "label": "compute_one_energy_device_resident()",
       "_callable": true,
@@ -6336,18 +6384,6 @@
       "source_location": "L436"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_get_energy_shape_prepass",
-      "label": "get_energy_shape_prepass()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "get_energy_shape_prepass()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L883"
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_make_scatter_params_1",
       "label": "make_scatter_params_1()",
       "_callable": true,
@@ -6372,18 +6408,6 @@
       "source_location": "L583"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_process_same_shape_group_stream_parallel",
-      "label": "process_same_shape_group_stream_parallel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "process_same_shape_group_stream_parallel()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1428"
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_process_same_shape_group_true_batch_v15",
       "label": "process_same_shape_group_true_batch_v15()",
       "_callable": true,
@@ -6394,30 +6418,6 @@
       "norm_label": "process_same_shape_group_true_batch_v15()",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
       "source_location": "L1129"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_run_scan_device_resident",
-      "label": "run_scan_device_resident()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "run_scan_device_resident()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1545"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_devicescatterparams_view",
-      "label": ".view()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": ".view()",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L336"
     },
     {
       "id": "src_fitter_lattice_data_covariance_cpp_convert_jackknife_energy_to_ecm",
@@ -7464,6 +7464,18 @@
       "source_location": "L1097"
     },
     {
+      "id": "legacy_v32w_single_l_fitter_qc_fitter_norm_refine_v2_qcrefinedfcn_save_refined_cache_if_requested",
+      "label": ".save_refined_cache_if_requested()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 176,
+      "community_name": "save_binary_f3inv_cache_v32f",
+      "file_type": "code",
+      "norm_label": ".save_refined_cache_if_requested()",
+      "source_file": "legacy/v32w_single_L_fitter/qc_fitter_norm_refine_v2.cpp",
+      "source_location": "L185"
+    },
+    {
       "id": "legacy_v32w_single_l_fitter_qc_fitter_norm_refine_v2_build_entry",
       "label": "build_entry()",
       "_callable": true,
@@ -7932,12 +7944,84 @@
       "source_location": "L91"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_adaptive_final_zeros_device_resident",
+      "label": "adaptive_final_zeros_device_resident()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "string",
+      "file_type": "code",
+      "norm_label": "adaptive_final_zeros_device_resident()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1902"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_choose_projection_parity_v20",
+      "label": "choose_projection_parity_v20()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "string",
+      "file_type": "code",
+      "norm_label": "choose_projection_parity_v20()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1512"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_get_energy_shape_prepass",
+      "label": "get_energy_shape_prepass()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "string",
+      "file_type": "code",
+      "norm_label": "get_energy_shape_prepass()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L883"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "string",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L2017"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_process_same_shape_group_stream_parallel",
+      "label": "process_same_shape_group_stream_parallel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "string",
+      "file_type": "code",
+      "norm_label": "process_same_shape_group_stream_parallel()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1428"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_run_scan_device_resident",
+      "label": "run_scan_device_resident()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "string",
+      "file_type": "code",
+      "norm_label": "run_scan_device_resident()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1545"
+    },
+    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_scopedtimer",
       "label": ".ScopedTimer()",
       "_callable": true,
       "_origin": "ast",
       "community": 195,
-      "community_name": "ScopedTimer",
+      "community_name": "string",
       "file_type": "code",
       "norm_label": ".scopedtimer()",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
@@ -9072,76 +9156,16 @@
       "source_location": "L35"
     },
     {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_adaptive_final_zeros_device_resident",
-      "label": "adaptive_final_zeros_device_resident()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 227,
-      "community_name": "string",
-      "file_type": "code",
-      "norm_label": "adaptive_final_zeros_device_resident()",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L1741"
-    },
-    {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_classify_inward_shape",
-      "label": "classify_inward_shape()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 227,
-      "community_name": "string",
-      "file_type": "code",
-      "norm_label": "classify_inward_shape()",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L1704"
-    },
-    {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_linear_zero",
-      "label": "linear_zero()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 227,
-      "community_name": "string",
-      "file_type": "code",
-      "norm_label": "linear_zero()",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L1697"
-    },
-    {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_main",
-      "label": "main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 227,
-      "community_name": "string",
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L1803"
-    },
-    {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_scopedtimer_scopedtimer",
       "label": ".ScopedTimer()",
       "_callable": true,
       "_origin": "ast",
       "community": 227,
-      "community_name": "string",
+      "community_name": "ScopedTimer",
       "file_type": "code",
       "norm_label": ".scopedtimer()",
       "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
       "source_location": "L118"
-    },
-    {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_sign_flip",
-      "label": "sign_flip()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 227,
-      "community_name": "string",
-      "file_type": "code",
-      "norm_label": "sign_flip()",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L1692"
     },
     {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_energyshapekey_operator",
@@ -10344,18 +10368,6 @@
       "source_location": "L209"
     },
     {
-      "id": "src_python_qc3_lattice_match_levels",
-      "label": "match_levels()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 260,
-      "community_name": "test_m1_lattice.py",
-      "file_type": "code",
-      "norm_label": "match_levels()",
-      "source_file": "src/python/qc3/lattice.py",
-      "source_location": "L141"
-    },
-    {
       "id": "tests_acceptance_m1_test_m1_lattice_p_of",
       "label": "_P_of()",
       "_callable": true,
@@ -10462,18 +10474,6 @@
       "norm_label": "_write_jack()",
       "source_file": "tests/acceptance/m1/test_m1_lattice.py",
       "source_location": "L15"
-    },
-    {
-      "id": "tests_unit_test_qc_lattice_roots_test_match_levels_edge_cases",
-      "label": "test_match_levels_edge_cases()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 260,
-      "community_name": "test_m1_lattice.py",
-      "file_type": "code",
-      "norm_label": "test_match_levels_edge_cases()",
-      "source_file": "tests/unit/test_qc_lattice_roots.py",
-      "source_location": "L171"
     },
     {
       "id": "legacy_v32w_single_l_fitter_k3df_minuit_fit_v32f_fullf3inv_qcfull_cached_classifier_build_cache_entry",
@@ -11556,6 +11556,282 @@
       "source_location": "L196"
     },
     {
+      "id": "src_core_projections_v1_wigner_d_tests",
+      "label": "wigner_d_tests()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "wigner_d_tests()",
+      "source_file": "src/core/projections_v1.hpp",
+      "source_location": "L1110"
+    },
+    {
+      "id": "src_core_real_wigner_d_approx_equal",
+      "label": "approx_equal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "approx_equal()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L45"
+    },
+    {
+      "id": "src_core_real_wigner_d_approx_equal_matrix",
+      "label": "approx_equal_matrix()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "approx_equal_matrix()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_core_real_wigner_d_check_m_range",
+      "label": "check_m_range()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "check_m_range()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L25"
+    },
+    {
+      "id": "src_core_real_wigner_d_d_real_element",
+      "label": "D_real_element()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "d_real_element()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L305"
+    },
+    {
+      "id": "src_core_real_wigner_d_d_real_matrix",
+      "label": "D_real_matrix()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "d_real_matrix()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L284"
+    },
+    {
+      "id": "src_core_real_wigner_d_d_real_matrix_proper",
+      "label": "D_real_matrix_proper()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "d_real_matrix_proper()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L257"
+    },
+    {
+      "id": "src_core_real_wigner_d_factorial_int",
+      "label": "factorial_int()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "factorial_int()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L32"
+    },
+    {
+      "id": "src_core_real_wigner_d_midx",
+      "label": "midx()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "midx()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L20"
+    },
+    {
+      "id": "src_core_real_wigner_d_print_matrix",
+      "label": "print_matrix()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "print_matrix()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L320"
+    },
+    {
+      "id": "src_core_real_wigner_d_real_to_complex_u",
+      "label": "real_to_complex_U()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "real_to_complex_u()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L209"
+    },
+    {
+      "id": "src_core_real_wigner_d_rotation_matrix_to_zyz",
+      "label": "rotation_matrix_to_zyz()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "rotation_matrix_to_zyz()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L116"
+    },
+    {
+      "id": "src_core_real_wigner_d_run_basic_tests",
+      "label": "run_basic_tests()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "run_basic_tests()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L439"
+    },
+    {
+      "id": "src_core_real_wigner_d_signed_perm_to_matrix",
+      "label": "signed_perm_to_matrix()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "signed_perm_to_matrix()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L83"
+    },
+    {
+      "id": "src_core_real_wigner_d_test_d_real_element_vs_matrix",
+      "label": "test_D_real_element_vs_matrix()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "test_d_real_element_vs_matrix()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L421"
+    },
+    {
+      "id": "src_core_real_wigner_d_test_d_real_identity",
+      "label": "test_D_real_identity()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "test_d_real_identity()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L365"
+    },
+    {
+      "id": "src_core_real_wigner_d_test_d_real_orthogonality",
+      "label": "test_D_real_orthogonality()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "test_d_real_orthogonality()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L405"
+    },
+    {
+      "id": "src_core_real_wigner_d_test_d_real_reflection_parity",
+      "label": "test_D_real_reflection_parity()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "test_d_real_reflection_parity()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L381"
+    },
+    {
+      "id": "src_core_real_wigner_d_test_d_real_swap_xy",
+      "label": "test_D_real_swap_xy()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "test_d_real_swap_xy()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L395"
+    },
+    {
+      "id": "src_core_real_wigner_d_test_signed_perm_to_matrix",
+      "label": "test_signed_perm_to_matrix()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "test_signed_perm_to_matrix()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L336"
+    },
+    {
+      "id": "src_core_real_wigner_d_wigner_d_complex_element_from_euler",
+      "label": "wigner_D_complex_element_from_euler()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "wigner_d_complex_element_from_euler()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L192"
+    },
+    {
+      "id": "src_core_real_wigner_d_wigner_d_complex_matrix_from_rotation",
+      "label": "wigner_D_complex_matrix_from_rotation()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "wigner_d_complex_matrix_from_rotation()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L235"
+    },
+    {
+      "id": "src_core_real_wigner_d_wigner_small_d",
+      "label": "wigner_small_d()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "wigner_small_d()",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L136"
+    },
+    {
       "id": "tests_reference_test_k3mat_2plus1_cpp_dump_main",
       "label": "main()",
       "_callable": true,
@@ -12000,6 +12276,66 @@
       "source_location": "L55"
     },
     {
+      "id": "src_core_dig_tools_manualtimer_ms",
+      "label": ".ms()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": ".ms()",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L54"
+    },
+    {
+      "id": "src_core_dig_tools_manualtimer_start",
+      "label": ".start()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": ".start()",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L52"
+    },
+    {
+      "id": "src_core_dig_tools_print_function_output_to_file",
+      "label": "print_function_output_to_file()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "print_function_output_to_file()",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L62"
+    },
+    {
+      "id": "src_core_dig_tools_printer",
+      "label": "printer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "printer()",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_core_dig_tools_scopedtimer_scopedtimer",
+      "label": ".ScopedTimer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": ".scopedtimer()",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L30"
+    },
+    {
       "id": "src_python_qc3_lattice_chi2",
       "label": "chi2()",
       "_callable": true,
@@ -12010,18 +12346,6 @@
       "norm_label": "chi2()",
       "source_file": "src/python/qc3/lattice.py",
       "source_location": "L155"
-    },
-    {
-      "id": "tests_unit_test_qc_lattice_roots_fake_eval",
-      "label": "_fake_eval()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 319,
-      "community_name": "test_qc_lattice_roots.py",
-      "file_type": "code",
-      "norm_label": "_fake_eval()",
-      "source_file": "tests/unit/test_qc_lattice_roots.py",
-      "source_location": "L48"
     },
     {
       "id": "tests_unit_test_qc_lattice_roots_test_chi2_matches_solve_and_drops_null_direction",
@@ -12118,18 +12442,6 @@
       "norm_label": "test_read_jack_header_mismatch_raises()",
       "source_file": "tests/unit/test_qc_lattice_roots.py",
       "source_location": "L64"
-    },
-    {
-      "id": "tests_unit_test_qc_lattice_roots_test_refine_root_finds_simple_zero_and_raises_without_sign_change",
-      "label": "test_refine_root_finds_simple_zero_and_raises_without_sign_change()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 319,
-      "community_name": "test_qc_lattice_roots.py",
-      "file_type": "code",
-      "norm_label": "test_refine_root_finds_simple_zero_and_raises_without_sign_change()",
-      "source_file": "tests/unit/test_qc_lattice_roots.py",
-      "source_location": "L55"
     },
     {
       "id": "tests_unit_test_qc_lattice_roots_test_sigma_is_sd_over_sqrt_n_for_per_config_file",
@@ -12576,6 +12888,54 @@
       "source_location": "L9"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_classify_inward_shape",
+      "label": "classify_inward_shape()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 324,
+      "community_name": "DetRow",
+      "file_type": "code",
+      "norm_label": "classify_inward_shape()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1895"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_classify_inward_shape_result",
+      "label": "classify_inward_shape_result()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 324,
+      "community_name": "DetRow",
+      "file_type": "code",
+      "norm_label": "classify_inward_shape_result()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1765"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_linear_zero",
+      "label": "linear_zero()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 324,
+      "community_name": "DetRow",
+      "file_type": "code",
+      "norm_label": "linear_zero()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1747"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_sign_flip",
+      "label": "sign_flip()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 324,
+      "community_name": "DetRow",
+      "file_type": "code",
+      "norm_label": "sign_flip()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1742"
+    },
+    {
       "id": "tests_acceptance_m1_qc3ref_basis_basis_to_list",
       "label": "basis_to_list()",
       "_callable": true,
@@ -12862,6 +13222,66 @@
       "norm_label": ".clear()",
       "source_file": "src/fitter/F3_cpu_openmp_v25_K3QC_cached_core.hpp",
       "source_location": "L189"
+    },
+    {
+      "id": "src_python_qc3_lattice_match_levels",
+      "label": "match_levels()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 335,
+      "community_name": "MissingRootError",
+      "file_type": "code",
+      "norm_label": "match_levels()",
+      "source_file": "src/python/qc3/lattice.py",
+      "source_location": "L141"
+    },
+    {
+      "id": "src_python_qc3_roots_refine_root",
+      "label": "refine_root()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 335,
+      "community_name": "MissingRootError",
+      "file_type": "code",
+      "norm_label": "refine_root()",
+      "source_file": "src/python/qc3/roots.py",
+      "source_location": "L9"
+    },
+    {
+      "id": "tests_unit_test_qc_lattice_roots_fake_eval",
+      "label": "_fake_eval()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 335,
+      "community_name": "MissingRootError",
+      "file_type": "code",
+      "norm_label": "_fake_eval()",
+      "source_file": "tests/unit/test_qc_lattice_roots.py",
+      "source_location": "L48"
+    },
+    {
+      "id": "tests_unit_test_qc_lattice_roots_test_match_levels_edge_cases",
+      "label": "test_match_levels_edge_cases()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 335,
+      "community_name": "MissingRootError",
+      "file_type": "code",
+      "norm_label": "test_match_levels_edge_cases()",
+      "source_file": "tests/unit/test_qc_lattice_roots.py",
+      "source_location": "L171"
+    },
+    {
+      "id": "tests_unit_test_qc_lattice_roots_test_refine_root_finds_simple_zero_and_raises_without_sign_change",
+      "label": "test_refine_root_finds_simple_zero_and_raises_without_sign_change()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 335,
+      "community_name": "MissingRootError",
+      "file_type": "code",
+      "norm_label": "test_refine_root_finds_simple_zero_and_raises_without_sign_change()",
+      "source_file": "tests/unit/test_qc_lattice_roots.py",
+      "source_location": "L55"
     },
     {
       "id": "src_fitter_f3_cpu_openmp_v25_k3qc_cached_core_localscopedtimer_localscopedtimer",
@@ -13601,7 +14021,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "project_q()",
       "source_file": "src/python/qc3/qc.py",
@@ -13613,23 +14033,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "slogdet()",
       "source_file": "src/python/qc3/qc.py",
       "source_location": "L20"
-    },
-    {
-      "id": "src_python_qc3_roots_refine_root",
-      "label": "refine_root()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 344,
-      "community_name": "MissingRootError",
-      "file_type": "code",
-      "norm_label": "refine_root()",
-      "source_file": "src/python/qc3/roots.py",
-      "source_location": "L9"
     },
     {
       "id": "tests_acceptance_m1_test_m1_qc_identities_synthetic",
@@ -13637,7 +14045,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "_synthetic()",
       "source_file": "tests/acceptance/m1/test_m1_qc_identities.py",
@@ -13649,7 +14057,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "test_lndet_invariant_under_unitary_mixing_of_vsel()",
       "source_file": "tests/acceptance/m1/test_m1_qc_identities.py",
@@ -13661,7 +14069,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "test_project_q_matches_definition()",
       "source_file": "tests/acceptance/m1/test_m1_qc_identities.py",
@@ -13673,7 +14081,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "test_scale_applies_to_matrix_not_determinant()",
       "source_file": "tests/acceptance/m1/test_m1_qc_identities.py",
@@ -13685,7 +14093,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "test_slogdet_matches_numpy_and_sign_is_integer()",
       "source_file": "tests/acceptance/m1/test_m1_qc_identities.py",
@@ -16668,66 +17076,6 @@
       "source_location": "L114"
     },
     {
-      "id": "src_core_dig_tools_manualtimer_ms",
-      "label": ".ms()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": ".ms()",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L54"
-    },
-    {
-      "id": "src_core_dig_tools_manualtimer_start",
-      "label": ".start()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": ".start()",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L52"
-    },
-    {
-      "id": "src_core_dig_tools_print_function_output_to_file",
-      "label": "print_function_output_to_file()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "print_function_output_to_file()",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L62"
-    },
-    {
-      "id": "src_core_dig_tools_printer",
-      "label": "printer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "printer()",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L14"
-    },
-    {
-      "id": "src_core_dig_tools_scopedtimer_scopedtimer",
-      "label": ".ScopedTimer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": ".scopedtimer()",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L30"
-    },
-    {
       "id": "src_core_projections_v1_all_perms_of_3",
       "label": "all_perms_of_3()",
       "_callable": true,
@@ -17122,282 +17470,6 @@
       "norm_label": "unique_sort_orbits()",
       "source_file": "src/core/projections_v1.hpp",
       "source_location": "L1027"
-    },
-    {
-      "id": "src_core_projections_v1_wigner_d_tests",
-      "label": "wigner_d_tests()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "wigner_d_tests()",
-      "source_file": "src/core/projections_v1.hpp",
-      "source_location": "L1110"
-    },
-    {
-      "id": "src_core_real_wigner_d_approx_equal",
-      "label": "approx_equal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "approx_equal()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L45"
-    },
-    {
-      "id": "src_core_real_wigner_d_approx_equal_matrix",
-      "label": "approx_equal_matrix()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "approx_equal_matrix()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L50"
-    },
-    {
-      "id": "src_core_real_wigner_d_check_m_range",
-      "label": "check_m_range()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "check_m_range()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L25"
-    },
-    {
-      "id": "src_core_real_wigner_d_d_real_element",
-      "label": "D_real_element()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "d_real_element()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L305"
-    },
-    {
-      "id": "src_core_real_wigner_d_d_real_matrix",
-      "label": "D_real_matrix()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "d_real_matrix()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L284"
-    },
-    {
-      "id": "src_core_real_wigner_d_d_real_matrix_proper",
-      "label": "D_real_matrix_proper()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "d_real_matrix_proper()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L257"
-    },
-    {
-      "id": "src_core_real_wigner_d_factorial_int",
-      "label": "factorial_int()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "factorial_int()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L32"
-    },
-    {
-      "id": "src_core_real_wigner_d_midx",
-      "label": "midx()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "midx()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L20"
-    },
-    {
-      "id": "src_core_real_wigner_d_print_matrix",
-      "label": "print_matrix()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "print_matrix()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L320"
-    },
-    {
-      "id": "src_core_real_wigner_d_real_to_complex_u",
-      "label": "real_to_complex_U()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "real_to_complex_u()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L209"
-    },
-    {
-      "id": "src_core_real_wigner_d_rotation_matrix_to_zyz",
-      "label": "rotation_matrix_to_zyz()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "rotation_matrix_to_zyz()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L116"
-    },
-    {
-      "id": "src_core_real_wigner_d_run_basic_tests",
-      "label": "run_basic_tests()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "run_basic_tests()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L439"
-    },
-    {
-      "id": "src_core_real_wigner_d_signed_perm_to_matrix",
-      "label": "signed_perm_to_matrix()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "signed_perm_to_matrix()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L83"
-    },
-    {
-      "id": "src_core_real_wigner_d_test_d_real_element_vs_matrix",
-      "label": "test_D_real_element_vs_matrix()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "test_d_real_element_vs_matrix()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L421"
-    },
-    {
-      "id": "src_core_real_wigner_d_test_d_real_identity",
-      "label": "test_D_real_identity()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "test_d_real_identity()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L365"
-    },
-    {
-      "id": "src_core_real_wigner_d_test_d_real_orthogonality",
-      "label": "test_D_real_orthogonality()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "test_d_real_orthogonality()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L405"
-    },
-    {
-      "id": "src_core_real_wigner_d_test_d_real_reflection_parity",
-      "label": "test_D_real_reflection_parity()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "test_d_real_reflection_parity()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L381"
-    },
-    {
-      "id": "src_core_real_wigner_d_test_d_real_swap_xy",
-      "label": "test_D_real_swap_xy()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "test_d_real_swap_xy()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L395"
-    },
-    {
-      "id": "src_core_real_wigner_d_test_signed_perm_to_matrix",
-      "label": "test_signed_perm_to_matrix()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "test_signed_perm_to_matrix()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L336"
-    },
-    {
-      "id": "src_core_real_wigner_d_wigner_d_complex_element_from_euler",
-      "label": "wigner_D_complex_element_from_euler()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "wigner_d_complex_element_from_euler()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L192"
-    },
-    {
-      "id": "src_core_real_wigner_d_wigner_d_complex_matrix_from_rotation",
-      "label": "wigner_D_complex_matrix_from_rotation()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "wigner_d_complex_matrix_from_rotation()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L235"
-    },
-    {
-      "id": "src_core_real_wigner_d_wigner_small_d",
-      "label": "wigner_small_d()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "wigner_small_d()",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L136"
     },
     {
       "id": "src_core_k3_functions_2plus1_boost_cpp",
@@ -20436,18 +20508,6 @@
       "source_location": "L236"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_adaptive_final_zeros_device_resident",
-      "label": "adaptive_final_zeros_device_resident()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 78,
-      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "file_type": "code",
-      "norm_label": "adaptive_final_zeros_device_resident()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1902"
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_build_f3_from_f2_and_f2x1_kernel",
       "label": "build_F3_from_F2_and_F2X1_kernel()",
       "_callable": true,
@@ -20472,18 +20532,6 @@
       "source_location": "L145"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_classify_inward_shape_result",
-      "label": "classify_inward_shape_result()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 78,
-      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "file_type": "code",
-      "norm_label": "classify_inward_shape_result()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1765"
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_combine_h_colmajor_kernel",
       "label": "combine_H_colmajor_kernel()",
       "_callable": true,
@@ -20506,42 +20554,6 @@
       "norm_label": "gather_real_evecs_to_complex_vsel_kernel()",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
       "source_location": "L417"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_linear_zero",
-      "label": "linear_zero()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 78,
-      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "file_type": "code",
-      "norm_label": "linear_zero()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1747"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_main",
-      "label": "main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 78,
-      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L2017"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_sign_flip",
-      "label": "sign_flip()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 78,
-      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "file_type": "code",
-      "norm_label": "sign_flip()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1742"
     },
     {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_v11_set_stage",
@@ -21296,18 +21308,6 @@
       "community_name": "QCRefinedFCN",
       "file_type": "code",
       "norm_label": ".qcrefinedfcn()",
-      "source_file": "legacy/v32w_single_L_fitter/qc_fitter_norm_refine_v2.cpp",
-      "source_location": "L185"
-    },
-    {
-      "id": "legacy_v32w_single_l_fitter_qc_fitter_norm_refine_v2_qcrefinedfcn_save_refined_cache_if_requested",
-      "label": ".save_refined_cache_if_requested()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 85,
-      "community_name": "QCRefinedFCN",
-      "file_type": "code",
-      "norm_label": ".save_refined_cache_if_requested()",
       "source_file": "legacy/v32w_single_L_fitter/qc_fitter_norm_refine_v2.cpp",
       "source_location": "L185"
     },
@@ -31641,6 +31641,17 @@
       "source_location": ""
     },
     {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_cu_string",
+      "label": "string",
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "string",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_cu_vector",
       "label": "vector",
       "_origin": "ast",
@@ -31650,6 +31661,50 @@
       "norm_label": "vector",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow_det_norm",
+      "label": "det_norm",
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "det_norm",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L857"
+    },
+    {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow_det_raw",
+      "label": "det_raw",
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "det_raw",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L856"
+    },
+    {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow_ecm",
+      "label": "Ecm",
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "ecm",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L855"
+    },
+    {
+      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow_i",
+      "label": "i",
+      "_origin": "ast",
+      "community": 123,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "i",
+      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
+      "source_location": "L854"
     },
     {
       "id": "src_cachegen_gpu_f3_gpu_cachegen_v32zu_cu_ofstream",
@@ -34608,17 +34663,6 @@
       "source_location": "L79"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_array",
-      "label": "array",
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "array",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_comp",
       "label": "comp",
       "_origin": "ast",
@@ -34641,17 +34685,6 @@
       "source_location": ""
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_string",
-      "label": "string",
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "string",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_vector",
       "label": "vector",
       "_origin": "ast",
@@ -34661,50 +34694,6 @@
       "norm_label": "vector",
       "source_file": "",
       "source_location": ""
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_det_norm",
-      "label": "det_norm",
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "det_norm",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L853"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_det_raw",
-      "label": "det_raw",
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "det_raw",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L852"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_ecm",
-      "label": "Ecm",
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "ecm",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L851"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_i",
-      "label": "i",
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "i",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L850"
     },
     {
       "id": "covariancetuple",
@@ -36811,105 +36800,6 @@
       "norm_label": "vector",
       "source_file": "",
       "source_location": ""
-    },
-    {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_best_convention_index",
-      "label": "best_convention_index",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "best_convention_index",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L51"
-    },
-    {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_closure_ab_max",
-      "label": "closure_AB_max",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "closure_ab_max",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L53"
-    },
-    {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_closure_ba_max",
-      "label": "closure_BA_max",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "closure_ba_max",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L54"
-    },
-    {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_closure_best_max",
-      "label": "closure_best_max",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "closure_best_max",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L55"
-    },
-    {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_group_size",
-      "label": "group_size",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "group_size",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L50"
-    },
-    {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_projector_diff_old_rel",
-      "label": "projector_diff_old_rel",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "projector_diff_old_rel",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L58"
-    },
-    {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_projector_herm_res",
-      "label": "projector_herm_res",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "projector_herm_res",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L56"
-    },
-    {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_projector_idem_res",
-      "label": "projector_idem_res",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "projector_idem_res",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L57"
-    },
-    {
-      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_unitarity_max",
-      "label": "unitarity_max",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "fv_projector_cartesian_l1_v30m.hpp",
-      "file_type": "code",
-      "norm_label": "unitarity_max",
-      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
-      "source_location": "L52"
     },
     {
       "id": "docs_original_handoffs_v33o_readme",
@@ -41106,7 +40996,7 @@
       "node_kind": "heading",
       "norm_label": "decisions from digonto (answered 2026-10-21)",
       "source_file": "notes/STATUS.md",
-      "source_location": "L32"
+      "source_location": "L35"
     },
     {
       "id": "notes_status_direction_for_the_cloud_session_d4_digonto_s_words_paraphrased",
@@ -41118,7 +41008,7 @@
       "node_kind": "heading",
       "norm_label": "direction for the cloud session (d4, digonto's words, paraphrased)",
       "source_file": "notes/STATUS.md",
-      "source_location": "L42"
+      "source_location": "L45"
     },
     {
       "id": "notes_status_known_unverified",
@@ -41130,7 +41020,7 @@
       "node_kind": "heading",
       "norm_label": "known-unverified",
       "source_file": "notes/STATUS.md",
-      "source_location": "L79"
+      "source_location": "L82"
     },
     {
       "id": "notes_status_next_action",
@@ -41142,7 +41032,7 @@
       "node_kind": "heading",
       "norm_label": "next action",
       "source_file": "notes/STATUS.md",
-      "source_location": "L86"
+      "source_location": "L89"
     },
     {
       "id": "notes_status_notes_for_the_m1_auditor_from_tester_002",
@@ -41154,7 +41044,7 @@
       "node_kind": "heading",
       "norm_label": "notes for the m1 auditor (from tester 002)",
       "source_file": "notes/STATUS.md",
-      "source_location": "L68"
+      "source_location": "L71"
     },
     {
       "id": "notes_status_open_failures_and_attempt_counters",
@@ -41166,7 +41056,7 @@
       "node_kind": "heading",
       "norm_label": "open failures and attempt counters",
       "source_file": "notes/STATUS.md",
-      "source_location": "L60"
+      "source_location": "L63"
     },
     {
       "id": "notes_status_pending_decision_for_digonto",
@@ -41178,7 +41068,7 @@
       "node_kind": "heading",
       "norm_label": "pending decision for digonto",
       "source_file": "notes/STATUS.md",
-      "source_location": "L53"
+      "source_location": "L56"
     },
     {
       "id": "notes_status_status",
@@ -41287,11 +41177,33 @@
       "source_location": "L539"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_array",
+      "label": "array",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "string",
+      "file_type": "code",
+      "norm_label": "array",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_string",
+      "label": "string",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "string",
+      "file_type": "code",
+      "norm_label": "string",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_time_point",
       "label": "time_point",
       "_origin": "ast",
       "community": 195,
-      "community_name": "ScopedTimer",
+      "community_name": "string",
       "file_type": "code",
       "norm_label": "time_point",
       "source_file": "",
@@ -41302,7 +41214,7 @@
       "label": "debug",
       "_origin": "ast",
       "community": 195,
-      "community_name": "ScopedTimer",
+      "community_name": "string",
       "file_type": "code",
       "norm_label": "debug",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
@@ -41313,7 +41225,7 @@
       "label": "name",
       "_origin": "ast",
       "community": 195,
-      "community_name": "ScopedTimer",
+      "community_name": "string",
       "file_type": "code",
       "norm_label": "name",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
@@ -41324,7 +41236,7 @@
       "label": "t0",
       "_origin": "ast",
       "community": 195,
-      "community_name": "ScopedTimer",
+      "community_name": "string",
       "file_type": "code",
       "norm_label": "t0",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
@@ -46211,22 +46123,11 @@
       "source_location": "L432"
     },
     {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_cu_string",
-      "label": "string",
-      "_origin": "ast",
-      "community": 227,
-      "community_name": "string",
-      "file_type": "code",
-      "norm_label": "string",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_cu_time_point",
       "label": "time_point",
       "_origin": "ast",
       "community": 227,
-      "community_name": "string",
+      "community_name": "ScopedTimer",
       "file_type": "code",
       "norm_label": "time_point",
       "source_file": "",
@@ -46237,7 +46138,7 @@
       "label": "debug",
       "_origin": "ast",
       "community": 227,
-      "community_name": "string",
+      "community_name": "ScopedTimer",
       "file_type": "code",
       "norm_label": "debug",
       "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
@@ -46248,7 +46149,7 @@
       "label": "name",
       "_origin": "ast",
       "community": 227,
-      "community_name": "string",
+      "community_name": "ScopedTimer",
       "file_type": "code",
       "norm_label": "name",
       "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
@@ -46259,7 +46160,7 @@
       "label": "t0",
       "_origin": "ast",
       "community": 227,
-      "community_name": "string",
+      "community_name": "ScopedTimer",
       "file_type": "code",
       "norm_label": "t0",
       "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
@@ -49716,17 +49617,6 @@
       "norm_label": "test_m1_lattice.py",
       "source_file": "tests/acceptance/m1/test_m1_lattice.py",
       "source_location": "L1"
-    },
-    {
-      "id": "src_python_qc3_lattice_rationale_142",
-      "label": "D3: sort both lists ascending; pair the lowest m QC levels with the m lattice\u2026",
-      "_origin": "ast",
-      "community": 260,
-      "community_name": "test_m1_lattice.py",
-      "file_type": "rationale",
-      "norm_label": "d3: sort both lists ascending; pair the lowest m qc levels with the m lattice...",
-      "source_file": "src/python/qc3/lattice.py",
-      "source_location": "L142"
     },
     {
       "id": "tests_acceptance_m1_test_m1_lattice_rationale_1",
@@ -54080,48 +53970,70 @@
       "source_location": ""
     },
     {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow_det_norm",
-      "label": "det_norm",
+      "id": "src_core_real_wigner_d",
+      "label": "real_wigner_d.hpp",
       "_origin": "ast",
       "community": 310,
-      "community_name": "DetRow",
+      "community_name": "real_wigner_d.hpp",
       "file_type": "code",
-      "norm_label": "det_norm",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L857"
+      "norm_label": "real_wigner_d.hpp",
+      "source_file": "src/core/real_wigner_d.hpp",
+      "source_location": "L1"
     },
     {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow_det_raw",
-      "label": "det_raw",
+      "id": "src_core_real_wigner_d_hpp_comp",
+      "label": "comp",
       "_origin": "ast",
       "community": 310,
-      "community_name": "DetRow",
+      "community_name": "real_wigner_d.hpp",
       "file_type": "code",
-      "norm_label": "det_raw",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L856"
+      "norm_label": "comp",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow_ecm",
-      "label": "Ecm",
+      "id": "src_core_real_wigner_d_hpp_matrix3d",
+      "label": "Matrix3d",
       "_origin": "ast",
       "community": 310,
-      "community_name": "DetRow",
+      "community_name": "real_wigner_d.hpp",
       "file_type": "code",
-      "norm_label": "ecm",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L855"
+      "norm_label": "matrix3d",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow_i",
-      "label": "i",
+      "id": "src_core_real_wigner_d_hpp_matrixxcd",
+      "label": "MatrixXcd",
       "_origin": "ast",
       "community": 310,
-      "community_name": "DetRow",
+      "community_name": "real_wigner_d.hpp",
       "file_type": "code",
-      "norm_label": "i",
-      "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
-      "source_location": "L854"
+      "norm_label": "matrixxcd",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_core_real_wigner_d_hpp_matrixxd",
+      "label": "MatrixXd",
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "matrixxd",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_core_real_wigner_d_hpp_vector",
+      "label": "vector",
+      "_origin": "ast",
+      "community": 310,
+      "community_name": "real_wigner_d.hpp",
+      "file_type": "code",
+      "norm_label": "vector",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "tests_reference_test_k3mat_2plus1_cpp_dump",
@@ -54632,6 +54544,94 @@
       "source_location": "L1"
     },
     {
+      "id": "func",
+      "label": "Func",
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "func",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_core_dig_tools",
+      "label": "dig_tools.hpp",
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "dig_tools.hpp",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_core_dig_tools_hpp_string",
+      "label": "string",
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "string",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_core_dig_tools_hpp_t",
+      "label": "T",
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "t",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_core_dig_tools_hpp_time_point",
+      "label": "time_point",
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "time_point",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_core_dig_tools_manualtimer_t0",
+      "label": "t0",
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "t0",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_core_dig_tools_scopedtimer_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_core_dig_tools_scopedtimer_t0",
+      "label": "t0",
+      "_origin": "ast",
+      "community": 318,
+      "community_name": "dig_tools.hpp",
+      "file_type": "code",
+      "norm_label": "t0",
+      "source_file": "src/core/dig_tools.hpp",
+      "source_location": "L28"
+    },
+    {
       "id": "tests_unit_test_qc_lattice_roots",
       "label": "test_qc_lattice_roots.py",
       "_origin": "ast",
@@ -54819,6 +54819,105 @@
       "source_location": "L513"
     },
     {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_best_convention_index",
+      "label": "best_convention_index",
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "best_convention_index",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L51"
+    },
+    {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_closure_ab_max",
+      "label": "closure_AB_max",
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "closure_ab_max",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L53"
+    },
+    {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_closure_ba_max",
+      "label": "closure_BA_max",
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "closure_ba_max",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L54"
+    },
+    {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_closure_best_max",
+      "label": "closure_best_max",
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "closure_best_max",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L55"
+    },
+    {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_group_size",
+      "label": "group_size",
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "group_size",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_projector_diff_old_rel",
+      "label": "projector_diff_old_rel",
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "projector_diff_old_rel",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L58"
+    },
+    {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_projector_herm_res",
+      "label": "projector_herm_res",
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "projector_herm_res",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L56"
+    },
+    {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_projector_idem_res",
+      "label": "projector_idem_res",
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "projector_idem_res",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L57"
+    },
+    {
+      "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_unitarity_max",
+      "label": "unitarity_max",
+      "_origin": "ast",
+      "community": 320,
+      "community_name": "RepDiagnostics",
+      "file_type": "code",
+      "norm_label": "unitarity_max",
+      "source_file": "src/core/fv_projector_cartesian_l1_v30m.hpp",
+      "source_location": "L52"
+    },
+    {
       "id": "src_fitter_qc_fitter_norm_refine_v2_v3shoulder_kind",
       "label": "kind",
       "_origin": "ast",
@@ -54863,28 +54962,6 @@
       "source_location": "L154"
     },
     {
-      "id": "src_python_qc3_constants",
-      "label": "constants.py",
-      "_origin": "ast",
-      "community": 322,
-      "community_name": "Sector",
-      "file_type": "code",
-      "norm_label": "constants.py",
-      "source_file": "src/python/qc3/constants.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_python_qc3_sector",
-      "label": "sector.py",
-      "_origin": "ast",
-      "community": 322,
-      "community_name": "Sector",
-      "file_type": "code",
-      "norm_label": "sector.py",
-      "source_file": "src/python/qc3/sector.py",
-      "source_location": "L1"
-    },
-    {
       "id": "src_python_qc3_sector_py_ndarray",
       "label": "ndarray",
       "_origin": "ast",
@@ -54904,28 +54981,6 @@
       "file_type": "code",
       "norm_label": "test_sector_oracle.py",
       "source_file": "tests/unit/test_sector_oracle.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_python_qc3_constants_rationale_1",
-      "label": "Production constants (CLAUDE.md invariant 3; prompts/001 section 5.1).",
-      "_origin": "ast",
-      "community": 322,
-      "community_name": "Sector",
-      "file_type": "rationale",
-      "norm_label": "production constants (claude.md invariant 3; prompts/001 section 5.1).",
-      "source_file": "src/python/qc3/constants.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_python_qc3_sector_rationale_1",
-      "label": "Sector definition (prompts/001 section 5.2).",
-      "_origin": "ast",
-      "community": 322,
-      "community_name": "Sector",
-      "file_type": "rationale",
-      "norm_label": "sector definition (prompts/001 section 5.2).",
-      "source_file": "src/python/qc3/sector.py",
       "source_location": "L1"
     },
     {
@@ -55074,6 +55129,50 @@
       "norm_label": "/kickoff \u2014 start the physics loop here",
       "source_file": ".claude/skills/kickoff/SKILL.md",
       "source_location": "L7"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_det_norm",
+      "label": "det_norm",
+      "_origin": "ast",
+      "community": 324,
+      "community_name": "DetRow",
+      "file_type": "code",
+      "norm_label": "det_norm",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L853"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_det_raw",
+      "label": "det_raw",
+      "_origin": "ast",
+      "community": 324,
+      "community_name": "DetRow",
+      "file_type": "code",
+      "norm_label": "det_raw",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L852"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_ecm",
+      "label": "Ecm",
+      "_origin": "ast",
+      "community": 324,
+      "community_name": "DetRow",
+      "file_type": "code",
+      "norm_label": "ecm",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L851"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_i",
+      "label": "i",
+      "_origin": "ast",
+      "community": 324,
+      "community_name": "DetRow",
+      "file_type": "code",
+      "norm_label": "i",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L850"
     },
     {
       "id": "tests_acceptance_m1_qc3ref_basis",
@@ -55942,6 +56041,102 @@
       "source_location": "L1"
     },
     {
+      "id": "reports_tests_005_m1_step5_portability",
+      "label": "005-m1-step5-portability.md",
+      "_origin": "ast",
+      "community": 331,
+      "community_name": "Tester report 005: M1 step 5, portability + three no-silent-failure fixes",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "005-m1-step5-portability.md",
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "reports_tests_005_m1_step5_portability_commands_run",
+      "label": "Commands run",
+      "_origin": "ast",
+      "community": 331,
+      "community_name": "Tester report 005: M1 step 5, portability + three no-silent-failure fixes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "commands run",
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L14"
+    },
+    {
+      "id": "reports_tests_005_m1_step5_portability_failures",
+      "label": "Failures",
+      "_origin": "ast",
+      "community": 331,
+      "community_name": "Tester report 005: M1 step 5, portability + three no-silent-failure fixes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "failures",
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L61"
+    },
+    {
+      "id": "reports_tests_005_m1_step5_portability_informational_not_a_failure_legacy_files_outside_the_m1_path_still_containing_the_literals",
+      "label": "Informational (not a failure): legacy files outside the M1 path still containing the literals",
+      "_origin": "ast",
+      "community": 331,
+      "community_name": "Tester report 005: M1 step 5, portability + three no-silent-failure fixes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "informational (not a failure): legacy files outside the m1 path still containing the literals",
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L53"
+    },
+    {
+      "id": "reports_tests_005_m1_step5_portability_notes_non_blocking",
+      "label": "Notes (non-blocking)",
+      "_origin": "ast",
+      "community": 331,
+      "community_name": "Tester report 005: M1 step 5, portability + three no-silent-failure fixes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notes (non-blocking)",
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L57"
+    },
+    {
+      "id": "reports_tests_005_m1_step5_portability_results",
+      "label": "Results",
+      "_origin": "ast",
+      "community": 331,
+      "community_name": "Tester report 005: M1 step 5, portability + three no-silent-failure fixes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "results",
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "reports_tests_005_m1_step5_portability_tester_report_005_m1_step_5_portability_three_no_silent_failure_fixes",
+      "label": "Tester report 005: M1 step 5, portability + three no-silent-failure fixes",
+      "_origin": "ast",
+      "community": 331,
+      "community_name": "Tester report 005: M1 step 5, portability + three no-silent-failure fixes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tester report 005: m1 step 5, portability + three no-silent-failure fixes",
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "reports_tests_005_m1_step5_portability_verdict_pass_2_non_blocking_notes",
+      "label": "Verdict: PASS (2 non-blocking notes)",
+      "_origin": "ast",
+      "community": 331,
+      "community_name": "Tester report 005: M1 step 5, portability + three no-silent-failure fixes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "verdict: pass (2 non-blocking notes)",
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L12"
+    },
+    {
       "id": "reports_research_002_cache_generation_and_root_finding_lineage_3_1_physics_objects_stored_per_energy_row",
       "label": "3.1 Physics objects stored per energy row",
       "_origin": "ast",
@@ -56079,6 +56274,39 @@
       "norm_label": "size_t",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "src_python_qc3_lattice_rationale_142",
+      "label": "D3: sort both lists ascending; pair the lowest m QC levels with the m lattice\u2026",
+      "_origin": "ast",
+      "community": 335,
+      "community_name": "MissingRootError",
+      "file_type": "rationale",
+      "norm_label": "d3: sort both lists ascending; pair the lowest m qc levels with the m lattice...",
+      "source_file": "src/python/qc3/lattice.py",
+      "source_location": "L142"
+    },
+    {
+      "id": "src_python_qc3_point_rationale_16",
+      "label": "Raised when a root is not bracketed / fewer QC levels than lattice levels.",
+      "_origin": "ast",
+      "community": 335,
+      "community_name": "MissingRootError",
+      "file_type": "rationale",
+      "norm_label": "raised when a root is not bracketed / fewer qc levels than lattice levels.",
+      "source_file": "src/python/qc3/point.py",
+      "source_location": "L16"
+    },
+    {
+      "id": "src_python_qc3_roots_rationale_10",
+      "label": "Root of det Q(E) = 0 in [E_left, E_right] by Brent's method on f(E) = sign *\u2026",
+      "_origin": "ast",
+      "community": 335,
+      "community_name": "MissingRootError",
+      "file_type": "rationale",
+      "norm_label": "root of det q(e) = 0 in [e_left, e_right] by brent's method on f(e) = sign *...",
+      "source_file": "src/python/qc3/roots.py",
+      "source_location": "L10"
     },
     {
       "id": "claude_agents_auditor",
@@ -56474,7 +56702,7 @@
       "label": "qc.py",
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "qc.py",
       "source_file": "src/python/qc3/qc.py",
@@ -56485,7 +56713,7 @@
       "label": "roots.py",
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "roots.py",
       "source_file": "src/python/qc3/roots.py",
@@ -56496,29 +56724,18 @@
       "label": "test_m1_qc_identities.py",
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "code",
       "norm_label": "test_m1_qc_identities.py",
       "source_file": "tests/acceptance/m1/test_m1_qc_identities.py",
       "source_location": "L1"
     },
     {
-      "id": "src_python_qc3_point_rationale_16",
-      "label": "Raised when a root is not bracketed / fewer QC levels than lattice levels.",
-      "_origin": "ast",
-      "community": 344,
-      "community_name": "MissingRootError",
-      "file_type": "rationale",
-      "norm_label": "raised when a root is not bracketed / fewer qc levels than lattice levels.",
-      "source_file": "src/python/qc3/point.py",
-      "source_location": "L16"
-    },
-    {
       "id": "src_python_qc3_qc_rationale_1",
       "label": "QC helpers (prompts/001 step 4): projection of the inverse and (sign, ln|det|)\u2026",
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "rationale",
       "norm_label": "qc helpers (prompts/001 step 4): projection of the inverse and (sign, ln|det|)...",
       "source_file": "src/python/qc3/qc.py",
@@ -56529,7 +56746,7 @@
       "label": "(L^-6) V^dag (F3inv + K3) V ; L = xi*Lbyas (so L**6 == (Lbyas*xi)**6). The\u2026",
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "rationale",
       "norm_label": "(l^-6) v^dag (f3inv + k3) v ; l = xi*lbyas (so l**6 == (lbyas*xi)**6). the...",
       "source_file": "src/python/qc3/qc.py",
@@ -56540,7 +56757,7 @@
       "label": "(sign, ln|det Q|) by partial-pivot LU (LAPACK via NumPy). sign is an int in\u2026",
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "rationale",
       "norm_label": "(sign, ln|det q|) by partial-pivot lu (lapack via numpy). sign is an int in...",
       "source_file": "src/python/qc3/qc.py",
@@ -56551,29 +56768,18 @@
       "label": "Root refinement (prompts/001 step 4).",
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "rationale",
       "norm_label": "root refinement (prompts/001 step 4).",
       "source_file": "src/python/qc3/roots.py",
       "source_location": "L1"
     },
     {
-      "id": "src_python_qc3_roots_rationale_10",
-      "label": "Root of det Q(E) = 0 in [E_left, E_right] by Brent's method on f(E) = sign *\u2026",
-      "_origin": "ast",
-      "community": 344,
-      "community_name": "MissingRootError",
-      "file_type": "rationale",
-      "norm_label": "root of det q(e) = 0 in [e_left, e_right] by brent's method on f(e) = sign *...",
-      "source_file": "src/python/qc3/roots.py",
-      "source_location": "L10"
-    },
-    {
       "id": "tests_acceptance_m1_test_m1_qc_identities_rationale_1",
       "label": "M1 step 4 \u2014 qc3.qc implements Q = (L xi)^-6 V^dag (F3inv + K3) V and (sign,\u2026",
       "_origin": "ast",
       "community": 344,
-      "community_name": "MissingRootError",
+      "community_name": "qc.py",
       "file_type": "rationale",
       "norm_label": "m1 step 4 \u2014 qc3.qc implements q = (l xi)^-6 v^dag (f3inv + k3) v and (sign,...",
       "source_file": "tests/acceptance/m1/test_m1_qc_identities.py",
@@ -60243,17 +60449,6 @@
       "source_location": ""
     },
     {
-      "id": "func",
-      "label": "Func",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "func",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "matrix",
       "label": "Matrix",
       "_origin": "ast",
@@ -60285,83 +60480,6 @@
       "norm_label": "matrixbase",
       "source_file": "",
       "source_location": ""
-    },
-    {
-      "id": "src_core_dig_tools",
-      "label": "dig_tools.hpp",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "dig_tools.hpp",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_core_dig_tools_hpp_string",
-      "label": "string",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "string",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_dig_tools_hpp_t",
-      "label": "T",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "t",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_dig_tools_hpp_time_point",
-      "label": "time_point",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "time_point",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_dig_tools_manualtimer_t0",
-      "label": "t0",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "t0",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L50"
-    },
-    {
-      "id": "src_core_dig_tools_scopedtimer_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L27"
-    },
-    {
-      "id": "src_core_dig_tools_scopedtimer_t0",
-      "label": "t0",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "t0",
-      "source_file": "src/core/dig_tools.hpp",
-      "source_location": "L28"
     },
     {
       "id": "src_core_projections_v1",
@@ -60431,72 +60549,6 @@
     },
     {
       "id": "src_core_projections_v1_hpp_vector",
-      "label": "vector",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "vector",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_real_wigner_d",
-      "label": "real_wigner_d.hpp",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "real_wigner_d.hpp",
-      "source_file": "src/core/real_wigner_d.hpp",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_core_real_wigner_d_hpp_comp",
-      "label": "comp",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "comp",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_real_wigner_d_hpp_matrix3d",
-      "label": "Matrix3d",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "matrix3d",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_real_wigner_d_hpp_matrixxcd",
-      "label": "MatrixXcd",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "matrixxcd",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_real_wigner_d_hpp_matrixxd",
-      "label": "MatrixXd",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "projections_v1.hpp",
-      "file_type": "code",
-      "norm_label": "matrixxd",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_real_wigner_d_hpp_vector",
       "label": "vector",
       "_origin": "ast",
       "community": 5,
@@ -63469,6 +63521,17 @@
       "source_location": "L201"
     },
     {
+      "id": "src_python_qc3_constants",
+      "label": "constants.py",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "point.py",
+      "file_type": "code",
+      "norm_label": "constants.py",
+      "source_file": "src/python/qc3/constants.py",
+      "source_location": "L1"
+    },
+    {
       "id": "src_python_qc3_fast",
       "label": "fast.py",
       "_origin": "ast",
@@ -63499,6 +63562,28 @@
       "file_type": "code",
       "norm_label": "point.py",
       "source_file": "src/python/qc3/point.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_python_qc3_sector",
+      "label": "sector.py",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "point.py",
+      "file_type": "code",
+      "norm_label": "sector.py",
+      "source_file": "src/python/qc3/sector.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_python_qc3_constants_rationale_1",
+      "label": "Production constants (CLAUDE.md invariant 3; prompts/001 section 5.1).",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "point.py",
+      "file_type": "rationale",
+      "norm_label": "production constants (claude.md invariant 3; prompts/001 section 5.1).",
+      "source_file": "src/python/qc3/constants.py",
       "source_location": "L1"
     },
     {
@@ -63543,6 +63628,17 @@
       "file_type": "rationale",
       "norm_label": "point result container (prompts/001 section 5.3).",
       "source_file": "src/python/qc3/point.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_python_qc3_sector_rationale_1",
+      "label": "Sector definition (prompts/001 section 5.2).",
+      "_origin": "ast",
+      "community": 65,
+      "community_name": "point.py",
+      "file_type": "rationale",
+      "norm_label": "sector definition (prompts/001 section 5.2).",
+      "source_file": "src/python/qc3/sector.py",
       "source_location": "L1"
     },
     {
@@ -94478,6 +94574,18 @@
       "weight": 1.0
     },
     {
+      "source": "tests_unit_test_qc_lattice_roots_test_project_q_expression_and_real_inputs",
+      "target": "src_python_qc3_qc_project_q",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/unit/test_qc_lattice_roots.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
       "source": "tests_unit_test_qc_lattice_roots_test_read_jack_header_mismatch_raises",
       "target": "tests_unit_test_qc_lattice_roots_write_jack",
       "relation": "calls",
@@ -94514,6 +94622,18 @@
       "weight": 1.0
     },
     {
+      "source": "tests_unit_test_qc_lattice_roots_test_refine_root_finds_simple_zero_and_raises_without_sign_change",
+      "target": "src_python_qc3_roots_refine_root",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/unit/test_qc_lattice_roots.py",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
       "source": "tests_unit_test_qc_lattice_roots_test_sigma_is_sd_over_sqrt_n_for_per_config_file",
       "target": "tests_unit_test_qc_lattice_roots_write_jack",
       "relation": "calls",
@@ -94535,6 +94655,18 @@
       "context": "call",
       "source_file": "tests/unit/test_qc_lattice_roots.py",
       "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_unit_test_qc_lattice_roots_test_slogdet_values_and_errors",
+      "target": "src_python_qc3_qc_slogdet",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "tests/unit/test_qc_lattice_roots.py",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -130703,6 +130835,30 @@
       "context": "import",
       "source_file": "src/python/qc3/fast.py",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_python_qc3_lattice",
+      "target": "src_python_qc3_point_levelset",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/python/qc3/lattice.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_python_qc3_lattice",
+      "target": "src_python_qc3_point_missingrooterror",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/python/qc3/lattice.py",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -171708,7 +171864,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L42",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -171719,7 +171875,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L53",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -171730,7 +171886,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L32",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -171741,7 +171897,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L60",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -171752,7 +171908,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L68",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -171763,7 +171919,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L79",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -171774,7 +171930,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L86",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -174525,6 +174681,83 @@
       "confidence_score": 1.0,
       "source_file": "reports/tests/004-m1-step4-qc-lattice.md",
       "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "reports_tests_005_m1_step5_portability",
+      "target": "reports_tests_005_m1_step5_portability_tester_report_005_m1_step_5_portability_three_no_silent_failure_fixes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "reports_tests_005_m1_step5_portability_tester_report_005_m1_step_5_portability_three_no_silent_failure_fixes",
+      "target": "reports_tests_005_m1_step5_portability_verdict_pass_2_non_blocking_notes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "reports_tests_005_m1_step5_portability_tester_report_005_m1_step_5_portability_three_no_silent_failure_fixes",
+      "target": "reports_tests_005_m1_step5_portability_commands_run",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "reports_tests_005_m1_step5_portability_tester_report_005_m1_step_5_portability_three_no_silent_failure_fixes",
+      "target": "reports_tests_005_m1_step5_portability_results",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "reports_tests_005_m1_step5_portability_tester_report_005_m1_step_5_portability_three_no_silent_failure_fixes",
+      "target": "reports_tests_005_m1_step5_portability_informational_not_a_failure_legacy_files_outside_the_m1_path_still_containing_the_literals",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "reports_tests_005_m1_step5_portability_tester_report_005_m1_step_5_portability_three_no_silent_failure_fixes",
+      "target": "reports_tests_005_m1_step5_portability_notes_non_blocking",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "reports_tests_005_m1_step5_portability_tester_report_005_m1_step_5_portability_three_no_silent_failure_fixes",
+      "target": "reports_tests_005_m1_step5_portability_failures",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "reports/tests/005-m1-step5-portability.md",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -198415,42 +198648,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_unit_test_qc_lattice_roots_test_project_q_expression_and_real_inputs",
-      "target": "src_python_qc3_qc_project_q",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "call",
-      "source_file": "tests/unit/test_qc_lattice_roots.py",
-      "source_location": "L29",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_unit_test_qc_lattice_roots_test_refine_root_finds_simple_zero_and_raises_without_sign_change",
-      "target": "src_python_qc3_roots_refine_root",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "call",
-      "source_file": "tests/unit/test_qc_lattice_roots.py",
-      "source_location": "L57",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_unit_test_qc_lattice_roots_test_slogdet_values_and_errors",
-      "target": "src_python_qc3_qc_slogdet",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "call",
-      "source_file": "tests/unit/test_qc_lattice_roots.py",
-      "source_location": "L35",
-      "weight": 1.0
-    },
-    {
       "source": "tools_nonint3body_general_doublecover_source_nonint3body_general_doublecover_class_algebra_irreps",
       "target": "runtimeerror",
       "relation": "calls",
@@ -198482,6 +198679,28 @@
       "confidence_score": 0.95,
       "source_file": "tests/acceptance/m1/m1_helpers.py",
       "source_location": "L48",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_unit_test_qc_lattice_roots_test_match_levels_edge_cases",
+      "target": "src_python_qc3_point_missingrooterror",
+      "relation": "uses",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "tests/unit/test_qc_lattice_roots.py",
+      "source_location": "L177",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_unit_test_qc_lattice_roots_test_refine_root_finds_simple_zero_and_raises_without_sign_change",
+      "target": "src_python_qc3_point_missingrooterror",
+      "relation": "uses",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "tests/unit/test_qc_lattice_roots.py",
+      "source_location": "L59",
       "weight": 0.8
     },
     {
@@ -198552,5 +198771,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e74f94b307bf3c3c59ec286b29fcd6330392aeaa"
+  "built_at_commit": "48d13198b0b3a60f4c6f1e62c79a0e43e5a993c8"
 }

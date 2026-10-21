@@ -106,14 +106,23 @@ struct SingleThread {
     }
 };
 
-inline Output evaluate(const Input& in) {
-    using namespace k3df_fit_v32f;
-    SingleThread single_thread_guard;
-    Output out;
-    Clock total, clk;
-    out.Ecm = in.Ecm;
+// Parameters and kinematics + basis, shared by the oracle and the fast path (qc3_fast), so that both use exactly
+// the same PhysicsParams objects and the same basis builder config_maker_4_momentum_first.
+struct Kin {
+    k3df_fit_v32f::PhysicsParams par;
+    k3df_fit_v32f::MomentumIrrepSpec spec;
+    double L = 0.0;
+    std::vector<comp> total_P, nnP_config;
+    comp En_c;
+    std::vector<std::vector<comp>> plm_config, klm_config;
+    std::vector<std::vector<int>> np_config, nk_config;
+    int N1 = 0, N2 = 0, N = 0;
+    std::vector<std::array<int, 6>> basis;   // flavour, nx, ny, nz, ell, m
+};
 
-    // ---- parameters: same objects the cache generator builds (FitSettings -> make_base_physics) ----
+inline Kin make_kinematics(const Input& in) {
+    using namespace k3df_fit_v32f;
+    Kin k;
     FitSettings s;
     s.Lval = in.Lbyas; s.xival = in.xi;
     s.atmpi = in.atmpi; s.atmK = in.atmK;
@@ -126,43 +135,79 @@ inline Output evaluate(const Input& in) {
     s.scatter_params_1[1][0] = in.a1_Kpi;
     s.scatter_params_2[0][0] = in.a0_KK;
     s.omp_threads = 1;
-    PhysicsParams par = make_base_physics(s);
-    par.waves_vec_1 = in.waves_1;
-    par.waves_vec_2 = in.waves_2;
-    const MomentumIrrepSpec spec = parse_label(in.irrep);
-    out.nnP = spec.nnP;
+    k.par = make_base_physics(s);
+    k.par.waves_vec_1 = in.waves_1;
+    k.par.waves_vec_2 = in.waves_2;
+    k.spec = parse_label(in.irrep);
+
+    // ---- kinematics + basis (build_component_entry L226-240) ----
+    const comp pi = std::acos(-1.0);
+    k.L = k.par.L();
+    const comp twopibyL = comp(2.0, 0.0) * pi / comp(k.L, 0.0);
+    k.total_P.assign(3, comp(0.0, 0.0)); k.nnP_config.assign(3, comp(0.0, 0.0));
+    for (int a = 0; a < 3; ++a) {
+        k.total_P[a] = twopibyL * double(k.spec.nnP[a]);
+        k.nnP_config[a] = comp(k.spec.nnP[a], 0.0);
+    }
+    const comp Ecm_c(in.Ecm, 0.0);
+    k.En_c = Ecm_to_E(Ecm_c, k.total_P);
+
+    k.plm_config.assign(5, {}); k.klm_config.assign(5, {});
+    k.np_config.assign(5, {}); k.nk_config.assign(5, {});
+    config_maker_4_momentum_first(k.plm_config, k.np_config, k.par.waves_vec_1, k.En_c, k.total_P, k.par.atmK, k.par.atmK, k.par.atmpi, k.L, k.par.epsilon_h, k.par.max_shell_num, k.par.tolerance);
+    config_maker_4_momentum_first(k.klm_config, k.nk_config, k.par.waves_vec_2, k.En_c, k.total_P, k.par.atmpi, k.par.atmK, k.par.atmK, k.L, k.par.epsilon_h, k.par.max_shell_num, k.par.tolerance);
+    k.N1 = int(k.plm_config[0].size());
+    k.N2 = int(k.klm_config[0].size());
+    k.N = k.N1 + k.N2;
+    if (k.N <= 0) throw std::runtime_error("EMPTY_CONFIG (no basis states at this energy)");
+    k.basis.reserve(std::size_t(k.N));
+    for (int a = 0; a < k.N1; ++a)
+        k.basis.push_back({1, k.np_config[0][a], k.np_config[1][a], k.np_config[2][a], k.np_config[3][a], k.np_config[4][a]});
+    for (int a = 0; a < k.N2; ++a)
+        k.basis.push_back({2, k.nk_config[0][a], k.nk_config[1][a], k.nk_config[2][a], k.nk_config[3][a], k.nk_config[4][a]});
+    return k;
+}
+
+// The four K3 basis matrices (c = e_i) of K3mat_2plus1, and K3(c) = sum c_i B_i.
+inline void compute_k3(const Kin& k, const std::array<double, 4>& c, std::array<Mat, 4>& basis_out, Mat& K3_out) {
+    const int N = k.N;
+    K3_out = Mat::Zero(N, N);
+    for (int i = 0; i < 4; ++i) {
+        std::vector<comp> Kiso = {comp(i == 0 ? 1.0 : 0.0, 0.0), comp(i == 1 ? 1.0 : 0.0, 0.0)};
+        const comp KB = comp(i == 2 ? 1.0 : 0.0, 0.0), KE = comp(i == 3 ? 1.0 : 0.0, 0.0);
+        Mat B(N, N);
+        k3_2plus1::K3mat_2plus1(B, k.En_c, k.plm_config, k.klm_config, k.total_P, k.par.atmK, k.par.atmpi, Kiso, KB, KE, 'n');
+        if (!B.allFinite()) throw std::runtime_error("nonfinite K3 basis matrix");
+        basis_out[std::size_t(i)] = B;
+        K3_out += comp(c[std::size_t(i)], 0.0) * B;
+    }
+}
+
+inline Output evaluate(const Input& in) {
+    using namespace k3df_fit_v32f;
+    SingleThread single_thread_guard;
+    Output out;
+    Clock total, clk;
+    out.Ecm = in.Ecm;
 
     {   // fresh projector cache: one oracle call = one energy from scratch
         std::lock_guard<std::mutex> lock(g_projector_cache_mutex_v30q);
         g_projector_cache_v30q.clear();
     }
 
-    // ---- kinematics + basis (build_component_entry L226-240) ----
-    const comp pi = std::acos(-1.0);
-    const double L = par.L();
-    const comp twopibyL = comp(2.0, 0.0) * pi / comp(L, 0.0);
-    std::vector<comp> total_P(3), nnP_config(3);
-    for (int a = 0; a < 3; ++a) {
-        total_P[a] = twopibyL * double(spec.nnP[a]);
-        nnP_config[a] = comp(spec.nnP[a], 0.0);
-    }
-    const comp Ecm_c(in.Ecm, 0.0);
-    const comp En_c = Ecm_to_E(Ecm_c, total_P);
+    const Kin kin = make_kinematics(in);
+    const PhysicsParams& par = kin.par;
+    const MomentumIrrepSpec& spec = kin.spec;
+    const double L = kin.L;
+    const comp En_c = kin.En_c;
+    const std::vector<comp>& total_P = kin.total_P;
+    const std::vector<comp>& nnP_config = kin.nnP_config;
+    auto plm_config = kin.plm_config; auto klm_config = kin.klm_config;
+    const auto& np_config = kin.np_config; const auto& nk_config = kin.nk_config;
+    out.nnP = spec.nnP;
     out.E_lab = En_c.real();
-
-    std::vector<std::vector<comp>> plm_config(5), klm_config(5);
-    std::vector<std::vector<int>> np_config(5), nk_config(5);
-    config_maker_4_momentum_first(plm_config, np_config, par.waves_vec_1, En_c, total_P, par.atmK, par.atmK, par.atmpi, L, par.epsilon_h, par.max_shell_num, par.tolerance);
-    config_maker_4_momentum_first(klm_config, nk_config, par.waves_vec_2, En_c, total_P, par.atmpi, par.atmK, par.atmK, L, par.epsilon_h, par.max_shell_num, par.tolerance);
-    out.N1 = int(plm_config[0].size());
-    out.N2 = int(klm_config[0].size());
-    out.N = out.N1 + out.N2;
-    if (out.N <= 0) throw std::runtime_error("oracle: EMPTY_CONFIG (no basis states at this energy)");
-    out.basis.reserve(std::size_t(out.N));
-    for (int a = 0; a < out.N1; ++a)
-        out.basis.push_back({1, np_config[0][a], np_config[1][a], np_config[2][a], np_config[3][a], np_config[4][a]});
-    for (int a = 0; a < out.N2; ++a)
-        out.basis.push_back({2, nk_config[0][a], nk_config[1][a], nk_config[2][a], nk_config[3][a], nk_config[4][a]});
+    out.N1 = kin.N1; out.N2 = kin.N2; out.N = kin.N;
+    out.basis = kin.basis;
     out.timings["basis"] = clk.lap();
 
     // ---- ingredients ----
@@ -205,16 +250,7 @@ inline Output evaluate(const Input& in) {
     const bool any_c = (in.c[0] != 0.0 || in.c[1] != 0.0 || in.c[2] != 0.0 || in.c[3] != 0.0);
     Mat K3 = Mat::Zero(N, N);
     if (any_c || in.compute_k3) {
-        const double M1 = par.atmK, M2 = par.atmpi;
-        for (int i = 0; i < 4; ++i) {
-            std::vector<comp> Kiso = {comp(i == 0 ? 1.0 : 0.0, 0.0), comp(i == 1 ? 1.0 : 0.0, 0.0)};
-            const comp KB = comp(i == 2 ? 1.0 : 0.0, 0.0), KE = comp(i == 3 ? 1.0 : 0.0, 0.0);
-            Mat B(N, N);
-            k3_2plus1::K3mat_2plus1(B, En_c, plm_config, klm_config, total_P, M1, M2, Kiso, KB, KE, 'n');
-            if (!B.allFinite()) throw std::runtime_error("oracle: nonfinite K3 basis matrix");
-            out.K3_basis[std::size_t(i)] = B;
-            K3 += comp(in.c[std::size_t(i)], 0.0) * B;
-        }
+        compute_k3(kin, in.c, out.K3_basis, K3);
         out.has_k3_basis = true;
     }
     out.timings["K3"] = clk.lap();

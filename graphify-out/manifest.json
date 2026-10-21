@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792620075.7293472,
-    "seen": 1792620082.015234,
-    "ast_hash": "7fb803fc474aab81358f46ee7cec0ff3",
+    "mtime": 1792620222.1987774,
+    "seen": 1792620228.526159,
+    "ast_hash": "b980c0d2698f4f07e3dbbf66a38b3a6a",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -1506,9 +1506,9 @@
     "semantic_hash": ""
   },
   "src/qc3_core/oracle_point.hpp": {
-    "mtime": 1792617590.2898004,
-    "seen": 1792617874.4805393,
-    "ast_hash": "6a521d6b1f6a8b1ea42f4b8376ddbe4c",
+    "mtime": 1792620215.8952503,
+    "seen": 1792620228.5259502,
+    "ast_hash": "9b2ba72aff449130bdd36936507a17ab",
     "semantic_hash": ""
   },
   "tests/unit/conftest.py": {
@@ -1569,6 +1569,18 @@
     "mtime": 1792619583.8242354,
     "seen": 1792619625.6119525,
     "ast_hash": "8c0e001f4a3c1bd39101edace8ef74ac",
+    "semantic_hash": ""
+  },
+  "results/tester_005_m1_step5_portability.json": {
+    "mtime": 1792620164.5093331,
+    "seen": 1792620228.5257592,
+    "ast_hash": "c166c69edc903c5c4176d3ea237d233c",
+    "semantic_hash": ""
+  },
+  "reports/tests/005-m1-step5-portability.md": {
+    "mtime": 1792620200.3802722,
+    "seen": 1792620228.526186,
+    "ast_hash": "17500f904b23c31ef6a2136cb93864aa",
     "semantic_hash": ""
   }
 }
