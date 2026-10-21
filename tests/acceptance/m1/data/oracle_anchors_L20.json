@@ -1,0 +1,310 @@
+{
+ "description": "Oracle anchor values: existing C++ CPU path (src/cachegen_cpu/generate_cpu_component_cache.cpp, build_component_entry, compiled with g++ -O3 -fopenmp, OMP_NUM_THREADS=1) at single energies; Q = V^dag (F3inv + K3) V / (L xi)^6; (sign, ln|det|) via LU (numpy slogdet). K3_baseline uses the planner angular-projection reference (tests/acceptance/m1/qc3ref/k3.py), which agrees with src/core/K3_functions_2plus1.hpp to 9e-16 relative Frobenius on tests/reference/data.",
+ "git_commit": "1eaf1fa",
+ "date": "2026-10-21",
+ "producer": "planner (prompts/001), scratch/planner/make_golden.py",
+ "constants": {
+  "xi": 3.444,
+  "atmK": 0.09698,
+  "atmpi": 0.06906,
+  "eta": [
+   1.0,
+   0.5
+  ],
+  "alpha": 0.5,
+  "epsilon_H": 0.0,
+  "max_shell_num": 20,
+  "waves_1": [
+   0,
+   1
+  ],
+  "waves_2": [
+   0
+  ],
+  "parity": -1,
+  "eig_tol": 0.05,
+  "scatter": {
+   "a0_Kpi": 4.04,
+   "a1_Kpi": -43.2,
+   "a0_KK": 4.12
+  },
+  "k2_pwave_form": "coded_v2",
+  "Q0norm": true,
+  "Lbyas": 20,
+  "L": 68.88
+ },
+ "points": [
+  {
+   "irrep": "100_A2",
+   "nnP": [
+    0,
+    0,
+    1
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.291556099879,
+   "N1": 40,
+   "N2": 16,
+   "N": 56,
+   "Nproj": 17,
+   "herm_F3inv": 2.6778213071511487e-19,
+   "K3_zero": {
+    "sign": -1,
+    "lnabsdet": -105.99137851854572
+   },
+   "K3_baseline": {
+    "c": [
+     73735.84089401191,
+     -972421.1406075779,
+     347174.0554811695,
+     -1226756.7068845264
+    ],
+    "sign": -1,
+    "lnabsdet": -118.96068499569373,
+    "max_imag_K3": 3.535919674184264e-09
+   }
+  },
+  {
+   "irrep": "100_A2",
+   "nnP": [
+    0,
+    0,
+    1
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.291798362,
+   "N1": 40,
+   "N2": 16,
+   "N": 56,
+   "Nproj": 17,
+   "herm_F3inv": 2.0354453137925608e-19,
+   "K3_zero": {
+    "sign": -1,
+    "lnabsdet": -106.34903333544038
+   },
+   "K3_baseline": {
+    "c": [
+     73735.84089401191,
+     -972421.1406075779,
+     347174.0554811695,
+     -1226756.7068845264
+    ],
+    "sign": -1,
+    "lnabsdet": -106.75448241255876,
+    "max_imag_K3": 3.146562256426923e-09
+   }
+  },
+  {
+   "irrep": "000_A1m",
+   "nnP": [
+    0,
+    0,
+    0
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.26932,
+   "N1": 28,
+   "N2": 7,
+   "N": 35,
+   "Nproj": 5,
+   "herm_F3inv": 3.5268837912024324e-19,
+   "K3_zero": {
+    "sign": 1,
+    "lnabsdet": -45.28486893432314
+   },
+   "K3_baseline": {
+    "c": [
+     73735.84089401191,
+     -972421.1406075779,
+     347174.0554811695,
+     -1226756.7068845264
+    ],
+    "sign": 1,
+    "lnabsdet": -48.71752119424923,
+    "max_imag_K3": 3.975020140839327e-09
+   }
+  },
+  {
+   "irrep": "000_A1m",
+   "nnP": [
+    0,
+    0,
+    0
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.34538,
+   "N1": 76,
+   "N2": 27,
+   "N": 103,
+   "Nproj": 9,
+   "herm_F3inv": 2.626138923527471e-16,
+   "K3_zero": {
+    "sign": 1,
+    "lnabsdet": -82.93634928121894
+   }
+  },
+  {
+   "irrep": "100_A2",
+   "nnP": [
+    0,
+    0,
+    1
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.3599,
+   "N1": 80,
+   "N2": 28,
+   "N": 108,
+   "Nproj": 30,
+   "herm_F3inv": 3.9673336241394935e-17,
+   "K3_zero": {
+    "sign": -1,
+    "lnabsdet": -198.58008419066735
+   }
+  },
+  {
+   "irrep": "100_A2",
+   "nnP": [
+    0,
+    0,
+    1
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.36,
+   "N1": 80,
+   "N2": 28,
+   "N": 108,
+   "Nproj": 30,
+   "herm_F3inv": 2.450262731372285e-15,
+   "K3_zero": {
+    "sign": -1,
+    "lnabsdet": -198.81287475043197
+   }
+  },
+  {
+   "irrep": "110_A2",
+   "nnP": [
+    1,
+    1,
+    0
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.30733,
+   "N1": 48,
+   "N2": 20,
+   "N": 68,
+   "Nproj": 27,
+   "herm_F3inv": 7.658154302769775e-17,
+   "K3_zero": {
+    "sign": 1,
+    "lnabsdet": -160.1403726997468
+   }
+  },
+  {
+   "irrep": "110_A2",
+   "nnP": [
+    1,
+    1,
+    0
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.35,
+   "N1": 80,
+   "N2": 28,
+   "N": 108,
+   "Nproj": 41,
+   "herm_F3inv": 2.3027371889704023e-16,
+   "K3_zero": {
+    "sign": -1,
+    "lnabsdet": -190.9642336024677
+   }
+  },
+  {
+   "irrep": "111_A2",
+   "nnP": [
+    1,
+    1,
+    1
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.32036,
+   "N1": 32,
+   "N2": 32,
+   "N": 64,
+   "Nproj": 20,
+   "herm_F3inv": 8.831607551320505e-19,
+   "K3_zero": {
+    "sign": 1,
+    "lnabsdet": -101.20505800470589
+   }
+  },
+  {
+   "irrep": "111_A2",
+   "nnP": [
+    1,
+    1,
+    1
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.35103,
+   "N1": 128,
+   "N2": 32,
+   "N": 160,
+   "Nproj": 40,
+   "herm_F3inv": 2.3107552628290095e-18,
+   "K3_zero": {
+    "sign": -1,
+    "lnabsdet": -207.54469779403314
+   }
+  },
+  {
+   "irrep": "200_A2",
+   "nnP": [
+    0,
+    0,
+    2
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.28664,
+   "N1": 28,
+   "N2": 19,
+   "N": 47,
+   "Nproj": 16,
+   "herm_F3inv": 1.9678038810407962e-16,
+   "K3_zero": {
+    "sign": -1,
+    "lnabsdet": -101.43616587497485
+   },
+   "K3_baseline": {
+    "c": [
+     73735.84089401191,
+     -972421.1406075779,
+     347174.0554811695,
+     -1226756.7068845264
+    ],
+    "sign": -1,
+    "lnabsdet": -101.67892800568924,
+    "max_imag_K3": 3.1916794513577104e-09
+   }
+  },
+  {
+   "irrep": "200_A2",
+   "nnP": [
+    0,
+    0,
+    2
+   ],
+   "Lbyas": 20,
+   "Ecm": 0.34738,
+   "N1": 92,
+   "N2": 29,
+   "N": 121,
+   "Nproj": 32,
+   "herm_F3inv": 8.257922460513052e-18,
+   "K3_zero": {
+    "sign": -1,
+    "lnabsdet": -162.41673937565963
+   }
+  }
+ ]
+}

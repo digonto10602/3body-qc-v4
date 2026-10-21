@@ -1,7 +1,7 @@
 # Graph Report - 3body-qc-v4  (2026-10-21)
 
 ## Corpus Check
-- 220 files · ~389,997 words
+- 220 files · ~390,074 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cd16663d`
+- Built from commit: `1eaf1fa1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -349,8 +349,8 @@
 10. `RowOut` - 51 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `main()` --calls--> `parse_label()`  [INFERRED]
-  legacy/cachegen_reference/generate_swave_cpu_cache_qc.cpp → src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp
+- `write_fit_summary()` --calls--> `parse_label()`  [INFERRED]
+  legacy/v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp → src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp
 - `evaluate_one_energy_cpu_eigen_v24_QC()` --calls--> `F2_2plus1_mat()`  [INFERRED]
   legacy/root_finding_lineage/F3_cpu_openmp_v24_K3_QC_multi_signflip_side_abs_refinement.cpp → src/core/F2_functions_v2.h
 - `evaluate_one_energy_cpu_eigen_v24_QC()` --calls--> `config_maker_4()`  [INFERRED]
@@ -1418,20 +1418,20 @@ Cohesion: 0.83
 Nodes (3): latest(), main(), sh()
 
 ## Knowledge Gaps
-- **3168 isolated node(s):** `build_gpu.sh script`, `.val500_100A2_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen_sep_f2k2.sh script`, `config_gpu_component_cachegen_sep_f2k2_coarse20000.sh script` (+3163 more)
+- **3168 isolated node(s):** `Direction for the cloud session (D4, Digonto's words, paraphrased)`, `Open failures and attempt counters`, `Known-unverified`, `Next action`, `K3dfFCN_v32f` (+3163 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 3407 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **57 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `FitSettings` connect `FitSettings` to `QCPointValue`, `v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `FitResult`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
-- **Why does `FitSettings` connect `FitSettings` to `TargetLevel`, `fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `FitResult`, `vector`?**
-  _High betweenness centrality (0.026) - this node is a cross-community bridge._
-- **Why does `parse_label()` connect `qc_fitter_norm_refine_v2_multiL.cpp` to `generate_swave_cpu_cache_qc.cpp`, `generate_cpu_component_cache.cpp`, `scan_projF3inv_digonto_classifier_v2.cpp`, `compare_gpu_cache_vs_cpu_openmp_det_oldscale.cpp`, `V31aEigPoint`, `debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp`, `v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `run`, `v33g_build_runtime_k3basis_cache.cpp`, `v33h_patched_gpu_cache_oldscale_det_scan.cpp`, `make_refined_mesh_v32s`, `string`, `load_binary_f3inv_cache_v32f`, `v33g_runtime_k3basis_cache.hpp`, `MomentumIrrepSpec`, `fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `TargetLevel`, `FitResult`, `main`, `FitResult`?**
+- **Why does `InwardShapeResult` connect `InwardShapeResult` to `F3_gpu_omp_cublas_pipeline_v9_inward_shape_refinement.cu`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **What connects `build_gpu.sh script`, `.val500_100A2_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen.sh script` to the rest of the system?**
+- **Why does `Cand` connect `Cand` to `find_QC_zeros_refined`, `string`, `fitter/qc_fitter_norm_refine_v2.cpp`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `Options` connect `Options` to `string`, `ZeroRecord`, `main`, `debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp`, `SvdMinRecordV30r`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **What connects `Direction for the cloud session (D4, Digonto's words, paraphrased)`, `Open failures and attempt counters`, `Known-unverified` to the rest of the system?**
   _3168 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Code and function index` be split into smaller, more focused modules?**
   _Cohesion score 0.008849557522123894 - nodes in this community are weakly interconnected._
