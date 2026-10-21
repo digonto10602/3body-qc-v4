@@ -407,6 +407,19 @@
       "source_location": "L872"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer",
+      "label": "ScopedTimer",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "EnergyPrepassInfo",
+      "file_type": "code",
+      "norm_label": "scopedtimer",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L113"
+    },
+    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_physicsparams",
       "label": "PhysicsParams",
       "_callable": true,
@@ -602,17 +615,17 @@
       "source_location": "L74"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer",
-      "label": "ScopedTimer",
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult",
+      "label": "DeviceResidentResult",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 149,
       "community_name": "process_same_shape_group_true_batch_v15",
       "file_type": "code",
-      "norm_label": "scopedtimer",
+      "norm_label": "deviceresidentresult",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L113"
+      "source_location": "L544"
     },
     {
       "id": "src_fitter_lattice_data_covariance_cpp_covarianceresult",
@@ -795,19 +808,6 @@
       "norm_label": "jumprow",
       "source_file": "src/cache_io/v33h_patched_gpu_cache_oldscale_det_scan.cpp",
       "source_location": "L92"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_clock",
-      "label": "Clock",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 164,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "clock",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L76"
     },
     {
       "id": "src_qc3_core_oracle_point_input",
@@ -1590,19 +1590,6 @@
       "source_location": "L178"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult",
-      "label": "DeviceResidentResult",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "deviceresidentresult",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L544"
-    },
-    {
       "id": "src_cache_io_v33h_patched_gpu_cache_oldscale_det_scan_v33hbridgerow",
       "label": "V33hBridgeRow",
       "_callable": true,
@@ -1861,32 +1848,6 @@
       "norm_label": "neumaiercomplexsum",
       "source_file": "src/core/F2_functions_v2.h",
       "source_location": "L522"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats",
-      "label": "MatrixCompareStats",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "matrixcomparestats",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L476"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats",
-      "label": "MatrixCompareStats",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "matrixcomparestats",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L679"
     },
     {
       "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics",
@@ -2357,6 +2318,19 @@
       "source_location": "L18"
     },
     {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats",
+      "label": "MatrixCompareStats",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "matrixcomparestats",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L476"
+    },
+    {
       "id": "src_cachegen_gpu_g_gpu_safe_builder_vec3d",
       "label": "Vec3d",
       "_callable": true,
@@ -2368,6 +2342,19 @@
       "norm_label": "vec3d",
       "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
       "source_location": "L31"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats",
+      "label": "MatrixCompareStats",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "matrixcomparestats",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L679"
     },
     {
       "id": "tools_legacy_v32_inspect_v32_f3inv_cache_v32f_fixed_cacheeof",
@@ -2433,6 +2420,19 @@
       "norm_label": "signflipcandidate",
       "source_file": "legacy/root_finding_lineage/file_processor.hpp",
       "source_location": "L12"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_clock",
+      "label": "Clock",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "vector",
+      "file_type": "code",
+      "norm_label": "clock",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L76"
     },
     {
       "id": "src_qc3_core_oracle_point_singlethread",
@@ -5400,6 +5400,18 @@
       "source_location": "L652"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_scopedtimer",
+      "label": ".ScopedTimer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "EnergyPrepassInfo",
+      "file_type": "code",
+      "norm_label": ".scopedtimer()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L118"
+    },
+    {
       "id": "legacy_root_finding_lineage_generate_k3iso_generate_k3iso_l20_from_f3",
       "label": "generate_K3iso_L20_from_F3()",
       "_callable": true,
@@ -5856,6 +5868,18 @@
       "source_location": "L344"
     },
     {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_devicescatterparams_view",
+      "label": ".view()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 141,
+      "community_name": ".upload",
+      "file_type": "code",
+      "norm_label": ".view()",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L336"
+    },
+    {
       "id": "src_cachegen_gpu_k2_functions_gpu_safe_k2inv_ereord2_2plus1_many_mat_gpu_safe",
       "label": "K2inv_EREord2_2plus1_many_mat_gpu_safe()",
       "_callable": true,
@@ -6264,18 +6288,6 @@
       "source_location": "L242"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_build_projection_vsel_device",
-      "label": "build_projection_Vsel_device()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "build_projection_vsel_device()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L590"
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_choose_projection_parity_v20",
       "label": "choose_projection_parity_v20()",
       "_callable": true,
@@ -6406,30 +6418,6 @@
       "norm_label": "run_scan_device_resident()",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
       "source_location": "L1545"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_scopedtimer",
-      "label": ".ScopedTimer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": ".scopedtimer()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L118"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_devicescatterparams_view",
-      "label": ".view()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": ".view()",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L336"
     },
     {
       "id": "src_fitter_lattice_data_covariance_cpp_convert_jackknife_energy_to_ecm",
@@ -7186,18 +7174,6 @@
       "norm_label": "write_outputs_for_irrep()",
       "source_file": "legacy/root_finding_lineage/scan_projF3inv_digonto_classifier_v2.cpp",
       "source_location": "L341"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_clock_lap",
-      "label": ".lap()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 164,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": ".lap()",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L79"
     },
     {
       "id": "src_qc3_core_oracle_point_evaluate",
@@ -9060,6 +9036,102 @@
       "source_location": "L35"
     },
     {
+      "id": "src_core_k2_functions_v2_k2_inv_00",
+      "label": "K2_inv_00()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2_inv_00()",
+      "source_file": "src/core/K2_functions_v2.h",
+      "source_location": "L15"
+    },
+    {
+      "id": "src_core_k2_functions_v2_k2_inv_ere_ang_mom",
+      "label": "K2_inv_ERE_ang_mom()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2_inv_ere_ang_mom()",
+      "source_file": "src/core/K2_functions_v2.h",
+      "source_location": "L37"
+    },
+    {
+      "id": "src_core_k2_functions_v2_k2inv_ereord2_2plus1_mat",
+      "label": "K2inv_EREord2_2plus1_mat()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2inv_ereord2_2plus1_mat()",
+      "source_file": "src/core/K2_functions_v2.h",
+      "source_location": "L264"
+    },
+    {
+      "id": "src_core_k2_functions_v2_k2inv_ereord2_i_mat",
+      "label": "K2inv_EREord2_i_mat()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2inv_ereord2_i_mat()",
+      "source_file": "src/core/K2_functions_v2.h",
+      "source_location": "L176"
+    },
+    {
+      "id": "src_qc3_core_k2inv_forms_k2_inv_ere_ang_mom_q0_consistent",
+      "label": "K2_inv_ERE_ang_mom_q0_consistent()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2_inv_ere_ang_mom_q0_consistent()",
+      "source_file": "src/qc3_core/k2inv_forms.hpp",
+      "source_location": "L21"
+    },
+    {
+      "id": "src_qc3_core_k2inv_forms_k2inv_2plus1_by_form",
+      "label": "K2inv_2plus1_by_form()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2inv_2plus1_by_form()",
+      "source_file": "src/qc3_core/k2inv_forms.hpp",
+      "source_location": "L79"
+    },
+    {
+      "id": "src_qc3_core_k2inv_forms_k2inv_ereord2_2plus1_mat_q0_consistent",
+      "label": "K2inv_EREord2_2plus1_mat_q0_consistent()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2inv_ereord2_2plus1_mat_q0_consistent()",
+      "source_file": "src/qc3_core/k2inv_forms.hpp",
+      "source_location": "L62"
+    },
+    {
+      "id": "src_qc3_core_k2inv_forms_k2inv_ereord2_i_mat_q0_consistent",
+      "label": "K2inv_EREord2_i_mat_q0_consistent()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2inv_ereord2_i_mat_q0_consistent()",
+      "source_file": "src/qc3_core/k2inv_forms.hpp",
+      "source_location": "L40"
+    },
+    {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_adaptive_final_zeros_device_resident",
       "label": "adaptive_final_zeros_device_resident()",
       "_callable": true,
@@ -9286,66 +9358,6 @@
       "norm_label": "to_numpy()",
       "source_file": "src/qc3_core/module.cpp",
       "source_location": "L19"
-    },
-    {
-      "id": "src_core_functions_boost",
-      "label": "boost()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 242,
-      "community_name": "G_2plus1_mat",
-      "file_type": "code",
-      "norm_label": "boost()",
-      "source_file": "src/core/functions.h",
-      "source_location": "L1281"
-    },
-    {
-      "id": "src_core_g_functions_v2_g_2plus1_mat",
-      "label": "G_2plus1_mat()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 242,
-      "community_name": "G_2plus1_mat",
-      "file_type": "code",
-      "norm_label": "g_2plus1_mat()",
-      "source_file": "src/core/G_functions_v2.h",
-      "source_location": "L245"
-    },
-    {
-      "id": "src_core_g_functions_v2_g_ij_lm",
-      "label": "G_ij_lm()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 242,
-      "community_name": "G_2plus1_mat",
-      "file_type": "code",
-      "norm_label": "g_ij_lm()",
-      "source_file": "src/core/G_functions_v2.h",
-      "source_location": "L74"
-    },
-    {
-      "id": "src_core_g_functions_v2_get_parity_block_from_plm_config",
-      "label": "get_parity_block_from_plm_config()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 242,
-      "community_name": "G_2plus1_mat",
-      "file_type": "code",
-      "norm_label": "get_parity_block_from_plm_config()",
-      "source_file": "src/core/G_functions_v2.h",
-      "source_location": "L205"
-    },
-    {
-      "id": "src_core_g_functions_v2_print_gij_boosts",
-      "label": "print_Gij_boosts()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 242,
-      "community_name": "G_2plus1_mat",
-      "file_type": "code",
-      "norm_label": "print_gij_boosts()",
-      "source_file": "src/core/G_functions_v2.h",
-      "source_location": "L10"
     },
     {
       "id": "src_gpu_det_v33p_gpu_det_lu_cublas_error",
@@ -10642,6 +10654,18 @@
       "norm_label": "write_matrix()",
       "source_file": "src/cache_build/v33p_build_projected_basis_hotwindow_cache.cpp",
       "source_location": "L121"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_build_projection_vsel_device",
+      "label": "build_projection_Vsel_device()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "projections_gpu_safe.cuh",
+      "file_type": "code",
+      "norm_label": "build_projection_vsel_device()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L590"
     },
     {
       "id": "src_cachegen_gpu_projections_gpu_safe_all_perms_host",
@@ -13704,6 +13728,18 @@
       "source_location": "L64"
     },
     {
+      "id": "src_core_functions_omega_func",
+      "label": "omega_func()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "F2_functions_v2.h",
+      "file_type": "code",
+      "norm_label": "omega_func()",
+      "source_file": "src/core/functions.h",
+      "source_location": "L18"
+    },
+    {
       "id": "src_core_functions_q2psq_star",
       "label": "q2psq_star()",
       "_callable": true,
@@ -13716,6 +13752,18 @@
       "source_location": "L71"
     },
     {
+      "id": "src_core_functions_sigma_pvec_based",
+      "label": "sigma_pvec_based()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "F2_functions_v2.h",
+      "file_type": "code",
+      "norm_label": "sigma_pvec_based()",
+      "source_file": "src/core/functions.h",
+      "source_location": "L37"
+    },
+    {
       "id": "src_core_spherical_functions_spherical_harmonics",
       "label": "spherical_harmonics()",
       "_callable": true,
@@ -13726,30 +13774,6 @@
       "norm_label": "spherical_harmonics()",
       "source_file": "src/core/spherical_functions.h",
       "source_location": "L15"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_compare_matrices",
-      "label": "compare_matrices()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "compare_matrices()",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L488"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_compare_matrices",
-      "label": "compare_matrices()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "compare_matrices()",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L693"
     },
     {
       "id": "src_python_qc3_lattice_chi2",
@@ -14040,6 +14064,18 @@
       "source_location": "L1090"
     },
     {
+      "id": "src_core_functions_boost",
+      "label": "boost()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "functions.h",
+      "file_type": "code",
+      "norm_label": "boost()",
+      "source_file": "src/core/functions.h",
+      "source_location": "L1281"
+    },
+    {
       "id": "src_core_functions_config_maker",
       "label": "config_maker()",
       "_callable": true,
@@ -14268,18 +14304,6 @@
       "source_location": "L490"
     },
     {
-      "id": "src_core_functions_omega_func",
-      "label": "omega_func()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "functions.h",
-      "file_type": "code",
-      "norm_label": "omega_func()",
-      "source_file": "src/core/functions.h",
-      "source_location": "L18"
-    },
-    {
       "id": "src_core_functions_particle_energy",
       "label": "particle_energy()",
       "_callable": true,
@@ -14326,18 +14350,6 @@
       "norm_label": "sigma()",
       "source_file": "src/core/functions.h",
       "source_location": "L25"
-    },
-    {
-      "id": "src_core_functions_sigma_pvec_based",
-      "label": "sigma_pvec_based()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "functions.h",
-      "file_type": "code",
-      "norm_label": "sigma_pvec_based()",
-      "source_file": "src/core/functions.h",
-      "source_location": "L37"
     },
     {
       "id": "src_core_functions_threebody_gpoles",
@@ -19524,6 +19536,18 @@
       "source_location": "L80"
     },
     {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_compare_matrices",
+      "label": "compare_matrices()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "compare_matrices()",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L488"
+    },
+    {
       "id": "src_cachegen_gpu_g_gpu_safe_builder_cpow_int",
       "label": "cpow_int()",
       "_callable": true,
@@ -19714,6 +19738,18 @@
       "norm_label": "spherical_harmonics_gpu()",
       "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
       "source_location": "L209"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_compare_matrices",
+      "label": "compare_matrices()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "compare_matrices()",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L693"
     },
     {
       "id": "tools_legacy_v32_inspect_v32_f3inv_cache_v32f_fixed_expected_coarse_grid",
@@ -20052,52 +20088,16 @@
       "source_location": "L38"
     },
     {
-      "id": "src_qc3_core_k2inv_forms_k2_inv_ere_ang_mom_q0_consistent",
-      "label": "K2_inv_ERE_ang_mom_q0_consistent()",
+      "id": "src_qc3_core_oracle_point_clock_lap",
+      "label": ".lap()",
       "_callable": true,
       "_origin": "ast",
       "community": 72,
       "community_name": "vector",
       "file_type": "code",
-      "norm_label": "k2_inv_ere_ang_mom_q0_consistent()",
-      "source_file": "src/qc3_core/k2inv_forms.hpp",
-      "source_location": "L21"
-    },
-    {
-      "id": "src_qc3_core_k2inv_forms_k2inv_2plus1_by_form",
-      "label": "K2inv_2plus1_by_form()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "vector",
-      "file_type": "code",
-      "norm_label": "k2inv_2plus1_by_form()",
-      "source_file": "src/qc3_core/k2inv_forms.hpp",
+      "norm_label": ".lap()",
+      "source_file": "src/qc3_core/oracle_point.hpp",
       "source_location": "L79"
-    },
-    {
-      "id": "src_qc3_core_k2inv_forms_k2inv_ereord2_2plus1_mat_q0_consistent",
-      "label": "K2inv_EREord2_2plus1_mat_q0_consistent()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "vector",
-      "file_type": "code",
-      "norm_label": "k2inv_ereord2_2plus1_mat_q0_consistent()",
-      "source_file": "src/qc3_core/k2inv_forms.hpp",
-      "source_location": "L62"
-    },
-    {
-      "id": "src_qc3_core_k2inv_forms_k2inv_ereord2_i_mat_q0_consistent",
-      "label": "K2inv_EREord2_i_mat_q0_consistent()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "vector",
-      "file_type": "code",
-      "norm_label": "k2inv_ereord2_i_mat_q0_consistent()",
-      "source_file": "src/qc3_core/k2inv_forms.hpp",
-      "source_location": "L40"
     },
     {
       "id": "src_qc3_core_oracle_point_singlethread_singlethread",
@@ -21804,52 +21804,52 @@
       "source_location": "L289"
     },
     {
-      "id": "src_core_k2_functions_v2_k2_inv_00",
-      "label": "K2_inv_00()",
+      "id": "src_core_g_functions_v2_g_2plus1_mat",
+      "label": "G_2plus1_mat()",
       "_callable": true,
       "_origin": "ast",
       "community": 94,
       "community_name": "QC_functions_v2.h",
       "file_type": "code",
-      "norm_label": "k2_inv_00()",
-      "source_file": "src/core/K2_functions_v2.h",
-      "source_location": "L15"
+      "norm_label": "g_2plus1_mat()",
+      "source_file": "src/core/G_functions_v2.h",
+      "source_location": "L245"
     },
     {
-      "id": "src_core_k2_functions_v2_k2_inv_ere_ang_mom",
-      "label": "K2_inv_ERE_ang_mom()",
+      "id": "src_core_g_functions_v2_g_ij_lm",
+      "label": "G_ij_lm()",
       "_callable": true,
       "_origin": "ast",
       "community": 94,
       "community_name": "QC_functions_v2.h",
       "file_type": "code",
-      "norm_label": "k2_inv_ere_ang_mom()",
-      "source_file": "src/core/K2_functions_v2.h",
-      "source_location": "L37"
+      "norm_label": "g_ij_lm()",
+      "source_file": "src/core/G_functions_v2.h",
+      "source_location": "L74"
     },
     {
-      "id": "src_core_k2_functions_v2_k2inv_ereord2_2plus1_mat",
-      "label": "K2inv_EREord2_2plus1_mat()",
+      "id": "src_core_g_functions_v2_get_parity_block_from_plm_config",
+      "label": "get_parity_block_from_plm_config()",
       "_callable": true,
       "_origin": "ast",
       "community": 94,
       "community_name": "QC_functions_v2.h",
       "file_type": "code",
-      "norm_label": "k2inv_ereord2_2plus1_mat()",
-      "source_file": "src/core/K2_functions_v2.h",
-      "source_location": "L264"
+      "norm_label": "get_parity_block_from_plm_config()",
+      "source_file": "src/core/G_functions_v2.h",
+      "source_location": "L205"
     },
     {
-      "id": "src_core_k2_functions_v2_k2inv_ereord2_i_mat",
-      "label": "K2inv_EREord2_i_mat()",
+      "id": "src_core_g_functions_v2_print_gij_boosts",
+      "label": "print_Gij_boosts()",
       "_callable": true,
       "_origin": "ast",
       "community": 94,
       "community_name": "QC_functions_v2.h",
       "file_type": "code",
-      "norm_label": "k2inv_ereord2_i_mat()",
-      "source_file": "src/core/K2_functions_v2.h",
-      "source_location": "L176"
+      "norm_label": "print_gij_boosts()",
+      "source_file": "src/core/G_functions_v2.h",
+      "source_location": "L10"
     },
     {
       "id": "src_core_qc_functions_v2_check_invertibility",
@@ -32267,6 +32267,17 @@
       "source_location": ""
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_time_point",
+      "label": "time_point",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "EnergyPrepassInfo",
+      "file_type": "code",
+      "norm_label": "time_point",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_energyprepassinfo_dim1",
       "label": "dim1",
       "_origin": "ast",
@@ -32342,6 +32353,39 @@
       "norm_label": "vdim",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
       "source_location": "L880"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_debug",
+      "label": "debug",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "EnergyPrepassInfo",
+      "file_type": "code",
+      "norm_label": "debug",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L116"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "EnergyPrepassInfo",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L115"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_t0",
+      "label": "t0",
+      "_origin": "ast",
+      "community": 131,
+      "community_name": "EnergyPrepassInfo",
+      "file_type": "code",
+      "norm_label": "t0",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L117"
     },
     {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_physicsparams_alpha",
@@ -34516,17 +34560,6 @@
       "source_location": ""
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_time_point",
-      "label": "time_point",
-      "_origin": "ast",
-      "community": 149,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "time_point",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_vector",
       "label": "vector",
       "_origin": "ast",
@@ -34538,37 +34571,114 @@
       "source_location": ""
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_debug",
-      "label": "debug",
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_build_sec",
+      "label": "build_sec",
       "_origin": "ast",
       "community": 149,
       "community_name": "process_same_shape_group_true_batch_v15",
       "file_type": "code",
-      "norm_label": "debug",
+      "norm_label": "build_sec",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L116"
+      "source_location": "L554"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_name",
-      "label": "name",
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_det",
+      "label": "det",
       "_origin": "ast",
       "community": 149,
       "community_name": "process_same_shape_group_true_batch_v15",
       "file_type": "code",
-      "norm_label": "name",
+      "norm_label": "det",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L115"
+      "source_location": "L553"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_t0",
-      "label": "t0",
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_dim1",
+      "label": "dim1",
       "_origin": "ast",
       "community": 149,
       "community_name": "process_same_shape_group_true_batch_v15",
       "file_type": "code",
-      "norm_label": "t0",
+      "norm_label": "dim1",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L117"
+      "source_location": "L549"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_dim2",
+      "label": "dim2",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "dim2",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L550"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_ecm",
+      "label": "Ecm",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "ecm",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L547"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_en",
+      "label": "En",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "en",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L548"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_i",
+      "label": "i",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "i",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L546"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_solve_sec",
+      "label": "solve_sec",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "solve_sec",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L555"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_total_dim",
+      "label": "total_dim",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "total_dim",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L551"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_vdim",
+      "label": "vdim",
+      "_origin": "ast",
+      "community": 149,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "vdim",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L552"
     },
     {
       "id": "covariancetuple",
@@ -35209,6 +35319,30 @@
       "source_location": "L234"
     },
     {
+      "id": "reports_research_001_physics_core_library_audit_1_what_was_asked",
+      "label": "1. What was asked",
+      "_origin": "ast",
+      "community": 152,
+      "community_name": "3. Results",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. what was asked",
+      "source_file": "reports/research/001-physics-core-library-audit.md",
+      "source_location": "L26"
+    },
+    {
+      "id": "reports_research_001_physics_core_library_audit_2_actions_taken",
+      "label": "2. Actions taken",
+      "_origin": "ast",
+      "community": 152,
+      "community_name": "3. Results",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. actions taken",
+      "source_file": "reports/research/001-physics-core-library-audit.md",
+      "source_location": "L34"
+    },
+    {
       "id": "reports_research_001_physics_core_library_audit_3_1_formalism_and_references_as_stated_in_the_code",
       "label": "3.1 Formalism and references (as stated in the code)",
       "_origin": "ast",
@@ -35291,6 +35425,42 @@
       "norm_label": "3. results",
       "source_file": "reports/research/001-physics-core-library-audit.md",
       "source_location": "L49"
+    },
+    {
+      "id": "reports_research_001_physics_core_library_audit_4_what_this_means",
+      "label": "4. What this means",
+      "_origin": "ast",
+      "community": 152,
+      "community_name": "3. Results",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. what this means",
+      "source_file": "reports/research/001-physics-core-library-audit.md",
+      "source_location": "L429"
+    },
+    {
+      "id": "reports_research_001_physics_core_library_audit_5_problems_and_assumptions",
+      "label": "5. Problems and assumptions",
+      "_origin": "ast",
+      "community": 152,
+      "community_name": "3. Results",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. problems and assumptions",
+      "source_file": "reports/research/001-physics-core-library-audit.md",
+      "source_location": "L435"
+    },
+    {
+      "id": "reports_research_001_physics_core_library_audit_a_physics_core_of_the_kk\u03c0_three_body_quantization_condition_code",
+      "label": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
+      "_origin": "ast",
+      "community": 152,
+      "community_name": "3. Results",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "a \u2014 physics core of the kk\u03c0 three-body quantization-condition code",
+      "source_file": "reports/research/001-physics-core-library-audit.md",
+      "source_location": "L1"
     },
     {
       "id": "src_cachegen_gpu_functions_gpu_config_maker4",
@@ -35657,7 +35827,7 @@
       "node_kind": "heading",
       "norm_label": "10. expected cost",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L257"
+      "source_location": "L266"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_1_goal_of_m1",
@@ -35765,7 +35935,7 @@
       "node_kind": "heading",
       "norm_label": "5.1 `qc3.constants`",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L127"
+      "source_location": "L136"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_5_2_qc3_sector",
@@ -35777,7 +35947,7 @@
       "node_kind": "heading",
       "norm_label": "5.2 `qc3.sector`",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L139"
+      "source_location": "L148"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_5_3_qc3_point",
@@ -35789,7 +35959,7 @@
       "node_kind": "heading",
       "norm_label": "5.3 `qc3.point`",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L159"
+      "source_location": "L168"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_5_4_qc3_oracle_and_qc3_fast",
@@ -35801,7 +35971,7 @@
       "node_kind": "heading",
       "norm_label": "5.4 `qc3.oracle` and `qc3.fast`",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L177"
+      "source_location": "L186"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_5_5_qc3_qc_and_qc3_roots",
@@ -35813,7 +35983,7 @@
       "node_kind": "heading",
       "norm_label": "5.5 `qc3.qc` and `qc3.roots`",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L184"
+      "source_location": "L193"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_5_6_qc3_lattice",
@@ -35825,7 +35995,7 @@
       "node_kind": "heading",
       "norm_label": "5.6 `qc3.lattice`",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L194"
+      "source_location": "L203"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_5_7_qc3_bench",
@@ -35837,7 +36007,7 @@
       "node_kind": "heading",
       "norm_label": "5.7 `qc3.bench`",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L211"
+      "source_location": "L220"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_5_interface_what_the_acceptance_tests_import_builder_creates_stubs_in_step_1",
@@ -35849,7 +36019,7 @@
       "node_kind": "heading",
       "norm_label": "5. interface (what the acceptance tests import; builder creates stubs in step 1)",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L123"
+      "source_location": "L132"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_6_do_not_retry_list",
@@ -35861,7 +36031,7 @@
       "node_kind": "heading",
       "norm_label": "6. do-not-retry list",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L219"
+      "source_location": "L228"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_7_benchmark_protocol_tester_mode_benchmark_reports_benchmarks_nnn_md_results_bench_json",
@@ -35873,7 +36043,7 @@
       "node_kind": "heading",
       "norm_label": "7. benchmark protocol (tester, mode `benchmark`; `reports/benchmarks/nnn-*.md` + `results/bench_*.json`)",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L234"
+      "source_location": "L243"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_8_risks_and_stop_conditions",
@@ -35885,7 +36055,7 @@
       "node_kind": "heading",
       "norm_label": "8. risks and stop conditions",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L243"
+      "source_location": "L252"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_9_outline_of_later_milestones_not_planned_in_detail_here",
@@ -35897,7 +36067,19 @@
       "node_kind": "heading",
       "norm_label": "9. outline of later milestones (not planned in detail here)",
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L251"
+      "source_location": "L260"
+    },
+    {
+      "id": "prompts_001_m1_cache_free_single_energy_qc_amendment_2026_10_21_acceptance_v2_test_m1_qc_identities_py_test_scale_applies_to_matrix_not_determinant_last_block",
+      "label": "Amendment 2026-10-21 (acceptance-v2): `test_m1_qc_identities.py::test_scale_applies_to_matrix_not_determinant`, last block",
+      "_origin": "ast",
+      "community": 154,
+      "community_name": "001 \u2014 M1: a cache-free, CPU-only, single-energy three-body QC with an oracle and an independent reference",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "amendment 2026-10-21 (acceptance-v2): `test_m1_qc_identities.py::test_scale_applies_to_matrix_not_determinant`, last block",
+      "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
+      "source_location": "L123"
     },
     {
       "id": "prompts_001_m1_cache_free_single_energy_qc_m1_cache_free_single_energy_qc_this_plan",
@@ -36273,6 +36455,30 @@
       "norm_label": "y_right",
       "source_file": "src/fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp",
       "source_location": "L261"
+    },
+    {
+      "id": "docs_open_issues",
+      "label": "OPEN_ISSUES.md",
+      "_origin": "ast",
+      "community": 158,
+      "community_name": "PIPELINE \u2014 from physics parameters to a $\\mathcal K_{\\rm df,3}$ fit",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "open_issues.md",
+      "source_file": "docs/OPEN_ISSUES.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_pipeline",
+      "label": "PIPELINE.md",
+      "_origin": "ast",
+      "community": 158,
+      "community_name": "PIPELINE \u2014 from physics parameters to a $\\mathcal K_{\\rm df,3}$ fit",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "pipeline.md",
+      "source_file": "docs/PIPELINE.md",
+      "source_location": "L1"
     },
     {
       "id": "docs_pipeline_a_cache_generation",
@@ -37076,17 +37282,6 @@
       "source_location": ""
     },
     {
-      "id": "src_qc3_core_oracle_point_clock_t0",
-      "label": "t0_",
-      "_origin": "ast",
-      "community": 164,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "t0_",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L77"
-    },
-    {
       "id": "src_qc3_core_oracle_point_hpp_array",
       "label": "array",
       "_origin": "ast",
@@ -37116,17 +37311,6 @@
       "community_name": "Output",
       "file_type": "code",
       "norm_label": "string",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_oracle_point_hpp_time_point",
-      "label": "time_point",
-      "_origin": "ast",
-      "community": 164,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "time_point",
       "source_file": "",
       "source_location": ""
     },
@@ -41277,7 +41461,7 @@
       "label": "STATUS.md",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "status.md",
@@ -41289,7 +41473,7 @@
       "label": "000-consolidation-and-roadmap.md",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "000-consolidation-and-roadmap.md",
@@ -41297,11 +41481,119 @@
       "source_location": "L1"
     },
     {
+      "id": "prompts_000_consolidation_and_roadmap_000_consolidation_and_roadmap_starter_plan_from_chat_2026_10_21",
+      "label": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "000 \u2014 consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "source_file": "prompts/000-consolidation-and-roadmap.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "prompts_000_consolidation_and_roadmap_goal",
+      "label": "Goal",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "goal",
+      "source_file": "prompts/000-consolidation-and-roadmap.md",
+      "source_location": "L31"
+    },
+    {
+      "id": "prompts_000_consolidation_and_roadmap_milestone_0_consolidation_done_2026_10_21",
+      "label": "Milestone 0 \u2014 consolidation (DONE, 2026-10-21)",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "milestone 0 \u2014 consolidation (done, 2026-10-21)",
+      "source_file": "prompts/000-consolidation-and-roadmap.md",
+      "source_location": "L38"
+    },
+    {
+      "id": "prompts_000_consolidation_and_roadmap_milestone_1_trustworthy_baseline_decisions_answered_2026_10_21_step_6_replaced_see_the_update_above",
+      "label": "Milestone 1 \u2014 trustworthy baseline (decisions answered 2026-10-21; step 6 replaced, see the update above)",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "milestone 1 \u2014 trustworthy baseline (decisions answered 2026-10-21; step 6 replaced, see the update above)",
+      "source_file": "prompts/000-consolidation-and-roadmap.md",
+      "source_location": "L42"
+    },
+    {
+      "id": "prompts_000_consolidation_and_roadmap_milestone_2_root_finding_without_human_labels_gradient_change",
+      "label": "Milestone 2 \u2014 root finding without human labels (\"gradient change\")",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "milestone 2 \u2014 root finding without human labels (\"gradient change\")",
+      "source_file": "prompts/000-consolidation-and-roadmap.md",
+      "source_location": "L55"
+    },
+    {
+      "id": "prompts_000_consolidation_and_roadmap_milestone_3_l24_and_combined_fit",
+      "label": "Milestone 3 \u2014 L24 and combined fit",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "milestone 3 \u2014 l24 and combined fit",
+      "source_file": "prompts/000-consolidation-and-roadmap.md",
+      "source_location": "L62"
+    },
+    {
+      "id": "prompts_000_consolidation_and_roadmap_milestone_4_speed_and_robustness",
+      "label": "Milestone 4 \u2014 speed and robustness",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "milestone 4 \u2014 speed and robustness",
+      "source_file": "prompts/000-consolidation-and-roadmap.md",
+      "source_location": "L68"
+    },
+    {
+      "id": "prompts_000_consolidation_and_roadmap_milestone_5_physics_output",
+      "label": "Milestone 5 \u2014 physics output",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "milestone 5 \u2014 physics output",
+      "source_file": "prompts/000-consolidation-and-roadmap.md",
+      "source_location": "L74"
+    },
+    {
+      "id": "prompts_000_consolidation_and_roadmap_update_2026_10_21_digonto_s_answers_and_new_priority_read_first",
+      "label": "Update 2026-10-21 \u2014 Digonto's answers and new priority (read first)",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "update 2026-10-21 \u2014 digonto's answers and new priority (read first)",
+      "source_file": "prompts/000-consolidation-and-roadmap.md",
+      "source_location": "L10"
+    },
+    {
       "id": "readme",
       "label": "README.md",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "readme.md",
@@ -41313,7 +41605,7 @@
       "label": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "3body-qc-v4 \u2014 fitting the three-particle k matrix to lattice spectra",
@@ -41325,7 +41617,7 @@
       "label": "Build",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "build",
@@ -41337,7 +41629,7 @@
       "label": "Layout",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "layout",
@@ -41349,7 +41641,7 @@
       "label": "Running a fit needs external inputs",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "running a fit needs external inputs",
@@ -41361,7 +41653,7 @@
       "label": "Status (2026-10-21)",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "status (2026-10-21)",
@@ -41373,7 +41665,7 @@
       "label": "The hard part: finding the right roots",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "the hard part: finding the right roots",
@@ -41385,7 +41677,7 @@
       "label": "The idea that makes fits fast",
       "_origin": "ast",
       "community": 192,
-      "community_name": "3body-qc-v4 \u2014 fitting the three-particle K matrix to lattice spectra",
+      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "the idea that makes fits fast",
@@ -41419,7 +41711,7 @@
       "label": "HISTORY.md",
       "_origin": "ast",
       "community": 194,
-      "community_name": "HISTORY.md",
+      "community_name": "ROOT FINDING for the three-body QC",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "history.md",
@@ -41431,7 +41723,7 @@
       "label": "HISTORY \u2014 where this code came from",
       "_origin": "ast",
       "community": 194,
-      "community_name": "HISTORY.md",
+      "community_name": "ROOT FINDING for the three-body QC",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "history \u2014 where this code came from",
@@ -41443,7 +41735,7 @@
       "label": "Lessons that must not be relearned",
       "_origin": "ast",
       "community": 194,
-      "community_name": "HISTORY.md",
+      "community_name": "ROOT FINDING for the three-body QC",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "lessons that must not be relearned",
@@ -41455,7 +41747,7 @@
       "label": "Phases (condensed)",
       "_origin": "ast",
       "community": 194,
-      "community_name": "HISTORY.md",
+      "community_name": "ROOT FINDING for the three-body QC",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "phases (condensed)",
@@ -41467,7 +41759,7 @@
       "label": "Source packages",
       "_origin": "ast",
       "community": 194,
-      "community_name": "HISTORY.md",
+      "community_name": "ROOT FINDING for the three-body QC",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "source packages",
@@ -41475,11 +41767,23 @@
       "source_location": "L11"
     },
     {
+      "id": "docs_methods",
+      "label": "METHODS.md",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "methods.md",
+      "source_file": "docs/METHODS.md",
+      "source_location": "L1"
+    },
+    {
       "id": "docs_root_finding",
       "label": "ROOT_FINDING.md",
       "_origin": "ast",
       "community": 194,
-      "community_name": "HISTORY.md",
+      "community_name": "ROOT FINDING for the three-body QC",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "root_finding.md",
@@ -41487,11 +41791,119 @@
       "source_location": "L1"
     },
     {
+      "id": "docs_root_finding_1_why_it_is_hard_measured",
+      "label": "1. Why it is hard (measured)",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. why it is hard (measured)",
+      "source_file": "docs/ROOT_FINDING.md",
+      "source_location": "L17"
+    },
+    {
+      "id": "docs_root_finding_2_what_was_tried_oldest_newest",
+      "label": "2. What was tried (oldest \u2192 newest)",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. what was tried (oldest \u2192 newest)",
+      "source_file": "docs/ROOT_FINDING.md",
+      "source_location": "L36"
+    },
+    {
+      "id": "docs_root_finding_3_1_how_to_compute_it_cheaply_with_the_existing_caches",
+      "label": "3.1 How to compute it cheaply with the existing caches",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.1 how to compute it cheaply with the existing caches",
+      "source_file": "docs/ROOT_FINDING.md",
+      "source_location": "L73"
+    },
+    {
+      "id": "docs_root_finding_3_2_smooth_root_position_for_minuit_proposal",
+      "label": "3.2 Smooth root position for Minuit (proposal)",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.2 smooth root position for minuit (proposal)",
+      "source_file": "docs/ROOT_FINDING.md",
+      "source_location": "L81"
+    },
+    {
+      "id": "docs_root_finding_3_3_acceptance_gate_for_any_new_method_proposal",
+      "label": "3.3 Acceptance gate for any new method (proposal)",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.3 acceptance gate for any new method (proposal)",
+      "source_file": "docs/ROOT_FINDING.md",
+      "source_location": "L89"
+    },
+    {
+      "id": "docs_root_finding_3_the_gradient_change_idea_stated_precisely",
+      "label": "3. The \"gradient change\" idea, stated precisely",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. the \"gradient change\" idea, stated precisely",
+      "source_file": "docs/ROOT_FINDING.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "docs_root_finding_4_rules_that_apply_to_every_method",
+      "label": "4. Rules that apply to every method",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. rules that apply to every method",
+      "source_file": "docs/ROOT_FINDING.md",
+      "source_location": "L97"
+    },
+    {
+      "id": "docs_root_finding_root_finding_for_the_three_body_qc",
+      "label": "ROOT FINDING for the three-body QC",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "root finding for the three-body qc",
+      "source_file": "docs/ROOT_FINDING.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "reports_research_001_physics_core_library_audit",
+      "label": "001-physics-core-library-audit.md",
+      "_origin": "ast",
+      "community": 194,
+      "community_name": "ROOT FINDING for the three-body QC",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "001-physics-core-library-audit.md",
+      "source_file": "reports/research/001-physics-core-library-audit.md",
+      "source_location": "L1"
+    },
+    {
       "id": "reports_research_002_cache_generation_and_root_finding_lineage",
       "label": "002-cache-generation-and-root-finding-lineage.md",
       "_origin": "ast",
       "community": 194,
-      "community_name": "HISTORY.md",
+      "community_name": "ROOT FINDING for the three-body QC",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "002-cache-generation-and-root-finding-lineage.md",
@@ -41503,7 +41915,7 @@
       "label": "003-fitter-lineage-and-fast-fcn-design.md",
       "_origin": "ast",
       "community": 194,
-      "community_name": "HISTORY.md",
+      "community_name": "ROOT FINDING for the three-body QC",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "003-fitter-lineage-and-fast-fcn-design.md",
@@ -41515,7 +41927,7 @@
       "label": "006-history-v31-to-v32.md",
       "_origin": "ast",
       "community": 194,
-      "community_name": "HISTORY.md",
+      "community_name": "ROOT FINDING for the three-body QC",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "006-history-v31-to-v32.md",
@@ -41569,6 +41981,18 @@
       "norm_label": "3. pre-v31 background (from the v31u context-transfer package)",
       "source_file": "reports/research/006-history-v31-to-v32.md",
       "source_location": "L59"
+    },
+    {
+      "id": "reports_research_006_history_v31_to_v32_4_chronological_table_v31v_v32y_question_1",
+      "label": "4. Chronological table v31v \u2192 v32y (Question 1)",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "F \u2014 Development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. chronological table v31v \u2192 v32y (question 1)",
+      "source_file": "reports/research/006-history-v31-to-v32.md",
+      "source_location": "L79"
     },
     {
       "id": "reports_research_006_history_v31_to_v32_6_gradient_slope_derivative_use_question_3",
@@ -41653,6 +42077,102 @@
       "norm_label": "f \u2014 development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
       "source_file": "reports/research/006-history-v31-to-v32.md",
       "source_location": "L1"
+    },
+    {
+      "id": "reports_research_006_history_v31_to_v32_phase_a_f_2_g_fg_diagnostics_projection_audit_blind_pole_classifier_default_111_a2_110_a2_l_20",
+      "label": "Phase A \u2014 $F_2$/$G$/$FG$ diagnostics, projection audit, blind pole classifier (default `111_A2` \u2192 `110_A2`, $L=20$)",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "F \u2014 Development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase a \u2014 $f_2$/$g$/$fg$ diagnostics, projection audit, blind pole classifier (default `111_a2` \u2192 `110_a2`, $l=20$)",
+      "source_file": "reports/research/006-history-v31-to-v32.md",
+      "source_location": "L83"
+    },
+    {
+      "id": "reports_research_006_history_v31_to_v32_phase_b_projected_f_3_1_zero_finder_110_a2_l_24_waves_0_1",
+      "label": "Phase B \u2014 projected $F_3^{-1}$ zero finder (`110_A2`, $L=24$, waves $\\{0,1\\}$)",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "F \u2014 Development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase b \u2014 projected $f_3^{-1}$ zero finder (`110_a2`, $l=24$, waves $\\{0,1\\}$)",
+      "source_file": "reports/research/006-history-v31-to-v32.md",
+      "source_location": "L92"
+    },
+    {
+      "id": "reports_research_006_history_v31_to_v32_phase_c_toy_mass_sanity_tests_and_scattering_parameter_mapping",
+      "label": "Phase C \u2014 toy-mass sanity tests and scattering-parameter mapping",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "F \u2014 Development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase c \u2014 toy-mass sanity tests and scattering-parameter mapping",
+      "source_file": "reports/research/006-history-v31-to-v32.md",
+      "source_location": "L102"
+    },
+    {
+      "id": "reports_research_006_history_v31_to_v32_phase_d_classifier_v1_s_vs_s_p_waves_p_wave_strength_v_rm_iso",
+      "label": "Phase D \u2014 classifier v1, s vs s+p waves, p-wave strength, $v_{\\rm iso}$",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "F \u2014 Development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase d \u2014 classifier v1, s vs s+p waves, p-wave strength, $v_{\\rm iso}$",
+      "source_file": "reports/research/006-history-v31-to-v32.md",
+      "source_location": "L115"
+    },
+    {
+      "id": "reports_research_006_history_v31_to_v32_phase_e_iterative_refinement_and_lattice_masses",
+      "label": "Phase E \u2014 iterative refinement and lattice masses",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "F \u2014 Development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase e \u2014 iterative refinement and lattice masses",
+      "source_file": "reports/research/006-history-v31-to-v32.md",
+      "source_location": "L129"
+    },
+    {
+      "id": "reports_research_006_history_v31_to_v32_phase_f_k3df_fitter_caching_diagnostics",
+      "label": "Phase F \u2014 K3df fitter, caching, diagnostics",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "F \u2014 Development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase f \u2014 k3df fitter, caching, diagnostics",
+      "source_file": "reports/research/006-history-v31-to-v32.md",
+      "source_location": "L139"
+    },
+    {
+      "id": "reports_research_006_history_v31_to_v32_phase_g_classifier_v2_normalization_true_refinement_fitter_baseline",
+      "label": "Phase G \u2014 classifier v2, normalization, true refinement, fitter baseline",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "F \u2014 Development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase g \u2014 classifier v2, normalization, true refinement, fitter baseline",
+      "source_file": "reports/research/006-history-v31-to-v32.md",
+      "source_location": "L156"
+    },
+    {
+      "id": "reports_research_006_history_v31_to_v32_phase_h_spectrum_vs_l",
+      "label": "Phase H \u2014 spectrum vs $L$",
+      "_origin": "ast",
+      "community": 195,
+      "community_name": "F \u2014 Development history v31 \u2192 v32y: lessons, bugs fixed, dead ends",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase h \u2014 spectrum vs $l$",
+      "source_file": "reports/research/006-history-v31-to-v32.md",
+      "source_location": "L167"
     },
     {
       "id": "src_cache_io_gpu_cache_reader_convention_componentmatrixcacheheader_coarsen",
@@ -45960,6 +46480,78 @@
       "source_location": "L618"
     },
     {
+      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_1_c_sources_fitter_executable_v33f_k3df_fitter_multil_v33e",
+      "label": "9.1 C++ sources (fitter executable `v33f_k3df_fitter_multiL_v33e`)",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "C. Fitter lineage and fast-fit caching design (K K-bar pi, RFT three-body QC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9.1 c++ sources (fitter executable `v33f_k3df_fitter_multil_v33e`)",
+      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
+      "source_location": "L687"
+    },
+    {
+      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_2_python_scripts_under_l20_scripts",
+      "label": "9.2 Python scripts (under `L20/scripts/`)",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "C. Fitter lineage and fast-fit caching design (K K-bar pi, RFT three-body QC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9.2 python scripts (under `l20/scripts/`)",
+      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
+      "source_location": "L714"
+    },
+    {
+      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_3_configs_and_data",
+      "label": "9.3 Configs and data",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "C. Fitter lineage and fast-fit caching design (K K-bar pi, RFT three-body QC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9.3 configs and data",
+      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
+      "source_location": "L729"
+    },
+    {
+      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_4_not_needed_in_the_consolidated_fitter",
+      "label": "9.4 Not needed in the consolidated fitter",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "C. Fitter lineage and fast-fit caching design (K K-bar pi, RFT three-body QC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9.4 not needed in the consolidated fitter",
+      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
+      "source_location": "L743"
+    },
+    {
+      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_5_suggested_consolidation_design_for_a_fast_fcn_based_on_what_works",
+      "label": "9.5 Suggested consolidation design for a fast FCN (based on what works)",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "C. Fitter lineage and fast-fit caching design (K K-bar pi, RFT three-body QC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9.5 suggested consolidation design for a fast fcn (based on what works)",
+      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
+      "source_location": "L749"
+    },
+    {
+      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_q6_recommended_minimal_fitter_file_set_for_the_consolidated_repo",
+      "label": "9. Q6 - Recommended minimal fitter file set for the consolidated repo",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "C. Fitter lineage and fast-fit caching design (K K-bar pi, RFT three-body QC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9. q6 - recommended minimal fitter file set for the consolidated repo",
+      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
+      "source_location": "L683"
+    },
+    {
       "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_c_fitter_lineage_and_fast_fit_caching_design_k_k_bar_pi_rft_three_body_qc",
       "label": "C. Fitter lineage and fast-fit caching design (K K-bar pi, RFT three-body QC)",
       "_origin": "ast",
@@ -46304,112 +46896,114 @@
       "source_location": ""
     },
     {
-      "id": "docs_methods",
-      "label": "METHODS.md",
+      "id": "src_core_k2_functions_v2",
+      "label": "K2_functions_v2.h",
       "_origin": "ast",
       "community": 226,
-      "community_name": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "methods.md",
-      "source_file": "docs/METHODS.md",
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2_functions_v2.h",
+      "source_file": "src/core/K2_functions_v2.h",
       "source_location": "L1"
     },
     {
-      "id": "docs_open_issues",
-      "label": "OPEN_ISSUES.md",
+      "id": "src_core_k2_functions_v2_h_comp",
+      "label": "comp",
       "_origin": "ast",
       "community": 226,
-      "community_name": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "open_issues.md",
-      "source_file": "docs/OPEN_ISSUES.md",
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "comp",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_core_k2_functions_v2_h_matrixxcd",
+      "label": "MatrixXcd",
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "matrixxcd",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_core_k2_functions_v2_h_vector",
+      "label": "vector",
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "vector",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_qc3_core_k2inv_forms",
+      "label": "k2inv_forms.hpp",
+      "_origin": "ast",
+      "community": 226,
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2inv_forms.hpp",
+      "source_file": "src/qc3_core/k2inv_forms.hpp",
       "source_location": "L1"
     },
     {
-      "id": "docs_pipeline",
-      "label": "PIPELINE.md",
+      "id": "src_qc3_core_k2inv_forms_hpp_comp",
+      "label": "comp",
       "_origin": "ast",
       "community": 226,
-      "community_name": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "pipeline.md",
-      "source_file": "docs/PIPELINE.md",
-      "source_location": "L1"
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "comp",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "reports_research_001_physics_core_library_audit",
-      "label": "001-physics-core-library-audit.md",
+      "id": "src_qc3_core_k2inv_forms_hpp_matrixxcd",
+      "label": "MatrixXcd",
       "_origin": "ast",
       "community": 226,
-      "community_name": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "001-physics-core-library-audit.md",
-      "source_file": "reports/research/001-physics-core-library-audit.md",
-      "source_location": "L1"
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "matrixxcd",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "reports_research_001_physics_core_library_audit_1_what_was_asked",
-      "label": "1. What was asked",
+      "id": "src_qc3_core_k2inv_forms_hpp_string",
+      "label": "string",
       "_origin": "ast",
       "community": 226,
-      "community_name": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1. what was asked",
-      "source_file": "reports/research/001-physics-core-library-audit.md",
-      "source_location": "L26"
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "string",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "reports_research_001_physics_core_library_audit_2_actions_taken",
-      "label": "2. Actions taken",
+      "id": "src_qc3_core_k2inv_forms_hpp_vector",
+      "label": "vector",
       "_origin": "ast",
       "community": 226,
-      "community_name": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2. actions taken",
-      "source_file": "reports/research/001-physics-core-library-audit.md",
-      "source_location": "L34"
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "vector",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "reports_research_001_physics_core_library_audit_4_what_this_means",
-      "label": "4. What this means",
+      "id": "src_qc3_core_oracle_point_output_k2inv",
+      "label": "K2inv",
       "_origin": "ast",
       "community": 226,
-      "community_name": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. what this means",
-      "source_file": "reports/research/001-physics-core-library-audit.md",
-      "source_location": "L429"
-    },
-    {
-      "id": "reports_research_001_physics_core_library_audit_5_problems_and_assumptions",
-      "label": "5. Problems and assumptions",
-      "_origin": "ast",
-      "community": 226,
-      "community_name": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "5. problems and assumptions",
-      "source_file": "reports/research/001-physics-core-library-audit.md",
-      "source_location": "L435"
-    },
-    {
-      "id": "reports_research_001_physics_core_library_audit_a_physics_core_of_the_kk\u03c0_three_body_quantization_condition_code",
-      "label": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "_origin": "ast",
-      "community": 226,
-      "community_name": "A \u2014 Physics core of the KK\u03c0 three-body quantization-condition code",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "a \u2014 physics core of the kk\u03c0 three-body quantization-condition code",
-      "source_file": "reports/research/001-physics-core-library-audit.md",
-      "source_location": "L1"
+      "community_name": "K2inv_EREord2_2plus1_mat",
+      "file_type": "code",
+      "norm_label": "k2inv",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L67"
     },
     {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_cu_string",
@@ -47606,114 +48200,6 @@
       "source_location": ""
     },
     {
-      "id": "prompts_000_consolidation_and_roadmap_000_consolidation_and_roadmap_starter_plan_from_chat_2026_10_21",
-      "label": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "000 \u2014 consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "source_file": "prompts/000-consolidation-and-roadmap.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "prompts_000_consolidation_and_roadmap_goal",
-      "label": "Goal",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "goal",
-      "source_file": "prompts/000-consolidation-and-roadmap.md",
-      "source_location": "L31"
-    },
-    {
-      "id": "prompts_000_consolidation_and_roadmap_milestone_0_consolidation_done_2026_10_21",
-      "label": "Milestone 0 \u2014 consolidation (DONE, 2026-10-21)",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "milestone 0 \u2014 consolidation (done, 2026-10-21)",
-      "source_file": "prompts/000-consolidation-and-roadmap.md",
-      "source_location": "L38"
-    },
-    {
-      "id": "prompts_000_consolidation_and_roadmap_milestone_1_trustworthy_baseline_decisions_answered_2026_10_21_step_6_replaced_see_the_update_above",
-      "label": "Milestone 1 \u2014 trustworthy baseline (decisions answered 2026-10-21; step 6 replaced, see the update above)",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "milestone 1 \u2014 trustworthy baseline (decisions answered 2026-10-21; step 6 replaced, see the update above)",
-      "source_file": "prompts/000-consolidation-and-roadmap.md",
-      "source_location": "L42"
-    },
-    {
-      "id": "prompts_000_consolidation_and_roadmap_milestone_2_root_finding_without_human_labels_gradient_change",
-      "label": "Milestone 2 \u2014 root finding without human labels (\"gradient change\")",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "milestone 2 \u2014 root finding without human labels (\"gradient change\")",
-      "source_file": "prompts/000-consolidation-and-roadmap.md",
-      "source_location": "L55"
-    },
-    {
-      "id": "prompts_000_consolidation_and_roadmap_milestone_3_l24_and_combined_fit",
-      "label": "Milestone 3 \u2014 L24 and combined fit",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "milestone 3 \u2014 l24 and combined fit",
-      "source_file": "prompts/000-consolidation-and-roadmap.md",
-      "source_location": "L62"
-    },
-    {
-      "id": "prompts_000_consolidation_and_roadmap_milestone_4_speed_and_robustness",
-      "label": "Milestone 4 \u2014 speed and robustness",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "milestone 4 \u2014 speed and robustness",
-      "source_file": "prompts/000-consolidation-and-roadmap.md",
-      "source_location": "L68"
-    },
-    {
-      "id": "prompts_000_consolidation_and_roadmap_milestone_5_physics_output",
-      "label": "Milestone 5 \u2014 physics output",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "milestone 5 \u2014 physics output",
-      "source_file": "prompts/000-consolidation-and-roadmap.md",
-      "source_location": "L74"
-    },
-    {
-      "id": "prompts_000_consolidation_and_roadmap_update_2026_10_21_digonto_s_answers_and_new_priority_read_first",
-      "label": "Update 2026-10-21 \u2014 Digonto's answers and new priority (read first)",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "000 \u2014 Consolidation and roadmap (starter plan from chat, 2026-10-21)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "update 2026-10-21 \u2014 digonto's answers and new priority (read first)",
-      "source_file": "prompts/000-consolidation-and-roadmap.md",
-      "source_location": "L10"
-    },
-    {
       "id": "legacy_root_finding_lineage_debug_v31b_closest_eig_midpoint_a2_zero_pole_scan",
       "label": "debug_v31b_closest_eig_midpoint_A2_zero_pole_scan.cpp",
       "_origin": "ast",
@@ -48229,50 +48715,6 @@
       "norm_label": "threads_per_block",
       "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
       "source_location": "L27"
-    },
-    {
-      "id": "src_core_g_functions_v2",
-      "label": "G_functions_v2.h",
-      "_origin": "ast",
-      "community": 242,
-      "community_name": "G_2plus1_mat",
-      "file_type": "code",
-      "norm_label": "g_functions_v2.h",
-      "source_file": "src/core/G_functions_v2.h",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_core_g_functions_v2_h_comp",
-      "label": "comp",
-      "_origin": "ast",
-      "community": 242,
-      "community_name": "G_2plus1_mat",
-      "file_type": "code",
-      "norm_label": "comp",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_g_functions_v2_h_matrixxcd",
-      "label": "MatrixXcd",
-      "_origin": "ast",
-      "community": 242,
-      "community_name": "G_2plus1_mat",
-      "file_type": "code",
-      "norm_label": "matrixxcd",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_core_g_functions_v2_h_vector",
-      "label": "vector",
-      "_origin": "ast",
-      "community": 242,
-      "community_name": "G_2plus1_mat",
-      "file_type": "code",
-      "norm_label": "vector",
-      "source_file": "",
-      "source_location": ""
     },
     {
       "id": "src_gpu_det_v33p_gpu_det_lu_cu_cublasstatus_t",
@@ -53829,114 +54271,6 @@
       "source_location": "L1"
     },
     {
-      "id": "reports_research_006_history_v31_to_v32_4_chronological_table_v31v_v32y_question_1",
-      "label": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "_origin": "ast",
-      "community": 316,
-      "community_name": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. chronological table v31v \u2192 v32y (question 1)",
-      "source_file": "reports/research/006-history-v31-to-v32.md",
-      "source_location": "L79"
-    },
-    {
-      "id": "reports_research_006_history_v31_to_v32_phase_a_f_2_g_fg_diagnostics_projection_audit_blind_pole_classifier_default_111_a2_110_a2_l_20",
-      "label": "Phase A \u2014 $F_2$/$G$/$FG$ diagnostics, projection audit, blind pole classifier (default `111_A2` \u2192 `110_A2`, $L=20$)",
-      "_origin": "ast",
-      "community": 316,
-      "community_name": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "phase a \u2014 $f_2$/$g$/$fg$ diagnostics, projection audit, blind pole classifier (default `111_a2` \u2192 `110_a2`, $l=20$)",
-      "source_file": "reports/research/006-history-v31-to-v32.md",
-      "source_location": "L83"
-    },
-    {
-      "id": "reports_research_006_history_v31_to_v32_phase_b_projected_f_3_1_zero_finder_110_a2_l_24_waves_0_1",
-      "label": "Phase B \u2014 projected $F_3^{-1}$ zero finder (`110_A2`, $L=24$, waves $\\{0,1\\}$)",
-      "_origin": "ast",
-      "community": 316,
-      "community_name": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "phase b \u2014 projected $f_3^{-1}$ zero finder (`110_a2`, $l=24$, waves $\\{0,1\\}$)",
-      "source_file": "reports/research/006-history-v31-to-v32.md",
-      "source_location": "L92"
-    },
-    {
-      "id": "reports_research_006_history_v31_to_v32_phase_c_toy_mass_sanity_tests_and_scattering_parameter_mapping",
-      "label": "Phase C \u2014 toy-mass sanity tests and scattering-parameter mapping",
-      "_origin": "ast",
-      "community": 316,
-      "community_name": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "phase c \u2014 toy-mass sanity tests and scattering-parameter mapping",
-      "source_file": "reports/research/006-history-v31-to-v32.md",
-      "source_location": "L102"
-    },
-    {
-      "id": "reports_research_006_history_v31_to_v32_phase_d_classifier_v1_s_vs_s_p_waves_p_wave_strength_v_rm_iso",
-      "label": "Phase D \u2014 classifier v1, s vs s+p waves, p-wave strength, $v_{\\rm iso}$",
-      "_origin": "ast",
-      "community": 316,
-      "community_name": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "phase d \u2014 classifier v1, s vs s+p waves, p-wave strength, $v_{\\rm iso}$",
-      "source_file": "reports/research/006-history-v31-to-v32.md",
-      "source_location": "L115"
-    },
-    {
-      "id": "reports_research_006_history_v31_to_v32_phase_e_iterative_refinement_and_lattice_masses",
-      "label": "Phase E \u2014 iterative refinement and lattice masses",
-      "_origin": "ast",
-      "community": 316,
-      "community_name": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "phase e \u2014 iterative refinement and lattice masses",
-      "source_file": "reports/research/006-history-v31-to-v32.md",
-      "source_location": "L129"
-    },
-    {
-      "id": "reports_research_006_history_v31_to_v32_phase_f_k3df_fitter_caching_diagnostics",
-      "label": "Phase F \u2014 K3df fitter, caching, diagnostics",
-      "_origin": "ast",
-      "community": 316,
-      "community_name": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "phase f \u2014 k3df fitter, caching, diagnostics",
-      "source_file": "reports/research/006-history-v31-to-v32.md",
-      "source_location": "L139"
-    },
-    {
-      "id": "reports_research_006_history_v31_to_v32_phase_g_classifier_v2_normalization_true_refinement_fitter_baseline",
-      "label": "Phase G \u2014 classifier v2, normalization, true refinement, fitter baseline",
-      "_origin": "ast",
-      "community": 316,
-      "community_name": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "phase g \u2014 classifier v2, normalization, true refinement, fitter baseline",
-      "source_file": "reports/research/006-history-v31-to-v32.md",
-      "source_location": "L156"
-    },
-    {
-      "id": "reports_research_006_history_v31_to_v32_phase_h_spectrum_vs_l",
-      "label": "Phase H \u2014 spectrum vs $L$",
-      "_origin": "ast",
-      "community": 316,
-      "community_name": "4. Chronological table v31v \u2192 v32y (Question 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "phase h \u2014 spectrum vs $l$",
-      "source_file": "reports/research/006-history-v31-to-v32.md",
-      "source_location": "L167"
-    },
-    {
       "id": "tests_acceptance_m1_test_m1_oracle",
       "label": "test_m1_oracle.py",
       "_origin": "ast",
@@ -54023,116 +54357,6 @@
       "norm_label": "m1 step 3 \u2014 the production ingredients (through the oracle) agree with the...",
       "source_file": "tests/acceptance/m1/test_m1_reference.py",
       "source_location": "L1"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_build_sec",
-      "label": "build_sec",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "build_sec",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L554"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_det",
-      "label": "det",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "det",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L553"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_dim1",
-      "label": "dim1",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "dim1",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L549"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_dim2",
-      "label": "dim2",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "dim2",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L550"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_ecm",
-      "label": "Ecm",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "ecm",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L547"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_en",
-      "label": "En",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "en",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L548"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_i",
-      "label": "i",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "i",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L546"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_solve_sec",
-      "label": "solve_sec",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "solve_sec",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L555"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_total_dim",
-      "label": "total_dim",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "total_dim",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L551"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_deviceresidentresult_vdim",
-      "label": "vdim",
-      "_origin": "ast",
-      "community": 318,
-      "community_name": "DeviceResidentResult",
-      "file_type": "code",
-      "norm_label": "vdim",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L552"
     },
     {
       "id": "src_python_qc3_lattice",
@@ -54697,102 +54921,6 @@
       "norm_label": "/kickoff \u2014 start the physics loop here",
       "source_file": ".claude/skills/kickoff/SKILL.md",
       "source_location": "L7"
-    },
-    {
-      "id": "docs_root_finding_1_why_it_is_hard_measured",
-      "label": "1. Why it is hard (measured)",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "ROOT FINDING for the three-body QC",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1. why it is hard (measured)",
-      "source_file": "docs/ROOT_FINDING.md",
-      "source_location": "L17"
-    },
-    {
-      "id": "docs_root_finding_2_what_was_tried_oldest_newest",
-      "label": "2. What was tried (oldest \u2192 newest)",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "ROOT FINDING for the three-body QC",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2. what was tried (oldest \u2192 newest)",
-      "source_file": "docs/ROOT_FINDING.md",
-      "source_location": "L36"
-    },
-    {
-      "id": "docs_root_finding_3_1_how_to_compute_it_cheaply_with_the_existing_caches",
-      "label": "3.1 How to compute it cheaply with the existing caches",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "ROOT FINDING for the three-body QC",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3.1 how to compute it cheaply with the existing caches",
-      "source_file": "docs/ROOT_FINDING.md",
-      "source_location": "L73"
-    },
-    {
-      "id": "docs_root_finding_3_2_smooth_root_position_for_minuit_proposal",
-      "label": "3.2 Smooth root position for Minuit (proposal)",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "ROOT FINDING for the three-body QC",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3.2 smooth root position for minuit (proposal)",
-      "source_file": "docs/ROOT_FINDING.md",
-      "source_location": "L81"
-    },
-    {
-      "id": "docs_root_finding_3_3_acceptance_gate_for_any_new_method_proposal",
-      "label": "3.3 Acceptance gate for any new method (proposal)",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "ROOT FINDING for the three-body QC",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3.3 acceptance gate for any new method (proposal)",
-      "source_file": "docs/ROOT_FINDING.md",
-      "source_location": "L89"
-    },
-    {
-      "id": "docs_root_finding_3_the_gradient_change_idea_stated_precisely",
-      "label": "3. The \"gradient change\" idea, stated precisely",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "ROOT FINDING for the three-body QC",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. the \"gradient change\" idea, stated precisely",
-      "source_file": "docs/ROOT_FINDING.md",
-      "source_location": "L58"
-    },
-    {
-      "id": "docs_root_finding_4_rules_that_apply_to_every_method",
-      "label": "4. Rules that apply to every method",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "ROOT FINDING for the three-body QC",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. rules that apply to every method",
-      "source_file": "docs/ROOT_FINDING.md",
-      "source_location": "L97"
-    },
-    {
-      "id": "docs_root_finding_root_finding_for_the_three_body_qc",
-      "label": "ROOT FINDING for the three-body QC",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "ROOT FINDING for the three-body QC",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "root finding for the three-body qc",
-      "source_file": "docs/ROOT_FINDING.md",
-      "source_location": "L1"
     },
     {
       "id": "tests_acceptance_m1_qc3ref_basis",
@@ -55839,78 +55967,6 @@
       "source_location": "L539"
     },
     {
-      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_1_c_sources_fitter_executable_v33f_k3df_fitter_multil_v33e",
-      "label": "9.1 C++ sources (fitter executable `v33f_k3df_fitter_multiL_v33e`)",
-      "_origin": "ast",
-      "community": 335,
-      "community_name": "9. Q6 - Recommended minimal fitter file set for the consolidated repo",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "9.1 c++ sources (fitter executable `v33f_k3df_fitter_multil_v33e`)",
-      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
-      "source_location": "L687"
-    },
-    {
-      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_2_python_scripts_under_l20_scripts",
-      "label": "9.2 Python scripts (under `L20/scripts/`)",
-      "_origin": "ast",
-      "community": 335,
-      "community_name": "9. Q6 - Recommended minimal fitter file set for the consolidated repo",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "9.2 python scripts (under `l20/scripts/`)",
-      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
-      "source_location": "L714"
-    },
-    {
-      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_3_configs_and_data",
-      "label": "9.3 Configs and data",
-      "_origin": "ast",
-      "community": 335,
-      "community_name": "9. Q6 - Recommended minimal fitter file set for the consolidated repo",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "9.3 configs and data",
-      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
-      "source_location": "L729"
-    },
-    {
-      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_4_not_needed_in_the_consolidated_fitter",
-      "label": "9.4 Not needed in the consolidated fitter",
-      "_origin": "ast",
-      "community": 335,
-      "community_name": "9. Q6 - Recommended minimal fitter file set for the consolidated repo",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "9.4 not needed in the consolidated fitter",
-      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
-      "source_location": "L743"
-    },
-    {
-      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_5_suggested_consolidation_design_for_a_fast_fcn_based_on_what_works",
-      "label": "9.5 Suggested consolidation design for a fast FCN (based on what works)",
-      "_origin": "ast",
-      "community": 335,
-      "community_name": "9. Q6 - Recommended minimal fitter file set for the consolidated repo",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "9.5 suggested consolidation design for a fast fcn (based on what works)",
-      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
-      "source_location": "L749"
-    },
-    {
-      "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_q6_recommended_minimal_fitter_file_set_for_the_consolidated_repo",
-      "label": "9. Q6 - Recommended minimal fitter file set for the consolidated repo",
-      "_origin": "ast",
-      "community": 335,
-      "community_name": "9. Q6 - Recommended minimal fitter file set for the consolidated repo",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "9. q6 - recommended minimal fitter file set for the consolidated repo",
-      "source_file": "reports/research/003-fitter-lineage-and-fast-fcn-design.md",
-      "source_location": "L683"
-    },
-    {
       "id": "claude_agents_auditor",
       "label": "auditor.md",
       "_origin": "ast",
@@ -56254,66 +56310,6 @@
       "norm_label": "session_start.py",
       "source_file": ".claude/hooks/session_start.py",
       "source_location": "L1"
-    },
-    {
-      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_1_pipeline_per_irrep_v32zt_generate_one_irrep_f3_gpu_cachegen_v32zu_cu_2308_2519",
-      "label": "4.1 Pipeline per irrep (`v32zt_generate_one_irrep`, `F3_gpu_cachegen_v32zu.cu:2308-2519`)",
-      "_origin": "ast",
-      "community": 341,
-      "community_name": "4. GPU generator internals and performance (Question 2)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4.1 pipeline per irrep (`v32zt_generate_one_irrep`, `f3_gpu_cachegen_v32zu.cu:2308-2519`)",
-      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
-      "source_location": "L167"
-    },
-    {
-      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_2_streams_and_the_host_pressure_guard",
-      "label": "4.2 Streams and the host-pressure guard",
-      "_origin": "ast",
-      "community": 341,
-      "community_name": "4. GPU generator internals and performance (Question 2)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4.2 streams and the host-pressure guard",
-      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
-      "source_location": "L185"
-    },
-    {
-      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_3_fused_vs_separate_f2_k2",
-      "label": "4.3 Fused vs separate F2/K2",
-      "_origin": "ast",
-      "community": 341,
-      "community_name": "4. GPU generator internals and performance (Question 2)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4.3 fused vs separate f2/k2",
-      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
-      "source_location": "L196"
-    },
-    {
-      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_4_performance_numbers_found_wall_clock_seconds_gpu_and_host_unspecified_unless_stated",
-      "label": "4.4 Performance numbers found (wall-clock seconds, GPU and host unspecified unless stated)",
-      "_origin": "ast",
-      "community": 341,
-      "community_name": "4. GPU generator internals and performance (Question 2)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4.4 performance numbers found (wall-clock seconds, gpu and host unspecified unless stated)",
-      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
-      "source_location": "L200"
-    },
-    {
-      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_gpu_generator_internals_and_performance_question_2",
-      "label": "4. GPU generator internals and performance (Question 2)",
-      "_origin": "ast",
-      "community": 341,
-      "community_name": "4. GPU generator internals and performance (Question 2)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. gpu generator internals and performance (question 2)",
-      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
-      "source_location": "L165"
     },
     {
       "id": "tools_audit_chi2_covariance_convention_check",
@@ -56822,127 +56818,6 @@
       "source_location": "L907"
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_frob_abs",
-      "label": "frob_abs",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "frob_abs",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L479"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_frob_rel",
-      "label": "frob_rel",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "frob_rel",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L480"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_abs",
-      "label": "max_abs",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "max_abs",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L477"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_i",
-      "label": "max_i",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "max_i",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L481"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_j",
-      "label": "max_j",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "max_j",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L482"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_rel",
-      "label": "max_rel",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "max_rel",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L478"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_bad_abs",
-      "label": "n_bad_abs",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "n_bad_abs",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L483"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_bad_rel",
-      "label": "n_bad_rel",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "n_bad_rel",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L484"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_nan_inf",
-      "label": "n_nan_inf",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "n_nan_inf",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L485"
-    },
-    {
-      "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_evaldata_a",
-      "label": "A",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "a",
-      "source_file": "src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp",
-      "source_location": "L331"
-    },
-    {
-      "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_evaldata_b",
-      "label": "B",
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "b",
-      "source_file": "src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp",
-      "source_location": "L331"
-    },
-    {
       "id": "tests_unit_test_qc_lattice_roots",
       "label": "test_qc_lattice_roots.py",
       "_origin": "ast",
@@ -56996,116 +56871,6 @@
       "norm_label": "acceptance-test configuration (planner-owned, locked with the acceptance...",
       "source_file": "tests/acceptance/conftest.py",
       "source_location": "L1"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_abs",
-      "label": "frob_abs",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "frob_abs",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L683"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_ref",
-      "label": "frob_ref",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "frob_ref",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L684"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_rel",
-      "label": "frob_rel",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "frob_rel",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L685"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_abs",
-      "label": "max_abs",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "max_abs",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L681"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_i",
-      "label": "max_i",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "max_i",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L686"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_j",
-      "label": "max_j",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "max_j",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L687"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_rel",
-      "label": "max_rel",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "max_rel",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L682"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_bad_abs",
-      "label": "n_bad_abs",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "n_bad_abs",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L688"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_bad_rel",
-      "label": "n_bad_rel",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "n_bad_rel",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L689"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_nan_inf",
-      "label": "n_nan_inf",
-      "_origin": "ast",
-      "community": 353,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "n_nan_inf",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L690"
     },
     {
       "id": "src_core_fv_projector_cartesian_l1_v30m_repdiagnostics_best_convention_index",
@@ -61806,6 +61571,66 @@
       "source_location": "L41"
     },
     {
+      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_1_pipeline_per_irrep_v32zt_generate_one_irrep_f3_gpu_cachegen_v32zu_cu_2308_2519",
+      "label": "4.1 Pipeline per irrep (`v32zt_generate_one_irrep`, `F3_gpu_cachegen_v32zu.cu:2308-2519`)",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "Report B \u2014 F3inv/Vsel cache generation (CPU + GPU) and root-finding lineage for the projected QC determinant",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.1 pipeline per irrep (`v32zt_generate_one_irrep`, `f3_gpu_cachegen_v32zu.cu:2308-2519`)",
+      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
+      "source_location": "L167"
+    },
+    {
+      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_2_streams_and_the_host_pressure_guard",
+      "label": "4.2 Streams and the host-pressure guard",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "Report B \u2014 F3inv/Vsel cache generation (CPU + GPU) and root-finding lineage for the projected QC determinant",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.2 streams and the host-pressure guard",
+      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
+      "source_location": "L185"
+    },
+    {
+      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_3_fused_vs_separate_f2_k2",
+      "label": "4.3 Fused vs separate F2/K2",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "Report B \u2014 F3inv/Vsel cache generation (CPU + GPU) and root-finding lineage for the projected QC determinant",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.3 fused vs separate f2/k2",
+      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
+      "source_location": "L196"
+    },
+    {
+      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_4_performance_numbers_found_wall_clock_seconds_gpu_and_host_unspecified_unless_stated",
+      "label": "4.4 Performance numbers found (wall-clock seconds, GPU and host unspecified unless stated)",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "Report B \u2014 F3inv/Vsel cache generation (CPU + GPU) and root-finding lineage for the projected QC determinant",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.4 performance numbers found (wall-clock seconds, gpu and host unspecified unless stated)",
+      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
+      "source_location": "L200"
+    },
+    {
+      "id": "reports_research_002_cache_generation_and_root_finding_lineage_4_gpu_generator_internals_and_performance_question_2",
+      "label": "4. GPU generator internals and performance (Question 2)",
+      "_origin": "ast",
+      "community": 58,
+      "community_name": "Report B \u2014 F3inv/Vsel cache generation (CPU + GPU) and root-finding lineage for the projected QC determinant",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. gpu generator internals and performance (question 2)",
+      "source_file": "reports/research/002-cache-generation-and-root-finding-lineage.md",
+      "source_location": "L165"
+    },
+    {
       "id": "reports_research_002_cache_generation_and_root_finding_lineage_5_1_table_of_methods_oldest_newest",
       "label": "5.1 Table of methods (oldest \u2192 newest)",
       "_origin": "ast",
@@ -64596,6 +64421,105 @@
       "source_location": "L20"
     },
     {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_frob_abs",
+      "label": "frob_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_abs",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L479"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_frob_rel",
+      "label": "frob_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_rel",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L480"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_abs",
+      "label": "max_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_abs",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L477"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_i",
+      "label": "max_i",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_i",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L481"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_j",
+      "label": "max_j",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_j",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L482"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_rel",
+      "label": "max_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_rel",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L478"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_bad_abs",
+      "label": "n_bad_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_bad_abs",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L483"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_bad_rel",
+      "label": "n_bad_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_bad_rel",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L484"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_nan_inf",
+      "label": "n_nan_inf",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_nan_inf",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L485"
+    },
+    {
       "id": "src_cachegen_gpu_g_gpu_safe_builder_vec3d_x",
       "label": "x",
       "_origin": "ast",
@@ -64627,6 +64551,138 @@
       "norm_label": "z",
       "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
       "source_location": "L34"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_abs",
+      "label": "frob_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_abs",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L683"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_ref",
+      "label": "frob_ref",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_ref",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L684"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_rel",
+      "label": "frob_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_rel",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L685"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_abs",
+      "label": "max_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_abs",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L681"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_i",
+      "label": "max_i",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_i",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L686"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_j",
+      "label": "max_j",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_j",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L687"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_rel",
+      "label": "max_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_rel",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L682"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_bad_abs",
+      "label": "n_bad_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_bad_abs",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L688"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_bad_rel",
+      "label": "n_bad_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_bad_rel",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L689"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_nan_inf",
+      "label": "n_nan_inf",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_nan_inf",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L690"
+    },
+    {
+      "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_evaldata_a",
+      "label": "A",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "a",
+      "source_file": "src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp",
+      "source_location": "L331"
+    },
+    {
+      "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_evaldata_b",
+      "label": "B",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "b",
+      "source_file": "src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp",
+      "source_location": "L331"
     },
     {
       "id": "tools_legacy_v32_inspect_v32_f3inv_cache_v32f_fixed",
@@ -65003,61 +65059,6 @@
       "source_location": "L22"
     },
     {
-      "id": "src_qc3_core_k2inv_forms",
-      "label": "k2inv_forms.hpp",
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "vector",
-      "file_type": "code",
-      "norm_label": "k2inv_forms.hpp",
-      "source_file": "src/qc3_core/k2inv_forms.hpp",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_qc3_core_k2inv_forms_hpp_comp",
-      "label": "comp",
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "vector",
-      "file_type": "code",
-      "norm_label": "comp",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_k2inv_forms_hpp_matrixxcd",
-      "label": "MatrixXcd",
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "vector",
-      "file_type": "code",
-      "norm_label": "matrixxcd",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_k2inv_forms_hpp_string",
-      "label": "string",
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "vector",
-      "file_type": "code",
-      "norm_label": "string",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_k2inv_forms_hpp_vector",
-      "label": "vector",
-      "_origin": "ast",
-      "community": 72,
-      "community_name": "vector",
-      "file_type": "code",
-      "norm_label": "vector",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "src_qc3_core_oracle_point",
       "label": "oracle_point.hpp",
       "_origin": "ast",
@@ -65069,15 +65070,26 @@
       "source_location": "L1"
     },
     {
-      "id": "src_qc3_core_oracle_point_output_k2inv",
-      "label": "K2inv",
+      "id": "src_qc3_core_oracle_point_clock_t0",
+      "label": "t0_",
       "_origin": "ast",
       "community": 72,
       "community_name": "vector",
       "file_type": "code",
-      "norm_label": "k2inv",
+      "norm_label": "t0_",
       "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L67"
+      "source_location": "L77"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_hpp_time_point",
+      "label": "time_point",
+      "_origin": "ast",
+      "community": 72,
+      "community_name": "vector",
+      "file_type": "code",
+      "norm_label": "time_point",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "src_qc3_core_oracle_point_singlethread_eigen_prev",
@@ -69234,18 +69246,18 @@
       "source_location": "L328"
     },
     {
-      "id": "src_core_k2_functions_v2",
-      "label": "K2_functions_v2.h",
+      "id": "src_core_g_functions_v2",
+      "label": "G_functions_v2.h",
       "_origin": "ast",
       "community": 94,
       "community_name": "QC_functions_v2.h",
       "file_type": "code",
-      "norm_label": "k2_functions_v2.h",
-      "source_file": "src/core/K2_functions_v2.h",
+      "norm_label": "g_functions_v2.h",
+      "source_file": "src/core/G_functions_v2.h",
       "source_location": "L1"
     },
     {
-      "id": "src_core_k2_functions_v2_h_comp",
+      "id": "src_core_g_functions_v2_h_comp",
       "label": "comp",
       "_origin": "ast",
       "community": 94,
@@ -69256,7 +69268,7 @@
       "source_location": ""
     },
     {
-      "id": "src_core_k2_functions_v2_h_matrixxcd",
+      "id": "src_core_g_functions_v2_h_matrixxcd",
       "label": "MatrixXcd",
       "_origin": "ast",
       "community": 94,
@@ -69267,7 +69279,7 @@
       "source_location": ""
     },
     {
-      "id": "src_core_k2_functions_v2_h_vector",
+      "id": "src_core_g_functions_v2_h_vector",
       "label": "vector",
       "_origin": "ast",
       "community": 94,
@@ -171632,7 +171644,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L123",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -171665,7 +171677,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L219",
+      "source_location": "L228",
       "weight": 1.0
     },
     {
@@ -171676,7 +171688,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L234",
+      "source_location": "L243",
       "weight": 1.0
     },
     {
@@ -171687,7 +171699,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L243",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -171698,7 +171710,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L251",
+      "source_location": "L260",
       "weight": 1.0
     },
     {
@@ -171709,7 +171721,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L257",
+      "source_location": "L266",
       "weight": 1.0
     },
     {
@@ -171790,6 +171802,17 @@
       "weight": 1.0
     },
     {
+      "source": "prompts_001_m1_cache_free_single_energy_qc_4_acceptance_tests_and_tolerances_all_in_tests_acceptance_m1_locked",
+      "target": "prompts_001_m1_cache_free_single_energy_qc_amendment_2026_10_21_acceptance_v2_test_m1_qc_identities_py_test_scale_applies_to_matrix_not_determinant_last_block",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
       "source": "prompts_001_m1_cache_free_single_energy_qc_5_interface_what_the_acceptance_tests_import_builder_creates_stubs_in_step_1",
       "target": "prompts_001_m1_cache_free_single_energy_qc_5_1_qc3_constants",
       "relation": "contains",
@@ -171797,7 +171820,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L127",
+      "source_location": "L136",
       "weight": 1.0
     },
     {
@@ -171808,7 +171831,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L139",
+      "source_location": "L148",
       "weight": 1.0
     },
     {
@@ -171819,7 +171842,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L159",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -171830,7 +171853,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L177",
+      "source_location": "L186",
       "weight": 1.0
     },
     {
@@ -171841,7 +171864,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L184",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -171852,7 +171875,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L194",
+      "source_location": "L203",
       "weight": 1.0
     },
     {
@@ -171863,7 +171886,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "prompts/001-m1-cache-free-single-energy-qc.md",
-      "source_location": "L211",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -198077,5 +198100,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "823c58bb464d36c63a89a3b83e4da174de043a42"
+  "built_at_commit": "23112690072423a72d20d0bc68fedc1a74636adc"
 }

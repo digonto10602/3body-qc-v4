@@ -2,12 +2,12 @@
 
 - **Updated:** 2026-10-21 (cloud kickoff)
 - **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
-- **Acceptance tag:** `acceptance-v1` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`). Check with `.claude/bin/acceptance-check`. The tag points at commit `7801d97`. It exists **only locally**: this cloud session cannot push tags (HTTP 403). If it is missing, recreate it with `git tag -a acceptance-v1 7801d97 -m "kickoff: prompts/001-m1-cache-free-single-energy-qc.md"`.
+- **Acceptance tag:** `acceptance-v2` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`; v2 = v1 plus the sign-flip fix in `test_scale_applies_to_matrix_not_determinant`, `prompts/001` §4 amendment). Check with `.claude/bin/acceptance-check`. Tags exist **only locally**, because this cloud session cannot push tags (HTTP 403). `acceptance-v1` = `7801d97` and `acceptance-v2` = bcf12cd. If they are missing, recreate them with `git tag -a <tag> <commit> -m ...`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
 - **Current step:** M1 **step 4**, the QC helpers and the lattice reader (D1, D3).
   - The code is written. 11 of the 12 step-4 acceptance tests pass.
   - The 12th, `test_m1_qc_identities.py::test_scale_applies_to_matrix_not_determinant`, is **a wrong test**. Its "flip one eigenvalue" line uses `-abs()` on an eigenvalue that is already negative ($-6.34$; 10 of the 30 eigenvalues are negative), so nothing flips. The coordinator reproduced this.
-  - Digonto (2026-10-21) chose: the planner fixes only that line, writes a justification, and the tests are re-locked as `acceptance-v2`.
+  - Fixed by the planner, with Digonto's approval (2026-10-21), and locked as `acceptance-v2`. The corrected test passes with the current `qc3.qc`. It fails for a `slogdet` that returns a constant sign.
 - **Step 3 DONE**, verified by `reports/tests/003-m1-step3-reference-pwave.md` (PASS).
   - The `q0_consistent` form is added as a new function. The existing physics code is byte-unchanged.
   - All 5 reference tests and all 7 oracle tests pass.
@@ -79,7 +79,6 @@ M1 counters (reset at kickoff, `acceptance-v1`):
 
 ## Next action
 
-1. The planner fixes the one wrong line in `test_m1_qc_identities.py`. Then `acceptance-lock` → `acceptance-v2`.
 2. The tester (mode `step`) checks step 4. Then commit.
 3. Steps 5–9 as in `prompts/001` §3.
 4. Notes for later steps:
