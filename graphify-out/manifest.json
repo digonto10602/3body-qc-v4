@@ -1452,9 +1452,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/lattice.py": {
-    "mtime": 1792614272.3514678,
-    "seen": 1792614289.0717652,
-    "ast_hash": "093dc5d439904cc7979cb3bbf2b20453",
+    "mtime": 1792617973.8123076,
+    "seen": 1792618039.6870885,
+    "ast_hash": "d6f1f5680623621f2f01d3b8351cb9f1",
     "semantic_hash": ""
   },
   "src/python/qc3/oracle.py": {
@@ -1470,15 +1470,15 @@
     "semantic_hash": ""
   },
   "src/python/qc3/qc.py": {
-    "mtime": 1792614272.3470829,
-    "seen": 1792614289.0717707,
-    "ast_hash": "2b658e175ad9a7e15c58dc6d4c6852b8",
+    "mtime": 1792617973.8079355,
+    "seen": 1792618039.6870935,
+    "ast_hash": "558544399fb2fe80048b04af8855372c",
     "semantic_hash": ""
   },
   "src/python/qc3/roots.py": {
-    "mtime": 1792614272.3489058,
-    "seen": 1792614289.0717726,
-    "ast_hash": "1ed4cd538f50b26152b07c09267f6343",
+    "mtime": 1792617973.8100169,
+    "seen": 1792618039.6870944,
+    "ast_hash": "475ad60dba3029e0735256123ae02635",
     "semantic_hash": ""
   },
   "src/python/qc3/sector.py": {
@@ -1539,6 +1539,24 @@
     "mtime": 1792617590.2714715,
     "seen": 1792617874.4805348,
     "ast_hash": "deeb6314c717c2d6222ca4f76ccad647",
+    "semantic_hash": ""
+  },
+  "tests/unit/test_qc_lattice_roots.py": {
+    "mtime": 1792618019.7833602,
+    "seen": 1792618039.6871257,
+    "ast_hash": "74928637a391051d5b1f5baaba9b1482",
+    "semantic_hash": ""
+  },
+  "results/tester_003_m1_step3_reference_pwave.json": {
+    "mtime": 1792618367.0810328,
+    "seen": 1792619020.8945227,
+    "ast_hash": "d4eae4100e7a14e2b36aee9b69f0f664",
+    "semantic_hash": ""
+  },
+  "reports/tests/003-m1-step3-reference-pwave.md": {
+    "mtime": 1792618442.0635223,
+    "seen": 1792619020.8948016,
+    "ast_hash": "6a508a2a2983e8ee10b315661bf35baa",
     "semantic_hash": ""
   }
 }

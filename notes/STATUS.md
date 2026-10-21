@@ -4,7 +4,13 @@
 - **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
 - **Acceptance tag:** `acceptance-v1` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`). Check with `.claude/bin/acceptance-check`. The tag points at commit `7801d97`. It exists **only locally**: this cloud session cannot push tags (HTTP 403). If it is missing, recreate it with `git tag -a acceptance-v1 7801d97 -m "kickoff: prompts/001-m1-cache-free-single-energy-qc.md"`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **step 3**, the reference checks plus the `q0_consistent` p-wave form in the oracle.
+- **Current step:** M1 **step 4**, the QC helpers and the lattice reader (D1, D3).
+  - The code is written. 11 of the 12 step-4 acceptance tests pass.
+  - The 12th, `test_m1_qc_identities.py::test_scale_applies_to_matrix_not_determinant`, is **a wrong test**. Its "flip one eigenvalue" line uses `-abs()` on an eigenvalue that is already negative ($-6.34$; 10 of the 30 eigenvalues are negative), so nothing flips. The coordinator reproduced this.
+  - Digonto (2026-10-21) chose: the planner fixes only that line, writes a justification, and the tests are re-locked as `acceptance-v2`.
+- **Step 3 DONE**, verified by `reports/tests/003-m1-step3-reference-pwave.md` (PASS).
+  - The `q0_consistent` form is added as a new function. The existing physics code is byte-unchanged.
+  - All 5 reference tests and all 7 oracle tests pass.
 - **Step 2 DONE**, verified by `reports/tests/002-m1-step2-oracle-wrapper.md` (PASS).
   - All 7 tests in `test_m1_oracle.py` pass.
   - 3 tests in `test_m1_reference.py` already pass.
@@ -73,8 +79,8 @@ M1 counters (reset at kickoff, `acceptance-v1`):
 
 ## Next action
 
-1. M1 step 2: the builder writes the oracle wrapper. Then the tester (mode `step`) runs the ids in `test_m1_oracle.py`, fast and slow.
-2. Steps 3–9 as in `prompts/001` §3.
-3. Notes for later steps:
+1. The planner fixes the one wrong line in `test_m1_qc_identities.py`. Then `acceptance-lock` → `acceptance-v2`.
+2. The tester (mode `step`) checks step 4. Then commit.
+3. Steps 5–9 as in `prompts/001` §3.
+4. Notes for later steps:
    - Step 8: `qc3.bench.main()` must parse `--out`, `--no-oracle` and `--threads`.
-   - The fast check has no unit tests until step 4 (pytest rc 5 = "no tests collected").
