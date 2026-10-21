@@ -5,6 +5,16 @@
 - **Acceptance tag:** `acceptance-v3` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`; v2 = v1 plus the sign-flip fix; v3 = v2 plus the portability-test self-scan fix; both in the `prompts/001` §4 amendments, approved by Digonto). Check with `.claude/bin/acceptance-check`. Tags exist **only locally**, because this cloud session cannot push tags (HTTP 403). `acceptance-v1` = `7801d97` , `acceptance-v2` = `bcf12cd` and `acceptance-v3` = `e74f94b`. If they are missing, recreate them with `git tag -a <tag> <commit> -m ...`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
 - **Current step:** M1 **step 7**, under re-planning (see Next action), with step 9 (the p-wave table for D7) running in parallel.
+- **Step 9 DONE**, verified by `reports/tests/007-m1-step9-pwave-shift.md` (PASS). The table is in `results/k2_pwave_shift_L20.json`.
+  - `q0_consistent` lowers all 12 levels, by $0.6$–$3.0\times10^{-4}\,a_t^{-1}$, i.e. $0.11$–$0.39\,\sigma$.
+  - The oracle confirms all 24 roots as simple zeros, to $\le2\times10^{-12}$.
+  - **Finding A:** `qc3.roots.refine_root` accepts poles of $\det Q$. Two cases are reproducible: 110_A2 n=1 and 111_A2 n=0, with `q0_consistent` and $\pm250$-row windows. The fix goes in `prompts/002`.
+  - **Finding B:** a hidden even-order zero, $\det Q\propto(E-E^*)^4$, in 110_A2 at $E^*=0.319468828$, for both forms.
+    - It sits exactly at the free level $K(\mathbf 0)K(0,1,0)\pi(1,0,0)$ with $\mathbf P=(1,1,0)$.
+    - Sign-change searches cannot see it, and the labels do not contain it.
+    - It is probably the known "free solution" artefact of a truncated partial-wave QC (Blanton, Romero-López, Sharpe, arXiv:1901.07095). That is a guess, not yet checked.
+    - Question for Digonto: should D3 counting include such levels? See D8.
+  - The legacy `lattice_Ecm` in `accepted_windows.csv` differs from the D1 mean by up to $1.2\times10^{-4}$ ($0.19\sigma$). The D1 mean is used.
 - **Step 6 DONE**, verified by `reports/tests/006-m1-step6-fast-path-v1.md` (PASS). **All 33 m1 acceptance tests are green, slow ones included.**
   - The oracle refactor is bit-identical to `48d1319` at 24 points.
   - Fast vs oracle: $\max|\Delta\ln|\det Q||=5.1\times10^{-10}$ over the 12 anchors (tolerance $10^{-6}$). $F$ agrees to $\le7.3\times10^{-15}$ relative over 35 random points and at boost factors up to $\gamma\approx10$.
