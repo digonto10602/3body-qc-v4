@@ -17,3 +17,4 @@ __pycache__/
 graphify-out/20*/
 scratch/
 .pytest_cache/
+graphify-out/.rebuild.lock
