@@ -24,6 +24,7 @@
 #endif
 
 #include "K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp"
+#include "k2inv_forms.hpp"
 
 #include <Eigen/Dense>
 #include <array>
@@ -52,6 +53,7 @@ struct Input {
     int parity = -1;
     double eig_tol = 0.05;
     double a0_Kpi = 4.04, a1_Kpi = -43.2, a0_KK = 4.12;
+    std::string k2_pwave_form = "coded_v2";   // "coded_v2" (production) | "q0_consistent" (prompts/001 section 2.2)
     double Ecm = 0.0;
     std::array<double, 4> c = {0.0, 0.0, 0.0, 0.0};
     bool compute_k3 = true;          // evaluate the four K3 basis matrices (always done if any c != 0)
@@ -168,7 +170,7 @@ inline Output evaluate(const Input& in) {
     Mat F2(N, N), G(N, N), K2inv(N, N);
     F2_2plus1_mat(F2, En_c, plm_config, klm_config, total_P, par.atmK, par.atmpi, L, par.alpha, par.epsilon_h, par.max_shell_num, par.Q0norm);
     out.timings["F"] = clk.lap();
-    K2inv_EREord2_2plus1_mat(K2inv, par.eta_1, par.eta_2, par.scatter_params_1, par.scatter_params_2, En_c, plm_config, klm_config, total_P, par.atmK, par.atmpi, par.epsilon_h, L);
+    K2inv_2plus1_by_form(in.k2_pwave_form, K2inv, par.eta_1, par.eta_2, par.scatter_params_1, par.scatter_params_2, En_c, plm_config, klm_config, total_P, par.atmK, par.atmpi, par.epsilon_h, L);
     out.timings["K2inv"] = clk.lap();
     G_2plus1_mat(G, En_c, plm_config, klm_config, total_P, par.atmK, par.atmpi, L, par.alpha, par.epsilon_h, par.max_shell_num, par.Q0norm);
     out.timings["G"] = clk.lap();

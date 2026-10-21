@@ -1458,9 +1458,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/oracle.py": {
-    "mtime": 1792616362.013022,
-    "seen": 1792616641.2276196,
-    "ast_hash": "95150f3a6e98b25875d17ff6d1bb2ee5",
+    "mtime": 1792617590.2905061,
+    "seen": 1792617874.480521,
+    "ast_hash": "6fe9602cbb02e53fe8d41503f3982523",
     "semantic_hash": ""
   },
   "src/python/qc3/point.py": {
@@ -1488,9 +1488,9 @@
     "semantic_hash": ""
   },
   "src/qc3_core/module.cpp": {
-    "mtime": 1792616029.5047467,
-    "seen": 1792616641.227626,
-    "ast_hash": "a654ef4b88226ef3562a66f9ab7b77da",
+    "mtime": 1792617590.2902286,
+    "seen": 1792617874.4805377,
+    "ast_hash": "787b7717e3dd9c5c0ebbb84210c5b20d",
     "semantic_hash": ""
   },
   "results/test_m1_step1_build_stubs.json": {
@@ -1506,9 +1506,9 @@
     "semantic_hash": ""
   },
   "src/qc3_core/oracle_point.hpp": {
-    "mtime": 1792616015.860498,
-    "seen": 1792616641.2276282,
-    "ast_hash": "50772862c6012d929305bc158ce8a5bc",
+    "mtime": 1792617590.2898004,
+    "seen": 1792617874.4805393,
+    "ast_hash": "6a521d6b1f6a8b1ea42f4b8376ddbe4c",
     "semantic_hash": ""
   },
   "tests/unit/conftest.py": {
@@ -1518,9 +1518,9 @@
     "semantic_hash": ""
   },
   "tests/unit/test_sector_oracle.py": {
-    "mtime": 1792616066.7083964,
-    "seen": 1792616641.2276542,
-    "ast_hash": "eff5c9b2fc2f1a4f7c089dcc62b39b77",
+    "mtime": 1792617692.2954776,
+    "seen": 1792617874.480611,
+    "ast_hash": "039bb95524ec791df563e6bc17ade749",
     "semantic_hash": ""
   },
   "results/tester_002_m1_step2_oracle.json": {
@@ -1533,6 +1533,12 @@
     "mtime": 1792617517.9598238,
     "seen": 1792617544.214214,
     "ast_hash": "0ef98f99af70374456f9693dd8c0f851",
+    "semantic_hash": ""
+  },
+  "src/qc3_core/k2inv_forms.hpp": {
+    "mtime": 1792617590.2714715,
+    "seen": 1792617874.4805348,
+    "ast_hash": "deeb6314c717c2d6222ca4f76ccad647",
     "semantic_hash": ""
   }
 }

@@ -43,6 +43,7 @@ py::dict oracle_point(const py::dict& p) {
   in.a0_Kpi = p["a0_Kpi"].cast<double>();
   in.a1_Kpi = p["a1_Kpi"].cast<double>();
   in.a0_KK = p["a0_KK"].cast<double>();
+  in.k2_pwave_form = p["k2_pwave_form"].cast<std::string>();
   in.Ecm = p["Ecm"].cast<double>();
   const auto c = p["c"].cast<std::vector<double>>();
   if (c.size() != 4) throw std::invalid_argument("oracle_point: c must have 4 entries");

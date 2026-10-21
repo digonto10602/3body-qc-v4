@@ -58,3 +58,37 @@ def test_oracle_want_subset():
     from qc3 import oracle
     r = oracle.evaluate_point(Sector.production("000_A1m"), 0.26932, want=("Q",))
     assert r.Q is not None and r.F is None and r.K3_basis is None and np.isfinite(r.lnabsdet)
+
+
+def test_k2_pwave_forms_differ_only_in_channel1_pwave_diagonal():
+    """prompts/001 section 2.2: q0_consistent replaces  -1/(a1 q^2)  by  -1/a1  in the l=1 channel-1 diagonal
+    entries of K2^{-1}; everything else (basis, F, G, s-wave, channel 2) is identical."""
+    from qc3 import oracle
+    irrep, Ecm = "100_A2", 0.2915561
+    s1 = Sector.production(irrep)
+    s2 = Sector.production(irrep, k2_pwave_form="q0_consistent")
+    r1 = oracle.evaluate_point(s1, Ecm)
+    r2 = oracle.evaluate_point(s2, Ecm)
+    assert r2.metadata["k2_pwave_form"] == "q0_consistent" and r1.metadata["k2_pwave_form"] == "coded_v2"
+    assert np.array_equal(r1.basis, r2.basis)
+    assert np.array_equal(r1.F, r2.F) and np.array_equal(r1.G, r2.G)
+    ell, flav = np.asarray(r1.basis["ell"]), np.asarray(r1.basis["flavour"])
+    pw = (ell == 1) & (flav == 1)
+    assert pw.sum() > 0
+    D = np.abs(r1.K2inv - r2.K2inv)
+    off = ~np.eye(r1.N, dtype=bool)
+    assert D[off].max() == 0.0 and (r1.K2inv[off] == 0).all()
+    assert D[np.diag(~pw)].max() == 0.0 if (~pw).any() else True
+    assert (np.diag(D)[pw] > 0).all()
+    # difference = 1/(2 w_k L^3) * eta_1/(8 pi sqrt(sigma)) * (-1/a1) * (1 - 1/q^2)
+    mK, mpi, L = s1.atmK, s1.atmpi, s1.L
+    P = s1.P_lab
+    for idx in np.flatnonzero(pw):
+        row = r1.basis[idx]
+        k = 2 * np.pi / L * np.array([row["nx"], row["ny"], row["nz"]], dtype=float)
+        wk = np.sqrt(mK ** 2 + k @ k)
+        sigma = (r1.E_lab - wk) ** 2 - (P - k) @ (P - k)
+        q2 = (sigma - (mK + mpi) ** 2) * (sigma - (mK - mpi) ** 2) / (4 * sigma)
+        expect = 1 / (2 * wk * L ** 3) * s1.eta_1 / (8 * np.pi * np.sqrt(sigma)) * (-1 / s1.a1_Kpi) * (1 - 1 / q2)
+        got = (r2.K2inv[idx, idx] - r1.K2inv[idx, idx]).real
+        assert abs(got - expect) <= 1e-12 * abs(expect), (idx, got, expect)

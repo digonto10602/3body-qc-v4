@@ -9,6 +9,9 @@ from .point import ALL, BASIS_DTYPE, PointResult
 from .sector import Sector  # noqa: F401
 
 
+K2_PWAVE_FORMS = ("coded_v2", "q0_consistent")  # prompts/001 section 2.2; production default: coded_v2
+
+
 def _metadata(sector, core):
     md = {k: v for k, v in PRODUCTION.items() if k not in ("scatter",)}
     # sector values for every production key
@@ -31,9 +34,8 @@ def _metadata(sector, core):
 def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL):
     """Oracle evaluation of one point.  `sign`/`lnabsdet` (for `c`) are always filled; `want` selects which
     matrices are returned (others are None).  Q = L^-6 V^dag (F3inv + K3(c)) V, no N_proj rescaling."""
-    if sector.k2_pwave_form != "coded_v2":
-        raise ValueError(f"oracle: k2_pwave_form {sector.k2_pwave_form!r} not available yet "
-                         "(only 'coded_v2'; 'q0_consistent' is prompts/001 step 3)")
+    if sector.k2_pwave_form not in K2_PWAVE_FORMS:
+        raise ValueError(f"oracle: unknown k2_pwave_form {sector.k2_pwave_form!r}; allowed: {K2_PWAVE_FORMS}")
     from . import _core as core  # lazy: the compiled extension is never imported at package import time
 
     c = tuple(float(x) for x in c)
@@ -45,7 +47,7 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL):
         eta_1=sector.eta_1, eta_2=sector.eta_2, alpha=sector.alpha, epsilon_H=sector.epsilon_H,
         max_shell_num=int(sector.max_shell_num), waves_1=list(sector.waves_1), waves_2=list(sector.waves_2),
         parity=int(sector.parity), eig_tol=sector.eig_tol, a0_Kpi=sector.a0_Kpi, a1_Kpi=sector.a1_Kpi,
-        a0_KK=sector.a0_KK, Ecm=float(Ecm), c=list(c), compute_k3=bool("K3" in want),
+        a0_KK=sector.a0_KK, k2_pwave_form=sector.k2_pwave_form, Ecm=float(Ecm), c=list(c), compute_k3=bool("K3" in want),
     )
     d = core.oracle_point(params)
     if tuple(d["nnP"]) != tuple(sector.nnP):
