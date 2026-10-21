@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792620222.1987774,
-    "seen": 1792620228.526159,
-    "ast_hash": "b980c0d2698f4f07e3dbbf66a38b3a6a",
+    "mtime": 1792622814.250235,
+    "seen": 1792622820.5007632,
+    "ast_hash": "2bf3dffac245a7e18e469144e7b3e9d4",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -1593,6 +1593,60 @@
     "mtime": 1792620536.7828777,
     "seen": 1792621426.1195323,
     "ast_hash": "25f84fe7d11f9c5eb53e962b20190c82",
+    "semantic_hash": ""
+  },
+  "results/m1_step6_cachekey_check.json": {
+    "mtime": 1792622530.614538,
+    "seen": 1792622820.500563,
+    "ast_hash": "9cf951bc3e07d37e862110d9761a38a2",
+    "semantic_hash": ""
+  },
+  "results/m1_step6_gamma_stress.json": {
+    "mtime": 1792622153.7544725,
+    "seen": 1792622820.5005658,
+    "ast_hash": "6d08c0e9f4c8a234ebe93746594fbb16",
+    "semantic_hash": ""
+  },
+  "results/m1_step6_oracle_imag_parts.json": {
+    "mtime": 1792622037.8352103,
+    "seen": 1792622820.5005672,
+    "ast_hash": "44328db668fb0d4e8f96ed0617b027bf",
+    "semantic_hash": ""
+  },
+  "results/m1_step6_oracle_unchanged.json": {
+    "mtime": 1792622526.0751834,
+    "seen": 1792622820.5005684,
+    "ast_hash": "4e64c7ba87cd23e6a1c772c4bf1e73b0",
+    "semantic_hash": ""
+  },
+  "results/m1_step6_speedtest_protocol.json": {
+    "mtime": 1792622530.1964107,
+    "seen": 1792622820.5005693,
+    "ast_hash": "190123958417b11959e768e21ecdf9da",
+    "semantic_hash": ""
+  },
+  "results/m1_step6_timings_1thread.json": {
+    "mtime": 1792622667.8755453,
+    "seen": 1792622820.5005703,
+    "ast_hash": "c83db84c1bd352a63c71484e3020d300",
+    "semantic_hash": ""
+  },
+  "results/m1_step6_trunc_eps_scan.json": {
+    "mtime": 1792622272.615908,
+    "seen": 1792622820.5005715,
+    "ast_hash": "69421422d6fffa76046af569cd0797b7",
+    "semantic_hash": ""
+  },
+  "results/m1_step6_truncation_check.json": {
+    "mtime": 1792621988.10849,
+    "seen": 1792622820.5005724,
+    "ast_hash": "d00a13c5f48962f4fa14e4b61c140f52",
+    "semantic_hash": ""
+  },
+  "reports/tests/006-m1-step6-fast-path-v1.md": {
+    "mtime": 1792622774.1004252,
+    "seen": 1792622820.50078,
+    "ast_hash": "b0be9adf90991a2be80013a71ff76fcd",
     "semantic_hash": ""
   }
 }
