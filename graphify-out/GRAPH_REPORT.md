@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `73c0b999`
+- Built from commit: `c4fcb815`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -80,7 +80,7 @@
 - v32zt_generate_one_irrep
 - Version history summary
 - KKpi v33p Cache-Anchored Classifier/Fitter Checkpoint
-- DeviceProjectionTables
+- plot_v33g_runtime_qc_det_compare.py
 - run_groups_concurrent
 - QCPointValue
 - FitResult
@@ -129,7 +129,7 @@
 - vector
 - METHODS — numerical methods, equations, conventions, sources
 - 3. Findings
-- plot_v33g_runtime_qc_det_compare.py
+- dig_tools.hpp
 - Faddeeva.cc
 - v33d CPU/GPU Component Cache Generator Package
 - acceptance-lock
@@ -215,7 +215,7 @@
 - EnergyPrepassInfo
 - InwardShapeResult
 - ClassifierDispatchInfo
-- test_K3mat_2plus1_cpp_dump.cpp
+- RepDiagnostics
 - build.sh
 - Version summary and working status
 - GPU Cache Reader Fix
@@ -323,10 +323,10 @@
 - run_cpu_component_cachegen.sh
 - compile_gpu_component_cachegen.sh
 - gpu_complex_read_convention_name
-- run_v33p_projected_basis_hotwindow_parallel.py
+- DeviceProjectionTables
 - src/README.md
 - 6. Problems found during this review (read before trusting any L20/v33n chi-square)
-- dig_tools.hpp
+- test_K3mat_2plus1_cpp_dump.cpp
 - m1_helpers.py
 - nonint3body_general_doublecover/README.md
 - 4. Chronological table v31v → v32y (Question 1)
@@ -340,11 +340,11 @@
 - ROOT FINDING for the three-body QC
 - basis.py
 - k3.py
-- RepDiagnostics
+- HostConfigFlat
 - fixer.md
 - tester.md
 - guard.py
-- HostConfigFlat
+- run_v33p_projected_basis_hotwindow_parallel.py
 - 3. Cache formats and stored objects (Question 1)
 - F3iProjectedCache
 - 7. Q4 - Fit results achieved
@@ -652,9 +652,9 @@ Nodes (24): Conversation Context Reconstruction, `F2iso` and `Giso`, Group-theor
 Cohesion: 0.08
 Nodes (24): Build, Build and smoke test, Cache format notes, Checkpoint status, Critical checkpoint, Current classifier state, Exact old scaling, External cache requirement (+16 more)
 
-### Community 65 - "DeviceProjectionTables"
-Cohesion: 0.25
-Nodes (6): DeviceProjectionTables, D1, D2, LG, R, weight
+### Community 65 - "plot_v33g_runtime_qc_det_compare.py"
+Cohesion: 0.29
+Nodes (19): load_runtime_cache(), load_runtime_cache_with_params(), load_runtime_meta(), main(), parse_fit_levels(), parse_fit_summary(), parse_zero_file(), memoryview (+11 more)
 
 ### Community 66 - "run_groups_concurrent"
 Cohesion: 0.13
@@ -844,9 +844,9 @@ Nodes (18): 0. System and formalism, 10. Energy grid, 11. Data, covariance, χ²
 Cohesion: 0.12
 Nodes (15): 1. What was asked, 2. Actions taken, 3.1 Lattice spectrum data: what exists, 3.2 Critical: the production fitter inflates the data errors by a factor of 602, 3.3 User true-zero label CSVs and accepted windows, 3.4 Config files and keys, 3.5 Two-body input ($K_2^{-1}$) and where the scattering parameters come from, 3.6 $K_{\rm df,3}$ parametrization (exact, from `PKG/source/K3_functions_2plus1.hpp`) (+7 more)
 
-### Community 114 - "plot_v33g_runtime_qc_det_compare.py"
-Cohesion: 0.29
-Nodes (19): load_runtime_cache(), load_runtime_cache_with_params(), load_runtime_meta(), main(), parse_fit_levels(), parse_fit_summary(), parse_zero_file(), memoryview (+11 more)
+### Community 114 - "dig_tools.hpp"
+Cohesion: 0.14
+Nodes (11): Func, string, T, time_point, ManualTimer, t0, print_function_output_to_file(), printer() (+3 more)
 
 ### Community 115 - "Faddeeva.cc"
 Cohesion: 0.23
@@ -1180,9 +1180,9 @@ Nodes (8): InwardShapeResult, classification, decreasing_fraction, ezero, flip_l
 Cohesion: 0.25
 Nodes (8): classifier_dispatch_info(), ClassifierDispatchInfo, alias, dispatch_unique, implementation_tag, requested_mode, resolved_mode, version_tag
 
-### Community 200 - "test_K3mat_2plus1_cpp_dump.cpp"
-Cohesion: 0.39
-Nodes (7): comp, MatrixXcd, string, vector, main(), write_config_file(), write_matrix_file()
+### Community 200 - "RepDiagnostics"
+Cohesion: 0.20
+Nodes (10): RepDiagnostics, best_convention_index, closure_AB_max, closure_BA_max, closure_best_max, group_size, projector_diff_old_rel, projector_herm_res (+2 more)
 
 ### Community 201 - "build.sh"
 Cohesion: 0.42
@@ -1408,17 +1408,17 @@ Nodes (3): Options, debug, threads_per_block
 Cohesion: 0.19
 Nodes (14): jackknife_mean_cov(), jackknife_resample(), load_levels(), _P_of(), M1 step 4 — lattice data per decision D1 (per-configuration values: resample,…, Legacy (trusted v32w) order: resample E_lab, convert each resample to E*, then…, Counts recomputed from the files; must also equal the table of…, test_covariance_symmetric_psd_and_correlated() (+6 more)
 
-### Community 308 - "run_v33p_projected_basis_hotwindow_parallel.py"
-Cohesion: 0.60
-Nodes (5): main(), merge(), run_chunk(), split_windows(), write_chunk()
+### Community 308 - "DeviceProjectionTables"
+Cohesion: 0.25
+Nodes (6): DeviceProjectionTables, D1, D2, LG, R, weight
 
 ### Community 310 - "6. Problems found during this review (read before trusting any L20/v33n chi-square)"
 Cohesion: 0.40
 Nodes (5): 6.1 The multi-L covariance is probably inflated by a factor $(N-1)^2 \approx 3.6\times10^{5}$, 6.2 Fit-quality caveats independent of 6.1, 6.3 Complex read convention: two swaps that cancel, 6.4 Portability of the release tree, 6. Problems found during this review (read before trusting any L20/v33n chi-square)
 
-### Community 311 - "dig_tools.hpp"
-Cohesion: 0.14
-Nodes (11): Func, string, T, time_point, ManualTimer, t0, print_function_output_to_file(), printer() (+3 more)
+### Community 311 - "test_K3mat_2plus1_cpp_dump.cpp"
+Cohesion: 0.39
+Nodes (7): comp, MatrixXcd, string, vector, main(), write_config_file(), write_matrix_file()
 
 ### Community 312 - "m1_helpers.py"
 Cohesion: 0.22
@@ -1468,9 +1468,9 @@ Nodes (10): basis_to_list(), expected_basis(), kept_momenta(), Basis rule (docs/
 Cohesion: 0.25
 Nodes (10): K3_basis_matrices(), Reference K_df,3 basis matrices by numerical angular projection…, Four-momenta (n,4) of (kaon_1, kaon_2, pion) for spectator k of flavour flav…, basis_list: [(flavour, pvec, ell, m)], pvec = 2 pi n/L. Returns dict iso0,…, sphere_grid(), _state(), boost_from_frame(), Orthonormal real spherical harmonics on unit vectors (App. A.1): Y_00 =… (+2 more)
 
-### Community 327 - "RepDiagnostics"
-Cohesion: 0.20
-Nodes (10): RepDiagnostics, best_convention_index, closure_AB_max, closure_BA_max, closure_best_max, group_size, projector_diff_old_rel, projector_herm_res (+2 more)
+### Community 327 - "HostConfigFlat"
+Cohesion: 0.29
+Nodes (7): HostConfigFlat, ell, m, n, nx, ny, nz
 
 ### Community 328 - "fixer.md"
 Cohesion: 0.29
@@ -1484,9 +1484,9 @@ Nodes (6): Hard rules, Modes (the caller says which; default = step), Report (al
 Cohesion: 0.57
 Nodes (6): check_bash(), check_write(), deny(), is_acc(), main(), segments()
 
-### Community 331 - "HostConfigFlat"
-Cohesion: 0.29
-Nodes (7): HostConfigFlat, ell, m, n, nx, ny, nz
+### Community 331 - "run_v33p_projected_basis_hotwindow_parallel.py"
+Cohesion: 0.60
+Nodes (5): main(), merge(), run_chunk(), split_windows(), write_chunk()
 
 ### Community 332 - "3. Cache formats and stored objects (Question 1)"
 Cohesion: 0.29
