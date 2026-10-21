@@ -39,8 +39,7 @@ About 85 % of the determinant's sign changes are poles or artefacts, not energy 
 | `data/` | L20 lattice spectra (`.jack`), human root labels, accepted windows, hot-window metadata |
 | `results/` | legacy fit outputs (**χ² values invalid**, see OPEN_ISSUES issue 1) |
 | `legacy/` | historical code kept for lineage: v32w single-L fitter, root-finding methods |
-| `tests/reference/` | C++ vs QC3_release $\mathcal K_{\rm df,3}$ comparison |
-| `third_party/QC3_release/` | fetch instructions and local-edit patch for the reference Python code |
+| `tests/reference/` | C++ $\mathcal K_{\rm df,3}$ dump and comparison script (the Python side needs an external QC3_release checkout, not included) |
 | `docs/` | `METHODS.md`, `PIPELINE.md`, `ROOT_FINDING.md`, `OPEN_ISSUES.md`, `HISTORY.md`, `RELATED_CODES.md`, `PROVENANCE.tsv`, `original_handoffs/` |
 | `notes/STATUS.md`, `prompts/`, `reports/` | working state of the build/test loop (see `CLAUDE.md`) |
 
@@ -61,10 +60,12 @@ The raw caches (several GB per sector), the hot-window binaries, the determinant
 
 ## Status (2026-10-21)
 
-Consolidation is done. Before any new physics result:
-1. Resolve the lattice covariance convention (`OPEN_ISSUES.md` issue 1: errors likely too large by 602).
-2. Resolve the p-wave $\mathcal K_2^{-1}$ convention (issue 2).
-3. Restore the external inputs.
+Consolidation is done, and Digonto has answered decisions D1–D5 (`notes/STATUS.md`). Next, in a Claude cloud session:
+1. Fix the lattice covariance. It is confirmed: the errors are too large by a factor of 602 (`OPEN_ISSUES.md` issue 1).
+2. Check the C++ core against an independent reference.
+3. Build a **cache-free** fast QC: a single-energy-point timing loop that replaces the cache binaries, which will not be restored.
 4. Re-run the L20 fits.
+
+For a fresh (cloud) checkout, see the setup section of `CLAUDE.md`.
 
 The roadmap is in [`prompts/000-consolidation-and-roadmap.md`](prompts/000-consolidation-and-roadmap.md).

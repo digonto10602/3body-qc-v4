@@ -1,6 +1,28 @@
 # CLAUDE.md — project rules for 3body-qc-v4
 
-The global rules in `~/.claude/CLAUDE.md` apply: the physics loop, report format, numbering, and the hard correctness rules. The physics loop is **active**, because `notes/STATUS.md` exists. This file adds project-specific facts.
+Digonto's global rules apply: report format, the physics loop, numbering, and the hard correctness rules. `.claude/global-CLAUDE.md` is a **verbatim copy of Digonto's `~/.claude/CLAUDE.md`** (2026-10-21). It is imported here so it also loads in cloud sessions, where `~/.claude/` does not exist:
+
+@.claude/global-CLAUDE.md
+
+**Path note for this repo:** wherever those rules say `~/.claude/bin/<tool>`, use `.claude/bin/<tool>` (run from the repo root) if `~/.claude/bin/` does not exist. The graphify skill they mention (`~/.claude/skills/graphify`) is not in the repo; the `graphify` CLI is (see setup below).
+
+The physics loop is **active**, because `notes/STATUS.md` exists.
+- The agents (`builder`, `tester`, `fixer`, `auditor`, `planner`), the guard and session hooks, `/kickoff`, and the helpers `next-num`, `acceptance-lock` and `acceptance-check` are all in `.claude/`.
+- Call the helpers as `.claude/bin/<name>` from the repo root.
+- The project hooks run only when `~/.claude/hooks/` is absent, so they never run twice on Digonto's machine.
+
+This file adds project-specific facts.
+
+## Setting up a fresh (cloud) checkout
+```bash
+pip install graphifyy==0.9.53                  # the `graphify` CLI used on the consolidation machine
+graphify update .                              # rebuild graphify-out/ for this checkout
+# C++: Eigen 3 (header-only, e.g. apt install libeigen3-dev; export EIGEN_INC=/usr/include/eigen3)
+#      Minuit2 (standalone or from ROOT; export MINUIT2_ROOT=...) for the fitter only
+```
+- Cloud sessions normally have **no GPU**. `build_gpu.sh`, `src/cachegen_gpu/` and `src/gpu_det/` cannot be compiled or timed there; CPU work can.
+- QC3_release (Blanton, Romero-López, Sharpe; github `ferolo2/QC3_release`) is **not** in this repo: it is not Digonto's code. It is only cited as the published reference implementation. Do not add it back.
+- Data in the repo: the L20 `.jack` spectra only. No cache binaries exist anywhere. The L24 `.jack` files are not here.
 
 ## Orientation
 - Read `notes/STATUS.md` first, then the highest-numbered `prompts/NNN-*.md` (the plan in force), then `docs/OPEN_ISSUES.md`.
@@ -17,12 +39,20 @@ The global rules in `~/.claude/CLAUDE.md` apply: the physics loop, report format
 6. No root-finding fallback to full-cache reads inside the FCN. Caches load once, outside the FCN.
 7. Human-labelled roots are the current ground truth. A new root finder replaces them only after FP = FN = 0 on all labelled sectors (`docs/ROOT_FINDING.md` §3.3).
 
+## Decisions already made by Digonto (2026-10-21; details in `notes/STATUS.md`)
+- **D1:** `.jack` files = one value per gauge configuration ($N=603$ L20, $N=553$ L24); build jackknife averages before the covariance.
+- **D2:** two-body inputs $(4.04,-43.2,4.12)$ come from Digonto's earlier work and HadSpec papers.
+- **D3:** level matching = sort both lists ascending and use the lowest $m$ QC levels for $m$ lattice levels ($n\ge m$ allowed).
+- **D4:** cache binaries will not be provided. The priority is a cache-free fast QC (`prompts/000`, "Update 2026-10-21").
+- **D5:** the system is KKπ with $I=2$ ($K^+K^+\pi^+$).
+
 ## Things that are known to be wrong or unverified (see `docs/OPEN_ISSUES.md`)
-- **Do not quote any χ² or parameter from `results/legacy_*`.** The covariance convention is suspected wrong by $(N-1)^2$.
-- The p-wave $\mathcal K_2^{-1}$ convention differs from QC3_release.
+- **Do not quote any χ² or parameter from `results/legacy_*`.** The covariance is wrong by $(N-1)^2$ (confirmed by D1).
+- The p-wave $\mathcal K_2^{-1}$ form differs from QC3_release. Which form matches the HadSpec definition of $a_1$ is still to be checked; do not change it silently.
 - `compare_gpu_cache_vs_cpu_openmp_det_oldscale.cpp` reads $F_3^{-1}$ with a single swap. Do not use its read path.
 - `src/gpu_det/` is not validated against the CPU.
 
 ## Stop and ask Digonto
-- Anything that touches the decisions D1–D5 listed in `notes/STATUS.md`.
-- Any need for the external caches on `/media/digonto/Data` or for cluster time.
+- Changing any decision D1–D5, or any production constant in invariant 3.
+- What "graphical manipulation" means for the speed loop (GPU or something else), if the plan depends on it.
+- Any need for cluster time or for data not in the repo (L24 spectra).

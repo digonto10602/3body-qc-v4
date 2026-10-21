@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Usage: acceptance-lock "<reason, e.g. prompts/004 new Trotter-order test>"
+# Main session only, right after a planner run. Commits tests/acceptance (+ the plan, research
+# notes and METHODS.md for provenance) and creates the next annotated tag acceptance-vN.
+set -euo pipefail
+reason="${1:?usage: acceptance-lock \"<reason>\"}"
+git rev-parse --is-inside-work-tree >/dev/null 2>&1 || { echo "not a git repository"; exit 1; }
+cd "$(git rev-parse --show-toplevel)"
+[ -d tests/acceptance ] || { echo "tests/acceptance/ does not exist"; exit 1; }
+paths=()
+for p in tests/acceptance prompts reports/research docs/METHODS.md; do
+  # only paths that contain at least one file (git rejects empty directories as pathspecs)
+  [ -n "$(find "$p" -type f -print -quit 2>/dev/null)" ] && paths+=("$p")
+done
+[ ${#paths[@]} -gt 0 ] && [ "${paths[0]}" = tests/acceptance ] || { echo "tests/acceptance/ is empty - nothing to lock"; exit 1; }
+git add -A -- "${paths[@]}"
+last=$(git tag --list 'acceptance-v*' --sort=-v:refname | head -1)
+n=0; [ -n "$last" ] && n=${last#acceptance-v}
+next="acceptance-v$((n + 1))"
+if ! git diff --cached --quiet -- "${paths[@]}"; then
+  git commit -q -m "acceptance: lock $next - $reason" -- "${paths[@]}"
+elif [ -n "$last" ] && [ -z "$(git diff --name-only "$last" -- tests/acceptance)" ]; then
+  echo "No change in tests/acceptance since $last - nothing to lock."; exit 0
+fi
+git tag -a "$next" -m "$reason"
+echo "Locked tests/acceptance as $next at $(git rev-parse --short HEAD)"

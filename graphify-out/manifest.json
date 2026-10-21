@@ -714,15 +714,15 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792598476.0912526,
-    "seen": 1792598605.0012252,
-    "ast_hash": "ff7546cc6cf1603313258fe9f7ba36a4",
+    "mtime": 1792605038.2191257,
+    "seen": 1792605068.3407314,
+    "ast_hash": "68881fe078c39f5293f6d6bb0b1cf242",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792598464.7627041,
-    "seen": 1792598605.001229,
-    "ast_hash": "4550bb3ed45958008a648d1969357f24",
+    "mtime": 1792605049.3376036,
+    "seen": 1792605068.3407328,
+    "ast_hash": "67b0baeedcc3349796da3b633756cd65",
     "semantic_hash": ""
   },
   "data/README.md": {
@@ -774,9 +774,9 @@
     "semantic_hash": ""
   },
   "docs/OPEN_ISSUES.md": {
-    "mtime": 1792598574.2154672,
-    "seen": 1792598605.001263,
-    "ast_hash": "b0352e047e68ec724882b14668fb6a91",
+    "mtime": 1792604950.4684122,
+    "seen": 1792605068.34075,
+    "ast_hash": "77885efa49bac502d234a766a69f79cb",
     "semantic_hash": ""
   },
   "docs/PIPELINE.md": {
@@ -786,21 +786,21 @@
     "semantic_hash": ""
   },
   "docs/PROVENANCE.md": {
-    "mtime": 1792598567.7484531,
-    "seen": 1792598605.0012703,
-    "ast_hash": "5eafa01862e9ab4a9f295c95294f64df",
+    "mtime": 1792604924.72498,
+    "seen": 1792605068.3407533,
+    "ast_hash": "bbe8ce10ae9aa1219cdfeeb7f55f8b23",
     "semantic_hash": ""
   },
   "docs/RELATED_CODES.md": {
-    "mtime": 1792598439.5929096,
-    "seen": 1792598605.0012739,
-    "ast_hash": "9122acf28f3f0751dbfa12aeffd79a14",
+    "mtime": 1792604932.262782,
+    "seen": 1792605068.340755,
+    "ast_hash": "0b854a3b4d5276e933b8fb8d78b0a4be",
     "semantic_hash": ""
   },
   "docs/ROOT_FINDING.md": {
-    "mtime": 1792598357.6119905,
-    "seen": 1792598605.0012774,
-    "ast_hash": "c9023df0922de90fb21de8fc272a3aa5",
+    "mtime": 1792604924.7239826,
+    "seen": 1792605068.3407567,
+    "ast_hash": "c7c7131daa4f5fc7f42bc1bcc2e80ebc",
     "semantic_hash": ""
   },
   "docs/original_handoffs/3body_quantization_v3_README.md": {
@@ -990,15 +990,15 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792598505.041316,
-    "seen": 1792598605.0013955,
-    "ast_hash": "5450d413dc4402f450333f76af3164b8",
+    "mtime": 1792604909.749573,
+    "seen": 1792605068.3408155,
+    "ast_hash": "70fa5f7957e847110a2cf39b9a2cab9b",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
-    "mtime": 1792598495.5582952,
-    "seen": 1792598605.001399,
-    "ast_hash": "420f8d27e99f03532663dd4ce2b3b1bc",
+    "mtime": 1792604976.0871172,
+    "seen": 1792605068.3408172,
+    "ast_hash": "9665ab8ea681d7d6f76438de21f597e1",
     "semantic_hash": ""
   },
   "reports/research/001-physics-core-library-audit.md": {
@@ -1272,9 +1272,9 @@
     "semantic_hash": ""
   },
   "third_party/QC3_release/README.md": {
-    "mtime": 1792598536.4733849,
-    "seen": 1792598605.0015748,
-    "ast_hash": "c772de1b93e981b9ba4416481677c284",
+    "mtime": 1792604871.6484807,
+    "seen": 1792605068.3409023,
+    "ast_hash": "895d79e36433e4f4a8b0bcce970be6f6",
     "semantic_hash": ""
   },
   "tools/legacy_v32/README_TOOLS.md": {
@@ -1287,6 +1287,180 @@
     "mtime": 1784134394.0,
     "seen": 1792598605.0015821,
     "ast_hash": "4572ac0a1cd83a219c42d46327c453e1",
+    "semantic_hash": ""
+  },
+  ".claude/hooks/guard.py": {
+    "mtime": 1792605002.5286148,
+    "seen": 1792605068.3404543,
+    "ast_hash": "553fb13edff2716a79f5a12c09e2c5be",
+    "semantic_hash": ""
+  },
+  ".claude/hooks/session_start.py": {
+    "mtime": 1792605002.5306149,
+    "seen": 1792605068.3404624,
+    "ast_hash": "69c4381b892984735a9976c8688febe1",
+    "semantic_hash": ""
+  },
+  ".claude/settings.json": {
+    "mtime": 1792605009.6246226,
+    "seen": 1792605068.3404663,
+    "ast_hash": "6e9e5feb8d14774b99caa5c85c4193ad",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/setup.sh": {
+    "mtime": 1792604808.1144223,
+    "seen": 1792605068.3406837,
+    "ast_hash": "a8ccefc0f2862912d546c38681a0404a",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/F3/F3_mat.py": {
+    "mtime": 1792604780.6699898,
+    "seen": 1792605068.3406856,
+    "ast_hash": "df5f6a3364584956a93ff45b2886bbd8",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/F3/F_mat.py": {
+    "mtime": 1792604780.6701617,
+    "seen": 1792605068.3406873,
+    "ast_hash": "7c3a743d92a528c47f3f620def7a2c84",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/F3/G_mat.py": {
+    "mtime": 1792604780.6701617,
+    "seen": 1792605068.340689,
+    "ast_hash": "c63e67b01994476c5e4cb8b4ca391724",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/F3/K2i_mat.py": {
+    "mtime": 1792604780.6701617,
+    "seen": 1792605068.3406904,
+    "ast_hash": "2bfeb2f1fea0b0ec5e96f6585fd9e66f",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/F3/qcot_fits.py": {
+    "mtime": 1792604780.6708899,
+    "seen": 1792605068.3406918,
+    "ast_hash": "a5b148a31f1449ce6ddbceab7aab4d7c",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/Kdf3/K3B.py": {
+    "mtime": 1792604780.6708899,
+    "seen": 1792605068.3406932,
+    "ast_hash": "e93261c3f0e08ae6427db6f4494fa0e7",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/Kdf3/K3E.py": {
+    "mtime": 1792604780.6713285,
+    "seen": 1792605068.3406944,
+    "ast_hash": "aa05375c448579fd36d68b78fa2f5671",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/Kdf3/K3main.py": {
+    "mtime": 1792604780.6713285,
+    "seen": 1792605068.340696,
+    "ast_hash": "5d05e49e9c3cc5acdb6a451b04f6ae8e",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/constants.py": {
+    "mtime": 1792604780.6722617,
+    "seen": 1792605068.3406973,
+    "ast_hash": "ddb6fcd5c6a85584d0b89579eb532f80",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/defns.py": {
+    "mtime": 1792604808.0914223,
+    "seen": 1792605068.340699,
+    "ast_hash": "4ffd6725b1771c64c01bd258c2209348",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/group_theory_defns.py": {
+    "mtime": 1792604780.6723988,
+    "seen": 1792605068.3407001,
+    "ast_hash": "d34a202adeada857d89a29872ad31f15",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/base_code/projections.py": {
+    "mtime": 1792604780.6723988,
+    "seen": 1792605068.3407013,
+    "ast_hash": "bba4da63315fe4b4622ff6b74671cc69",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/solution.py": {
+    "mtime": 1792604780.6723988,
+    "seen": 1792605068.340703,
+    "ast_hash": "ac6ff67eb5a03954c503707193fbb681",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/solution_2pt.py": {
+    "mtime": 1792604780.6723988,
+    "seen": 1792605068.3407044,
+    "ast_hash": "043a379578fdfbe881e9ded5a2e820a9",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/solution_ID.py": {
+    "mtime": 1792604780.6723988,
+    "seen": 1792605068.340706,
+    "ast_hash": "e658730da7ab95c3dc6b9bd11754bb9c",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/solution_ND.py": {
+    "mtime": 1792604780.6733987,
+    "seen": 1792605068.3407073,
+    "ast_hash": "b5ad349c77d9e8c7d926823ddfae2197",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/test.py": {
+    "mtime": 1792604780.6733987,
+    "seen": 1792605068.340709,
+    "ast_hash": "98877e03b7885312a5cb9c59d581512d",
+    "semantic_hash": ""
+  },
+  ".claude/agents/auditor.md": {
+    "mtime": 1792605002.4856148,
+    "seen": 1792605068.340722,
+    "ast_hash": "c05f70dbfa35566f8e22ed4f6e273074",
+    "semantic_hash": ""
+  },
+  ".claude/agents/builder.md": {
+    "mtime": 1792605002.490615,
+    "seen": 1792605068.3407235,
+    "ast_hash": "a9a649e16ecf0f92063b4737c16ac76a",
+    "semantic_hash": ""
+  },
+  ".claude/agents/fixer.md": {
+    "mtime": 1792605002.4956148,
+    "seen": 1792605068.340725,
+    "ast_hash": "3cb83043b0661f8827fe7f6e7f9e5495",
+    "semantic_hash": ""
+  },
+  ".claude/agents/tester.md": {
+    "mtime": 1792605002.503615,
+    "seen": 1792605068.3407264,
+    "ast_hash": "84b23baf27642aecb1f581398e885ffa",
+    "semantic_hash": ""
+  },
+  ".claude/physics-loop.md": {
+    "mtime": 1792605009.6126225,
+    "seen": 1792605068.3407278,
+    "ast_hash": "9921db958a84b2040c54a046a8a695da",
+    "semantic_hash": ""
+  },
+  ".claude/skills/kickoff/SKILL.md": {
+    "mtime": 1792605002.5336149,
+    "seen": 1792605068.3407292,
+    "ast_hash": "7610173c3525dfd0eb7f5d87f2db30ae",
+    "semantic_hash": ""
+  },
+  "third_party/QC3_release/upstream/README.md": {
+    "mtime": 1792604780.6697986,
+    "seen": 1792605068.340904,
+    "ast_hash": "7afbafe16ddabc74307c4c86e0d2d61d",
+    "semantic_hash": ""
+  },
+  ".claude/agents/planner.md": {
+    "mtime": 1792605002.4996147,
+    "seen": 1792605068.3409095,
+    "ast_hash": "e07bfc7a6e2cad86fc99a774835e9198",
     "semantic_hash": ""
   }
 }

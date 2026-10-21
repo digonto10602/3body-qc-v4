@@ -8,9 +8,11 @@ Severity:
 
 Nothing listed here has been fixed in the code yet. The code in `src/` is copied verbatim from the newest packages.
 
+**Digonto's answers to decisions D1–D5 (2026-10-21)** are recorded in `notes/STATUS.md`; the issues below are annotated accordingly.
+
 ---
 
-### 1. BLOCKER — lattice covariance probably too large by $(N-1)^2=602^2\approx3.6\times10^5$
+### 1. BLOCKER (CONFIRMED by D1) — lattice covariance too large by $(N-1)^2=602^2\approx3.6\times10^5$
 
 - **Where:** `src/fitter/qc_fitter_norm_refine_v2_multiL.cpp`, `load_multil_jack_targets` (about lines 329–448).
 - **What:** it applies the jackknife formula $C=\frac{N-1}{N}\sum_a(x_a-\bar x)(x_a-\bar x)$ directly to the 603 values in each `data/lattice/L20/*.jack` file. The older reader `src/fitter/lattice_data_covariance_cpp.hpp` (used by the trusted v32w fit) first builds leave-one-out averages, i.e. it treats the file values as **per-configuration** values.
@@ -29,7 +31,8 @@ Nothing listed here has been fixed in the code yet. The code in `src/` is copied
   | 0.345 | 14 | $1.7\times10^{-4}$ | 60.6 | 6.1 |
 
   These are not fit results. The fits never converged with the inflated covariance, so they must be redone.
-- **Decision needed (Digonto):** confirm that the `.jack` files hold per-configuration energies, or say what they are. Then fix the reader, add a unit test (a synthetic per-configuration file must reproduce $\sigma=\text{s.d.}/\sqrt N$), and redo all L20 fits.
+- **Answer (D1, 2026-10-21):** the `.jack` files hold the energy ("mass") of one state on each of $N$ gauge configurations: $N=603$ for L20 and $N=553$ for L24. They are **per-configuration values**, so this issue is real.
+- **Fix:** build leave-one-out jackknife averages first, as `lattice_data_covariance_cpp.hpp` does. Add a unit test: a synthetic per-configuration file must reproduce $\sigma=\text{s.d.}/\sqrt N$. Then redo all L20 fits.
 - **Consequence:** every χ², parameter value and parameter error in `results/legacy_L20_*` and in the v33n cutoff scan is invalid. The v32w fit ($\chi^2/\nu=1.44$) used the older reader and is not affected by this issue.
 
 ### 2. HIGH — p-wave $\mathcal K_2^{-1}$ differs from the reference implementation
@@ -38,7 +41,8 @@ Nothing listed here has been fixed in the code yet. The code in `src/` is copied
 - **What:** these compute $B_1=-1/(a_1q^{*2})+\dots$ plus $C_1=q^{*2}|q^*|(1-H)$. The two terms carry different powers of momentum.
 - **Reference:** QC3_release (`base_code/F3/K2i_mat.py:26-27`) uses $-1/a_1+q^{*2}|q^*|(1-H)$, which is the commented-out line 103.
 - **Consequence:** `scatter1_10=-43.2` does not mean the reference's $a_1$, and the near-threshold p-wave behaviour is different. The size of the effect is not yet quantified.
-- **Decision needed (Digonto):** which convention, and where does $a_1=-43.2$ come from?
+- **Answer (D2, 2026-10-21):** the two-body inputs come from Digonto's earlier work and from Hadron Spectrum Collaboration papers.
+- **Still open (planner research):** find those papers and the parametrisation in which $a_1=-43.2$ is quoted, then use the matching $\mathcal K_2^{-1}$ form. Until then, the coded form is the production convention and must not be changed silently.
 
 ### 3. HIGH — complex-number read convention (`variant_04_real_imag_swapped`)
 
@@ -65,14 +69,19 @@ Nothing listed here has been fixed in the code yet. The code in `src/` is copied
 | L24 lattice spectrum `24_*.jack` | combined L20+L24 fit | `/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data` |
 | old `V20_*`, `QC_states_jackknifed_*` | spectrum plotter overlays | — |
 
+**Answer (D4, 2026-10-21):** these binaries will not be provided. The new direction is to make the QC evaluation fast enough that the cache files are not needed (`prompts/000`, "Update 2026-10-21"). The L24 `.jack` files are still needed for M3.
+
 ### 5. HIGH — level matching and label-count mismatches
 
 - **Matching rule:** the fitter pairs the $k$-th accepted zero with the $k$-th lattice level and requires equal counts per sector. Any missed low zero shifts every match above it.
+- **Rule from Digonto (D3, 2026-10-21):** sort both lists ascending. With $n$ QC levels and $m\le n$ lattice levels, use only the lowest $m$ QC levels; the extra QC levels are not an error.
+  - The fitter still needs this change: it currently requires equal counts.
+  - $n<m$ (a missing QC root) remains an error.
 - **Known blockers:**
   - L20/200_A2 has 5 user-true windows but 4 lattice levels at cutoff 0.355.
   - L20/000_A1m has 3 vs 2 at 0.36.
   - L24/100_A2 bracket 36 is unresolved.
-- **Decision needed:** a matching rule beyond "sorted order" (planner).
+- **Effect of D3 on the blockers:** the first two blockers (5 vs 4 and 3 vs 2) are resolved by the rule. Bracket 36 still needs a root decision.
 
 ### 6. MED — FCN design issues (`src/fitter/qc_fitter_norm_refine_v2_multiL.cpp`)
 
@@ -87,8 +96,8 @@ Nothing listed here has been fixed in the code yet. The code in `src/` is copied
 
 ### 7. MED — physics inputs without provenance or uncertainty
 
-- **Isospin:** the system's isospin is unconfirmed (`KKpi_I2` suggests $I=2$, i.e. $K^+K^+\pi^+$). The 2+1 identical-pair treatment is only valid if the two kaons are identical.
-- **Two-body parameters:** 4.04, −43.2, 4.12 have no documented source and no uncertainties. Older drivers carried $a_0^{KK}=4.07$ with "0.07 stat" and $a_0^{K\pi}=4.04$ with "0.05 stat, 0.15 syst".
+- **Isospin:** confirmed by Digonto (D5): KKπ with $I=2$, i.e. $K^+K^+\pi^+$. The 2+1 identical-pair treatment applies.
+- **Two-body parameters:** 4.04, −43.2 and 4.12 come from Digonto's earlier work and from HadSpec papers (D2). The exact citations and the uncertainties are still to be written down. Older drivers carried $a_0^{KK}=4.07$ with "0.07 stat" and $a_0^{K\pi}=4.04$ with "0.05 stat, 0.15 syst".
 - **Fixed constants:** $\xi$, $a_tm_K$, $a_tm_\pi$ are constants; no uncertainty is propagated.
 
 ### 8. MED — cache generator robustness (`src/cachegen_gpu/F3_gpu_cachegen_v32zu.cu`)

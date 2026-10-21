@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Usage: next-num <folder> [slug words...]          (folder is relative to the project root)
+#   next-num reports/tests                 -> 007
+#   next-num reports/tests trotter order   -> reports/tests/007-trotter-order.md
+# Numbers are per folder, at least 3 digits, never reused. Creates the folder if missing.
+set -euo pipefail
+dir="${1:?usage: next-num <folder> [slug words...]}"; shift || true
+root=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+cd "$root"
+dir="${dir%/}"
+mkdir -p "$dir"
+last=$(find "$dir" -maxdepth 1 -type f -regex '.*/[0-9][0-9][0-9][0-9]*-[^/]*\.md' -printf '%f\n' 2>/dev/null \
+       | sed -E 's/^([0-9]+)-.*/\1/' | sort -n | tail -1)
+next=$(printf '%03d' $(( 10#${last:-0} + 1 )))
+if [ "$#" -gt 0 ]; then
+  slug=$(printf '%s' "$*" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+//; s/-+$//' | cut -c1-50 | sed -E 's/-+$//')
+  printf '%s/%s-%s.md\n' "$dir" "$next" "${slug:-report}"
+else
+  printf '%s\n' "$next"
+fi

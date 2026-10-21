@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -f \"$HOME/.claude/hooks/session_start.py\" ] || python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session_start.py\" || true",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -f \"$HOME/.claude/hooks/guard.py\" ] || python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard.py\" || true",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

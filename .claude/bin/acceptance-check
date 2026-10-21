@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Verifies tests/acceptance/ is byte-identical to the latest acceptance-vN tag.
+# Prints one PASS/FAIL line first (read by the session hook), details after. Exit 0 = PASS.
+set -uo pipefail
+git rev-parse --is-inside-work-tree >/dev/null 2>&1 || { echo "FAIL: not a git repository"; exit 1; }
+cd "$(git rev-parse --show-toplevel)"
+[ -d tests/acceptance ] || { echo "FAIL: tests/acceptance/ does not exist"; exit 1; }
+tag=$(git tag --list 'acceptance-v*' --sort=-v:refname | head -1)
+[ -n "$tag" ] || { echo "FAIL: no acceptance-vN tag yet - main session must run .claude/bin/acceptance-lock"; exit 1; }
+changed=$(git diff --name-only "$tag" -- tests/acceptance)
+untracked=$(git ls-files --others --exclude-standard -- tests/acceptance)
+if [ -z "$changed" ] && [ -z "$untracked" ]; then
+  echo "PASS: tests/acceptance matches $tag"
+  exit 0
+fi
+echo "FAIL: tests/acceptance differs from $tag (tampered or not yet locked)"
+[ -n "$changed" ] && { echo "Changed since $tag:"; echo "$changed"; }
+[ -n "$untracked" ] && { echo "Untracked:"; echo "$untracked"; }
+exit 1

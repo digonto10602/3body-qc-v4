@@ -20,7 +20,7 @@ used inside this code base, not standard physics vocabulary.
   - arXiv:2111.12734 (Blanton, Romero-López, Sharpe: implementation; $F$, $\mathcal K_2$, harmonics);
   - arXiv:2105.12094 (2+1 flavour-matrix structure of $\mathbf F_3$);
   - arXiv:1803.04169 (identical-particle test target);
-  - the public Python code `QC3_release` (github `ferolo2/QC3_release`, commit `9bc4b84`). It is the reference for the $\mathcal K_{\rm df,3}$ port; see `third_party/QC3_release/`.
+  - the public Python code `QC3_release` (github `ferolo2/QC3_release`, commit `9bc4b84`). It is the reference for the $\mathcal K_{\rm df,3}$ port. It is cited only and not included in this repo (`docs/RELATED_CODES.md`).
 - **Units.** Everything is in units of the temporal lattice spacing $a_t$.
 
 | quantity | value | where set |

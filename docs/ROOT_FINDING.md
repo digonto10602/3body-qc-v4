@@ -100,4 +100,4 @@ The planner turns this into locked acceptance tests (`tests/acceptance/`).
 - Use LU-based $(\mathrm{sign},\ln|\det|)$, never a raw $\det$.
 - Never compare across an $N_{\rm proj}$ change. Handle segment edges explicitly.
 - Check Hermiticity first: $\max|\mathrm{Im}\det|$ must be 0 to rounding, otherwise the reader convention is wrong.
-- Matching to lattice levels must not rely on sorted order alone (`docs/OPEN_ISSUES.md` issue 5).
+- **Level matching (Digonto, D3, 2026-10-21):** sort the QC levels and the lattice levels ascending in each sector and pair them in order. If there are $n$ QC levels and $m\le n$ lattice levels, use only the lowest $m$ QC levels. This is only safe when no true low-lying root is missed, because a missed root shifts every pair above it. Complete root detection is therefore part of matching (`docs/OPEN_ISSUES.md` issue 5).

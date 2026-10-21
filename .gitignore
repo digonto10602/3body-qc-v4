@@ -1,4 +1,4 @@
-bin/
+/bin/
 build/
 *.o
 *.so
@@ -11,3 +11,7 @@ cache/
 logs/
 output/
 graphify-out/cache/
+
+__pycache__/
+# dated graph snapshots written by `graphify update`
+graphify-out/20*/

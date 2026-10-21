@@ -4,10 +4,7 @@
 
 - **Upstream:** https://github.com/ferolo2/QC3_release, commit `9bc4b84`. This is the public code of Blanton, Romero-López and Sharpe (arXiv:2111.12734).
 - **Role:** test oracle for $F$, $G$, $\mathcal K_2^{-1}$ and $\mathcal K_{\rm df,3}$. The C++ $\mathcal K_{\rm df,3}$ is a port of `base_code/Kdf3/K3main.py` and `K3E.py`.
-- **What this repo stores:** the upstream repo has no licence file, so it is **not vendored**. `third_party/QC3_release/` holds:
-  - fetch instructions;
-  - Digonto's local edits as a patch (`local_edits_vs_9bc4b84.patch`, about 250 lines);
-  - his local driver scripts.
+- **Not included in this repo.** It is not Digonto's code, so it is cited only. It was removed on 2026-10-21. Earlier work used a local working copy based on commit `9bc4b84` with debug edits.
 
 ## Three-body full-matrix HPC/CUDA benchmark (2026-08-21)
 
