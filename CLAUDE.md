@@ -52,6 +52,12 @@ graphify update .                              # rebuild graphify-out/ for this 
 - `compare_gpu_cache_vs_cpu_openmp_det_oldscale.cpp` reads $F_3^{-1}$ with a single swap. Do not use its read path.
 - `src/gpu_det/` is not validated against the CPU.
 
+## Pushing to GitHub (pre-authorised by Digonto, 2026-10-21)
+- Cloud and local sessions working on this repo may `git push` to `origin` (github.com/digonto10602/3body-qc-v4) **without asking**. This overrides the "push" item in the "Stop and ask me" list of `.claude/global-CLAUDE.md`, for this repo only.
+- Force-push is allowed only as `git push --force-with-lease=<branch>:<expected-old-sha> origin <branch>`, so that a remote you have not seen is never overwritten. Never use plain `--force` / `-f`.
+- Still ask Digonto before rewriting history that is already on GitHub (rebase, amend or squash of pushed commits), deleting branches or tags, or deleting data.
+- The coordinator pushes after every commit that passes the tester, so that work survives the cloud session ending.
+
 ## Stop and ask Digonto
 - Changing any decision D1–D5, or any production constant in invariant 3.
 - What "graphical manipulation" means for the speed loop (GPU or something else), if the plan depends on it.
