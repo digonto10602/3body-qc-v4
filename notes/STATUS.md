@@ -1,13 +1,17 @@
 # STATUS
 
-- **Updated:** 2026-10-21
-- **Prompt in force:** `prompts/000-consolidation-and-roadmap.md`. Read its "Update 2026-10-21" section first.
-- **Current milestone:** M1, the trustworthy and cache-free baseline. Not started.
-  - The decisions are answered (below).
-  - The next run is the planner kickoff, in a Claude cloud session.
-- **Last completed:** M0, consolidation.
-  - QC3_release was removed from the repo on 2026-10-21 (not Digonto's code); it is only cited.
-  - The physics-loop agents, hooks and rules were copied into `.claude/` so that cloud sessions have them.
+- **Updated:** 2026-10-21 (cloud kickoff)
+- **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
+- **Acceptance tag:** `acceptance-v1` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`). Check with `.claude/bin/acceptance-check`.
+- **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
+- **Current step:** M1 **step 1**, "Build + stubs".
+  - Done: the Python stubs in `src/python/qc3/`. All 33 acceptance tests fail with `NotImplementedError` (checked by the coordinator).
+  - Remaining: the `./build.sh core` target (pybind11 module `qc3._core`, an empty module is fine), and `all` no longer requiring Minuit2.
+- **Last completed:** kickoff.
+  - Planner report: `reports/research/007-single-energy-qc-methods-and-reference.md`.
+  - Independent reference: `tests/acceptance/m1/qc3ref/`, NumPy code written from arXiv:2111.12734. It agrees with the oracle dumps to $\le 2.5\times10^{-14}$ (relative).
+  - The oracle (existing C++ path, 1 core) takes 2.8–6.5 s per energy point.
+- **Plan note:** step 1's last column says `test_no_absolute_home_paths_in_m1_code` "should pass immediately". It cannot: the test calls `qc3.lattice.default_data_dir()`, which step 5 implements. The step table assigns both portability tests to step 5, so step 1 does not have to turn it green. The test itself is fine.
 
 ## Decisions from Digonto (answered 2026-10-21)
 
@@ -30,9 +34,16 @@
 - Loop: think → build optimised code → compare with an **oracle** (the last method that worked and has results, or the existing code run on 1 core for 1 energy point in 1 irrep).
 - The solution must generalise to all energy points and all irreps. Literature/web techniques or our own are both allowed.
 
+### Pending decision for Digonto
+- **D7, the p-wave $\mathcal K_2^{-1}$ form.** The planner calls this "D6" in `prompts/001` §2.2 and step 9; it is the same question.
+  - HadSpec, arXiv:1411.2004 Sec. VI, quotes $a_1$ with $k^{3}\cot\delta_1=1/a_1$.
+  - In the code's $Q_0$ convention, the consistent element is $-1/a_1+q^{*2}|q^*|(1-H)$. The coded form is larger by a factor $1/q^{*2}$.
+  - The production default stays `coded_v2` until Digonto decides.
+  - Step 9 produces the table of level shifts for the 12 levels, as input to that decision. The planner recommends `q0_consistent`.
+
 ## Open failures and attempt counters
 
-None yet: no build/test loop has run. Counters start at M1 step 1.
+M1 counters (reset at kickoff, `acceptance-v1`):
 
 | check | builder attempts | tester rounds | fixer | planner |
 |---|---|---|---|---|
@@ -40,12 +51,13 @@ None yet: no build/test loop has run. Counters start at M1 step 1.
 
 ## Known-unverified
 
-- `build.sh` and `build_gpu.sh` were never run in this layout. Eigen and Minuit2 were absent on the consolidation machine.
+- `build.sh` and `build_gpu.sh` were never run in this layout. Minuit2 (C++) is absent in the cloud container; M2 will use `iminuit` (pip).
 - Results in `results/legacy_*` are reference outputs only. Their χ² and parameters are invalid (D1 confirmed issue #1).
 - The L24 `.jack` files are not in the repo.
+- The planner's prototype and validation scripts (`scratch/planner/*.py`) and its compiled oracle binary are not in git (`scratch/` is gitignored). They are lost when the container ends; report 007 names them.
 
 ## Next action
 
-1. In the cloud session, run the `planner` (kickoff) on `prompts/000` including its "Update 2026-10-21" section. It writes `prompts/001-*` and `tests/acceptance/m1/`; then run `.claude/bin/acceptance-lock`.
-2. Builder loop: M1 step 1 (build), step 2 (portability), step 4 (covariance fix per D1), step 5 (C++ vs an independent reference).
-3. Start the single-energy-point timing loop (new step 6).
+1. M1 step 1 (rest): builder adds `./build.sh core` (pybind11) and makes `all` Minuit2-optional. Then the tester (mode `step`) runs the step-1 done-checks. Then commit.
+2. Step 2: oracle wrapper (`qc3.oracle.evaluate_point`, `src/qc3_core/oracle_point.hpp`).
+3. Steps 3–9 as in `prompts/001` §3.
