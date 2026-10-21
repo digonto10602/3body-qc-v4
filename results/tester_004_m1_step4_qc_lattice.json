@@ -1,0 +1,289 @@
+{
+ "commit": "9ad62c5",
+ "tester": "reports/tests/004-m1-step4-qc-lattice.md",
+ "machine": "Linux 6.18 x86_64, 4 cores, oracle 1 thread",
+ "seeds": {
+  "match_levels_random": 20261021,
+  "chi2_fullrank": 7
+ },
+ "parameters": {
+  "xi": 3.444,
+  "Lbyas": 20,
+  "cutoffs": [
+   0.315,
+   0.325,
+   0.335,
+   0.345,
+   0.355
+  ],
+  "c": "C_BASELINE",
+  "irrep_g": "100_A2 level 0 window"
+ },
+ "lattice": {
+  "a": {
+   "N": 603,
+   "mean_indep": 0.2692266019900497,
+   "mean_code": 0.2692266019900497,
+   "sigma_sd_over_sqrtN": 0.000515296690388243,
+   "sigma_code": 0.000515296690388256,
+   "rel_sigma": 2.531308496145357e-14,
+   "legacy_var": 0.09622938023764432,
+   "legacy_sigma": 0.31020860761372226,
+   "fixed_var": 2.655306791250902e-07,
+   "legacy_over_fixed_var": 362403.99999998166,
+   "expected_factor": 362404,
+   "legacy_over_fixed_sigma": 601.9999999999848,
+   "expected_sigma_factor": 602,
+   "rel_var_code_vs_indep_formula": 2.220446049250313e-16
+  },
+  "b": {
+   "100_A2_n0": {
+    "P": 0.09121929888472106,
+    "sigma_lab": 0.00048205874426315653,
+    "sigma_cm": 0.0005050890353947643,
+    "ratio": 1.0477748643825773,
+    "delta_method_ratio": 1.0477769653320388,
+    "mean_cm_of_resamples": 0.29163263619161245,
+    "cm_of_mean_lab": 0.29163263625635943
+   },
+   "100_A2_n1": {
+    "P": 0.09121929888472106,
+    "sigma_lab": 0.0005584412374192436,
+    "sigma_cm": 0.0005836728933891781,
+    "ratio": 1.0451822936403101,
+    "delta_method_ratio": 1.0451861328117087,
+    "mean_cm_of_resamples": 0.30006664618553425,
+    "cm_of_mean_lab": 0.30006664626529894
+   },
+   "111_A2_n0": {
+    "P": 0.1579964602991479,
+    "sigma_lab": 0.0005035119857110304,
+    "sigma_cm": 0.000561395104065923,
+    "ratio": 1.1149587695974177,
+    "delta_method_ratio": 1.1149631649958365,
+    "mean_cm_of_resamples": 0.3204177735564091,
+    "cm_of_mean_lab": 0.32041777371618835
+   },
+   "111_A2_n1": {
+    "P": 0.1579964602991479,
+    "sigma_lab": 0.0006957122642766948,
+    "sigma_cm": 0.0007695249581111229,
+    "ratio": 1.1060965827750189,
+    "delta_method_ratio": 1.1061004559782643,
+    "mean_cm_of_resamples": 0.33423289648408283,
+    "cm_of_mean_lab": 0.33423289675284196
+   }
+  },
+  "b_code_vs_indep": {
+   "100_A2_n0": {
+    "rel_mean": 0.0,
+    "rel_sigma": 2.220446049250313e-16
+   },
+   "100_A2_n1": {
+    "rel_mean": 0.0,
+    "rel_sigma": 4.440892098500626e-16
+   },
+   "100_A2_n2": {
+    "rel_mean": 0.0,
+    "rel_sigma": 2.220446049250313e-16
+   },
+   "111_A2_n0": {
+    "rel_mean": 0.0,
+    "rel_sigma": 2.220446049250313e-16
+   },
+   "111_A2_n1": {
+    "rel_mean": 0.0,
+    "rel_sigma": 0.0
+   },
+   "111_A2_n2": {
+    "rel_mean": 0.0,
+    "rel_sigma": -2.220446049250313e-16
+   },
+   "111_A2_n3": {
+    "rel_mean": 0.0,
+    "rel_sigma": 0.0
+   },
+   "111_A2_n4": {
+    "rel_mean": 0.0,
+    "rel_sigma": 0.0
+   }
+  },
+  "b_cutoff_boundary": {
+   "n_at_cutoff_equal_mean": 1,
+   "n_just_below": 0
+  },
+  "c_counts": {
+   "0.315": {
+    "code": 6,
+    "indep": 6,
+    "research004": 6
+   },
+   "0.325": {
+    "code": 9,
+    "indep": 9,
+    "research004": 9
+   },
+   "0.335": {
+    "code": 12,
+    "indep": 12,
+    "research004": 12
+   },
+   "0.345": {
+    "code": 14,
+    "indep": 14,
+    "research004": 14
+   },
+   "0.355": {
+    "code": 17,
+    "indep": 17,
+    "research004": 17
+   }
+  },
+  "c_cov": {
+   "n": 12,
+   "labels": true,
+   "sym_maxabs": 0.0,
+   "eig_min": 1.8231735849189435e-09,
+   "eig_max": 3.295616279792675e-06,
+   "cond": 1807.6261673894287,
+   "corr_min": 0.4910259197641593,
+   "corr_max": 0.9512692544696925,
+   "max_abs_corr": 0.9512692544696925,
+   "rel_diff_vs_indep": 1.248577118268235e-15,
+   "Ecm": [
+    0.2692266019900497,
+    0.29163263619161245,
+    0.30006664618553425,
+    0.30737479461922135,
+    0.3164747891003113,
+    0.31822066209720656,
+    0.32918842706990126,
+    0.3204177735564091,
+    0.33423289648408283,
+    0.2867557247369239,
+    0.29942353678479317,
+    0.33102432154850525
+   ],
+   "sigma": [
+    0.000515296690388256,
+    0.0005050890353947644,
+    0.0005836728933891783,
+    0.0005239092723404096,
+    0.0005154854743769491,
+    0.0007704536064832192,
+    0.0005175758231704666,
+    0.0005613951040659231,
+    0.0007695249581111229,
+    0.0006089793216434028,
+    0.0005832224978048792,
+    0.0006107080590675553
+   ],
+   "Ncfg": 603
+  },
+  "d": {
+   "trials": 2000,
+   "seed": 20261021,
+   "mismatches": 0,
+   "missingroot_raised": "3/3",
+   "empty_lattice": []
+  },
+  "e": {
+   "fullrank_3": {
+    "rel_diff": 0.0,
+    "cond": 22.028513881267656
+   },
+   "fullrank_12": {
+    "rel_diff": 2.5183489528862683e-15,
+    "cond": 329.4109638041422
+   },
+   "real12": {
+    "rel_diff": 1.7580813156395033e-14
+   },
+   "relcut": {
+    "rel_diff": 3.4268519001291526e-05,
+    "scale_invariant_dropset": 9.177389182957185e-05
+   },
+   "relcut_1e-9": 1.6954085379889095e-15,
+   "zero_cov": "returned 0.0",
+   "nan_cov": "raised LinAlgError: Eigenvalues did not converge"
+  }
+ },
+ "qc_roots": {
+  "f": {
+   "N": 56,
+   "Nproj": 17,
+   "Q_bit_identical": true,
+   "Q_dtype": "complex128",
+   "sign_py_type": "int",
+   "sign": -1,
+   "oracle_sign": -1,
+   "sign_equal": true,
+   "lndet": -118.96068499583154,
+   "oracle_lndet": -118.96068499583154,
+   "lndet_equal_exact": true,
+   "numpy_lndet": -118.96068499583154,
+   "eigen_lu_lndet": -118.96068499693408,
+   "hermiticity": 5.264502996607923e-19,
+   "scaled_vs_unscaled": null
+  },
+  "f_edge": {
+   "zeros2": "raised ValueError",
+   "rank1": "raised ValueError",
+   "nan": "raised ValueError",
+   "inf": "raised ValueError",
+   "empty": "raised ValueError",
+   "nonsquare": "raised ValueError",
+   "neg_def": "returned (-1, 0.0)",
+   "complex_herm": "returned (1, 1.0986122886681096)",
+   "complex_nonherm": "raised ValueError",
+   "tiny": "returned (1, -1381.5510557964276)"
+  },
+  "f_herm30": {
+   "sign": 1,
+   "sign_eig": 1,
+   "lndet": 47.137960255528334,
+   "lndet_eig": 47.13796025552834,
+   "nneg": 14
+  },
+  "g": {
+   "bracket": [
+    0.29155126256312813,
+    0.29155610780539026
+   ],
+   "root": 0.29155609960818824,
+   "previous_model_zero": 0.29155609987916675,
+   "diff_vs_previous": -2.7097851740265355e-10,
+   "n_evals": 5,
+   "wall_s": 13.783807516098022,
+   "xtol": 1e-11,
+   "ends": {
+    "left": [
+     1,
+     -109.13667445116735
+    ],
+    "right": [
+     -1,
+     -115.55061306900842
+    ]
+   },
+   "near_root": {
+    "root-2e-11": [
+     1,
+     -121.56633506894626
+    ],
+    "root+2e-11": [
+     -1,
+     -121.56640815818807
+    ],
+    "root": [
+     1,
+     -131.73893896834124
+    ]
+   },
+   "sign_flips_within_2e11": true,
+   "N": 56,
+   "Nproj": 17,
+   "lattice_Ecm": 0.2916083321793744
+  }
+ }
+}

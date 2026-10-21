@@ -4,10 +4,16 @@
 - **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
 - **Acceptance tag:** `acceptance-v2` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`; v2 = v1 plus the sign-flip fix in `test_scale_applies_to_matrix_not_determinant`, `prompts/001` §4 amendment). Check with `.claude/bin/acceptance-check`. Tags exist **only locally**, because this cloud session cannot push tags (HTTP 403). `acceptance-v1` = `7801d97` and `acceptance-v2` = bcf12cd. If they are missing, recreate them with `git tag -a <tag> <commit> -m ...`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **step 4**, the QC helpers and the lattice reader (D1, D3).
-  - The code is written. 11 of the 12 step-4 acceptance tests pass.
-  - The 12th, `test_m1_qc_identities.py::test_scale_applies_to_matrix_not_determinant`, is **a wrong test**. Its "flip one eigenvalue" line uses `-abs()` on an eigenvalue that is already negative ($-6.34$; 10 of the 30 eigenvalues are negative), so nothing flips. The coordinator reproduced this.
-  - Fixed by the planner, with Digonto's approval (2026-10-21), and locked as `acceptance-v2`. The corrected test passes with the current `qc3.qc`. It fails for a `slogdet` that returns a constant sign.
+- **Current step:** M1 **step 5**, portability (`default_data_dir`, `QC_DATA_ROOT`, no absolute home paths).
+  - It also fixes three silent-failure paths in `lattice.py` that tester 004 found:
+    1. `load_levels` drops levels whose $E^*$ is NaN without telling anyone;
+    2. `chi2` ignores negative eigenvalues and an all-zero covariance;
+    3. file names with a bad `_n<k>` suffix are skipped without a message.
+- **Step 4 DONE**, verified by `reports/tests/004-m1-step4-qc-lattice.md` (PASS).
+  - 12 of 12 step-4 tests and 16 unit tests pass.
+  - D1 is confirmed. The legacy reader's variance is $602^2$ times too large: $\sigma=0.3102$ against the correct $5.153\times10^{-4}$ for 20_000_A1m_n0.
+  - The 12-level covariance at cutoff 0.335 has condition number $1.8\times10^{3}$. Its correlations run from 0.49 to 0.95.
+  - `refine_root` on the oracle converges in 5 calls (13.8 s) at 100_A2 level 0.
 - **Step 3 DONE**, verified by `reports/tests/003-m1-step3-reference-pwave.md` (PASS).
   - The `q0_consistent` form is added as a new function. The existing physics code is byte-unchanged.
   - All 5 reference tests and all 7 oracle tests pass.
