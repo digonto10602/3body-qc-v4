@@ -5,6 +5,8 @@ from dataclasses import dataclass
 
 import numpy as np
 
+from .constants import NNP
+
 
 @dataclass(frozen=True)
 class Sector:
@@ -29,16 +31,20 @@ class Sector:
 
     @classmethod
     def production(cls, irrep: str, Lbyas: int = 20, **overrides) -> "Sector":
-        raise NotImplementedError("qc3.sector.Sector.production: prompts/001 step 2")
+        """Production sector (CLAUDE.md invariant 3); `overrides` replace individual fields."""
+        return cls(irrep=irrep, Lbyas=Lbyas, **overrides)
 
     @property
-    def L(self) -> float:  # xi * Lbyas
-        raise NotImplementedError("qc3.sector.Sector.L: prompts/001 step 2")
+    def L(self) -> float:  # xi * Lbyas  (box size in units of a_t)
+        return self.xi * self.Lbyas
 
     @property
     def nnP(self) -> tuple:  # integer d vector
-        raise NotImplementedError("qc3.sector.Sector.nnP: prompts/001 step 2")
+        try:
+            return tuple(NNP[self.irrep])
+        except KeyError:
+            raise ValueError(f"unknown irrep {self.irrep!r}; known: {sorted(NNP)}") from None
 
     @property
     def P_lab(self) -> np.ndarray:  # 2*pi/L * d
-        raise NotImplementedError("qc3.sector.Sector.P_lab: prompts/001 step 2")
+        return 2.0 * np.pi / self.L * np.asarray(self.nnP, dtype=float)

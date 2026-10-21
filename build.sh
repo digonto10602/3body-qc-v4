@@ -66,7 +66,8 @@ build_core() {      # pybind11 module qc3._core (prompts/001 step 1)
   EXT="$(python3 -c 'import sysconfig; print(sysconfig.get_config_var("EXT_SUFFIX"))')"
   GIT="$(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || echo unknown)"
   # shellcheck disable=SC2086
-  "$CXX" "${COMMON[@]}" -shared -fPIC -DQC3_GIT_COMMIT="\"$GIT\"" "${INC[@]}" $PYINC \
+  "$CXX" "${COMMON[@]}" "${NO_MINUIT[@]}" -DV31L_DISABLE_MINUIT=1 -DV31R_DISABLE_MINUIT=1 \
+    -DV31S_DISABLE_MINUIT=1 -DV31T_DISABLE_MINUIT=1 -shared -fPIC -DQC3_GIT_COMMIT="\"$GIT\"" "${INC[@]}" $PYINC \
     "$ROOT/src/qc3_core/module.cpp" "$FAD" \
     -o "$ROOT/src/python/qc3/_core$EXT"
 }
