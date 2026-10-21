@@ -1,0 +1,14 @@
+v32w patch notes
+=================
+
+Problem in v32v:
+- Refinement-generated F3inv/Vsel points were inserted into the main irrep grid.
+- The next FCN evaluation used the denser mixed grid for initial sign-flip detection.
+- Brackets collapsed to tiny intervals, shoulders disappeared, and final recomputation classified all QC sign flips as poles.
+
+Fix in v32w:
+- Split loaded cache into fixed coarse grid and refined cache.
+- Initial sign-flip scan always uses fixed coarse grid only.
+- Refinement mesh searches fixed coarse grid first, then refined cache; builds missing points in OpenMP and stores them only in refined cache.
+- Saved cache merges coarse+refined for reuse, but future runs split it again.
+- Added printouts for coarse/refined row counts per irrep.

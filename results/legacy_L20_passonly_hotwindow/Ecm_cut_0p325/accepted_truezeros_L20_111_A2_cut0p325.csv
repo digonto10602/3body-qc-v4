@@ -1,0 +1,2 @@
+bracket_id,E_left,E_right,zero_estimate,user_label,inside_Ecm_cutoff,row_left,row_right,max_row_left,max_row_right,lattice_level_index,source_label_file,source_label_row
+11,3.19421096054802733e-01,3.19425941297064864e-01,0.31942184564777087,true,true,11574,11674,11374,11874,0,/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/input/v33p_gpu_user_truezero_labels_L20_111_A2.csv,12

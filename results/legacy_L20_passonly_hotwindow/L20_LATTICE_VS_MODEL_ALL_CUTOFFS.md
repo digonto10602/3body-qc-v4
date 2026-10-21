@@ -1,0 +1,87 @@
+# L20 lattice versus model across cutoffs
+
+
+---
+
+# Lattice versus model, Ecm_cutoff=0.315
+
+Per-level correlated chi2 contribution is defined as `residual_i * (C^-1 residual)_i`; the sum reconstructs the correlated chi2.
+
+| irrep | level | lattice Ecm | model Ecm | model-lattice | sigma | chi2 contribution | source lattice file |
+|---|---:|---:|---:|---:|---:|---:|---|
+| 000_A1m | 0 | 0.26922660199004972 | 0.26920153972252936 | -2.5062267520359338e-05 | 0.31020860761372221 | 2.2259072853677635e-07 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_000_A1m_n0.jack |
+| 100_A2 | 0 | 0.2916083321793746 | 0.29145395187999013 | -0.00015438029938447118 | 0.30454737102519835 | -5.8964670286246762e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_001_A2_n0.jack |
+| 100_A2 | 1 | 0.30003551382783683 | 0.30032687483335513 | 0.00029136100551829802 | 0.35251246219978727 | 1.1004213151675165e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_001_A2_n1.jack |
+| 110_A2 | 0 | 0.30733329283126382 | 0.30674355883800553 | -0.00058973399325829012 | 0.31612339030060216 | 1.730083310762431e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n0.jack |
+| 200_A2 | 0 | 0.28663962480381061 | 0.28620937723912288 | -0.00043024756468773573 | 0.36844364737905549 | -1.0765930021662728e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n0.jack |
+| 200_A2 | 1 | 0.29932655354240162 | 0.29905561837785849 | -0.00027093516454312905 | 0.35334969066327732 | 1.1066823791250049e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n1.jack |
+
+Reported chi2: `3.262140074829519e-05`; reconstructed sum: `3.262140074829535e-05`.
+
+---
+
+# Lattice versus model, Ecm_cutoff=0.325
+
+Per-level correlated chi2 contribution is defined as `residual_i * (C^-1 residual)_i`; the sum reconstructs the correlated chi2.
+
+| irrep | level | lattice Ecm | model Ecm | model-lattice | sigma | chi2 contribution | source lattice file |
+|---|---:|---:|---:|---:|---:|---:|---|
+| 000_A1m | 0 | 0.26922660199004972 | 0.26923994659708356 | 1.3344607033838329e-05 | 0.31020860761372221 | -4.8696058322212635e-07 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_000_A1m_n0.jack |
+| 100_A2 | 0 | 0.2916083321793746 | 0.29148609697880473 | -0.00012223520056986459 | 0.30454737102519835 | -1.6622768012923824e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_001_A2_n0.jack |
+| 100_A2 | 1 | 0.30003551382783683 | 0.30036217298318169 | 0.00032665915534485501 | 0.35251246219978727 | 4.6624739916142006e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_001_A2_n1.jack |
+| 110_A2 | 0 | 0.30733329283126382 | 0.306758550438475 | -0.00057474239278881845 | 0.31612339030060216 | 2.3883256146981516e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n0.jack |
+| 110_A2 | 1 | 0.31643789359657837 | 0.31576411969592821 | -0.00067377390065015419 | 0.31086450147159861 | 2.5555681893404272e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n1.jack |
+| 110_A2 | 2 | 0.31813597720593867 | 0.31915294260292715 | 0.0010169653969884784 | 0.46605012177897509 | 2.8037611435825442e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n2.jack |
+| 111_A2 | 0 | 0.32035801348805054 | 0.3194001519451985 | -0.00095786154285204539 | 0.33901409665083876 | 2.2264424144981285e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n0.jack |
+| 200_A2 | 0 | 0.28663962480381061 | 0.28622044528930363 | -0.00041917951450698432 | 0.36844364737905549 | -4.5025854283234607e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n0.jack |
+| 200_A2 | 1 | 0.29932655354240162 | 0.29909396544996009 | -0.00023258809244153245 | 0.35334969066327732 | 1.2517832635363151e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n1.jack |
+
+Reported chi2: `9.5308966223698818e-05`; reconstructed sum: `9.530896622370046e-05`.
+
+---
+
+# Lattice versus model, Ecm_cutoff=0.335
+
+Per-level correlated chi2 contribution is defined as `residual_i * (C^-1 residual)_i`; the sum reconstructs the correlated chi2.
+
+| irrep | level | lattice Ecm | model Ecm | model-lattice | sigma | chi2 contribution | source lattice file |
+|---|---:|---:|---:|---:|---:|---:|---|
+| 000_A1m | 0 | 0.26922660199004972 | 0.26940160544234742 | 0.0001750034522977062 | 0.31020860761372221 | -1.0038905250816336e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_000_A1m_n0.jack |
+| 100_A2 | 0 | 0.2916083321793746 | 0.29165228283334454 | 4.3950653969948572e-05 | 0.30454737102519835 | 7.9155451077885226e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_001_A2_n0.jack |
+| 100_A2 | 1 | 0.30003551382783683 | 0.30057098291419848 | 0.00053546908636165069 | 0.35251246219978727 | 1.0444480205028787e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_001_A2_n1.jack |
+| 110_A2 | 0 | 0.30733329283126382 | 0.30684519684428491 | -0.00048809598697890921 | 0.31612339030060216 | 2.2021183707269518e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n0.jack |
+| 110_A2 | 1 | 0.31643789359657837 | 0.31595591614193103 | -0.0004819774546473421 | 0.31086450147159861 | 1.0226562266184756e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n1.jack |
+| 110_A2 | 2 | 0.31813597720593867 | 0.31915922798783153 | 0.0010232507818928593 | 0.46605012177897509 | 2.1773959177307147e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n2.jack |
+| 110_A2 | 3 | 0.3291548445548671 | 0.32920719260422993 | 5.2348049362826998e-05 | 0.31219877891683828 | 6.6071654990226752e-07 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n3.jack |
+| 111_A2 | 0 | 0.32035801348805054 | 0.31945931637246455 | -0.00089869711558598908 | 0.33901409665083876 | 5.2974304287073509e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n0.jack |
+| 111_A2 | 1 | 0.33413173149593406 | 0.33434270620842343 | 0.00021097471248937572 | 0.464880168674009 | 3.8420425012605394e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n1.jack |
+| 200_A2 | 0 | 0.28663962480381061 | 0.28627431533294717 | -0.00036530947086343968 | 0.36844364737905549 | 3.3267824530711129e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n0.jack |
+| 200_A2 | 1 | 0.29932655354240162 | 0.29930871607099263 | -1.7837471408987948e-05 | 0.35334969066327732 | 1.4297692461542734e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n1.jack |
+| 200_A2 | 2 | 0.33094254749003943 | 0.3311088746641046 | 0.00016632717406517283 | 0.36913632580527728 | 3.7497260653424443e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n2.jack |
+
+Reported chi2: `0.00012832616631556945`; reconstructed sum: `0.00012832616631556655`.
+
+---
+
+# Lattice versus model, Ecm_cutoff=0.345
+
+Per-level correlated chi2 contribution is defined as `residual_i * (C^-1 residual)_i`; the sum reconstructs the correlated chi2.
+
+| irrep | level | lattice Ecm | model Ecm | model-lattice | sigma | chi2 contribution | source lattice file |
+|---|---:|---:|---:|---:|---:|---:|---|
+| 000_A1m | 0 | 0.26922660199004972 | 0.26938398272680386 | 0.00015738073675414244 | 0.31020860761372221 | -1.0453732724855218e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_000_A1m_n0.jack |
+| 100_A2 | 0 | 0.2916083321793746 | 0.29162384066198704 | 1.5508482612447416e-05 | 0.30454737102519835 | 3.726293943005343e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_001_A2_n0.jack |
+| 100_A2 | 1 | 0.30003551382783683 | 0.30054436175747107 | 0.00050884792963423742 | 0.35251246219978727 | 2.6719349571391627e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_001_A2_n1.jack |
+| 110_A2 | 0 | 0.30733329283126382 | 0.30682831658824788 | -0.00050497624301593103 | 0.31612339030060216 | 2.9487042012431251e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n0.jack |
+| 110_A2 | 1 | 0.31643789359657837 | 0.31591463589753599 | -0.00052325769904237873 | 0.31086450147159861 | 1.8935539256451749e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n1.jack |
+| 110_A2 | 2 | 0.31813597720593867 | 0.3191594309253733 | 0.0010234537194346305 | 0.46605012177897509 | 3.2549533471723647e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n2.jack |
+| 110_A2 | 3 | 0.3291548445548671 | 0.32909984997860592 | -5.4994576261180317e-05 | 0.31219877891683828 | 6.2658002142847163e-07 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n3.jack |
+| 111_A2 | 0 | 0.32035801348805054 | 0.31944756225619814 | -0.00091045123185240495 | 0.33901409665083876 | 6.8752047675610199e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n0.jack |
+| 111_A2 | 1 | 0.33413173149593406 | 0.33434181783465067 | 0.00021008633871660853 | 0.464880168674009 | 4.9722370896075892e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n1.jack |
+| 111_A2 | 2 | 0.3385401361585873 | 0.33819640982049104 | -0.00034372633809626185 | 0.34413628169097182 | -2.7968263870990939e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n2.jack |
+| 111_A2 | 3 | 0.34415814244786719 | 0.343975168838631 | -0.00018297360923619221 | 0.3502718589930186 | 7.5810393201792417e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n3.jack |
+| 200_A2 | 0 | 0.28663962480381061 | 0.28626978281609389 | -0.00036984198771672361 | 0.36844364737905549 | 3.2041220838216766e-05 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n0.jack |
+| 200_A2 | 1 | 0.29932655354240162 | 0.29927785025916692 | -4.8703283234696748e-05 | 0.35334969066327732 | 1.2927335818528593e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n1.jack |
+| 200_A2 | 2 | 0.33094254749003943 | 0.33106620198281173 | 0.00012365449277229601 | 0.36913632580527728 | 2.8958784831024737e-06 | /home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n2.jack |
+
+Reported chi2: `0.00016711008405490148`; reconstructed sum: `0.0001671100840549026`.

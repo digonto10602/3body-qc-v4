@@ -1,0 +1,42 @@
+{
+  "fit_cutoff": 0.335,
+  "parameters": [
+    {
+      "fit_cutoff": 0.335,
+      "parameter": "K3iso0",
+      "value": "32040.84189923505",
+      "error": "113211204.38345505",
+      "relative_error": "3533.3405014603527",
+      "fixed_or_floating": "floating",
+      "status": "MINUIT_HESSE"
+    },
+    {
+      "fit_cutoff": 0.335,
+      "parameter": "K3iso1",
+      "value": "-1074716.6512728098",
+      "error": "84176025.16282722",
+      "relative_error": "78.32392385763798",
+      "fixed_or_floating": "floating",
+      "status": "MINUIT_HESSE"
+    },
+    {
+      "fit_cutoff": 0.335,
+      "parameter": "K3B",
+      "value": "347174.05548116943",
+      "error": "219464496.68809414",
+      "relative_error": "632.1454418128252",
+      "fixed_or_floating": "floating",
+      "status": "MINUIT_HESSE"
+    },
+    {
+      "fit_cutoff": 0.335,
+      "parameter": "K3E",
+      "value": "-1226756.7068845264",
+      "error": "608399252.1038867",
+      "relative_error": "495.94124791783577",
+      "fixed_or_floating": "floating",
+      "status": "MINUIT_HESSE"
+    }
+  ],
+  "covariance_status": "VALID"
+}

@@ -1,0 +1,13 @@
+bin/
+build/
+*.o
+*.so
+__pycache__/
+*.pyc
+# large caches never go in git (see docs/OPEN_ISSUES.md #4)
+*.bin
+*_gpu.bin
+cache/
+logs/
+output/
+graphify-out/cache/

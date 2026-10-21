@@ -1,0 +1,8 @@
+# L20 lattice versus model, all pass-only cutoffs
+
+The per-cutoff CSV/MD files contain the actual lattice Ecm, fitted model Ecm, residual, chi2 contribution, lattice source file, and user true-window source.
+
+- `/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/l20_full_cutoff_fits_user_validated_0p36_passonly/Ecm_cut_0p315/lattice_vs_model_levels.csv`
+- `/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/l20_full_cutoff_fits_user_validated_0p36_passonly/Ecm_cut_0p325/lattice_vs_model_levels.csv`
+- `/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/l20_full_cutoff_fits_user_validated_0p36_passonly/Ecm_cut_0p335/lattice_vs_model_levels.csv`
+- `/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/l20_full_cutoff_fits_user_validated_0p36_passonly/Ecm_cut_0p345/lattice_vs_model_levels.csv`

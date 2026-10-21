@@ -1,0 +1,1750 @@
+[v32x] config=/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/l20_full_cutoff_fits_user_validated_0p36_passonly/Ecm_cut_0p335/fitter_input.txt
+[v32x] classifier_mode=digonto_v3_window
+[v32x] multi-L values: 20
+[v32x] jack_energy_type=En_lab cutoff=0.335 jack_dir=/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data
+[multiL-data] selected targets=12 from jack_dir=/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data
+[multiL-data] L20_000_A1m nlevels=1
+[multiL-data] L20_100_A2 nlevels=2
+[multiL-data] L20_110_A2 nlevels=4
+[multiL-data] L20_111_A2 nlevels=2
+[multiL-data] L20_200_A2 nlevels=3
+[v32x] targets=12 covariance=12x12 blocks=5
+[v32x] starting K3df guesses: 125968.22184657381 -972421.14060757787 347174.05548116949 -1226756.7068845264
+[classifier-dispatch] requested_mode=digonto_v3_window resolved_mode=digonto_v3_window implementation=legacy::digonto_v3_window version_tag=legacy dispatch_unique=1
+[projected-basis] loaded 1507 hot rows for L20_000_A1m from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_000_A1m/projected_basis_hotwindows.bin"
+[projected-basis] loaded 1006 hot rows for L20_100_A2 from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_100_A2/projected_basis_hotwindows.bin"
+[projected-basis] loaded 2012 hot rows for L20_110_A2 from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_110_A2/projected_basis_hotwindows.bin"
+[projected-basis] loaded 2511 hot rows for L20_111_A2 from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_111_A2/projected_basis_hotwindows.bin"
+[projected-basis] loaded 2509 hot rows for L20_200_A2 from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_200_A2/projected_basis_hotwindows.bin"
+[v33f-perf] cache_load_and_precompute_sec=0.93727739300000001
+[hot-windows] L20_000_A1m windows=1 initial_half_rows=50 max_half_rows=250
+[hot-windows] L20_100_A2 windows=2 initial_half_rows=50 max_half_rows=250
+[hot-windows] L20_110_A2 windows=4 initial_half_rows=50 max_half_rows=250
+[hot-windows] L20_111_A2 windows=2 initial_half_rows=50 max_half_rows=250
+[hot-windows] L20_200_A2 windows=3 initial_half_rows=50 max_half_rows=250
+[hot-windows] loaded total_windows=12 det_backend=cpu_openmp fallback_full_scan=0 max_fcn_evals=500
+[parameter-mask] K3iso0 floating start=125968.22184657381 step=1000 bounds=none
+[parameter-mask] K3iso1 floating start=-972421.14060757787 step=10000 bounds=none
+[parameter-mask] K3B floating start=347174.05548116949 step=1000 bounds=none
+[parameter-mask] K3E floating start=-1226756.7068845264 step=10000 bounds=none
+[v32x] running Minuit Migrad with multi-L fixed GPU coarse cache and CPU refined points
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=1 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.011594924 model_found=12/12
+[v32x-FCN] eval=1 chi2=0.0001609600778706522 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972421.14060757787 K3B=347174.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=2 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.011314739000000001 model_found=12/12
+[v32x-FCN] eval=2 chi2=0.00016096413775492117 model_found=12/12 K3iso0=125978.22184657381 K3iso1=-972421.14060757787 K3B=347174.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=3 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.011095393 model_found=12/12
+[v32x-FCN] eval=3 chi2=0.00016095601840595696 model_found=12/12 K3iso0=125958.22184657381 K3iso1=-972421.14060757787 K3B=347174.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=4 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010952653 model_found=12/12
+[v32x-FCN] eval=4 chi2=0.00016096122508330279 model_found=12/12 K3iso0=125971.04767680324 K3iso1=-972421.14060757787 K3B=347174.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=5 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010846046999999999 model_found=12/12
+[v32x-FCN] eval=5 chi2=0.0001609589306925153 model_found=12/12 K3iso0=125965.39601634438 K3iso1=-972421.14060757787 K3B=347174.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=6 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010759336 model_found=12/12
+[v32x-FCN] eval=6 chi2=0.000160988397066546 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972321.14060757787 K3B=347174.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=7 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010568166 model_found=12/12
+[v32x-FCN] eval=7 chi2=0.00016093178633736383 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972521.14060757787 K3B=347174.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=8 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010604641 model_found=12/12
+[v32x-FCN] eval=8 chi2=0.0001609629085451451 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972411.14060757787 K3B=347174.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=9 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.011026499 model_found=12/12
+[v32x-FCN] eval=9 chi2=0.00016095724747286122 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972431.14060757787 K3B=347174.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=10 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.011356537999999999 model_found=12/12
+[v32x-FCN] eval=10 chi2=0.00016096077275089981 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972421.14060757787 K3B=347184.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=11 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.011290112999999999 model_found=12/12
+[v32x-FCN] eval=11 chi2=0.00016095938302693053 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972421.14060757787 K3B=347164.05548116949 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=12 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.011105904 model_found=12/12
+[v32x-FCN] eval=12 chi2=0.00016096027422840298 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972421.14060757787 K3B=347176.88131148956 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=13 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010731302999999999 model_found=12/12
+[v32x-FCN] eval=13 chi2=0.00016095988151596977 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972421.14060757787 K3B=347171.22965084942 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=14 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010765186 model_found=12/12
+[v32x-FCN] eval=14 chi2=0.00016094983416910946 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972421.14060757787 K3B=347174.05548116949 K3E=-1226656.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=15 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010902535 model_found=12/12
+[v32x-FCN] eval=15 chi2=0.00016097032315044545 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972421.14060757787 K3B=347174.05548116949 K3E=-1226856.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=16 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010730959 model_found=12/12
+[v32x-FCN] eval=16 chi2=0.00016095905342965807 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972421.14060757787 K3B=347174.05548116949 K3E=-1226746.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=17 backend=cpu_openmp rows_evaluated=1212 expansions=0 fallback_full_scan=0 full_scan=0 fcn_sec=0.010576185 model_found=12/12
+[v32x-FCN] eval=17 chi2=0.00016096110232792854 model_found=12/12 K3iso0=125968.22184657381 K3iso1=-972421.14060757787 K3B=347174.05548116949 K3E=-1226766.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=18 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020713364000000001 model_found=12/12
+[v32x-FCN] eval=18 chi2=0.00012832616631556945 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=19 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.02140005 model_found=12/12
+[v32x-FCN] eval=19 chi2=0.00012832576350565777 model_found=12/12 K3iso0=32043.670507731447 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=20 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020308837 model_found=12/12
+[v32x-FCN] eval=20 chi2=0.00012832656931765604 model_found=12/12 K3iso0=32038.013290738651 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=21 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020231404000000001 model_found=12/12
+[v32x-FCN] eval=21 chi2=0.00012832589452868275 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074713.8226642765 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=22 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019928777000000002 model_found=12/12
+[v32x-FCN] eval=22 chi2=0.00012832643815379355 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074719.4798813432 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=23 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020883433 model_found=12/12
+[v32x-FCN] eval=23 chi2=0.00012832590827866142 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347176.88408975973 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=24 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.021139621000000001 model_found=12/12
+[v32x-FCN] eval=24 chi2=0.00012832642438798927 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347171.22687257914 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=25 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020127562000000002 model_found=12/12
+[v32x-FCN] eval=25 chi2=0.00012832616604602378 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226753.8782759309
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=26 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019832565 model_found=12/12
+[v32x-FCN] eval=26 chi2=0.00012832616658668873 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226759.5354931219
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=27 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.01982658 model_found=12/12
+[v32x-FCN] eval=27 chi2=0.00012832616631556945 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=28 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020681735 model_found=12/12
+[v32x-FCN] eval=28 chi2=0.00012832576350565777 model_found=12/12 K3iso0=32043.670507731447 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=29 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.021302979999999999 model_found=12/12
+[v32x-FCN] eval=29 chi2=0.00012832656931765604 model_found=12/12 K3iso0=32038.013290738651 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=30 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020231460999999999 model_found=12/12
+[v32x-FCN] eval=30 chi2=0.00012832589452868275 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074713.8226642765 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=31 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020221895 model_found=12/12
+[v32x-FCN] eval=31 chi2=0.00012832643815379355 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074719.4798813432 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=32 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020083818999999999 model_found=12/12
+[v32x-FCN] eval=32 chi2=0.00012832590827866142 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347176.88408975973 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=33 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020779261 model_found=12/12
+[v32x-FCN] eval=33 chi2=0.00012832642438798927 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347171.22687257914 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=34 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020992684000000001 model_found=12/12
+[v32x-FCN] eval=34 chi2=0.00012832616604602378 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226753.8782759309
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=35 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020575949 model_found=12/12
+[v32x-FCN] eval=35 chi2=0.00012832616658668873 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226759.5354931219
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=36 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020303005999999998 model_found=12/12
+[v32x-FCN] eval=36 chi2=0.00012832608573832576 model_found=12/12 K3iso0=32041.407620934329 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=37 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019957252000000002 model_found=12/12
+[v32x-FCN] eval=37 chi2=0.00012832624690024532 model_found=12/12 K3iso0=32040.276177535769 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=38 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.021419398999999999 model_found=12/12
+[v32x-FCN] eval=38 chi2=0.00012832611195429176 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.0855511031 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=39 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020940587 model_found=12/12
+[v32x-FCN] eval=39 chi2=0.00012832622067867789 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074717.2169945166 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=40 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020579298999999999 model_found=12/12
+[v32x-FCN] eval=40 chi2=0.00012832611470521915 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.6212028875 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=41 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020356741000000001 model_found=12/12
+[v32x-FCN] eval=41 chi2=0.00012832621792704702 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347173.48975945136 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=42 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020233203000000002 model_found=12/12
+[v32x-FCN] eval=42 chi2=0.0001283261662611239 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.1411628074
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=43 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.021476287 model_found=12/12
+[v32x-FCN] eval=43 chi2=0.00012832616636942803 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226757.2726062455
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=44 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020898669000000002 model_found=12/12
+[v32x-FCN] eval=44 chi2=0.00012832549181737249 model_found=12/12 K3iso0=32043.670507731447 K3iso1=-1074713.8226642765 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=45 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020378074999999999 model_found=12/12
+[v32x-FCN] eval=45 chi2=0.00012832550554231815 model_found=12/12 K3iso0=32043.670507731447 K3iso1=-1074716.6512728098 K3B=347176.88408975973 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=46 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019993415 model_found=12/12
+[v32x-FCN] eval=46 chi2=0.00012832576322109493 model_found=12/12 K3iso0=32043.670507731447 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226753.8782759309
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=47 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019825677 model_found=12/12
+[v32x-FCN] eval=47 chi2=0.00012832563652928042 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074713.8226642765 K3B=347176.88408975973 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=48 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.021279029000000001 model_found=12/12
+[v32x-FCN] eval=48 chi2=0.00012832589425166297 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074713.8226642765 K3B=347174.05548116943 K3E=-1226753.8782759309
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=49 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020418637 model_found=12/12
+[v32x-FCN] eval=49 chi2=0.00012832590800688194 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347176.88408975973 K3E=-1226753.8782759309
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=50 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020326193999999999 model_found=12/12
+[v32x-FCN] eval=50 chi2=0.00012832616631556945 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=51 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020088325000000001 model_found=12/12
+[v32x-FCN] eval=51 chi2=0.00012832608573832576 model_found=12/12 K3iso0=32041.407620934329 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=52 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020124705999999999 model_found=12/12
+[v32x-FCN] eval=52 chi2=0.00012832624690024532 model_found=12/12 K3iso0=32040.276177535769 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=53 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.021331002000000002 model_found=12/12
+[v32x-FCN] eval=53 chi2=0.00012832611195429176 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.0855511031 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=54 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020667318 model_found=12/12
+[v32x-FCN] eval=54 chi2=0.00012832622067867789 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074717.2169945166 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=55 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020385833999999999 model_found=12/12
+[v32x-FCN] eval=55 chi2=0.00012832562279274163 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074710.9940557429 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=56 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019705060999999999 model_found=12/12
+[v32x-FCN] eval=56 chi2=0.00012832671004353596 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074722.3084898768 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=57 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019853490000000001 model_found=12/12
+[v32x-FCN] eval=57 chi2=0.00012832074037290834 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074660.0791021404 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=58 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020841950000000001 model_found=12/12
+[v32x-FCN] eval=58 chi2=0.0001283316128334409 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074773.2234434793 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=59 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020491282999999999 model_found=12/12
+[v32x-FCN] eval=59 chi2=0.00012832611470521915 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.6212028875 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=60 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020618085000000001 model_found=12/12
+[v32x-FCN] eval=60 chi2=0.00012832621792704702 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347173.48975945136 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=61 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020492651000000001 model_found=12/12
+[v32x-FCN] eval=61 chi2=0.00012832565027748956 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347179.71269835008 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=62 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020218264999999999 model_found=12/12
+[v32x-FCN] eval=62 chi2=0.00012832668249463527 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347168.39826398878 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=63 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020891636000000002 model_found=12/12
+[v32x-FCN] eval=63 chi2=0.00012832101233969522 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347230.62765297567 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=64 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020179504000000001 model_found=12/12
+[v32x-FCN] eval=64 chi2=0.00012833133443653096 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347117.48330936319 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=65 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019968056000000001 model_found=12/12
+[v32x-FCN] eval=65 chi2=0.0001283261662594541 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.1219213444
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=66 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019743718 model_found=12/12
+[v32x-FCN] eval=66 chi2=0.00012832616637131113 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226757.2918477084
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=67 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019944896 model_found=12/12
+[v32x-FCN] eval=67 chi2=0.00012832616576059148 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226750.8572527072
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=68 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020600017000000002 model_found=12/12
+[v32x-FCN] eval=68 chi2=0.00012832616687933685 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226762.5565163456
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=69 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020216041000000001 model_found=12/12
+[v32x-FCN] eval=69 chi2=0.00012832616119006141 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226698.2105663347
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=70 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019802169000000001 model_found=12/12
+[v32x-FCN] eval=70 chi2=0.00012832617237189912 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226815.2032027182
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=71 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.019844075999999999 model_found=12/12
+[v32x-FCN] eval=71 chi2=0.00012832615697325601 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226171.7437026089
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=72 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020011877000000001 model_found=12/12
+[v32x-FCN] eval=72 chi2=0.0001283262688050835 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1227341.670066444
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=73 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.021585765 model_found=12/12
+[v32x-FCN] eval=73 chi2=0.0001283261501996381 model_found=12/12 K3iso0=32040.955043574904 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=74 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020583139 model_found=12/12
+[v32x-FCN] eval=74 chi2=0.000128326182432024 model_found=12/12 K3iso0=32040.728754895194 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=75 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020215231 model_found=12/12
+[v32x-FCN] eval=75 chi2=0.00012832597412830503 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074714.6511445958 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=76 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020040104999999999 model_found=12/12
+[v32x-FCN] eval=76 chi2=0.00012832635852877086 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074718.6514010238 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=77 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020311721000000001 model_found=12/12
+[v32x-FCN] eval=77 chi2=0.00012832598385250008 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347176.05560941721 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=78 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.021285234 model_found=12/12
+[v32x-FCN] eval=78 chi2=0.00012832634879628548 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347172.05535292166 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=79 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020664476000000001 model_found=12/12
+[v32x-FCN] eval=79 chi2=0.00012832616612471051 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226754.706756209
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=80 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020135070000000001 model_found=12/12
+[v32x-FCN] eval=80 chi2=0.00012832616650728707 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226758.7070128438
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=81 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020085678999999999 model_found=12/12
+[v32x-FCN] eval=81 chi2=0.00012832066019164535 model_found=12/12 K3iso0=32041.407620934329 K3iso1=-1074660.0791021404 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=82 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020392104000000001 model_found=12/12
+[v32x-FCN] eval=82 chi2=0.00012832093205888059 model_found=12/12 K3iso0=32041.407620934329 K3iso1=-1074716.6512728098 K3B=347230.62765297567 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=83 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.021456184999999999 model_found=12/12
+[v32x-FCN] eval=83 chi2=0.00012832607578229695 model_found=12/12 K3iso0=32041.407620934329 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226171.7437026089
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=84 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020374045 model_found=12/12
+[v32x-FCN] eval=84 chi2=0.0001283156015168787 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074660.0791021404 K3B=347230.62765297567 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=85 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020175269999999999 model_found=12/12
+[v32x-FCN] eval=85 chi2=0.00012832069870169962 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074660.0791021404 K3B=347174.05548116943 K3E=-1226171.7437026089
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=86 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020673516999999999 model_found=12/12
+[v32x-FCN] eval=86 chi2=0.00012832099215159861 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347230.62765297567 K3E=-1226171.7437026089
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[final] Minuit valid=1 minuit_fval=0.00012832616631556945
+[final] recomputed_final_chi2=0.00012832616631556945 model_levels_found=12/12 final_valid=1
+[v32x] done. summary=/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/l20_full_cutoff_fits_user_validated_0p36_passonly/Ecm_cut_0p335/l20_full_cut_0p335_fit_summary_allL.dat
+COMMAND: /home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/bin/v33f_k3df_fitter_multiL_v33e /home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/l20_full_cutoff_fits_user_validated_0p36_passonly/Ecm_cut_0p335/fitter_input.txt fit

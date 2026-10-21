@@ -1,0 +1,51 @@
+[v32x] config=/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/l20_full_cutoff_fits_user_validated_0p36_passonly/Ecm_cut_0p335/fitter_input.txt
+[v32x] classifier_mode=digonto_v3_window
+[v32x] multi-L values: 20
+[v32x] jack_energy_type=En_lab cutoff=0.335 jack_dir=/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data
+[multiL-data] selected targets=12 from jack_dir=/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data
+[multiL-data] L20_000_A1m nlevels=1
+[multiL-data] L20_100_A2 nlevels=2
+[multiL-data] L20_110_A2 nlevels=4
+[multiL-data] L20_111_A2 nlevels=2
+[multiL-data] L20_200_A2 nlevels=3
+[v32x] targets=12 covariance=12x12 blocks=5
+[v32x] starting K3df guesses: 32040.841899235049 -1074716.6512728098 347174.05548116943 -1226756.7068845264
+[classifier-dispatch] requested_mode=digonto_v3_window resolved_mode=digonto_v3_window implementation=legacy::digonto_v3_window version_tag=legacy dispatch_unique=1
+[projected-basis] loaded 1507 hot rows for L20_000_A1m from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_000_A1m/projected_basis_hotwindows.bin"
+[projected-basis] loaded 1006 hot rows for L20_100_A2 from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_100_A2/projected_basis_hotwindows.bin"
+[projected-basis] loaded 2012 hot rows for L20_110_A2 from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_110_A2/projected_basis_hotwindows.bin"
+[projected-basis] loaded 2511 hot rows for L20_111_A2 from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_111_A2/projected_basis_hotwindows.bin"
+[projected-basis] loaded 2509 hot rows for L20_200_A2 from "/home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/hot_windows_L20_user_validated_0p36/L20_200_A2/projected_basis_hotwindows.bin"
+[v33f-perf] cache_load_and_precompute_sec=0.93707185400000004
+[hot-windows] L20_000_A1m windows=1 initial_half_rows=50 max_half_rows=250
+[hot-windows] L20_100_A2 windows=2 initial_half_rows=50 max_half_rows=250
+[hot-windows] L20_110_A2 windows=4 initial_half_rows=50 max_half_rows=250
+[hot-windows] L20_111_A2 windows=2 initial_half_rows=50 max_half_rows=250
+[hot-windows] L20_200_A2 windows=3 initial_half_rows=50 max_half_rows=250
+[hot-windows] loaded total_windows=12 det_backend=cpu_openmp fallback_full_scan=0 max_fcn_evals=500
+[parameter-mask] K3iso0 floating start=32040.841899235049 step=1000 bounds=none
+[parameter-mask] K3iso1 floating start=-1074716.6512728098 step=10000 bounds=none
+[parameter-mask] K3B floating start=347174.05548116943 step=1000 bounds=none
+[parameter-mask] K3E floating start=-1226756.7068845264 step=10000 bounds=none
+[classifier-v3] irrep=000_A1m candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=100_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=0 true_zero=0 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=110_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=2 true_zero=1 pole=1 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=111_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[classifier-v3] irrep=200_A2 candidates=1 true_zero=1 pole=0 uncertain=0 (coarse-window only; no refinement)
+[hot-window-fcn] eval=1 backend=cpu_openmp rows_evaluated=1713 expansions=1 fallback_full_scan=0 full_scan=0 fcn_sec=0.020140073000000001 model_found=12/12
+[v32x-FCN] eval=1 chi2=0.00012832616631556945 model_found=12/12 K3iso0=32040.841899235049 K3iso1=-1074716.6512728098 K3B=347174.05548116943 K3E=-1226756.7068845264
+  [v32x-FCN] L20_000_A1m true_zero=1 pole=0 uncertain=0
+  [v32x-FCN] L20_100_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_110_A2 true_zero=4 pole=0 uncertain=0
+  [v32x-FCN] L20_111_A2 true_zero=2 pole=0 uncertain=0
+  [v32x-FCN] L20_200_A2 true_zero=3 pole=0 uncertain=0
+[fcn-once] chi2=0.00012832616631556945 fcn_sec=0.020161807 params=32040.841899235049 -1074716.6512728098 347174.05548116943 -1226756.7068845264
+COMMAND: /home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/bin/v33f_k3df_fitter_multiL_v33e /home/digonto/Codes/Practical_Lattice_v2/3body_quantization_v3/main_fitter/v33f_k3df_v33e_cache_classifier_v3_package/output/v33p_projected_basis_cache/l20_full_cutoff_fits_user_validated_0p36_passonly/Ecm_cut_0p335/fitter_input.txt fcn-once

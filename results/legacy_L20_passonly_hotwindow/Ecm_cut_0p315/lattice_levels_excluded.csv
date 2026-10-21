@@ -1,0 +1,14 @@
+Ecm_cutoff,Lbyas,irrep,level_index_original,lattice_Ecm,reason_excluded,row_source_file
+0.315,20,000_A1m,1,0.345606144278607,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_000_A1m_n1.jack
+0.315,20,100_A2,2,0.3631993840850928,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_001_A2_n2.jack
+0.315,20,110_A2,1,0.31643789359657865,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n1.jack
+0.315,20,110_A2,2,0.31813597720593845,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n2.jack
+0.315,20,110_A2,3,0.3291548445548671,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n3.jack
+0.315,20,110_A2,4,0.37138921647336043,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_011_A2_n4.jack
+0.315,20,111_A2,0,0.3203580134880505,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n0.jack
+0.315,20,111_A2,1,0.3341317314959343,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n1.jack
+0.315,20,111_A2,2,0.3385401361585872,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n2.jack
+0.315,20,111_A2,3,0.344158142447867,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n3.jack
+0.315,20,111_A2,4,0.35102907157665364,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_111_A2_n4.jack
+0.315,20,200_A2,2,0.3309425474900397,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n2.jack
+0.315,20,200_A2,3,0.34738106818878695,Ecm_mean_above_cutoff,/home/digonto/Codes/KKpi_I2/spectrum/Ecm_data/data/20_002_A2_n3.jack

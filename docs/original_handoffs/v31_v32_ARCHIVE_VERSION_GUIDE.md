@@ -1,0 +1,73 @@
+# Available archive packages
+
+- `KKpi_repro_context_transfer_v31u_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `QC3_release.zip` — QC3 release/source reference package
+- `nonint3body_energies_package.zip` — noninteracting three-body energy/irrep helper package
+- `nonint3body_general_doublecover_package.zip` — noninteracting three-body energy/irrep helper package
+- `nonint3body_general_jpc_package.zip` — noninteracting three-body energy/irrep helper package
+- `nonint3body_irrep_energies_package.zip` — noninteracting three-body energy/irrep helper package
+- `nonint3body_irrep_pseudoscalar_package.zip` — noninteracting three-body energy/irrep helper package
+- `source.zip` — source snapshot
+- `v31v_nonint_degeneracy_FGiso_slogdetFG_projFG_4panel_compilefix.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31w_nonint_degeneracy_FGiso_slogdetFG_projFG_projection_audit_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31x_nonint_degeneracy_FGiso_slogdetFG_projFG_projection_polezero_audit_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31y_nonint_degeneracy_FGiso_slogdetFG_projFG_blind_pole_classifier_110A2_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31z_projected_F3inv_zero_110A2_L24_compilefix.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31z_projected_F3inv_zero_110A2_L24_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31za_projected_F3inv_zero_110A2_L24_responsive_debug.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zb_projected_F3inv_zero_110A2_L24_smokefix.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zc_projected_F3inv_zero_110A2_L24_fast.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zd_projected_F3inv_5plot_branch_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31ze_projected_F3inv_5plot_M1M2_L4_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zf_projected_F3inv_5plot_M1M2_L4_scattermapfix_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zg_projected_F3inv_5plot_M1M2_L4_spectator_scatterfix_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zh_projected_F3inv_5plot_M1_1_M2_0p5_scatter_compare_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zi_projected_F3inv_F3inviso_scatter_compare_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zj_projected_F3inv_F3inviso_scatter_compare_000A1m_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zk_projected_F3inv_F3inviso_scatter_compare_000A1m_L6_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zl_projected_F3inv_F3inviso_scatter_compare_000A1m_L6_scatterfix_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zm_projected_F3inv_F3inviso_scatter_compare_000A1m_L6_refinedmesh_compilefix2_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zm_projected_F3inv_F3inviso_scatter_compare_000A1m_L6_refinedmesh_compilefix_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zm_projected_F3inv_F3inviso_scatter_compare_000A1m_L6_refinedmesh_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zm_projected_F3inv_F3inviso_scatter_compare_000A1m_L6_refinedmesh_plotfix_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zn_projected_F3inv_isozero_classifier_plotlines_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zo_projected_F3inv_110A2_digonto_classifier_v1_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zo_projected_F3inv_110A2_digonto_classifier_v1_plotfix_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zp_projected_F3inv_000A1m_compare_waves0_vs_waves01_digonto_classifier_v1_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zq_projected_F3inv_110A2_compare_waves0_vs_waves01_digonto_classifier_v1_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zr_projected_F3inv_000A1m_compare_waves0_vs_waves01_p010_digonto_classifier_v1_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zs_projected_F3inv_000A1m_compare_waves0_vs_waves01_p010_refined_progress_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zt_projected_F3inv_000A1m_waves01_p010_digonto_classifier_v1_progress_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zu_projected_F3inv_000A1m_waves01_p010_oldviso_digonto_classifier_v1_progress_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zv_projected_F3inv_000A1m_waves01_p100_oldviso_digonto_classifier_v1_progress_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v31zw_projected_F3inv_110A2_waves01_p010_vs_p100_oldviso_digonto_classifier_v1_progress_package.zip` — v31 diagnostic/projection/pole-zero development version
+- `v32_projected_F3inv_110A2_iterative_refine_digonto_classifier_v1_package.zip` — available archive package
+- `v32a_projected_F3inv_110A2_iterative_refine_digonto_classifier_v1_plotnamefix_package.zip` — available archive package
+- `v32b_projected_F3inv_110A2_coarse200_iterative_refine_digonto_classifier_v1_package.zip` — available archive package
+- `v32c_projected_F3inv_110A2_arg_coarse_refine_parallel_package.zip` — available archive package
+- `v32d_projected_F3inv_110A2_latticeM_L20xi3p444_iterative_package.zip` — available archive package
+- `v32e_K3df_fitter_cached_classifier_lattice_package.zip` — K3df fitter / QCfull development version
+- `v32f_K3df_fitter_fullF3inv_QCfull_cached_classifier_package.zip` — K3df fitter / QCfull development version
+- `v32g_K3df_fitter_fullF3inv_QCfull_minuit_ready_package.zip` — K3df fitter / QCfull development version
+- `v32h_K3df_fitter_fullF3inv_QCfull_active_mamba_package.zip` — K3df fitter / QCfull development version
+- `v32i_K3df_fitter_fullF3inv_QCfull_namespacefix_package.zip` — K3df fitter / QCfull development version
+- `v32j_K3df_fitter_fullF3inv_QCfull_10000cache_package.zip` — K3df fitter / QCfull development version
+- `v32k_K3df_fitter_fullF3inv_QCfull_cacheonly_fix_package.zip` — K3df fitter / QCfull development version
+- `v32l_K3df_fitter_fullF3inv_QCfull_cacheonly_covfix_package.zip` — K3df fitter / QCfull development version
+- `v32m_K3df_fitter_oldclassifier_QCplot_cache_package.zip` — K3df fitter / QCfull development version
+- `v32n_defaultK3df_projectedQC_cache_plot_package.zip` — K3df fitter / QCfull development version
+- `v32o_F3inv_QC_4panel_K3df1em5_package.zip` — K3df fitter / QCfull development version
+- `v32p_F3inv_QC_4panel_K3df1em5_latticeEcm_package.zip` — K3df fitter / QCfull development version
+- `v32q_F3inv_QC_4panel_K3df1em5_L20ensemble_audit_package.zip` — K3df fitter / QCfull development version
+- `v32r_projF3inv_digonto_classifier_v2_compilefix_package.zip` — projected F3inv digonto classifier v2 baseline
+- `v32r_projF3inv_digonto_classifier_v2_package.zip` — projected F3inv digonto classifier v2 baseline
+- `v32s_projF3inv_norm_refine_v2_Enlab_compilefix_package.zip` — projected F3inv norm-refine classifier development
+- `v32s_projF3inv_norm_refine_v2_Enlab_package.zip` — projected F3inv norm-refine classifier development
+- `v32t_projF3inv_norm_refine_v2_oneShoulder_Enlab_package.zip` — projected F3inv norm-refine classifier development
+- `v32u_QC_fitter_norm_refine_v2_cache_compilefix_package.zip` — QC fitter norm-refine-v2 cache precursor
+- `v32u_QC_fitter_norm_refine_v2_cache_package.zip` — QC fitter norm-refine-v2 cache precursor
+- `v32v_QC_fitter_norm_refine_v2_verbose_package.zip` — verbose QC fitter/debug precursor to v32w
+- `v32w_QC_fitter_norm_refine_v2_fixedcoarse_package.zip` — trusted K3df fitter fixed-coarse cache baseline
+- `v32x_QC_spectrum_vs_L_fixedK3df_cache_package.zip` — spectrum-vs-L fixed K3df, memory-heavy all-irrep cache
+- `v32y_QC_spectrum_vs_L_streamcache_fixedK3df_compilefix_package.zip` — memory-bounded spectrum-vs-L stream-cache version
+- `v32y_QC_spectrum_vs_L_streamcache_fixedK3df_package.zip` — memory-bounded spectrum-vs-L stream-cache version

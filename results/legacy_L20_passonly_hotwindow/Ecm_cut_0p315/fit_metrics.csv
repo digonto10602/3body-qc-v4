@@ -1,0 +1,2 @@
+fit_cutoff,n_levels,model_found,chi2,dof,chi2_dof,fcn_evals,edm_or_convergence_metric,converged,fallback_count,full_scan_count,load_time_sec,total_runtime_sec,avg_fcn_time_sec,covariance_status
+0.315,6,6/6,3.262140074829519e-05,2,1.6310700374147595e-05,88,unavailable,True,0,0,0.640515042,1.117339628021,0.0032193572500000002,VALID

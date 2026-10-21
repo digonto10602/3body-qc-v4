@@ -1,0 +1,26 @@
+# Zero-test prefit audit
+
+Only L20 user-true windows and projected-basis hot-window caches were checked.
+
+| cutoff | sector | lattice | user true | missing rows | hash | files | status |
+|---:|---|---:|---:|---:|---|---|---|
+| 0.315 | 000_A1m | 1 | 1 | 0 | True | True | PASS |
+| 0.315 | 100_A2 | 2 | 2 | 0 | True | True | PASS |
+| 0.315 | 110_A2 | 1 | 1 | 0 | True | True | PASS |
+| 0.315 | 111_A2 | 0 | 0 | 0 | True | True | PASS |
+| 0.315 | 200_A2 | 2 | 2 | 0 | True | True | PASS |
+| 0.325 | 000_A1m | 1 | 1 | 0 | True | True | PASS |
+| 0.325 | 100_A2 | 2 | 2 | 0 | True | True | PASS |
+| 0.325 | 110_A2 | 3 | 3 | 0 | True | True | PASS |
+| 0.325 | 111_A2 | 1 | 1 | 0 | True | True | PASS |
+| 0.325 | 200_A2 | 2 | 2 | 0 | True | True | PASS |
+| 0.335 | 000_A1m | 1 | 1 | 0 | True | True | PASS |
+| 0.335 | 100_A2 | 2 | 2 | 0 | True | True | PASS |
+| 0.335 | 110_A2 | 4 | 4 | 0 | True | True | PASS |
+| 0.335 | 111_A2 | 2 | 2 | 0 | True | True | PASS |
+| 0.335 | 200_A2 | 3 | 3 | 0 | True | True | PASS |
+| 0.345 | 000_A1m | 1 | 1 | 0 | True | True | PASS |
+| 0.345 | 100_A2 | 2 | 2 | 0 | True | True | PASS |
+| 0.345 | 110_A2 | 4 | 4 | 0 | True | True | PASS |
+| 0.345 | 111_A2 | 4 | 4 | 0 | True | True | PASS |
+| 0.345 | 200_A2 | 3 | 3 | 0 | True | True | PASS |

@@ -1,0 +1,37 @@
+# General three-body non-interacting energies with single/double-cover irrep decomposition
+Ecm_min = 0.25
+Ecm_max = 0.38
+L = 20
+xi = 3.444
+nmax = 5
+energy_group_tol = 1e-10
+irrep_tol = 1e-8
+
+# double_cover = auto uses double cover if any particle has half-integer J.
+# Use y to always print both single-cover and spinorial double-cover irreps.
+double_cover = y
+print_empty_irreps = n
+
+P_list = 000 001 110 111 200
+
+# Default KKpi-like pseudoscalar example. Change J/P/C and masses here.
+particle1_name = K
+particle1_mass = 0.09698
+particle1_J = 0
+particle1_P = -
+particle1_C = none
+
+particle2_name = K
+particle2_mass = 0.09698
+particle2_J = 0
+particle2_P = -
+particle2_C = none
+
+particle3_name = pi
+particle3_mass = 0.06906
+particle3_J = 0
+particle3_P = -
+particle3_C = -
+
+output_dir = output
+output_tag = nonint3body_general_dc_debug
