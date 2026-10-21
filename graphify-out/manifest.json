@@ -1330,5 +1330,11 @@
     "seen": 1792611702.7459798,
     "ast_hash": "9d63f1b487ca2077b9223c64ef479bf3",
     "semantic_hash": ""
+  },
+  "tests/acceptance/m1/data/oracle_anchors_L20.json": {
+    "mtime": 1792612990.287198,
+    "seen": 1792613226.8673506,
+    "ast_hash": "57e96fb11ae165a88e365be7070f4e38",
+    "semantic_hash": ""
   }
 }
