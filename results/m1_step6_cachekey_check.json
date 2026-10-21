@@ -1,0 +1,35 @@
+{
+ "calls": 85,
+ "hits": 48,
+ "mismatches": 0,
+ "shared_N": [
+  43,
+  47,
+  52,
+  60,
+  64,
+  68,
+  76,
+  84,
+  95,
+  100,
+  103,
+  104,
+  108,
+  112
+ ],
+ "commit": "269aba6",
+ "seed": 20261021,
+ "machine": "Linux 6.18 4-core cloud VM",
+ "eig_tol_stale_projector": {
+  "point": "100_A2 Ecm=0.2915561",
+  "eig_tol_1e_30": {
+   "Nproj_after_default_call_cache_hit": 17,
+   "Nproj_cold": 5
+  },
+  "eig_tol_0p9": {
+   "Nproj_hit": 17,
+   "Nproj_cold": 17
+  }
+ }
+}

@@ -4,7 +4,17 @@
 - **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
 - **Acceptance tag:** `acceptance-v3` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`; v2 = v1 plus the sign-flip fix; v3 = v2 plus the portability-test self-scan fix; both in the `prompts/001` §4 amendments, approved by Digonto). Check with `.claude/bin/acceptance-check`. Tags exist **only locally**, because this cloud session cannot push tags (HTTP 403). `acceptance-v1` = `7801d97` , `acceptance-v2` = `bcf12cd` and `acceptance-v3` = `e74f94b`. If they are missing, recreate them with `git tag -a <tag> <commit> -m ...`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **step 6**, fast path v1 (rungs 1–4), in `src/qc3_core/fast_point.hpp` and `qc3.fast`.
+- **Current step:** M1 **step 7**, under re-planning (see Next action), with step 9 (the p-wave table for D7) running in parallel.
+- **Step 6 DONE**, verified by `reports/tests/006-m1-step6-fast-path-v1.md` (PASS). **All 33 m1 acceptance tests are green, slow ones included.**
+  - The oracle refactor is bit-identical to `48d1319` at 24 points.
+  - Fast vs oracle: $\max|\Delta\ln|\det Q||=5.1\times10^{-10}$ over the 12 anchors (tolerance $10^{-6}$). $F$ agrees to $\le7.3\times10^{-15}$ relative over 35 random points and at boost factors up to $\gamma\approx10$.
+  - Single-core speed-up, warm cache: 63–189×, median 82×. Without the oracle's projector build: 62–91×. The acceptance test measured 92.7×.
+  - Fast-path time per point, warm: 26–100 ms. At $N=160$ the basis builder takes 21 ms, the $\mathcal K_{\rm df,3}$ basis 43 ms, $G$ 20 ms and $F$ 10.6 ms.
+  - **Cold projector build:** up to 5.4 s (000_A1m 0.34538, $N=103$). Fast cold vs the oracle is then only 1.9×.
+  - Tester notes:
+    1. The NumPy tail uses OpenBLAS threads unless `OPENBLAS_NUM_THREADS=1`; the benchmark must pin this.
+    2. **The projector cache key omits `eig_tol`, `norm_tol` and `proj_tol`.** A stale hit was demonstrated. Production is unaffected, because `eig_tol` is fixed, but it must be fixed.
+    3. Rung 4 is only partly done: $G$ and $\mathcal K_{\rm df,3}$ are not filled symmetrically, and the projection uses an explicit inverse.
 - **Step 5 DONE**, verified by `reports/tests/005-m1-step5-portability.md` (PASS).
   - `default_data_dir` honours `QC_DATA_ROOT`, otherwise `<repo>/data`, independent of the working directory.
   - The three silent-failure paths now raise.
@@ -88,7 +98,12 @@ M1 counters (reset at kickoff, `acceptance-v1`):
 
 ## Next action
 
-2. The tester (mode `step`) checks step 4. Then commit.
-3. Steps 5–9 as in `prompts/001` §3.
-4. Notes for later steps:
-   - Step 8: `qc3.bench.main()` must parse `--out`, `--no-oracle` and `--threads`.
+1. **Re-plan step 7.** The plan's rung 5 (class tables for $F$) can save at most about 10 ms out of 100 ms. By the plan's own stop rule (a rung must gain at least 1.5×), it is not worth doing. The real costs now are:
+   - the cold projector build (seconds, paid every time the basis changes during an energy scan);
+   - the basis builder;
+   - $\mathcal K_{\rm df,3}$ and $G$.
+   The planner writes the revised speed plan (`prompts/002`).
+2. Step 9 (p-wave level-shift table for D7): builder, in parallel.
+3. Step 8 (benchmark + χ² proxy), after step 7. Pin `OPENBLAS_NUM_THREADS=1`.
+4. Fix the projector-cache key (tester 006 note 2) inside step 7.
+5. Then the milestone gate: tester full, auditor, tester benchmark, tag `milestone-1`.

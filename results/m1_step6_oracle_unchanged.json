@@ -1,0 +1,180 @@
+{
+ "commit": "269aba6",
+ "reference_commit": "48d1319",
+ "machine": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+ "seed": null,
+ "description": "old oracle (48d1319 build) vs refactored oracle (HEAD build): F,G,K2inv,F3,F3inv,Vsel,K3,K3 basis,Q,basis,sign,lnabsdet compared with np.array_equal at 12 anchors x {c=0, c=baseline}; and lnabsdet vs oracle_anchors_L20.json at c=0",
+ "all_bit_identical": true,
+ "max_abs_dln_old_new": 0.0,
+ "max_abs_dln_vs_anchor": 0.0,
+ "rows": [
+  {
+   "irrep": "100_A2",
+   "Ecm": 0.291556099879,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "100_A2",
+   "Ecm": 0.291556099879,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "100_A2",
+   "Ecm": 0.291798362,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "100_A2",
+   "Ecm": 0.291798362,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "000_A1m",
+   "Ecm": 0.26932,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "000_A1m",
+   "Ecm": 0.26932,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "000_A1m",
+   "Ecm": 0.34538,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "000_A1m",
+   "Ecm": 0.34538,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "100_A2",
+   "Ecm": 0.3599,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "100_A2",
+   "Ecm": 0.3599,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "100_A2",
+   "Ecm": 0.36,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "100_A2",
+   "Ecm": 0.36,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "110_A2",
+   "Ecm": 0.30733,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "110_A2",
+   "Ecm": 0.30733,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "110_A2",
+   "Ecm": 0.35,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "110_A2",
+   "Ecm": 0.35,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "111_A2",
+   "Ecm": 0.32036,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "111_A2",
+   "Ecm": 0.32036,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "111_A2",
+   "Ecm": 0.35103,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "111_A2",
+   "Ecm": 0.35103,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "200_A2",
+   "Ecm": 0.28664,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "200_A2",
+   "Ecm": 0.28664,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "200_A2",
+   "Ecm": 0.34738,
+   "baseline": false,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  },
+  {
+   "irrep": "200_A2",
+   "Ecm": 0.34738,
+   "baseline": true,
+   "bit_identical": true,
+   "dln_old_new": 0.0
+  }
+ ]
+}
