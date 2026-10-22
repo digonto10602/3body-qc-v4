@@ -9423,16 +9423,28 @@
       "source_location": "L46"
     },
     {
-      "id": "tests_acceptance_m1_test_m1_fast_v2_test_projector_cache_key_complete",
-      "label": "test_projector_cache_key_complete()",
+      "id": "tests_acceptance_m1_test_m1_fast_v2_test_fast_basis_all_signatures_vs_reference",
+      "label": "test_fast_basis_all_signatures_vs_reference()",
       "_callable": true,
       "_origin": "ast",
       "community": 239,
       "community_name": "sector",
       "file_type": "code",
-      "norm_label": "test_projector_cache_key_complete()",
+      "norm_label": "test_fast_basis_all_signatures_vs_reference()",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L78"
+      "source_location": "L180"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_v2_test_fast_speedup_single_thread_largest_point_ge_150x",
+      "label": "test_fast_speedup_single_thread_largest_point_ge_150x()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 239,
+      "community_name": "sector",
+      "file_type": "code",
+      "norm_label": "test_fast_speedup_single_thread_largest_point_ge_150x()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L237"
     },
     {
       "id": "tests_acceptance_m1_test_m1_roots_evaluate",
@@ -12315,6 +12327,18 @@
       "source_location": "L209"
     },
     {
+      "id": "tests_acceptance_m1_test_m1_fast_v2_test_projector_cache_key_complete",
+      "label": "test_projector_cache_key_complete()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "test_m1_fast_v2.py",
+      "file_type": "code",
+      "norm_label": "test_projector_cache_key_complete()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L78"
+    },
+    {
       "id": "tests_acceptance_m1_test_m1_fast_v2_test_projector_cold_build_is_fast",
       "label": "test_projector_cold_build_is_fast()",
       "_callable": true,
@@ -13333,30 +13357,6 @@
       "norm_label": "channel_masses()",
       "source_file": "tests/acceptance/m1/qc3ref/kinematics.py",
       "source_location": "L101"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_v2_test_fast_basis_all_signatures_vs_reference",
-      "label": "test_fast_basis_all_signatures_vs_reference()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 325,
-      "community_name": "basis.py",
-      "file_type": "code",
-      "norm_label": "test_fast_basis_all_signatures_vs_reference()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L180"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_v2_test_fast_speedup_single_thread_largest_point_ge_150x",
-      "label": "test_fast_speedup_single_thread_largest_point_ge_150x()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 325,
-      "community_name": "basis.py",
-      "file_type": "code",
-      "norm_label": "test_fast_speedup_single_thread_largest_point_ge_150x()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L237"
     },
     {
       "id": "scripts_m1_k2_pwave_shift_ev",
@@ -47859,6 +47859,17 @@
       "source_location": ""
     },
     {
+      "id": "tests_acceptance_m1_test_m1_fast_v2_py_slow",
+      "label": "slow",
+      "_origin": "ast",
+      "community": 239,
+      "community_name": "sector",
+      "file_type": "code",
+      "norm_label": "slow",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "tests_acceptance_m1_test_m1_roots",
       "label": "test_m1_roots.py",
       "_origin": "ast",
@@ -47903,15 +47914,15 @@
       "source_location": "L47"
     },
     {
-      "id": "tests_acceptance_m1_test_m1_fast_v2_rationale_79",
-      "label": "Report 006 note 2: the legacy key omitted eig_tol, so eig_tol=1e-30 after a\u2026",
+      "id": "tests_acceptance_m1_test_m1_fast_v2_rationale_181",
+      "label": "Every basis the production range can produce: the fast path's basis equals the\u2026",
       "_origin": "ast",
       "community": 239,
       "community_name": "sector",
       "file_type": "rationale",
-      "norm_label": "report 006 note 2: the legacy key omitted eig_tol, so eig_tol=1e-30 after a...",
+      "norm_label": "every basis the production range can produce: the fast path's basis equals the...",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L79"
+      "source_location": "L181"
     },
     {
       "id": "tests_acceptance_m1_test_m1_roots_rationale_1",
@@ -54776,6 +54787,17 @@
       "source_location": "L62"
     },
     {
+      "id": "tests_acceptance_m1_test_m1_fast_v2_rationale_79",
+      "label": "Report 006 note 2: the legacy key omitted eig_tol, so eig_tol=1e-30 after a\u2026",
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "test_m1_fast_v2.py",
+      "file_type": "rationale",
+      "norm_label": "report 006 note 2: the legacy key omitted eig_tol, so eig_tol=1e-30 after a...",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L79"
+    },
+    {
       "id": "tests_acceptance_m1_test_m1_fast_vs_oracle",
       "label": "test_m1_fast_vs_oracle.py",
       "_origin": "ast",
@@ -55958,17 +55980,6 @@
       "source_location": "L1"
     },
     {
-      "id": "tests_acceptance_m1_test_m1_fast_v2_py_slow",
-      "label": "slow",
-      "_origin": "ast",
-      "community": 325,
-      "community_name": "basis.py",
-      "file_type": "code",
-      "norm_label": "slow",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "tests_acceptance_m1_qc3ref_basis_rationale_1",
       "label": "Basis rule (docs/METHODS.md section 2; prompts/001 section 2.1): spectator\u2026",
       "_origin": "ast",
@@ -56022,17 +56033,6 @@
       "norm_label": "(m_spectator, m_pair_a, m_pair_b) for channel 1 (k spectator; pair k pi) and 2...",
       "source_file": "tests/acceptance/m1/qc3ref/kinematics.py",
       "source_location": "L102"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_v2_rationale_181",
-      "label": "Every basis the production range can produce: the fast path's basis equals the\u2026",
-      "_origin": "ast",
-      "community": 325,
-      "community_name": "basis.py",
-      "file_type": "rationale",
-      "norm_label": "every basis the production range can produce: the fast path's basis equals the...",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L181"
     },
     {
       "id": "readme_3body_qc_v4_fitting_the_three_particle_k_matrix_to_lattice_spectra",
@@ -95136,18 +95136,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_acceptance_m1_m1_helpers_basis_list",
-      "target": "tests_acceptance_m1_qc3ref_basis_basis_to_list",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/m1_helpers.py",
-      "source_location": "L99",
-      "weight": 1.0
-    },
-    {
       "source": "tests_acceptance_m1_m1_helpers_fast_point",
       "target": "tests_acceptance_m1_m1_helpers_key",
       "relation": "calls",
@@ -96297,18 +96285,6 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_oracle.py",
       "source_location": "L95",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_oracle_test_oracle_basis_rule_and_order",
-      "target": "tests_acceptance_m1_qc3ref_basis_expected_basis",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_oracle.py",
-      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -134136,18 +134112,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_acceptance_m1_m1_helpers",
-      "target": "tests_acceptance_m1_qc3ref_basis_basis_to_list",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/m1_helpers.py",
-      "source_location": "L98",
-      "weight": 1.0
-    },
-    {
       "source": "tests_acceptance_m1_qc3ref_basis",
       "target": "tests_acceptance_m1_qc3ref_kinematics_channel_masses",
       "relation": "imports",
@@ -134553,18 +134517,6 @@
       "context": "import",
       "source_file": "tests/acceptance/m1/test_m1_oracle.py",
       "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_oracle",
-      "target": "tests_acceptance_m1_qc3ref_basis_expected_basis",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/test_m1_oracle.py",
-      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -135057,18 +135009,6 @@
       "context": "import",
       "source_file": "tests/acceptance/m1/test_m1_reference.py",
       "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_reference",
-      "target": "tests_acceptance_m1_qc3ref_init",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/test_m1_reference.py",
-      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -203331,6 +203271,18 @@
       "weight": 1.0
     },
     {
+      "source": "tests_acceptance_m1_m1_helpers_basis_list",
+      "target": "tests_acceptance_m1_qc3ref_basis_basis_to_list",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/m1_helpers.py",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
       "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_tail_consistent_with_numpy_and_want_subset",
       "target": "src_python_qc3_qc_slogdet",
       "relation": "calls",
@@ -203451,6 +203403,18 @@
       "weight": 1.0
     },
     {
+      "source": "tests_acceptance_m1_test_m1_oracle_test_oracle_basis_rule_and_order",
+      "target": "tests_acceptance_m1_qc3ref_basis_expected_basis",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_oracle.py",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
       "source": "tests_acceptance_m1_test_m1_portability_test_data_root_env_var",
       "target": "src_python_qc3_lattice_default_data_dir",
       "relation": "calls",
@@ -203472,6 +203436,18 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_portability.py",
       "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_production_default_test_production_default_k2_pwave_form_is_q0_consistent",
+      "target": "src_python_qc3_sector_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_production_default.py",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -203628,28 +203604,6 @@
       "weight": 0.8
     },
     {
-      "source": "tests_acceptance_m1_m1_helpers_sector",
-      "target": "src_python_qc3_sector_sector",
-      "relation": "uses",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "tests/acceptance/m1/m1_helpers.py",
-      "source_location": "L56",
-      "weight": 0.8
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_production_default_test_production_default_k2_pwave_form_is_q0_consistent",
-      "target": "src_python_qc3_sector_sector",
-      "relation": "uses",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "tests/acceptance/m1/test_m1_production_default.py",
-      "source_location": "L16",
-      "weight": 0.8
-    },
-    {
       "source": "tests_unit_test_fast_path_test_both_pwave_forms_follow_oracle",
       "target": "src_python_qc3_sector_sector",
       "relation": "uses",
@@ -203794,5 +203748,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cdc880c364ddaa61573bcd8f6a484ab5cdfcc448"
+  "built_at_commit": "ce40576e9a70f1aeb11ae98aacc88b8d551431f5"
 }

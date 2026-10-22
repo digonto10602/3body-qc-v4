@@ -1,16 +1,16 @@
 # Graph Report - 3body-qc-v4  (2026-10-22)
 
 ## Corpus Check
-- 282 files · ~448,885 words
+- 282 files · ~448,877 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 6183 nodes · 11282 edges · 355 communities (293 shown, 59 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 432 edges (avg confidence: 0.85)
+- 6183 nodes · 11278 edges · 355 communities (293 shown, 59 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 433 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cdc880c3`
+- Built from commit: `ce40576e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -387,10 +387,10 @@
   tests/acceptance/m1/test_m1_lattice.py → src/python/qc3/lattice.py
 - `test_match_levels_D3()` --calls--> `match_levels()`  [INFERRED]
   tests/acceptance/m1/test_m1_lattice.py → src/python/qc3/lattice.py
-- `main()` --calls--> `parse_label()`  [INFERRED]
-  legacy/cachegen_reference/generate_swave_cpu_cache_qc.cpp → src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp
-- `evaluate_one_energy_cpu_eigen_v24_QC()` --calls--> `F2_2plus1_mat()`  [INFERRED]
-  legacy/root_finding_lineage/F3_cpu_openmp_v24_K3_QC_multi_signflip_side_abs_refinement.cpp → src/core/F2_functions_v2.h
+- `test_fast_root_vs_oracle_100_A2_windows()` --calls--> `refine_root()`  [INFERRED]
+  tests/acceptance/m1/test_m1_fast_vs_oracle.py → src/python/qc3/roots.py
+- `test_production_default_k2_pwave_form_is_q0_consistent()` --calls--> `Sector`  [INFERRED]
+  tests/acceptance/m1/test_m1_production_default.py → src/python/qc3/sector.py
 
 ## Import Cycles
 - None detected.
@@ -1338,8 +1338,8 @@ Cohesion: 0.60
 Nodes (4): energy(), main(), Path, rows()
 
 ### Community 239 - "sector"
-Cohesion: 0.23
-Nodes (15): accepted_windows(), Rows of data/windows/L20/L20_<irrep>/accepted_windows.csv as dicts (strings)., Production sector for the tests, with the p-wave K2^{-1} form PINNED to…, sector(), Report 006 note 2: the legacy key omitted eig_tol, so eig_tol=1e-30 after a…, test_projector_cache_key_complete(), _evaluate(), slow (+7 more)
+Cohesion: 0.20
+Nodes (17): accepted_windows(), Rows of data/windows/L20/L20_<irrep>/accepted_windows.csv as dicts (strings)., Production sector for the tests, with the p-wave K2^{-1} form PINNED to…, sector(), slow, Every basis the production range can produce: the fast path's basis equals the…, test_fast_basis_all_signatures_vs_reference(), test_fast_speedup_single_thread_largest_point_ge_150x() (+9 more)
 
 ### Community 240 - "module.cpp"
 Cohesion: 0.26
@@ -1418,8 +1418,8 @@ Cohesion: 0.20
 Nodes (28): wigner_d_tests(), approx_equal(), approx_equal_matrix(), check_m_range(), D_real_element(), D_real_matrix(), D_real_matrix_proper(), factorial_int() (+20 more)
 
 ### Community 311 - "test_m1_fast_v2.py"
-Cohesion: 0.17
-Nodes (17): _fast(), _jumps_rule(), _proj(), M1 step 7 (prompts/002): fast path v2 — fast-owned projector cache with a…, The 5.4 s case of report 006 (000_A1m 0.34538, N=103, |LG|=48). Cold projector…, Report 006 note 1: the NumPy tail used ~4 cores (CPU/wall 3.9). With the tail…, Fast-path call; the projector method is always passed explicitly (default…, E_lab thresholds E_min^+(n) of docs/METHODS.md section 2 for both channels,… (+9 more)
+Cohesion: 0.15
+Nodes (19): _fast(), _jumps_rule(), _proj(), M1 step 7 (prompts/002): fast path v2 — fast-owned projector cache with a…, The 5.4 s case of report 006 (000_A1m 0.34538, N=103, |LG|=48). Cold projector…, Report 006 note 1: the NumPy tail used ~4 cores (CPU/wall 3.9). With the tail…, Fast-path call; the projector method is always passed explicitly (default…, E_lab thresholds E_min^+(n) of docs/METHODS.md section 2 for both channels,… (+11 more)
 
 ### Community 312 - "test_m1_fast_vs_oracle.py"
 Cohesion: 0.26
@@ -1462,8 +1462,8 @@ Cohesion: 0.25
 Nodes (8): InwardShapeResult, classification, decreasing_fraction, ezero, flip_left_index, flip_right_index, increasing_fraction, trend_score
 
 ### Community 325 - "basis.py"
-Cohesion: 0.16
-Nodes (13): basis_to_list(), expected_basis(), kept_momenta(), Basis rule (docs/METHODS.md section 2; prompts/001 section 2.1): spectator…, Integer vectors kept for the given channel, in loop order., Structured array (BASIS_DTYPE) in the production order., Structured basis array -> list of (flavour, pvec(3,), ell, m) with pvec = 2 pi…, channel_masses() (+5 more)
+Cohesion: 0.24
+Nodes (9): basis_to_list(), expected_basis(), kept_momenta(), Basis rule (docs/METHODS.md section 2; prompts/001 section 2.1): spectator…, Integer vectors kept for the given channel, in loop order., Structured array (BASIS_DTYPE) in the production order., Structured basis array -> list of (flavour, pvec(3,), ell, m) with pvec = 2 pi…, channel_masses() (+1 more)
 
 ### Community 326 - "3body-qc-v4 — fitting the three-particle K matrix to lattice spectra"
 Cohesion: 0.29
@@ -1570,20 +1570,20 @@ Cohesion: 0.50
 Nodes (4): SignFlip, E_linear, left, right
 
 ## Knowledge Gaps
-- **3334 isolated node(s):** `build_gpu.sh script`, `.val500_100A2_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen_sep_f2k2.sh script`, `config_gpu_component_cachegen_sep_f2k2_coarse20000.sh script` (+3329 more)
+- **3334 isolated node(s):** `0. System and formalism`, `1. Kinematics and the cutoff function $H$ — `src/core/functions.h``, `2. Basis — `config_maker_4_momentum_first` in `src/core/functions.h``, `3. $F$ — sum minus integral — `src/core/F2_functions_v2.h``, `4. $G$ — one-particle exchange ("switch-state") — `src/core/G_functions_v2.h`` (+3329 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 3692 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **59 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `FitSettings` connect `FitSettings` to `QCPointValue`, `v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `FitResult`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **Why does `parse_label()` connect `qc_fitter_norm_refine_v2_multiL.cpp` to `generate_swave_cpu_cache_qc.cpp`, `generate_cpu_component_cache.cpp`, `scan_projF3inv_digonto_classifier_v2.cpp`, `compare_gpu_cache_vs_cpu_openmp_det_oldscale.cpp`, `debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp`, `v32w_single_L_fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `run`, `v33g_build_runtime_k3basis_cache.cpp`, `v33h_patched_gpu_cache_oldscale_det_scan.cpp`, `make_refined_mesh_v32s`, `string`, `load_binary_f3inv_cache_v32f`, `v33g_runtime_k3basis_cache.hpp`, `fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `TargetLevel`, `FitResult`, `CachedProjectorV30q`, `FitResult`, `main`, `Output`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **Why does `FitSettings` connect `FitSettings` to `TargetLevel`, `fitter/K3df_minuit_fit_v32f_fullF3inv_QCfull_cached_classifier.hpp`, `FitResult`, `vector`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
-- **What connects `build_gpu.sh script`, `.val500_100A2_gpu_component_cachegen.sh script`, `config_gpu_component_cachegen.sh script` to the rest of the system?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `BlockSummary` connect `BlockSummary` to `compare_gpu_cache_vs_cpu_openmp_det_oldscale.cpp`?**
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **Why does `Options` connect `Options` to `string`, `ZeroRecord`, `main`, `debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp`, `SvdMinRecordV30r`?**
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **What connects `0. System and formalism`, `1. Kinematics and the cutoff function $H$ — `src/core/functions.h``, `2. Basis — `config_maker_4_momentum_first` in `src/core/functions.h`` to the rest of the system?**
   _3334 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Code and function index` be split into smaller, more focused modules?**
   _Cohesion score 0.008849557522123894 - nodes in this community are weakly interconnected._
