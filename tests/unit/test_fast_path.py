@@ -120,9 +120,8 @@ def test_options_and_metadata():
     s = Sector.production("000_A1m")
     r = fast.evaluate_point(s, 0.26932, options={"trunc_eps": 1e-15})
     assert r.metadata["backend"] == "fast" and r.metadata["trunc_eps"] == 1e-15
-    assert r.metadata["use_classes"] is False and r.metadata["threads"] == 1
-    with pytest.raises(NotImplementedError):
-        fast.evaluate_point(s, 0.26932, options={"use_classes": True})
+    assert r.metadata["use_classes"] is True and r.metadata["threads"] == 1     # prompts/002 7.7: class tables are the default
+    assert fast.evaluate_point(s, 0.26932, options={"use_classes": False}).metadata["use_classes"] is False
     with pytest.raises(NotImplementedError):
         fast.evaluate_point(s, 0.26932, options={"threads": 4})
     with pytest.raises(ValueError):
@@ -167,3 +166,38 @@ def test_projector_option_values():
     assert fast.evaluate_point(s, 0.26932, want=("Q",)).metadata["projector_method"] == "orbit"   # default
     with pytest.raises(ValueError):
         fast.evaluate_point(s, 0.26932, options={"projector": "bogus"})
+
+
+# ---- prompts/002 sub-step 7.7: class moment tables for the F lattice sum -----------------------------------------------------
+CLASS_POINTS = [("000_A1m", 0.34538), ("100_A2", 0.2915561), ("100_A2", 0.3599), ("110_A2", 0.30733), ("111_A2", 0.32036),
+                ("200_A2", 0.28664)]
+
+
+@pytest.mark.parametrize("irrep,Ecm", CLASS_POINTS)
+def test_class_tables_match_direct_sum(irrep, Ecm):
+    """Class moment tables + shared (canonical nP, |p|^2) sums vs the direct term sum: identical term set (same count),
+    F equal to 1e-13 relative (measured <= 4e-15), same Q / ln|det Q| (conditioning-limited)."""
+    s = Sector.production(irrep)
+    fc = fast.evaluate_point(s, Ecm, want=("F", "Q"))
+    fd = fast.evaluate_point(s, Ecm, want=("F", "Q"), options={"use_classes": False})
+    assert fc.metadata["use_classes"] is True and fd.metadata["use_classes"] is False
+    assert fc.metadata["lattice_terms"] == fd.metadata["lattice_terms"]
+    assert _rel(fc.F, fd.F) <= 1e-13
+    assert fc.sign == fd.sign and abs(fc.lnabsdet - fd.lnabsdet) <= 1e-7
+    assert np.array_equal(fc.F, fc.F.T)
+
+
+def test_class_tables_share_sums_and_cache_clears():
+    from qc3 import _core
+    from qc3.fast import _params
+    fast.clear_caches()
+    assert fast.cache_info()["f_table_entries"] == 0
+    s = Sector.production("111_A2")
+    r = fast.evaluate_point(s, 0.35103, want=("F",))
+    info = fast.cache_info()
+    assert info["f_table_entries"] > 0
+    d = _core.fast_point(_params(s, 0.35103, (0.0, 0.0, 0.0, 0.0), False), 1e-16, "orbit", ["F"])
+    assert d["stats"]["f_sums"] < d["stats"]["f_blocks"]            # momenta of one orbit share a sum (20 sums for 64 blocks)
+    assert d["stats"]["f_class_terms"] < 0.1 * r.metadata["lattice_terms"]   # classes, not points (measured 18k vs 297k)
+    fast.clear_caches()
+    assert fast.cache_info()["f_table_entries"] == 0

@@ -95,12 +95,13 @@ py::dict oracle_point(const py::dict& p) {
   return output_to_dict(o);
 }
 
-py::dict fast_point(const py::dict& p, double trunc_eps, const std::string& projector, const std::vector<std::string>& want, bool g_symmetric) {
+py::dict fast_point(const py::dict& p, double trunc_eps, const std::string& projector, const std::vector<std::string>& want, bool g_symmetric, bool use_classes) {
   const qc3_oracle::Input in = parse_input(p);
   qc3_fast::Options opt;
   opt.trunc_eps = trunc_eps;
   opt.projector = projector;
   opt.g_symmetric = g_symmetric;
+  opt.f_classes = use_classes;
   const auto has = [&](const char* name) { return std::find(want.begin(), want.end(), std::string(name)) != want.end(); };
   opt.want_F = has("F"); opt.want_G = has("G"); opt.want_K2inv = has("K2inv"); opt.want_F3 = has("F3");
   opt.want_F3inv = has("F3inv"); opt.want_Vsel = has("Vsel"); opt.want_K3 = has("K3") || in.compute_k3;
@@ -147,11 +148,11 @@ py::dict compare_kinematics(const py::dict& p) {
 
 PYBIND11_MODULE(_core, m) {
   m.doc() = "qc3 compiled core (oracle_point; fast path to follow)";
-  m.def("version", []() { return std::string("0.5.0-step7.6"); },
+  m.def("version", []() { return std::string("0.5.1-step7.7"); },
         "Version string of the compiled core.");
   m.def("git_commit", []() { return std::string(QC3_GIT_COMMIT); },
         "Short git commit the extension was built from ('unknown' if not in a git checkout).");
-  m.def("clear_caches", []() { qc3_fast::clear_fast_caches(); qc3_fast::clear_threshold_tables(); },
+  m.def("clear_caches", []() { qc3_fast::clear_fast_caches(); qc3_fast::clear_threshold_tables(); qc3_fast::clear_ftable_cache(); },
         "Clear the fast path's in-memory caches (projector V_sel per complete key; basis threshold tables).");
   m.def("cache_info", []() {
     auto& c = qc3_fast::projector_cache();
@@ -161,10 +162,11 @@ PYBIND11_MODULE(_core, m) {
     d["projector_hits"] = c.hits;
     d["projector_misses"] = c.misses;
     d["threshold_entries"] = qc3_fast::threshold_entries();
+    d["f_table_entries"] = qc3_fast::ftable_entries();
     return d;
   }, "Counters of the fast path's in-memory caches.");
   m.def("fast_point", &fast_point, py::arg("params"), py::arg("trunc_eps") = 1e-16, py::arg("projector") = std::string("orbit"),
-        py::arg("want") = std::vector<std::string>{"F", "G", "K2inv", "F3", "F3inv", "Vsel", "K3", "Q"}, py::arg("g_symmetric") = false,
+        py::arg("want") = std::vector<std::string>{"F", "G", "K2inv", "F3", "F3inv", "Vsel", "K3", "Q"}, py::arg("g_symmetric") = false, py::arg("use_classes") = true,
         "Fast path (prompts/001 step 6, prompts/002 7.4-7.6); same params as oracle_point plus the truncation tolerance, the "
         "projector method, the matrices to convert ('want'; Q, sign, lnabsdet are always returned) and the G fill mode.");
   m.def("dimension_jumps", &dimension_jumps, py::arg("params"), py::arg("E_min"), py::arg("E_max"),
