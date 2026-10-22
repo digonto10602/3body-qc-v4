@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from .constants import NNP
+from .constants import K2_PWAVE_FORM_DEFAULT, NNP
 
 
 @dataclass(frozen=True)
@@ -27,7 +27,7 @@ class Sector:
     a0_Kpi: float = 4.04
     a1_Kpi: float = -43.2
     a0_KK: float = 4.12            # r_l = P_l = 0
-    k2_pwave_form: str = "coded_v2"  # or "q0_consistent" (plan section 2.2)
+    k2_pwave_form: str = K2_PWAVE_FORM_DEFAULT  # "q0_consistent" (D7 production default) or "coded_v2" (prompts/001 section 2.2)
 
     @classmethod
     def production(cls, irrep: str, Lbyas: int = 20, **overrides) -> "Sector":

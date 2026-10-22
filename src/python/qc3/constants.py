@@ -7,6 +7,8 @@ PRODUCTION: dict = {
     "scatter": {"a0_Kpi": 4.04, "a1_Kpi": -43.2, "a0_KK": 4.12},
     "Q0norm": True, "z_min": 0.02,
 }
+# D7 (Digonto, 2026-10-22): production p-wave K2^{-1} form; "coded_v2" stays selectable (docs/METHODS.md section 5)
+K2_PWAVE_FORM_DEFAULT: str = "q0_consistent"
 # label-generation vector (research 004 section 3.6)
 C_BASELINE: tuple = (73735.840894011912, -972421.14060757787, 347174.05548116949, -1226756.7068845264)
 IRREPS: tuple = ("000_A1m", "100_A2", "110_A2", "111_A2", "200_A2")

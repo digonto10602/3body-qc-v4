@@ -21,6 +21,7 @@
 #pragma once
 
 #include "oracle_point.hpp"
+#include "fast_projector.hpp"
 
 namespace qc3_fast {
 
@@ -30,6 +31,7 @@ using namespace k3df_fit_v32f;
 
 struct Options {
     double trunc_eps = 1.0e-16;
+    std::string projector = "eigen";   // "eigen" (existing builder through the fast-owned cache); "orbit": step 7.2
 };
 
 struct Stats {
@@ -233,12 +235,12 @@ inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& o
     MatR F3 = Fr / 3.0 - Fr * X1;
     out.timings["F3"] = clk.lap();
 
-    // ---- projector: in-memory cache keyed by the basis signature (existing map; never cleared here) ----
-    const long long hits0 = g_projector_cache_hits_v30q;
-    CachedProjectorV30q pcache = get_projector_cached_v30q(kin.plm_config, kin.np_config, kin.klm_config, kin.nk_config, kin.spec.irrep, kin.nnP_config, par);
-    st.projector_cache_hit = (g_projector_cache_hits_v30q > hits0) ? 1 : 0;
-    Mat Vsel = pcache.Vsel;
-    out.Nproj = int(Vsel.cols());
+    // ---- projector: fast-owned in-memory cache with the complete key (the legacy map is not used) ----
+    bool phit = false;
+    FastProjector fproj = fast_projector_cached(kin, opt.projector, phit);
+    st.projector_cache_hit = phit ? 1 : 0;
+    Mat Vsel = fproj.Vsel;
+    out.Nproj = fproj.Nproj;
     out.timings["projector"] = clk.lap();
     if (out.Nproj <= 0) throw std::runtime_error("fast: ZERO_PROJECTED_DIM");
 

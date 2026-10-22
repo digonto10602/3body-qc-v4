@@ -93,10 +93,11 @@ py::dict oracle_point(const py::dict& p) {
   return output_to_dict(o);
 }
 
-py::dict fast_point(const py::dict& p, double trunc_eps) {
+py::dict fast_point(const py::dict& p, double trunc_eps, const std::string& projector) {
   const qc3_oracle::Input in = parse_input(p);
   qc3_fast::Options opt;
   opt.trunc_eps = trunc_eps;
+  opt.projector = projector;
   qc3_oracle::Output o;
   {
     py::gil_scoped_release release;
@@ -109,15 +110,23 @@ py::dict fast_point(const py::dict& p, double trunc_eps) {
 
 PYBIND11_MODULE(_core, m) {
   m.doc() = "qc3 compiled core (oracle_point; fast path to follow)";
-  m.def("version", []() { return std::string("0.3.0-step6"); },
+  m.def("version", []() { return std::string("0.4.0-step7.0"); },
         "Version string of the compiled core.");
   m.def("git_commit", []() { return std::string(QC3_GIT_COMMIT); },
         "Short git commit the extension was built from ('unknown' if not in a git checkout).");
-  m.def("clear_caches", []() {
-    std::lock_guard<std::mutex> lock(g_projector_cache_mutex_v30q);
-    g_projector_cache_v30q.clear();
-  }, "Clear the in-memory projector cache (V_sel per basis signature).");
-  m.def("fast_point", &fast_point, py::arg("params"), py::arg("trunc_eps") = 1e-16,
+  m.def("clear_caches", []() { qc3_fast::clear_fast_caches(); },
+        "Clear the fast path's in-memory caches (projector V_sel per complete key).");
+  m.def("cache_info", []() {
+    auto& c = qc3_fast::projector_cache();
+    std::lock_guard<std::mutex> lock(c.mtx);
+    py::dict d;
+    d["projector_entries"] = (long long)c.map.size();
+    d["projector_hits"] = c.hits;
+    d["projector_misses"] = c.misses;
+    d["threshold_entries"] = 0;   // threshold tables: prompts/002 step 7.3
+    return d;
+  }, "Counters of the fast path's in-memory caches.");
+  m.def("fast_point", &fast_point, py::arg("params"), py::arg("trunc_eps") = 1e-16, py::arg("projector") = std::string("eigen"),
         "Fast path v1 (prompts/001 step 6); same params as oracle_point plus the truncation tolerance.");
   m.def("oracle_point", &oracle_point, py::arg("params"),
         "Oracle (existing CPU path, unchanged physics) at one energy on one core; see qc3.oracle.");

@@ -1440,15 +1440,15 @@
     "semantic_hash": ""
   },
   "src/python/qc3/constants.py": {
-    "mtime": 1792614272.3372314,
-    "seen": 1792614289.0717618,
-    "ast_hash": "04aab5aa2c1bfda8ff7c5a7985069677",
+    "mtime": 1792690806.1933715,
+    "seen": 1792691256.7418559,
+    "ast_hash": "b27275108a2fd927d20255bd682bc03c",
     "semantic_hash": ""
   },
   "src/python/qc3/fast.py": {
-    "mtime": 1792620536.7827437,
-    "seen": 1792621426.119493,
-    "ast_hash": "39a330a2ae7e5eb8916b10606408a6a1",
+    "mtime": 1792690434.954686,
+    "seen": 1792691256.7418575,
+    "ast_hash": "5dc372ba56ecdb215af581705be2ca19",
     "semantic_hash": ""
   },
   "src/python/qc3/lattice.py": {
@@ -1458,9 +1458,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/oracle.py": {
-    "mtime": 1792617590.2905061,
-    "seen": 1792617874.480521,
-    "ast_hash": "6fe9602cbb02e53fe8d41503f3982523",
+    "mtime": 1792690810.2069216,
+    "seen": 1792691256.741862,
+    "ast_hash": "caf588e61c6bfa8ed94df28c835ec9cd",
     "semantic_hash": ""
   },
   "src/python/qc3/point.py": {
@@ -1476,21 +1476,21 @@
     "semantic_hash": ""
   },
   "src/python/qc3/roots.py": {
-    "mtime": 1792617973.8100169,
-    "seen": 1792618039.6870944,
-    "ast_hash": "475ad60dba3029e0735256123ae02635",
+    "mtime": 1792690625.7079782,
+    "seen": 1792691256.7418673,
+    "ast_hash": "366bf967514f1ea964eb7b27d2dcdfb0",
     "semantic_hash": ""
   },
   "src/python/qc3/sector.py": {
-    "mtime": 1792616047.7338903,
-    "seen": 1792616641.227625,
-    "ast_hash": "07a56f8d1276c6c062c0f195cba601c2",
+    "mtime": 1792690806.1937573,
+    "seen": 1792691256.7418687,
+    "ast_hash": "2c419d86bec8c667de0329ceaccf0c33",
     "semantic_hash": ""
   },
   "src/qc3_core/module.cpp": {
-    "mtime": 1792620536.7821488,
-    "seen": 1792621426.11951,
-    "ast_hash": "ce99135ed742d014fa136984eefa8e3c",
+    "mtime": 1792690311.8979425,
+    "seen": 1792691256.7418761,
+    "ast_hash": "e68b703857ca9996763ff6a2d11d1a84",
     "semantic_hash": ""
   },
   "results/test_m1_step1_build_stubs.json": {
@@ -1518,9 +1518,9 @@
     "semantic_hash": ""
   },
   "tests/unit/test_sector_oracle.py": {
-    "mtime": 1792617692.2954776,
-    "seen": 1792617874.480611,
-    "ast_hash": "039bb95524ec791df563e6bc17ade749",
+    "mtime": 1792690821.7281637,
+    "seen": 1792691256.7419608,
+    "ast_hash": "31b33e6c6071108fcd8b3de587b9b611",
     "semantic_hash": ""
   },
   "results/tester_002_m1_step2_oracle.json": {
@@ -1542,9 +1542,9 @@
     "semantic_hash": ""
   },
   "tests/unit/test_qc_lattice_roots.py": {
-    "mtime": 1792619656.7856953,
-    "seen": 1792619681.4939466,
-    "ast_hash": "0e793a3818511a1ba2e6555a04949cfd",
+    "mtime": 1792690844.4516153,
+    "seen": 1792691256.741959,
+    "ast_hash": "31bd1e397d0b6280c7984875f2735173",
     "semantic_hash": ""
   },
   "results/tester_003_m1_step3_reference_pwave.json": {
@@ -1584,15 +1584,15 @@
     "semantic_hash": ""
   },
   "src/qc3_core/fast_point.hpp": {
-    "mtime": 1792620279.8197467,
-    "seen": 1792621426.1195056,
-    "ast_hash": "d12877112a23796879e2a29f0965d6b9",
+    "mtime": 1792690311.8972514,
+    "seen": 1792691256.7418704,
+    "ast_hash": "fb87ab358b4c95071710197be52e7882",
     "semantic_hash": ""
   },
   "tests/unit/test_fast_path.py": {
-    "mtime": 1792620536.7828777,
-    "seen": 1792621426.1195323,
-    "ast_hash": "25f84fe7d11f9c5eb53e962b20190c82",
+    "mtime": 1792690459.6057696,
+    "seen": 1792691256.7419572,
+    "ast_hash": "cde72c5734b08d5d0d30ad77c1cf9605",
     "semantic_hash": ""
   },
   "results/m1_step6_cachekey_check.json": {
@@ -1650,15 +1650,15 @@
     "semantic_hash": ""
   },
   "results/k2_pwave_shift_L20.json": {
-    "mtime": 1792623336.0344284,
-    "seen": 1792623352.7477098,
-    "ast_hash": "aec63ecc0ce20b624644689d0ce618dc",
+    "mtime": 1792690793.8602982,
+    "seen": 1792691256.7416742,
+    "ast_hash": "5dee338b94332100255fe3bae82f9587",
     "semantic_hash": ""
   },
   "scripts/m1/k2_pwave_shift.py": {
-    "mtime": 1792623189.290078,
-    "seen": 1792623352.7477758,
-    "ast_hash": "b8df4b825a2d948512a195958652d71b",
+    "mtime": 1792690640.879276,
+    "seen": 1792691256.7417717,
+    "ast_hash": "65ae55cf717f37adc7f7bbafd02a3d4a",
     "semantic_hash": ""
   },
   "results/tester_k2_pwave_shift_check.json": {
@@ -1701,6 +1701,12 @@
     "mtime": 1792689932.7630246,
     "seen": 1792690166.990479,
     "ast_hash": "8a5c07e475cd011f715eaa206804864f",
+    "semantic_hash": ""
+  },
+  "src/qc3_core/fast_projector.hpp": {
+    "mtime": 1792690311.871047,
+    "seen": 1792691256.7418725,
+    "ast_hash": "8c57453816f974579adecff64a9967c4",
     "semantic_hash": ""
   }
 }

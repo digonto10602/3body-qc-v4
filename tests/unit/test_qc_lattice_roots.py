@@ -9,6 +9,7 @@ from qc3.lattice import (chi2, elab_to_ecm, jackknife_mean_cov, jackknife_resamp
                          read_jack)
 from qc3.point import MissingRootError
 from qc3.qc import project_Q, slogdet
+from qc3 import roots as R
 from qc3.roots import refine_root
 
 
@@ -182,3 +183,73 @@ def test_chi2_matches_solve_and_drops_null_direction():
     C = np.diag([1.0, 4.0, 0.0])
     r = np.array([1.0, 2.0, 5.0])
     assert chi2(r, C) == pytest.approx(1.0 + 1.0)
+
+
+# ---------------------------------------------------------------- pole/zero discrimination (prompts/002 7.1)
+def _synthetic(kind, E0, amp=1.0, bg=0.0, jump_at=None):
+    """ln|det| = +-amp*ln|E-E0| + smooth background; sign flips at E0.  kind 'zero' (dip) or 'pole' (spike)."""
+    def evaluate(sector, E, c, want=("Q",)):
+        d = E - E0
+        ln = (amp if kind == "zero" else -amp) * (np.log(abs(d)) if d != 0 else -np.inf) + bg * (E - E0)
+        N = 50 if (jump_at is None or E < jump_at) else 52
+        return types.SimpleNamespace(sign=1 if d > 0 else -1, lnabsdet=float(ln), N=N)
+    return evaluate
+
+
+def test_classify_synthetic_zero_pole_ambiguous():
+    E0 = 0.3012345678
+    z = R.classify_sign_change(_synthetic("zero", E0), None, (0,) * 4, E0 + 1e-12)
+    p = R.classify_sign_change(_synthetic("pole", E0), None, (0,) * 4, E0 + 1e-12)
+    assert z.kind == "zero" and z.discriminant == pytest.approx(np.log(1e-12 / 1e-6), abs=1e-3) and z.N == 50
+    assert p.kind == "pole" and p.discriminant == pytest.approx(-np.log(1e-12 / 1e-6), abs=1e-3)
+    assert z.n_evaluations == 3 and z.lnabsdet_minus == pytest.approx(z.lnabsdet_plus, abs=1e-3)
+    # a sign change with a very weak singularity (amp=0.05): |Delta_h| < D -> ambiguous
+    a = R.classify_sign_change(_synthetic("zero", E0, amp=0.05), None, (0,) * 4, E0 + 1e-12)
+    assert a.kind == "ambiguous" and abs(a.discriminant) < 4.0
+    # smooth linear background does not flip the verdict (O(h * slope))
+    zb = R.classify_sign_change(_synthetic("zero", E0, bg=50.0), None, (0,) * 4, E0 + 1e-12)
+    assert zb.kind == "zero"
+
+
+def test_refine_root_kind_zero_pole_any():
+    E0 = 0.3012345678
+    z, p = _synthetic("zero", E0), _synthetic("pole", E0)
+    c = (0,) * 4
+    assert abs(R.refine_root(z, None, c, 0.30, 0.31) - E0) < 1e-10
+    with pytest.raises(R.PoleError):
+        R.refine_root(p, None, c, 0.30, 0.31)
+    with pytest.raises(MissingRootError):
+        R.refine_root(p, None, c, 0.30, 0.31, kind="zero")
+    assert abs(R.refine_root(p, None, c, 0.30, 0.31, kind="any") - E0) < 1e-10      # old behaviour
+    info = R.refine_root_info(p, None, c, 0.30, 0.31, kind="any")
+    assert info.kind == "pole" and info.discriminant > 4 and info.bracket == (0.30, 0.31)
+    with pytest.raises(R.AmbiguousRootError):
+        R.refine_root(_synthetic("zero", E0, amp=0.05), None, c, 0.30, 0.31)
+    with pytest.raises(ValueError):
+        R.refine_root(z, None, c, 0.30, 0.31, kind="bogus")
+    with pytest.raises(MissingRootError):
+        R.refine_root(z, None, c, 0.31, 0.32)
+
+
+def test_classify_dimension_jump_raises():
+    E0 = 0.3012345678
+    ev = _synthetic("zero", E0, jump_at=E0 + 5e-7)       # N changes between E*-h.. E*+h
+    with pytest.raises(R.DimensionJumpError):
+        R.classify_sign_change(ev, None, (0,) * 4, E0 + 1e-12)
+
+
+def test_find_sign_changes_and_zeros_synthetic():
+    E1, E2 = 0.3010, 0.3020           # a zero and a pole inside one window
+    def evaluate(sector, E, c, want=("Q",)):
+        z, p = E - E1, E - E2
+        with np.errstate(divide="ignore"):
+            ln = np.log(abs(z)) - np.log(abs(p))
+        return types.SimpleNamespace(sign=(1 if z > 0 else -1) * (1 if p > 0 else -1), lnabsdet=float(ln), N=50)
+    ch = R.find_sign_changes(evaluate, None, (0,) * 4, 0.2995, 0.3035, n_scan=41)
+    assert [c.kind for c in ch] == ["zero", "pole"] and [c.E for c in ch] == sorted(c.E for c in ch)
+    assert abs(ch[0].E - E1) < 1e-9 and abs(ch[1].E - E2) < 1e-9
+    zs = R.find_zeros(evaluate, None, (0,) * 4, 0.2995, 0.3035, n_scan=41)
+    assert len(zs) == 1 and zs[0].kind == "zero"
+    # equal signs at both ends (zero+pole inside) -> plain refine_root finds nothing, as in step 9
+    with pytest.raises(MissingRootError):
+        R.refine_root(evaluate, None, (0,) * 4, 0.2995, 0.3035, kind="any")

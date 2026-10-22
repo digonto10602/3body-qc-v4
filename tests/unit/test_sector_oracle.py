@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 
-from qc3.constants import NNP, PRODUCTION
+from qc3.constants import K2_PWAVE_FORM_DEFAULT, NNP, PRODUCTION
 from qc3.sector import Sector
 
 
@@ -12,7 +12,7 @@ def test_sector_properties():
         assert s.nnP == d
         assert s.L == pytest.approx(3.444 * 20)
         np.testing.assert_allclose(s.P_lab, 2 * np.pi / s.L * np.array(d))
-        assert s.k2_pwave_form == "coded_v2"
+        assert s.k2_pwave_form == K2_PWAVE_FORM_DEFAULT == "q0_consistent"   # D7 production default
         for k in ("xi", "atmK", "atmpi", "eta_1", "eta_2", "alpha", "epsilon_H", "max_shell_num", "parity", "eig_tol"):
             assert getattr(s, k) == PRODUCTION[k]
         assert (s.a0_Kpi, s.a1_Kpi, s.a0_KK) == tuple(PRODUCTION["scatter"].values())
@@ -65,8 +65,9 @@ def test_k2_pwave_forms_differ_only_in_channel1_pwave_diagonal():
     entries of K2^{-1}; everything else (basis, F, G, s-wave, channel 2) is identical."""
     from qc3 import oracle
     irrep, Ecm = "100_A2", 0.2915561
-    s1 = Sector.production(irrep)
-    s2 = Sector.production(irrep, k2_pwave_form="q0_consistent")
+    s1 = Sector.production(irrep, k2_pwave_form="coded_v2")
+    s2 = Sector.production(irrep)                       # D7 default = q0_consistent
+    assert Sector(irrep).k2_pwave_form == "q0_consistent"
     r1 = oracle.evaluate_point(s1, Ecm)
     r2 = oracle.evaluate_point(s2, Ecm)
     assert r2.metadata["k2_pwave_form"] == "q0_consistent" and r1.metadata["k2_pwave_form"] == "coded_v2"

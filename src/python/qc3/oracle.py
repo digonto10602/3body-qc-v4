@@ -9,7 +9,7 @@ from .point import ALL, BASIS_DTYPE, PointResult
 from .sector import Sector  # noqa: F401
 
 
-K2_PWAVE_FORMS = ("coded_v2", "q0_consistent")  # prompts/001 section 2.2; production default: coded_v2
+K2_PWAVE_FORMS = ("coded_v2", "q0_consistent")  # prompts/001 section 2.2; production default (D7): q0_consistent = constants.K2_PWAVE_FORM_DEFAULT
 
 
 def _metadata(sector, core):

@@ -18,7 +18,7 @@ import numpy as np
 
 from qc3 import constants, fast, lattice
 from qc3.point import MissingRootError
-from qc3.roots import refine_root
+from qc3.roots import find_sign_changes, refine_root_info
 from qc3.sector import Sector
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
@@ -40,23 +40,15 @@ def read_windows():
     return out
 
 
-DIP_MIN = 3.0  # a genuine zero has ln|det Q| at the root at least this far below min(ln|det Q| at the window ends)
-
-
 def _ev(sec, c, E, counter):
     counter[0] += 1
     return fast.evaluate_point(sec, float(E), c, want=("Q",))
 
 
-def _is_zero(sec, c, E, ends_ln, counter):
-    """Brent also converges to POLES (a sign change of det Q). Validate: ln|det Q| at the root must dip below the ends."""
-    ln = float(_ev(sec, c, E, counter).lnabsdet)
-    return ln < min(ends_ln) - DIP_MIN, ln
-
-
 def find_root(sec, c, left, right, counter):
-    """Plan rule: refine_root in [left,right]; if no sign change, or the sign change is a pole, widen by +-WIDEN_ROWS
-    grid rows.  Returns dict(E, window, note, ln_root, ends)."""
+    """Plan rule: refine_root_info (default kind="zero": poles raise PoleError) in [left,right]; if there is no sign change
+    or the sign change is a pole/ambiguous, widen by +-WIDEN_ROWS grid rows.  Returns dict(E, window, note, ln_root, ends,
+    kind, discriminant)."""
     def ev(sector, E, cc, want=("Q",)):
         counter[0] += 1
         return fast.evaluate_point(sector, E, cc, want=want)
@@ -64,38 +56,27 @@ def find_root(sec, c, left, right, counter):
     notes = []
     for tag, (lo, hi) in (("accepted window", (left, right)), (f"widened +-{WIDEN_ROWS} rows", (wl, wr))):
         try:
-            E = refine_root(ev, sec, c, lo, hi)
-        except MissingRootError as e:
-            notes.append(f"{tag}: {e}")
+            info = refine_root_info(ev, sec, c, lo, hi)
+        except MissingRootError as e:      # includes PoleError / AmbiguousRootError
+            notes.append(f"{tag}: {type(e).__name__}: {e}")
             continue
         ends = [float(_ev(sec, c, x, counter).lnabsdet) for x in (lo, hi)]
-        ok, ln = _is_zero(sec, c, E, ends, counter)
-        if ok:
-            return {"E": E, "window": (lo, hi), "note": tag + ("; earlier: " + " | ".join(notes) if notes else ""),
-                    "ln_root": ln, "ends": ends}
-        notes.append(f"{tag}: sign change at E={E!r} is a POLE (ln|det Q|={ln:.2f} vs ends {ends[0]:.2f}, {ends[1]:.2f})")
-    return {"E": None, "window": (wl, wr), "note": "MissingRootError (plan rule): " + " | ".join(notes), "ln_root": None, "ends": None}
+        return {"E": info.E, "window": (lo, hi), "note": tag + ("; earlier: " + " | ".join(notes) if notes else ""),
+                "ln_root": info.lnabsdet, "ends": ends, "kind": info.kind, "discriminant": info.discriminant}
+    return {"E": None, "window": (wl, wr), "note": "MissingRootError (plan rule): " + " | ".join(notes), "ln_root": None,
+            "ends": None, "kind": None, "discriminant": None}
 
 
 def scan_roots(sec, c, lo, hi, npts, counter):
-    """Supplementary (not the plan rule): scan [lo,hi] on npts points, Brent-refine every sign-change bracket, keep those
-    that pass the zero-vs-pole validation.  Returns (list of dict(E, ln_root, bracket) sorted by E, number of pole brackets)."""
-    Es = np.linspace(lo, hi, npts)
-    sl = [(int(r.sign), float(r.lnabsdet)) for r in (_ev(sec, c, E, counter) for E in Es)]
-
+    """Supplementary (not the plan rule): qc3.roots.find_sign_changes on npts points; keep the zeros.
+    Returns (list of dict(E, ln_root, bracket, discriminant) sorted by E, number of pole sign changes)."""
     def ev(sector, E, cc, want=("Q",)):
         counter[0] += 1
         return fast.evaluate_point(sector, E, cc, want=want)
-    out, n_poles = [], 0
-    for k in range(npts - 1):
-        if sl[k][0] * sl[k + 1][0] < 0:
-            E = refine_root(ev, sec, c, float(Es[k]), float(Es[k + 1]))
-            ok, ln = _is_zero(sec, c, E, [sl[k][1], sl[k + 1][1]], counter)
-            if ok:
-                out.append({"E": E, "ln_root": ln, "bracket": [float(Es[k]), float(Es[k + 1])]})
-            else:
-                n_poles += 1
-    return out, n_poles
+    changes = find_sign_changes(ev, sec, c, lo, hi, n_scan=npts)
+    zs = [{"E": r.E, "ln_root": r.lnabsdet, "bracket": list(r.bracket), "discriminant": r.discriminant}
+          for r in changes if r.kind == "zero"]
+    return zs, sum(1 for r in changes if r.kind != "zero")
 
 
 def main():
@@ -122,7 +103,7 @@ def main():
             fr = find_root(sec, c, left, right, cnt)
             dt = time.perf_counter() - t0
             entry = {"E_root": fr["E"], "window_used": list(fr["window"]), "note": fr["note"],
-                     "lnabsdet_at_root": fr["ln_root"], "lnabsdet_at_window_ends": fr["ends"],
+                     "kind": fr["kind"], "discriminant": fr["discriminant"], "lnabsdet_at_root": fr["ln_root"], "lnabsdet_at_window_ends": fr["ends"],
                      "n_evaluations": cnt[0], "seconds": dt}
             if form == "q0_consistent":
                 # supplementary scan in the +-WIDEN_ROWS window: all validated zeros there (not part of the plan rule)

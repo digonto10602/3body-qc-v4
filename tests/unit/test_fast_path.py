@@ -71,3 +71,33 @@ def test_both_pwave_forms_follow_oracle():
         assert f.metadata["k2_pwave_form"] == form
         assert np.array_equal(f.K2inv, o.K2inv) and _rel(f.F, o.F) < 1e-12
         assert f.sign == o.sign and abs(f.lnabsdet - o.lnabsdet) < 1e-6
+
+
+def test_projector_cache_key_includes_eig_tol():
+    """prompts/002 7.0 (report 006 note 2): eig_tol=0.05 then 1e-30 in one process gives Nproj 17 then 5 at 100_A2
+    0.2915561, in either order, and the fast-owned cache holds two entries."""
+    Ecm = 0.2915561
+    fast.clear_caches()
+
+    def nproj(tol):
+        return fast.evaluate_point(Sector.production("100_A2", eig_tol=tol), Ecm, want=("Vsel",)).Nproj
+
+    base = fast.cache_info()                       # counters are cumulative; clear_caches only drops the entries
+    assert nproj(0.05) == 17 and nproj(1e-30) == 5
+    info = fast.cache_info()
+    assert info["projector_entries"] == 2 and info["projector_misses"] - base["projector_misses"] == 2
+    assert nproj(0.05) == 17 and fast.cache_info()["projector_hits"] - base["projector_hits"] == 1
+    fast.clear_caches()
+    assert nproj(1e-30) == 5 and nproj(0.05) == 17 and fast.cache_info()["projector_entries"] == 2
+    fast.clear_caches()
+    assert fast.cache_info()["projector_entries"] == 0
+
+
+def test_stubs_raise_not_implemented_with_substep():
+    s = Sector.production("000_A1m")
+    with pytest.raises(NotImplementedError, match="7.2"):
+        fast.evaluate_point(s, 0.26932, options={"projector": "orbit"})
+    with pytest.raises(NotImplementedError, match="7.3"):
+        fast.dimension_jumps(s, 0.2631, 0.36)
+    with pytest.raises(ValueError):
+        fast.evaluate_point(s, 0.26932, options={"projector": "bogus"})

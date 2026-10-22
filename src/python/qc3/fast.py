@@ -14,7 +14,10 @@ from .point import ALL, BASIS_DTYPE, PointResult
 from .qc import project_Q, slogdet
 from .sector import Sector  # noqa: F401
 
-DEFAULT_OPTIONS = {"trunc_eps": 1e-16, "use_classes": False, "threads": 1}
+# "projector": "eigen" = the existing eigen-decomposition builder, cached in the fast-owned in-memory cache with a
+# complete key (prompts/002 step 7.0); "orbit" (step 7.2) becomes the default once built.
+PROJECTOR_METHODS = ("orbit", "eigen")
+DEFAULT_OPTIONS = {"trunc_eps": 1e-16, "use_classes": False, "threads": 1, "projector": "eigen"}
 
 
 def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
@@ -28,6 +31,10 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
         raise NotImplementedError("qc3.fast: use_classes=True is prompts/001 step 7")
     if int(opts["threads"]) != 1:
         raise NotImplementedError("qc3.fast: only threads=1 is implemented (OpenMP is an optional later rung)")
+    if opts["projector"] not in PROJECTOR_METHODS:
+        raise ValueError(f"fast: projector must be one of {PROJECTOR_METHODS}, got {opts['projector']!r}")
+    if opts["projector"] == "orbit":
+        raise NotImplementedError("qc3.fast: projector='orbit' not implemented (prompts/002 step 7.2)")
     trunc_eps = float(opts["trunc_eps"])
     if not (0.0 < trunc_eps < 1.0):
         raise ValueError("fast: trunc_eps must be in (0, 1)")
@@ -47,7 +54,7 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
         a0_KK=sector.a0_KK, k2_pwave_form=sector.k2_pwave_form, Ecm=float(Ecm), c=list(c),
         compute_k3=bool("K3" in want),
     )
-    d = core.fast_point(params, trunc_eps)
+    d = core.fast_point(params, trunc_eps, opts["projector"])
     if tuple(d["nnP"]) != tuple(sector.nnP):
         raise RuntimeError(f"nnP mismatch between Sector {sector.nnP} and C++ parse_label {d['nnP']}")
     b = d["basis"]
@@ -71,6 +78,8 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
     md["backend"] = "fast"
     md["trunc_eps"] = trunc_eps
     md["use_classes"] = False
+    md["projector_method"] = opts["projector"]
+    md["tail"] = "numpy"   # becomes "cpp" in prompts/002 step 7.6
     md["projector_cache_hit"] = bool(d["stats"]["projector_cache_hit"])
     md["lattice_terms"] = int(d["stats"]["lattice_terms"])
     md["lattice_cube_terms_per_entry"] = int(d["stats"]["lattice_cube_per_entry"])
@@ -85,6 +94,17 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
 
 
 def clear_caches():
-    """Drop the in-memory per-process caches (projector V_sel per basis signature): next call is a cold build."""
+    """Drop the fast path's in-memory caches (projector V_sel; threshold tables from step 7.3): next call is cold."""
     from . import _core as core
     core.clear_caches()
+
+
+def cache_info():
+    """{"projector_entries", "projector_hits", "projector_misses", "threshold_entries"} of the fast path's caches."""
+    from . import _core as core
+    return dict(core.cache_info())
+
+
+def dimension_jumps(sector, E_min, E_max):
+    """Sorted E_cm strictly inside (E_min, E_max) where the basis dimension N changes (either channel)."""
+    raise NotImplementedError("qc3.fast.dimension_jumps: not implemented (prompts/002 step 7.3)")
