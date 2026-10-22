@@ -738,15 +738,15 @@
     "semantic_hash": ""
   },
   "docs/METHODS.md": {
-    "mtime": 1792624356.4325192,
-    "seen": 1792624389.7400532,
-    "ast_hash": "cda02165d0e729f87c7ecac3877c443b",
+    "mtime": 1792690024.88303,
+    "seen": 1792690166.9905322,
+    "ast_hash": "52878f311a1385d2e23245635220a8dd",
     "semantic_hash": ""
   },
   "docs/OPEN_ISSUES.md": {
-    "mtime": 1792614126.2352657,
-    "seen": 1792614245.1942966,
-    "ast_hash": "de9f598218d0bc4a70315a1ffc6ff391",
+    "mtime": 1792690025.1286895,
+    "seen": 1792690166.9905336,
+    "ast_hash": "cb4d954b8818488df3292ae67cd5b936",
     "semantic_hash": ""
   },
   "docs/PIPELINE.md": {
@@ -768,9 +768,9 @@
     "semantic_hash": ""
   },
   "docs/ROOT_FINDING.md": {
-    "mtime": 1792611426.0884883,
-    "seen": 1792611702.7460542,
-    "ast_hash": "c7c7131daa4f5fc7f42bc1bcc2e80ebc",
+    "mtime": 1792690024.95903,
+    "seen": 1792690166.9905405,
+    "ast_hash": "f73fb17a1a1124d75e723a23440e5872",
     "semantic_hash": ""
   },
   "docs/original_handoffs/3body_quantization_v3_README.md": {
@@ -1344,9 +1344,9 @@
     "semantic_hash": ""
   },
   "prompts/001-m1-cache-free-single-energy-qc.md": {
-    "mtime": 1792620016.9202611,
-    "seen": 1792620082.0152369,
-    "ast_hash": "950a6a4bc02042d0765779140354aa13",
+    "mtime": 1792689944.335025,
+    "seen": 1792690166.990592,
+    "ast_hash": "28e1d31a3d6efcc99166002fdb859c17",
     "semantic_hash": ""
   },
   "tests/acceptance/conftest.py": {
@@ -1356,9 +1356,9 @@
     "semantic_hash": ""
   },
   "tests/acceptance/m1/m1_helpers.py": {
-    "mtime": 1792613853.3312495,
-    "seen": 1792614245.1942565,
-    "ast_hash": "49fd006cccf217326c14f6f68942e5f1",
+    "mtime": 1792689915.8910234,
+    "seen": 1792690166.9904575,
+    "ast_hash": "09e6c3304cf63796258f4fa14f240950",
     "semantic_hash": ""
   },
   "tests/acceptance/m1/qc3ref/__init__.py": {
@@ -1392,9 +1392,9 @@
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_fast_vs_oracle.py": {
-    "mtime": 1792613921.6952536,
-    "seen": 1792614245.1942625,
-    "ast_hash": "804e44ab60af69dd78b5a7cde868c211",
+    "mtime": 1792689922.6950238,
+    "seen": 1792690166.9904716,
+    "ast_hash": "762ac0a0f359e87d7877dab249d339c9",
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_lattice.py": {
@@ -1404,9 +1404,9 @@
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_oracle.py": {
-    "mtime": 1792613875.407251,
-    "seen": 1792614245.1942644,
-    "ast_hash": "fdebeb4c9e96600ac1542c847fff2e97",
+    "mtime": 1792689918.0310235,
+    "seen": 1792690166.990475,
+    "ast_hash": "9125b4e77e97485a7183dc2449afca16",
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_portability.py": {
@@ -1422,9 +1422,9 @@
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_reference.py": {
-    "mtime": 1792613894.199252,
-    "seen": 1792614245.1942668,
-    "ast_hash": "a4cc676cb11d181c56c24a806085f1ca",
+    "mtime": 1792689920.0830238,
+    "seen": 1792690166.9904828,
+    "ast_hash": "e597097d4f089af6a8cd0bf79ca864a1",
     "semantic_hash": ""
   },
   "src/python/qc3/__init__.py": {
@@ -1692,9 +1692,15 @@
     "semantic_hash": ""
   },
   "prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md": {
-    "mtime": 1792624078.2405026,
-    "seen": 1792624389.7400968,
-    "ast_hash": "ae39c1b2b76221d6f8f4c554a2171e70",
+    "mtime": 1792690038.1510308,
+    "seen": 1792690166.9905934,
+    "ast_hash": "18e55f3fbe7490a81aecae6dbc2af37e",
+    "semantic_hash": ""
+  },
+  "tests/acceptance/m1/test_m1_production_default.py": {
+    "mtime": 1792689932.7630246,
+    "seen": 1792690166.990479,
+    "ast_hash": "8a5c07e475cd011f715eaa206804864f",
     "semantic_hash": ""
   }
 }

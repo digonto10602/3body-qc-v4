@@ -43,6 +43,7 @@ Nothing listed here has been fixed in the code yet. The code in `src/` is copied
 - **Consequence:** `scatter1_10=-43.2` does not mean the reference's $a_1$, and the near-threshold p-wave behaviour is different. The size of the effect is not yet quantified.
 - **Answer (D2, 2026-10-21):** the two-body inputs come from Digonto's earlier work and from Hadron Spectrum Collaboration papers.
 - **Still open (planner research):** find those papers and the parametrisation in which $a_1=-43.2$ is quoted, then use the matching $\mathcal K_2^{-1}$ form. Until then, the coded form is the production convention and must not be changed silently.
+- **Decided (D7, Digonto 2026-10-22):** production switches to `q0_consistent` (prompts/002 sub-step 7.8, `qc3.constants.K2_PWAVE_FORM_DEFAULT`); `coded_v2` stays selectable. Level shifts: $-0.1$ to $-0.4\,\sigma_{\rm lat}$ (`reports/tests/007`). The locked M1 tests pin `coded_v2` (their anchors/labels were made with it). This issue is **closed** once sub-step 7.8 is merged.
 - **Planner finding (2026-10-21, `reports/research/007` §3.6):** the values are HadSpec's $I=3/2$ $\pi K$ global fit (arXiv:1411.2004 Sec. VI, ERE $k^{2\ell+1}\cot\delta_\ell=1/a_\ell+\dots$): $a_0=(-4.04\pm0.05\pm0.15)\,a_t$, $a_1=(43.2\pm3.7\pm15.4)\,a_t^3$. In the code's $Q_0$ convention (2111.12734 Eqs. 15, 17, 20–21) the consistent element is $-1/a_1+q^{*2}|q^*|(1-H)$ with the existing $a_1=-43.2$ (the commented-out line 103), i.e. QC3_release's form. The coded form overstates the p-wave $\mathcal K_2^{-1}$ by $1/q^{*2}$. Both forms are now named (`coded_v2`, `q0_consistent`, `docs/METHODS.md` §5); production stays `coded_v2` until **decision D6** (after `prompts/001` step 9 reports the level shifts).
 
 ### 3. HIGH — complex-number read convention (`variant_04_real_imag_swapped`)
@@ -124,6 +125,13 @@ Nothing listed here has been fixed in the code yet. The code in `src/` is copied
 
 - Scripts and configs contain absolute paths (`/home/digonto/Codes/...`, `/media/digonto/Data/F3inv_cache`).
 - `build.sh`/`build_gpu.sh` have not been run in this layout; Eigen and Minuit2 were not available on the consolidation machine.
+
+### 13. LOW — legacy projector cache key omits the selection tolerances (`basis_signature_v30q`)
+
+- **Where:** `src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp` (`basis_signature_v30q`, `get_projector_cached_v30q`), included by the v32f fitter header and hence by the oracle (`src/qc3_core/oracle_point.hpp`).
+- **What:** the key contains irrep, parity, $\mathbf d$ and the full $(\mathbf n,\ell,m)$ lists of both channels, but **not** `eig_tol`, `norm_tol`, `proj_tol`. Two calls in one process with different `eig_tol` and the same basis get the same cached $V_{\rm sel}$ (`reports/tests/006` note 2: `eig_tol=1e-30` after a default call returned 17 columns, a cold build gives 5).
+- **Impact:** none in production (`eig_tol` is fixed at 0.05; the oracle clears the cache on every call). Matters only if Sector overrides are mixed in one process.
+- **Status:** the fast path no longer uses this cache (prompts/002 sub-step 7.0: fast-owned cache with a complete key, `tests/acceptance/m1/test_m1_fast_v2.py::test_projector_cache_key_complete`). The legacy key is left as is because the file is in the oracle's include chain (the oracle must stay byte-unchanged); fix it only together with a retirement of the legacy fitter.
 
 ### 12. Historical warnings (do not reuse these results)
 

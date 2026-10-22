@@ -1,10 +1,10 @@
 # STATUS
 
 - **Updated:** 2026-10-21 (cloud kickoff)
-- **Prompt in force:** `prompts/001-m1-cache-free-single-energy-qc.md` (plan §3 steps, §4 tolerances, §5 interface, §7 benchmark protocol).
-- **Acceptance tag:** `acceptance-v3` (`tests/acceptance/m1/`, 33 tests, 6 marked `slow`; v2 = v1 plus the sign-flip fix; v3 = v2 plus the portability-test self-scan fix; both in the `prompts/001` §4 amendments, approved by Digonto). Check with `.claude/bin/acceptance-check`. Tags exist **only locally**, because this cloud session cannot push tags (HTTP 403). `acceptance-v1` = `7801d97` , `acceptance-v2` = `bcf12cd` and `acceptance-v3` = `e74f94b`. If they are missing, recreate them with `git tag -a <tag> <commit> -m ...`.
+- **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
+- **Acceptance tag:** `acceptance-v4` = `504a689` (47 tests). v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **step 7**, under re-planning (see Next action), with step 9 (the p-wave table for D7) running in parallel.
+- **Current step:** M1 **step 7.0**: the fast-owned projector cache with a complete key. Next come 7.1 (pole/zero discrimination in `qc3.roots`) and 7.8 (production default `q0_consistent`, D7), then 7.2–7.6.
 - **Step 9 DONE**, verified by `reports/tests/007-m1-step9-pwave-shift.md` (PASS). The table is in `results/k2_pwave_shift_L20.json`.
   - `q0_consistent` lowers all 12 levels, by $0.6$–$3.0\times10^{-4}\,a_t^{-1}$, i.e. $0.11$–$0.39\,\sigma$.
   - The oracle confirms all 24 roots as simple zeros, to $\le2\times10^{-12}$.
@@ -82,7 +82,7 @@
 
 ## Open failures and attempt counters
 
-M1 counters (reset at kickoff, `acceptance-v1`):
+Counters were reset at `acceptance-v4` (`prompts/002`).
 
 | check | builder attempts | tester rounds | fixer | planner |
 |---|---|---|---|---|
@@ -108,12 +108,8 @@ M1 counters (reset at kickoff, `acceptance-v1`):
 
 ## Next action
 
-1. **Re-plan step 7.** The plan's rung 5 (class tables for $F$) can save at most about 10 ms out of 100 ms. By the plan's own stop rule (a rung must gain at least 1.5×), it is not worth doing. The real costs now are:
-   - the cold projector build (seconds, paid every time the basis changes during an energy scan);
-   - the basis builder;
-   - $\mathcal K_{\rm df,3}$ and $G$.
-   The planner writes the revised speed plan (`prompts/002`).
-2. Step 9 (p-wave level-shift table for D7): builder, in parallel.
-3. Step 8 (benchmark + χ² proxy), after step 7. Pin `OPENBLAS_NUM_THREADS=1`.
-4. Fix the projector-cache key (tester 006 note 2) inside step 7.
-5. Then the milestone gate: tester full, auditor, tester benchmark, tag `milestone-1`.
+1. Builder: 7.0 (cache key), 7.1 (pole/zero discrimination), 7.8 (D7 default), per `prompts/002` §3. Then the tester.
+2. 7.2 orbit projector → 7.3 threshold basis → 7.4 $\mathcal K_{\rm df,3}$ pair kernel → 7.5 $G$ pair kernel → 7.6 C++ tail (7.7 optional).
+3. Step 8 (benchmark + χ² proxy). Use the classifying `refine_root`, and pin `coded_v2` for the 12 labelled roots (`prompts/002` §2.5). Pin `OPENBLAS_NUM_THREADS=1`.
+4. Milestone gate: tester full, auditor, tester benchmark, tag `milestone-1`.
+5. M2 note: with `q0_consistent`, 5 of the 12 labelled windows have no end-point sign change. So M2's own root finder (FP = FN = 0, scored with `coded_v2`) is on the critical path before any `q0_consistent` fit.
