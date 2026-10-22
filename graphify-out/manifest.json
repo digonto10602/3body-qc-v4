@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792690220.6322448,
-    "seen": 1792690227.1835814,
-    "ast_hash": "908632dbc125aa7484d82d68979512e8",
+    "mtime": 1792692576.5191817,
+    "seen": 1792692583.360702,
+    "ast_hash": "fd90b49112d713e0b938b8961a576375",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -1707,6 +1707,60 @@
     "mtime": 1792690311.871047,
     "seen": 1792691256.7418725,
     "ast_hash": "8c57453816f974579adecff64a9967c4",
+    "semantic_hash": ""
+  },
+  "results/tester_008_anchor_form_check.json": {
+    "mtime": 1792692417.1104972,
+    "seen": 1792692583.3603706,
+    "ast_hash": "c9f58a78b522966d1cf016169f60f0f4",
+    "semantic_hash": ""
+  },
+  "results/tester_008_cache_key_differential.json": {
+    "mtime": 1792691877.4229832,
+    "seen": 1792692583.3603735,
+    "ast_hash": "520488498baa2b9e7762e7c7566ac111",
+    "semantic_hash": ""
+  },
+  "results/tester_008_discriminants.json": {
+    "mtime": 1792692210.2031598,
+    "seen": 1792692583.3603754,
+    "ast_hash": "6df57dbf3fcbf0e452e47fa3127874a7",
+    "semantic_hash": ""
+  },
+  "results/tester_008_real_roots_checks.json": {
+    "mtime": 1792692363.9919338,
+    "seen": 1792692583.3603768,
+    "ast_hash": "96be21e567d30b0bc6765da455c0836b",
+    "semantic_hash": ""
+  },
+  "results/tester_008_step9_rerun_vs_47425c9.json": {
+    "mtime": 1792692373.6811025,
+    "seen": 1792692583.360378,
+    "ast_hash": "ab7ec551831ec17a55f600db3d9e90f5",
+    "semantic_hash": ""
+  },
+  "results/tester_008_summary.json": {
+    "mtime": 1792692465.0662515,
+    "seen": 1792692583.3603795,
+    "ast_hash": "e79601c134f09cb439362a6c7beb8622",
+    "semantic_hash": ""
+  },
+  "results/tester_008_synthetic_roots.json": {
+    "mtime": 1792692257.7336736,
+    "seen": 1792692583.3603811,
+    "ast_hash": "994a3ba5fc7aaf139607b909e6109a2e",
+    "semantic_hash": ""
+  },
+  "results/tester_008_xtol_scan.json": {
+    "mtime": 1792692449.007245,
+    "seen": 1792692583.3603826,
+    "ast_hash": "ddc1020344382ecba4b81dd6f4a17f7a",
+    "semantic_hash": ""
+  },
+  "reports/tests/008-m1-step7-0-1-8-cache-roots-default.md": {
+    "mtime": 1792692529.8222053,
+    "seen": 1792692583.3607368,
+    "ast_hash": "3c0d05c75231ce9e6413058caded26b1",
     "semantic_hash": ""
   }
 }
