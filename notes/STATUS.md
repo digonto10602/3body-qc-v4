@@ -4,7 +4,15 @@
 - **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
 - **Acceptance tag:** `acceptance-v4` = `504a689` (47 tests). v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 step 7.7 (optional $F$ work; $F$ is now 68% of the warm time) and step 8 (benchmark + χ² proxy), in parallel.
+- **Current step:** M1 step 7.7 (optional $F$ work, in a builder worktree). After it: the milestone gate.
+- **Step 8 DONE**, verified by `reports/tests/011-m1-step8-bench-harness.md` (PASS). Code: `qc3.bench` and `python -m qc3.bench`.
+  - Smoke-run speed-up vs the oracle: 367–2019× (median 716) including the oracle's projector build, or 348–854× without it.
+  - **χ² proxy** (12 labelled L20 roots, `coded_v2`, 1 core, no caches): warm 0.49–0.53 s, cold 0.57–0.63 s.
+    - That is 102 evaluations of about 5 ms each.
+    - Compare: 1.4 s for the old direct FCN (2.7× slower) and 24 ms for the hot-window FCN (21× faster, but it needed GBs of caches).
+    - Next lever, for M2: fewer evaluations per root (warm start from the previous fit iterate, Newton on $\ln|\det Q|$).
+  - χ² at the fixed baseline $\vec c$ = 53.890 (12 levels, D1 covariance). This is **not a fit**. An independent recomputation agrees to $1.3\times10^{-12}$.
+  - Minor: record the compiler and flags in the bench JSON; use minima for timing comparisons (noise is up to 2×).
 - **Steps 7.4–7.6 DONE**, verified by `reports/tests/010-m1-step7-4-5-6-kernels-tail.md` (PASS). **All 47 acceptance tests are green.** Merge commit `3e26d29`.
   - $\mathcal K_{\rm df,3}$ agrees with the oracle to $\le8.9\times10^{-17}$ over 47 energies, including energies at dimension jumps.
   - $G$ is bit-identical to the oracle. The default fills every ordered pair (see the decision below).
