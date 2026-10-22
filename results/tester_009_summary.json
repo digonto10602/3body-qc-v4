@@ -1,0 +1,58 @@
+{
+ "commit": "e53627d",
+ "code_under_test": "9b6cef5 (src/tests identical at HEAD)",
+ "mode": "step",
+ "m1_suite_pinned_OMP1_OPENBLAS1": {
+  "passed": 45,
+  "failed": 2,
+  "failed_ids": [
+   "test_m1_fast_v2.py::test_fast_tail_consistent_with_numpy_and_want_subset (metadata tail=='numpy', expected 'cpp')",
+   "test_m1_fast_v2.py::test_fast_speedup_single_thread_largest_point_ge_150x (96.8x: fast median 72.3 ms, oracle excl projector 7.00 s; need >=150)"
+  ],
+  "wall_s": 339
+ },
+ "m1_suite_unpinned": {
+  "passed": 45,
+  "failed": 2,
+  "same_ids": true,
+  "speedup_ratio": 44.2,
+  "fast_median_ms": 168.3,
+  "wall_s": 400,
+  "note": "3 g++ compile jobs and a 2nd python process ran concurrently during part of this run"
+ },
+ "unit_tests": {
+  "passed": 44,
+  "failed": 0
+ },
+ "cpu_over_wall_20_warm_calls": {
+  "unpinned": {
+   "000_A1m_0.26932(N=35)": 0.996,
+   "100_A2_0.2915561(N=56)": 0.999,
+   "111_A2_0.35103(N=160)": 3.058,
+   "000_A1m_0.34538(N=103)": 2.293
+  },
+  "pinned_OMP1_OPENBLAS1_taskset0": {
+   "000_A1m_0.26932": 0.983,
+   "100_A2_0.2915561": 0.999,
+   "111_A2_0.35103": 0.992,
+   "000_A1m_0.34538": 0.997
+  },
+  "OPENBLAS_NUM_THREADS=1_only": {
+   "000_A1m_0.26932": 0.985,
+   "100_A2_0.2915561": 1.0,
+   "111_A2_0.35103": 0.991,
+   "000_A1m_0.34538": 0.967
+  }
+ },
+ "self_check_harness": {
+  "drop_row_throws": "4/4 'basis is not closed under the little group'",
+  "mutant_scale_x2": "5/5 throw ||P V - V||",
+  "mutant_truncate_candidates": "4/5 throw tr P != Nproj (000_A1m N=103: blocks rank<=1 so unchanged)",
+  "other_irreps_orbit_vs_eigen": "25 (irrep, group) cases incl. 2-dim E/Eg/Eu and 3-dim T1g/T1u/T2g/T2u: Nproj equal, max rel(VVdag) 2.4e-15; 1 case (000 as A1g) eigen builder throws projection_produced_zero_columns"
+ },
+ "stale_threshold_cache_differential": {
+  "cases": 132,
+  "mismatches": 0
+ },
+ "strace_io_between_markers": 0
+}

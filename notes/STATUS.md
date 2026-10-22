@@ -4,7 +4,14 @@
 - **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
 - **Acceptance tag:** `acceptance-v4` = `504a689` (47 tests). v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **steps 7.2 and 7.3**: the orbit/character projector, and the threshold basis builder with `dimension_jumps`.
+- **Current step:** M1 **steps 7.4–7.6**: the $\mathcal K_3$ and $G$ pair kernels and the C++ tail. The builder works in a separate git worktree; the coordinator merges.
+- **Steps 7.2 and 7.3 DONE**, verified by `reports/tests/009-m1-step7-2-3-orbit-projector-basis.md` (PASS). 45 of 47 tests pass; the 2 pending need 7.4–7.6.
+  - Orbit projector: $N_{\rm proj}$ agrees with an independent dense projector, with eigen and with the oracle at all 58 production bases. $\|VV^\dagger-P\|/\|P\|\le4\times10^{-16}$.
+  - Cold build is at most 1.2 ms over the 58 bases (5.4 s before).
+  - The fast basis is bit-identical to the oracle's at 1881 energies, including $\pm$1–3 ulp around every jump.
+  - `dimension_jumps` matches the oracle's $N(E)$ jumps to $1.1\times10^{-16}$. The counts are 4/11/15/12/11 jumps, i.e. 5/12/16/13/12 bases.
+  - Warm time per point: 4.5–12 ms for $N\le64$, 33–68 ms for $N\ge100$.
+  - Note for the auditor/planner: the locked `test_fast_single_thread_cpu_time` uses a small point ($N=35$) where OpenBLAS never threads, so it cannot detect the BLAS threading. Unpinned CPU/wall at $N=160$ is 3.06. The 7.6 done-check is to be measured at a large point.
 - **Steps 7.0, 7.1 and 7.8 DONE**, verified by `reports/tests/008-m1-step7-0-1-8-cache-roots-default.md` (PASS). 40 of 47 acceptance tests pass; the 7 pending ones are 7.2/7.3 stubs.
   - 7.0: the cache key is complete. A differential test of 130 inputs found 0 stale hits; a C++ harness checks `norm_tol` and `proj_tol`.
   - 7.1: the discriminant gives zeros $-13.1\ldots-26.6$ and poles $+11.9$, $+12.7$. The derived bound is $|\Delta_h|\ge\ln(h/x_{\rm tol})=11.5$.

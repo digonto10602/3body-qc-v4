@@ -1,0 +1,91 @@
+{
+ "commit": "e53627d",
+ "seed": 20261022,
+ "irreps": {
+  "000_A1m": {
+   "n_jumps": 4,
+   "n_energies": 330,
+   "flip_position_ulps": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  "100_A2": {
+   "n_jumps": 11,
+   "n_energies": 379,
+   "flip_position_ulps": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  "110_A2": {
+   "n_jumps": 15,
+   "n_energies": 407,
+   "flip_position_ulps": [
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    1,
+    2,
+    2,
+    1
+   ]
+  },
+  "111_A2": {
+   "n_jumps": 12,
+   "n_energies": 386,
+   "flip_position_ulps": [
+    0,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0
+   ]
+  },
+  "200_A2": {
+   "n_jumps": 11,
+   "n_energies": 379,
+   "flip_position_ulps": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    1
+   ]
+  }
+ },
+ "total_energies": 1881,
+ "mismatches": 0
+}
