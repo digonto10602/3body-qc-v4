@@ -73,12 +73,12 @@
 - Loop: think → build optimised code → compare with an **oracle** (the last method that worked and has results, or the existing code run on 1 core for 1 energy point in 1 irrep).
 - The solution must generalise to all energy points and all irreps. Literature/web techniques or our own are both allowed.
 
-### Pending decision for Digonto
-- **D7, the p-wave $\mathcal K_2^{-1}$ form.** The planner calls this "D6" in `prompts/001` §2.2 and step 9; it is the same question.
-  - HadSpec, arXiv:1411.2004 Sec. VI, quotes $a_1$ with $k^{3}\cot\delta_1=1/a_1$.
-  - In the code's $Q_0$ convention, the consistent element is $-1/a_1+q^{*2}|q^*|(1-H)$. The coded form is larger by a factor $1/q^{*2}$.
-  - The production default stays `coded_v2` until Digonto decides.
-  - Step 9 produces the table of level shifts for the 12 levels, as input to that decision. The planner recommends `q0_consistent`.
+### Decisions answered at the cloud session (2026-10-22)
+- **D7, the p-wave $\mathcal K_2^{-1}$ form:** switch production to **`q0_consistent`** ($-1/a_1+q^{*2}|q^*|(1-H)$, consistent with HadSpec $k^3\cot\delta_1=1/a_1$).
+  - `coded_v2` stays selectable for comparison and regression.
+  - The locked tests built on `coded_v2` data (the oracle anchors, the labelled `previous_model_zero`) pin `coded_v2` explicitly; the planner is amending them, see `prompts/002`.
+  - Evidence: `results/k2_pwave_shift_L20.json`, a shift of $0.11$–$0.39\,\sigma$ per level at the baseline $\vec c$.
+- **D8, free-level solutions:** exact free-level solutions of the QC are artefacts and are **excluded** from D3 level matching. Example: the even-order zero at $E^*=0.319468828$ in 110_A2. Detecting them belongs to M2 ("detection beyond sign changes").
 
 ## Open failures and attempt counters
 

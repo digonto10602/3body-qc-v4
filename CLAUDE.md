@@ -44,16 +44,19 @@ graphify update .                              # rebuild graphify-out/ for this 
 6. No root-finding fallback to full-cache reads inside the FCN. Caches load once, outside the FCN.
 7. Human-labelled roots are the current ground truth. A new root finder replaces them only after FP = FN = 0 on all labelled sectors (`docs/ROOT_FINDING.md` §3.3).
 
-## Decisions already made by Digonto (2026-10-21; details in `notes/STATUS.md`)
+## Decisions already made by Digonto (2026-10-21/22; details in `notes/STATUS.md`)
 - **D1:** `.jack` files = one value per gauge configuration ($N=603$ L20, $N=553$ L24); build jackknife averages before the covariance.
 - **D2:** two-body inputs $(4.04,-43.2,4.12)$ come from Digonto's earlier work and HadSpec papers.
 - **D3:** level matching = sort both lists ascending and use the lowest $m$ QC levels for $m$ lattice levels ($n\ge m$ allowed).
 - **D4:** cache binaries will not be provided. The priority is a cache-free fast QC (`prompts/000`, "Update 2026-10-21").
 - **D5:** the system is KKπ with $I=2$ ($K^+K^+\pi^+$).
+- **D6:** "graphical manipulation" means symbolic manipulation. No GPU; minimise the single-core time per energy point, always compared with the oracle.
+- **D7:** the production p-wave $\mathcal K_2^{-1}$ form is `q0_consistent` (HadSpec $k^3\cot\delta_1=1/a_1$). `coded_v2` is kept for regression.
+- **D8:** exact free-level solutions of the QC are excluded from D3 level matching.
 
 ## Things that are known to be wrong or unverified (see `docs/OPEN_ISSUES.md`)
 - **Do not quote any χ² or parameter from `results/legacy_*`.** The covariance is wrong by $(N-1)^2$ (confirmed by D1).
-- The p-wave $\mathcal K_2^{-1}$ form differs from QC3_release. Which form matches the HadSpec definition of $a_1$ is still to be checked; do not change it silently.
+- The p-wave $\mathcal K_2^{-1}$ form is now decided (D7). Older results used `coded_v2`.
 - `compare_gpu_cache_vs_cpu_openmp_det_oldscale.cpp` reads $F_3^{-1}$ with a single swap. Do not use its read path.
 - `src/gpu_det/` is not validated against the CPU.
 

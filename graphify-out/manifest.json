@@ -738,9 +738,9 @@
     "semantic_hash": ""
   },
   "docs/METHODS.md": {
-    "mtime": 1792614119.7672653,
-    "seen": 1792614245.1942956,
-    "ast_hash": "fcd56744005288d890f36c8471678693",
+    "mtime": 1792624356.4325192,
+    "seen": 1792624389.7400532,
+    "ast_hash": "cda02165d0e729f87c7ecac3877c443b",
     "semantic_hash": ""
   },
   "docs/OPEN_ISSUES.md": {
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792622814.250235,
-    "seen": 1792622820.5007632,
-    "ast_hash": "2bf3dffac245a7e18e469144e7b3e9d4",
+    "mtime": 1792623894.3395,
+    "seen": 1792623900.5321088,
+    "ast_hash": "8f676cdeaa71e465eb3fe694e73c5c83",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -1659,6 +1659,42 @@
     "mtime": 1792623189.290078,
     "seen": 1792623352.7477758,
     "ast_hash": "b8df4b825a2d948512a195958652d71b",
+    "semantic_hash": ""
+  },
+  "results/tester_k2_pwave_shift_check.json": {
+    "mtime": 1792623809.4604867,
+    "seen": 1792623900.5319223,
+    "ast_hash": "339f870af546c59af07ba0dc0fb522a4",
+    "semantic_hash": ""
+  },
+  "reports/research/008-step7-speed-replan-orbit-projector-and-kernels.md": {
+    "mtime": 1792623803.9444864,
+    "seen": 1792623900.53212,
+    "ast_hash": "57da201ba95aee91f3061a65cac45309",
+    "semantic_hash": ""
+  },
+  "reports/tests/007-m1-step9-pwave-shift.md": {
+    "mtime": 1792623854.4204893,
+    "seen": 1792623900.5321286,
+    "ast_hash": "022e4bc1fc2f9f5a3259489284da52c6",
+    "semantic_hash": ""
+  },
+  "tests/acceptance/m1/test_m1_fast_v2.py": {
+    "mtime": 1792624258.653859,
+    "seen": 1792624389.7400122,
+    "ast_hash": "2cde4f6f522f17b27a704498a1555232",
+    "semantic_hash": ""
+  },
+  "tests/acceptance/m1/test_m1_roots.py": {
+    "mtime": 1792624376.9485204,
+    "seen": 1792624389.7400215,
+    "ast_hash": "ec07fc2f56cf842452b8c616af92182f",
+    "semantic_hash": ""
+  },
+  "prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md": {
+    "mtime": 1792624078.2405026,
+    "seen": 1792624389.7400968,
+    "ast_hash": "ae39c1b2b76221d6f8f4c554a2171e70",
     "semantic_hash": ""
   }
 }
