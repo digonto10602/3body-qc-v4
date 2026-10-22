@@ -1,6 +1,7 @@
 """Fast backend, cache-free, single core (prompts/001 step 6: rungs 1-4).
 
-Implemented in src/qc3_core/fast_point.hpp: the oracle's basis builder, G, K2^{-1}, K3 and projector, but the
+Implemented in src/qc3_core/fast_point.hpp: the threshold basis builder (fast_basis.hpp, bit-identical to the oracle's),
+the oracle's G, K2^{-1}, K3, the orbit/character projector (fast_projector.hpp); the
 F lattice sum is done in one pass per spectator momentum, truncated to the ellipsoid r^2 <= R^2 inside the oracle's
 cube (per-term bound <= trunc_eps), in real arithmetic.  Energy-independent pieces (the projector V_sel per basis
 signature) are cached in memory per process.  Final Q and (sign, ln|det|) via qc3.qc (same expressions as the
@@ -14,10 +15,22 @@ from .point import ALL, BASIS_DTYPE, PointResult
 from .qc import project_Q, slogdet
 from .sector import Sector  # noqa: F401
 
-# "projector": "eigen" = the existing eigen-decomposition builder, cached in the fast-owned in-memory cache with a
-# complete key (prompts/002 step 7.0); "orbit" (step 7.2) becomes the default once built.
+# "projector": "orbit" (default, prompts/002 section 2.1) builds V_sel from the little-group orbits and characters (no dense
+# projector, no eigen-solve, mandatory self-check P V = V); "eigen" = the existing eigen-decomposition builder, kept for
+# cross-checks.  Both go through the fast-owned in-memory cache with a complete key (step 7.0).
 PROJECTOR_METHODS = ("orbit", "eigen")
-DEFAULT_OPTIONS = {"trunc_eps": 1e-16, "use_classes": False, "threads": 1, "projector": "eigen"}
+DEFAULT_OPTIONS = {"trunc_eps": 1e-16, "use_classes": False, "threads": 1, "projector": "orbit"}
+
+
+def _params(sector, Ecm, c, compute_k3):
+    return dict(
+        irrep=sector.irrep, Lbyas=float(sector.Lbyas), xi=sector.xi, atmK=sector.atmK, atmpi=sector.atmpi,
+        eta_1=sector.eta_1, eta_2=sector.eta_2, alpha=sector.alpha, epsilon_H=sector.epsilon_H,
+        max_shell_num=int(sector.max_shell_num), waves_1=list(sector.waves_1), waves_2=list(sector.waves_2),
+        parity=int(sector.parity), eig_tol=sector.eig_tol, a0_Kpi=sector.a0_Kpi, a1_Kpi=sector.a1_Kpi,
+        a0_KK=sector.a0_KK, k2_pwave_form=sector.k2_pwave_form, Ecm=float(Ecm), c=list(c),
+        compute_k3=bool(compute_k3),
+    )
 
 
 def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
@@ -33,8 +46,6 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
         raise NotImplementedError("qc3.fast: only threads=1 is implemented (OpenMP is an optional later rung)")
     if opts["projector"] not in PROJECTOR_METHODS:
         raise ValueError(f"fast: projector must be one of {PROJECTOR_METHODS}, got {opts['projector']!r}")
-    if opts["projector"] == "orbit":
-        raise NotImplementedError("qc3.fast: projector='orbit' not implemented (prompts/002 step 7.2)")
     trunc_eps = float(opts["trunc_eps"])
     if not (0.0 < trunc_eps < 1.0):
         raise ValueError("fast: trunc_eps must be in (0, 1)")
@@ -46,14 +57,7 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
     if len(c) != 4:
         raise ValueError("c must be (Kiso0, Kiso1, KB, KE)")
     want = set(want)
-    params = dict(
-        irrep=sector.irrep, Lbyas=float(sector.Lbyas), xi=sector.xi, atmK=sector.atmK, atmpi=sector.atmpi,
-        eta_1=sector.eta_1, eta_2=sector.eta_2, alpha=sector.alpha, epsilon_H=sector.epsilon_H,
-        max_shell_num=int(sector.max_shell_num), waves_1=list(sector.waves_1), waves_2=list(sector.waves_2),
-        parity=int(sector.parity), eig_tol=sector.eig_tol, a0_Kpi=sector.a0_Kpi, a1_Kpi=sector.a1_Kpi,
-        a0_KK=sector.a0_KK, k2_pwave_form=sector.k2_pwave_form, Ecm=float(Ecm), c=list(c),
-        compute_k3=bool("K3" in want),
-    )
+    params = _params(sector, Ecm, c, bool("K3" in want))
     d = core.fast_point(params, trunc_eps, opts["projector"])
     if tuple(d["nnP"]) != tuple(sector.nnP):
         raise RuntimeError(f"nnP mismatch between Sector {sector.nnP} and C++ parse_label {d['nnP']}")
@@ -106,5 +110,13 @@ def cache_info():
 
 
 def dimension_jumps(sector, E_min, E_max):
-    """Sorted E_cm strictly inside (E_min, E_max) where the basis dimension N changes (either channel)."""
-    raise NotImplementedError("qc3.fast.dimension_jumps: not implemented (prompts/002 step 7.3)")
+    """Sorted E_cm strictly inside (E_min, E_max) where the basis dimension N changes (either channel).
+
+    The basis keeps a spectator momentum n iff E_lab > t(n) (docs/METHODS.md section 2, the oracle's own function
+    En_min_plus_for_config with zval 0.02); the jumps are the distinct thresholds t converted to E* = sqrt(t^2 - P^2).
+    A sign change of det Q across a jump is a change of dimension, not a root (M2's classifier uses this)."""
+    from . import _core as core
+    E_min, E_max = float(E_min), float(E_max)
+    if not E_min < E_max:
+        raise ValueError("dimension_jumps: need E_min < E_max")
+    return np.asarray(core.dimension_jumps(_params(sector, 0.5 * (E_min + E_max), (0.0, 0.0, 0.0, 0.0), False), E_min, E_max), dtype=float)

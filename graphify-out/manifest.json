@@ -1446,9 +1446,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/fast.py": {
-    "mtime": 1792690434.954686,
-    "seen": 1792691256.7418575,
-    "ast_hash": "5dc372ba56ecdb215af581705be2ca19",
+    "mtime": 1792692792.4869735,
+    "seen": 1792693813.4412043,
+    "ast_hash": "b09018565b255190542c17bc46ac4774",
     "semantic_hash": ""
   },
   "src/python/qc3/lattice.py": {
@@ -1488,9 +1488,9 @@
     "semantic_hash": ""
   },
   "src/qc3_core/module.cpp": {
-    "mtime": 1792690311.8979425,
-    "seen": 1792691256.7418761,
-    "ast_hash": "e68b703857ca9996763ff6a2d11d1a84",
+    "mtime": 1792692997.3564978,
+    "seen": 1792693813.4412196,
+    "ast_hash": "ca22b8784f3756d8a467bbcf1bd61de3",
     "semantic_hash": ""
   },
   "results/test_m1_step1_build_stubs.json": {
@@ -1584,15 +1584,15 @@
     "semantic_hash": ""
   },
   "src/qc3_core/fast_point.hpp": {
-    "mtime": 1792690311.8972514,
-    "seen": 1792691256.7418704,
-    "ast_hash": "fb87ab358b4c95071710197be52e7882",
+    "mtime": 1792692776.9990723,
+    "seen": 1792693813.4412158,
+    "ast_hash": "b6dc5f8d61880ebd638423a14f7053f7",
     "semantic_hash": ""
   },
   "tests/unit/test_fast_path.py": {
-    "mtime": 1792690459.6057696,
-    "seen": 1792691256.7419572,
-    "ast_hash": "cde72c5734b08d5d0d30ad77c1cf9605",
+    "mtime": 1792692997.3560164,
+    "seen": 1792693813.4412441,
+    "ast_hash": "149d499eba06bb8360ebcf3c1e684466",
     "semantic_hash": ""
   },
   "results/m1_step6_cachekey_check.json": {
@@ -1704,9 +1704,9 @@
     "semantic_hash": ""
   },
   "src/qc3_core/fast_projector.hpp": {
-    "mtime": 1792690311.871047,
-    "seen": 1792691256.7418725,
-    "ast_hash": "8c57453816f974579adecff64a9967c4",
+    "mtime": 1792692850.7436242,
+    "seen": 1792693813.441217,
+    "ast_hash": "29992de16383a30b9553b1d4764de46e",
     "semantic_hash": ""
   },
   "results/tester_008_anchor_form_check.json": {
@@ -1761,6 +1761,12 @@
     "mtime": 1792692529.8222053,
     "seen": 1792692583.3607368,
     "ast_hash": "3c0d05c75231ce9e6413058caded26b1",
+    "semantic_hash": ""
+  },
+  "src/qc3_core/fast_basis.hpp": {
+    "mtime": 1792692776.9983552,
+    "seen": 1792693813.4412138,
+    "ast_hash": "738a4f3c5375fd147ac4fa0a5698e324",
     "semantic_hash": ""
   }
 }

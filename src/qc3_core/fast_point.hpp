@@ -1,6 +1,6 @@
 // fast_point.hpp : the cache-free fast path v1 (prompts/001 step 6, rungs 1-4).
 //
-// Same physics, same basis builder (qc3_oracle::make_kinematics) and same G, K2^{-1}, K3 functions as the oracle;
+// Same physics, same basis (threshold builder fast_kinematics, bit-identical to qc3_oracle::make_kinematics) and same G, K2^{-1}, K3 functions as the oracle;
 // the expensive F lattice sum is reorganised:
 //   rung 1  one sum pass per spectator momentum for ALL (l'm'; lm) pairs (the oracle repeats the 41^3 cube 16x);
 //   rung 2  ellipsoid-within-cube truncation  r^2 <= R^2  with R^2 chosen so that every omitted term is
@@ -22,6 +22,7 @@
 
 #include "oracle_point.hpp"
 #include "fast_projector.hpp"
+#include "fast_basis.hpp"
 
 namespace qc3_fast {
 
@@ -31,7 +32,7 @@ using namespace k3df_fit_v32f;
 
 struct Options {
     double trunc_eps = 1.0e-16;
-    std::string projector = "eigen";   // "eigen" (existing builder through the fast-owned cache); "orbit": step 7.2
+    std::string projector = "orbit";   // "orbit" (prompts/002 2.1, default) | "eigen" (existing builder, cross-check)
 };
 
 struct Stats {
@@ -196,7 +197,7 @@ inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& o
     Clock total, clk;
     out.Ecm = in.Ecm;
 
-    const Kin kin = make_kinematics(in);
+    const Kin kin = qc3_fast::fast_kinematics(in);   // threshold basis builder (prompts/002 2.2); the oracle keeps make_kinematics
     const PhysicsParams& par = kin.par;
     out.nnP = kin.spec.nnP;
     out.E_lab = kin.En_c.real();

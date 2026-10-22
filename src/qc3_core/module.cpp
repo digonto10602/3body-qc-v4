@@ -106,16 +106,47 @@ py::dict fast_point(const py::dict& p, double trunc_eps, const std::string& proj
   return output_to_dict(o);
 }
 
+py::list dimension_jumps(const py::dict& p, double E_lo, double E_hi) {
+  const qc3_oracle::Input in = parse_input(p);
+  std::vector<double> v;
+  {
+    py::gil_scoped_release release;
+    v = qc3_fast::dimension_jumps(in, E_lo, E_hi);
+  }
+  py::list out;
+  for (double x : v) out.append(x);
+  return out;
+}
+
+// Test hook: the oracle's Kin (config_maker_4_momentum_first) vs the threshold builder's Kin, compared bit for bit.
+py::dict compare_kinematics(const py::dict& p) {
+  const qc3_oracle::Input in = parse_input(p);
+  qc3_oracle::Kin a, b;
+  {
+    py::gil_scoped_release release;
+    a = qc3_oracle::make_kinematics(in);
+    b = qc3_fast::fast_kinematics(in);
+  }
+  bool same = (a.N1 == b.N1 && a.N2 == b.N2 && a.N == b.N && a.En_c == b.En_c && a.L == b.L && a.basis == b.basis &&
+               a.np_config == b.np_config && a.nk_config == b.nk_config && a.plm_config == b.plm_config &&
+               a.klm_config == b.klm_config && a.total_P == b.total_P);
+  py::dict d;
+  d["identical"] = same;
+  d["N"] = a.N;
+  d["N_fast"] = b.N;
+  return d;
+}
+
 }  // namespace
 
 PYBIND11_MODULE(_core, m) {
   m.doc() = "qc3 compiled core (oracle_point; fast path to follow)";
-  m.def("version", []() { return std::string("0.4.0-step7.0"); },
+  m.def("version", []() { return std::string("0.4.0-step7.3"); },
         "Version string of the compiled core.");
   m.def("git_commit", []() { return std::string(QC3_GIT_COMMIT); },
         "Short git commit the extension was built from ('unknown' if not in a git checkout).");
-  m.def("clear_caches", []() { qc3_fast::clear_fast_caches(); },
-        "Clear the fast path's in-memory caches (projector V_sel per complete key).");
+  m.def("clear_caches", []() { qc3_fast::clear_fast_caches(); qc3_fast::clear_threshold_tables(); },
+        "Clear the fast path's in-memory caches (projector V_sel per complete key; basis threshold tables).");
   m.def("cache_info", []() {
     auto& c = qc3_fast::projector_cache();
     std::lock_guard<std::mutex> lock(c.mtx);
@@ -123,11 +154,15 @@ PYBIND11_MODULE(_core, m) {
     d["projector_entries"] = (long long)c.map.size();
     d["projector_hits"] = c.hits;
     d["projector_misses"] = c.misses;
-    d["threshold_entries"] = 0;   // threshold tables: prompts/002 step 7.3
+    d["threshold_entries"] = qc3_fast::threshold_entries();
     return d;
   }, "Counters of the fast path's in-memory caches.");
-  m.def("fast_point", &fast_point, py::arg("params"), py::arg("trunc_eps") = 1e-16, py::arg("projector") = std::string("eigen"),
+  m.def("fast_point", &fast_point, py::arg("params"), py::arg("trunc_eps") = 1e-16, py::arg("projector") = std::string("orbit"),
         "Fast path v1 (prompts/001 step 6); same params as oracle_point plus the truncation tolerance.");
+  m.def("dimension_jumps", &dimension_jumps, py::arg("params"), py::arg("E_min"), py::arg("E_max"),
+        "Sorted E_cm strictly inside (E_min, E_max) where the basis dimension changes (prompts/002 section 2.2).");
+  m.def("compare_kinematics", &compare_kinematics, py::arg("params"),
+        "Test hook: oracle make_kinematics vs fast_kinematics, compared bit for bit (momenta, n, ell, m, order).");
   m.def("oracle_point", &oracle_point, py::arg("params"),
         "Oracle (existing CPU path, unchanged physics) at one energy on one core; see qc3.oracle.");
 }
