@@ -5,6 +5,8 @@
 #include <pybind11/numpy.h>
 #include <pybind11/stl.h>
 
+#include <algorithm>
+
 #include "oracle_point.hpp"
 #include "fast_point.hpp"
 
@@ -93,11 +95,15 @@ py::dict oracle_point(const py::dict& p) {
   return output_to_dict(o);
 }
 
-py::dict fast_point(const py::dict& p, double trunc_eps, const std::string& projector) {
+py::dict fast_point(const py::dict& p, double trunc_eps, const std::string& projector, const std::vector<std::string>& want, bool g_symmetric) {
   const qc3_oracle::Input in = parse_input(p);
   qc3_fast::Options opt;
   opt.trunc_eps = trunc_eps;
   opt.projector = projector;
+  opt.g_symmetric = g_symmetric;
+  const auto has = [&](const char* name) { return std::find(want.begin(), want.end(), std::string(name)) != want.end(); };
+  opt.want_F = has("F"); opt.want_G = has("G"); opt.want_K2inv = has("K2inv"); opt.want_F3 = has("F3");
+  opt.want_F3inv = has("F3inv"); opt.want_Vsel = has("Vsel"); opt.want_K3 = has("K3") || in.compute_k3;
   qc3_oracle::Output o;
   {
     py::gil_scoped_release release;
@@ -141,7 +147,7 @@ py::dict compare_kinematics(const py::dict& p) {
 
 PYBIND11_MODULE(_core, m) {
   m.doc() = "qc3 compiled core (oracle_point; fast path to follow)";
-  m.def("version", []() { return std::string("0.4.0-step7.3"); },
+  m.def("version", []() { return std::string("0.5.0-step7.6"); },
         "Version string of the compiled core.");
   m.def("git_commit", []() { return std::string(QC3_GIT_COMMIT); },
         "Short git commit the extension was built from ('unknown' if not in a git checkout).");
@@ -158,7 +164,9 @@ PYBIND11_MODULE(_core, m) {
     return d;
   }, "Counters of the fast path's in-memory caches.");
   m.def("fast_point", &fast_point, py::arg("params"), py::arg("trunc_eps") = 1e-16, py::arg("projector") = std::string("orbit"),
-        "Fast path v1 (prompts/001 step 6); same params as oracle_point plus the truncation tolerance.");
+        py::arg("want") = std::vector<std::string>{"F", "G", "K2inv", "F3", "F3inv", "Vsel", "K3", "Q"}, py::arg("g_symmetric") = false,
+        "Fast path (prompts/001 step 6, prompts/002 7.4-7.6); same params as oracle_point plus the truncation tolerance, the "
+        "projector method, the matrices to convert ('want'; Q, sign, lnabsdet are always returned) and the G fill mode.");
   m.def("dimension_jumps", &dimension_jumps, py::arg("params"), py::arg("E_min"), py::arg("E_max"),
         "Sorted E_cm strictly inside (E_min, E_max) where the basis dimension changes (prompts/002 section 2.2).");
   m.def("compare_kinematics", &compare_kinematics, py::arg("params"),

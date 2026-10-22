@@ -1,18 +1,19 @@
-"""Fast backend, cache-free, single core (prompts/001 step 6: rungs 1-4).
+"""Fast backend, cache-free, single core (prompts/001 step 6 rungs 1-4, prompts/002 steps 7.0-7.6).
 
 Implemented in src/qc3_core/fast_point.hpp: the threshold basis builder (fast_basis.hpp, bit-identical to the oracle's),
-the oracle's G, K2^{-1}, K3, the orbit/character projector (fast_projector.hpp); the
-F lattice sum is done in one pass per spectator momentum, truncated to the ellipsoid r^2 <= R^2 inside the oracle's
-cube (per-term bound <= trunc_eps), in real arithmetic.  Energy-independent pieces (the projector V_sel per basis
-signature) are cached in memory per process.  Final Q and (sign, ln|det|) via qc3.qc (same expressions as the
-oracle)."""
-import time
-
+the K2^{-1} of the oracle, the pair kernels for K_df,3 (fast_k3.hpp) and G (fast_g.hpp: same formulas as
+K3_functions_2plus1.hpp / G_functions_v2.h, one kinematics evaluation per unordered momentum pair), the
+orbit/character projector (fast_projector.hpp); the F lattice sum is done in one pass per spectator momentum,
+truncated to the ellipsoid r^2 <= R^2 inside the oracle's cube (per-term bound <= trunc_eps), in real arithmetic.
+Energy-independent pieces (the projector V_sel per basis signature, the basis threshold tables) are cached in memory
+per process.  The tail is in C++ (Eigen, one thread, no BLAS): F3 from the block structure of F,
+Q = L^-6 V^dag (X/s + K3 V) with X = (F3/s)^-1 V by one LU solve with N_proj right-hand sides (mathematically the
+projection of the inverse, invariant 1), (sign, ln|det Q|) by partial-pivot LU (invariant 2).  The full inverse F3^-1
+is formed only if "F3inv" is in `want`.  This module does not import qc3.qc (no BLAS call, hence no BLAS threads)."""
 import numpy as np
 
 from .oracle import K2_PWAVE_FORMS, _metadata
 from .point import ALL, BASIS_DTYPE, PointResult
-from .qc import project_Q, slogdet
 from .sector import Sector  # noqa: F401
 
 # "projector": "orbit" (default, prompts/002 section 2.1) builds V_sel from the little-group orbits and characters (no dense
@@ -58,32 +59,24 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
         raise ValueError("c must be (Kiso0, Kiso1, KB, KE)")
     want = set(want)
     params = _params(sector, Ecm, c, bool("K3" in want))
-    d = core.fast_point(params, trunc_eps, opts["projector"])
+    d = core.fast_point(params, trunc_eps, opts["projector"], sorted(want))
     if tuple(d["nnP"]) != tuple(sector.nnP):
         raise RuntimeError(f"nnP mismatch between Sector {sector.nnP} and C++ parse_label {d['nnP']}")
+    if abs(d["sign_imag"]) > 1e-10:   # same check as qc3.qc.slogdet: the determinant phase must be +-1
+        raise ValueError(f"fast: determinant phase has imaginary part {d['sign_imag']:.3e}; Q is not Hermitian")
     b = d["basis"]
     basis = np.empty(b.shape[0], dtype=BASIS_DTYPE)
     for j, name in enumerate(BASIS_DTYPE.names):
         basis[name] = b[:, j]
 
-    # final assembly: same expressions and LAPACK calls as the oracle (qc3.qc.project_Q / slogdet)
-    t0 = time.perf_counter()
-    Q = project_Q(d["F3inv"], d["Vsel"], d["K3"], sector.L)
-    t_proj = time.perf_counter() - t0
-    t0 = time.perf_counter()
-    sgn, lndet = slogdet(Q)
-    t_lu = time.perf_counter() - t0
-    timings = dict(d["timings"])
-    timings["projection"] = t_proj
-    timings["lu"] = t_lu
-    timings["total"] += t_proj + t_lu
+    timings = dict(d["timings"])   # "projection" and "lu" are measured in C++ (prompts/002 step 7.6)
 
     md = _metadata(sector, core)
     md["backend"] = "fast"
     md["trunc_eps"] = trunc_eps
     md["use_classes"] = False
     md["projector_method"] = opts["projector"]
-    md["tail"] = "numpy"   # becomes "cpp" in prompts/002 step 7.6
+    md["tail"] = "cpp"   # prompts/002 step 7.6: F3, Q and the LU in C++ (Eigen, one thread); no NumPy/BLAS call
     md["projector_cache_hit"] = bool(d["stats"]["projector_cache_hit"])
     md["lattice_terms"] = int(d["stats"]["lattice_terms"])
     md["lattice_cube_terms_per_entry"] = int(d["stats"]["lattice_cube_per_entry"])
@@ -92,8 +85,8 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
         sector=sector, Ecm=float(Ecm), E_lab=d["E_lab"], N1=d["N1"], N2=d["N2"], N=d["N"], Nproj=d["Nproj"],
         basis=basis, c=c,
         F=pick("F"), G=pick("G"), K2inv=pick("K2inv"), F3=pick("F3"), F3inv=pick("F3inv"), Vsel=pick("Vsel"),
-        K3_basis=d["K3_basis"], K3=pick("K3"), Q=Q if "Q" in want else None,
-        sign=int(sgn), lnabsdet=float(lndet), metadata=md, timings=timings,
+        K3_basis=d["K3_basis"], K3=pick("K3"), Q=d["Q"] if "Q" in want else None,
+        sign=int(d["sign"]), lnabsdet=float(d["lnabsdet"]), metadata=md, timings=timings,
     )
 
 
