@@ -13,7 +13,7 @@ SC = PRODUCTION["scatter"]
 
 
 def _ingredients_vs_reference(irrep, Ecm, pwave_form="coded_v2", check_k3=True):
-    kw = {} if pwave_form == "coded_v2" else {"k2_pwave_form": pwave_form}
+    kw = {"k2_pwave_form": pwave_form}   # always explicit (amendment acceptance-v4, D7: the default is no longer coded_v2)
     r = oracle_point(irrep, Ecm, C_ZERO, **kw)
     E, P = E_lab_of(irrep, Ecm)
     bl = basis_list(r)

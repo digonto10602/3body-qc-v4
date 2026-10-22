@@ -79,6 +79,7 @@ def test_oracle_metadata_has_production_constants():
             assert md[k] == v, k
     assert md["Lbyas"] == LBYAS and md["irrep"] == p["irrep"] and tuple(md["nnP"]) == NNP[p["irrep"]]
     assert abs(md["L"] - L_BOX) <= 1e-12
+    # "coded_v2" is the form PINNED by m1_helpers.sector (amendment acceptance-v4, D7): the anchors were made with it
     assert md["backend"] == "oracle" and md["k2_pwave_form"] == "coded_v2"
     assert isinstance(md["git_commit"], str) and len(md["git_commit"]) >= 7
     assert md["threads"] == 1

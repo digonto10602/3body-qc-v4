@@ -44,7 +44,15 @@ def anchor_points(small_only=False, with_baseline=False):
 
 
 def sector(irrep, **overrides):
+    """Production sector for the tests, with the p-wave K2^{-1} form PINNED to "coded_v2" unless overridden.
+
+    Amendment acceptance-v4 (2026-10-22, prompts/001 section 4, prompts/002 section 4): Digonto's decision D7 switches
+    the production default to "q0_consistent".  The anchors (data/oracle_anchors_L20.json), the labelled windows and
+    every comparison in the locked tests were produced with "coded_v2"; pinning it here keeps those tests testing
+    exactly what they tested before.  The production default itself is checked in test_m1_production_default.py,
+    which builds its Sector directly (not through this helper)."""
     from qc3.sector import Sector
+    overrides.setdefault("k2_pwave_form", "coded_v2")
     return Sector.production(irrep, Lbyas=LBYAS, **overrides)
 
 

@@ -99,8 +99,8 @@ $$
 
   All $r_\ell$ and $P_\ell$ are 0.
 - **Two named p-wave forms (prompts/001 §2.2; `Sector.k2_pwave_form`):**
-  - `coded_v2` (production default until decision D6): $B_1+C_1=-\frac{1}{a_1q^{*2}}+q^{*2}|q^*|(1-H)$ — the scattering-volume term is in the $q$-normalised convention of 2111.12734 Eq. (15) while $F$, $G$ and the $(1-H)$ term are in the $Q_0$ convention of Eqs. (20)–(21): mixed.
-  - `q0_consistent`: $-\frac1{a_1}+q^{*2}|q^*|(1-H)$, i.e. $\hat Q\,\mathcal K_2^{-1}\hat Q$ with $q^{*3}\cot\delta_1=-1/a_1$ (Eq. 17). Same $a_1=-43.2$.
+  - `coded_v2` (production default until D7; still selectable): $B_1+C_1=-\frac{1}{a_1q^{*2}}+q^{*2}|q^*|(1-H)$ — the scattering-volume term is in the $q$-normalised convention of 2111.12734 Eq. (15) while $F$, $G$ and the $(1-H)$ term are in the $Q_0$ convention of Eqs. (20)–(21): mixed.
+  - `q0_consistent` (**production default from D7, Digonto 2026-10-22**; `qc3.constants.K2_PWAVE_FORM_DEFAULT`, prompts/002 sub-step 7.8): $-\frac1{a_1}+q^{*2}|q^*|(1-H)$, i.e. $\hat Q\,\mathcal K_2^{-1}\hat Q$ with $q^{*3}\cot\delta_1=-1/a_1$ (Eq. 17). Same $a_1=-43.2$. Level shifts vs `coded_v2` on the 12 L20 levels: $-0.1$ to $-0.4\,\sigma_{\rm lat}$ (`reports/tests/007`, `results/k2_pwave_shift_L20.json`). The locked M1 acceptance tests pin `coded_v2` because their anchors and labelled windows were produced with it (prompts/001 §4, amendment 2026-10-22).
 - **Source of the values (research 007 §3.6):** HadSpec arXiv:1411.2004 (PRD 91, 054008) Sec. VI, $I=3/2$ $\pi K$ on this ensemble, ERE $k^{2\ell+1}\cot\delta_\ell=1/a_\ell+\tfrac12r_\ell k^2$ (their Eq. 9), global fit: $a_0=(-4.04\pm0.05\pm0.15)\,a_t$, $a_1=(43.2\pm3.7\pm15.4)\,a_t^3$; the code's $-1/a$ convention flips the sign. `q0_consistent` with $a_1=-43.2$ reproduces HadSpec exactly. $a_0^{KK}=4.12$: Digonto's earlier work (D2), no uncertainty recorded.
 - **Below the pair threshold:** $|q^*|=|\sqrt{q^{*2}}|$ (real magnitude of an imaginary $q^*$), as in the reference code.
 
@@ -189,6 +189,7 @@ $$
   $$y_c=\tfrac1{N-1}\sum_{c'\ne c}x_{c'},\qquad y_c\to E^*_c=\sqrt{y_c^2-P^2},\qquad \bar E^*=\tfrac1N\sum_cE^*_c,\qquad C_{ij}=\tfrac{N-1}{N}\sum_c(E^{*(i)}_c-\bar E^{*(i)})(E^{*(j)}_c-\bar E^{*(j)}),$$
   which for a linear map equals $C=\frac1{N(N-1)}\sum_c(x_c-\bar x)(x_c-\bar x)^T$, i.e. $\sigma=\mathrm{s.d.}/\sqrt N$ ($\approx5\times10^{-4}$ for the L20 levels). The multi-L reader's formula (no resampling) is wrong by $(N-1)^2$ and must not be used. See `docs/OPEN_ISSUES.md` issue 1.
 - **Level matching (D3; `qc3.lattice.match_levels`):** sort both lists ascending; with $m$ lattice and $n\ge m$ QC levels pair the lowest $m$; $n<m$ raises `MissingRootError`.
+- **Excluded from matching (D8, Digonto 2026-10-22):** exact free-level solutions of the QC are artefacts, not levels. Example: `110_A2`, $E^*=0.319468828$, $|\det Q|\propto(E-E^*)^4$ without a sign change, exactly the non-interacting energy of $K(\mathbf 0)K(0,1,0)\pi(1,0,0)$ at $\mathbf P=(1,1,0)$ (`reports/tests/007` finding 2). Any root detector feeding `match_levels` must compare its candidates with the non-interacting spectrum (§14) and drop those within $10^{-7}$ of a free level (`docs/ROOT_FINDING.md` §4; M2, prompts/002 §9). The human labels contain no such solutions and stay the ground truth (invariant 7).
 
 ## 12. Minimiser
 

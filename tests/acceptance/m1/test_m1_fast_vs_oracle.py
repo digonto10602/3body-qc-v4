@@ -107,7 +107,9 @@ def test_fast_root_vs_oracle_100_A2_windows():
     from qc3.roots import refine_root
     rows = accepted_windows("100_A2")
     assert len(rows) == 2
-    sec = sector("100_A2")
+    # the labelled windows hold coded_v2 zeros (step 9: the q0_consistent root of level 0 lies outside its window),
+    # so the form is pinned explicitly (amendment acceptance-v4, D7)
+    sec = sector("100_A2", k2_pwave_form="coded_v2")
     for row in rows:
         E_left, E_right = grid_energy(row["row_left"]), grid_energy(row["row_right"])
         label = float(row["zero_estimate_initial"])
