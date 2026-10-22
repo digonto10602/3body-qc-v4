@@ -602,17 +602,17 @@
       "source_location": "L482"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer",
-      "label": "ScopedTimer",
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow",
+      "label": "DetRow",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 148,
       "community_name": "process_same_shape_group_true_batch_v15",
       "file_type": "code",
-      "norm_label": "scopedtimer",
+      "norm_label": "detrow",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L113"
+      "source_location": "L848"
     },
     {
       "id": "src_fitter_lattice_data_covariance_cpp_covarianceresult",
@@ -1122,32 +1122,6 @@
       "source_location": "L1216"
     },
     {
-      "id": "src_qc3_core_oracle_point_clock",
-      "label": "Clock",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "clock",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L77"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin",
-      "label": "Kin",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "kin",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L112"
-    },
-    {
       "id": "src_qc3_core_oracle_point_output",
       "label": "Output",
       "_callable": true,
@@ -1159,19 +1133,6 @@
       "norm_label": "output",
       "source_file": "src/qc3_core/oracle_point.hpp",
       "source_location": "L62"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_singlethread",
-      "label": "SingleThread",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "singlethread",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L89"
     },
     {
       "id": "src_fitter_qc_fitter_norm_refine_v2_multil_windowgridrow",
@@ -1629,17 +1590,17 @@
       "source_location": "L24"
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats",
-      "label": "MatrixCompareStats",
+      "id": "src_qc3_core_oracle_point_kin",
+      "label": "Kin",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "matrixcomparestats",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L476"
+      "norm_label": "kin",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L112"
     },
     {
       "id": "src_cache_io_v33h_patched_gpu_cache_oldscale_det_scan_v33hbridgerow",
@@ -1692,19 +1653,6 @@
       "norm_label": "sector",
       "source_file": "src/python/qc3/sector.py",
       "source_location": "L12"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow",
-      "label": "DetRow",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "detrow",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L848"
     },
     {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_inwardshaperesult",
@@ -1850,17 +1798,30 @@
       "source_location": "L87"
     },
     {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats",
-      "label": "MatrixCompareStats",
+      "id": "src_qc3_core_oracle_point_clock",
+      "label": "Clock",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 341,
-      "community_name": "MatrixCompareStats",
+      "community_name": "oracle_point.hpp",
       "file_type": "code",
-      "norm_label": "matrixcomparestats",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L679"
+      "norm_label": "clock",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L77"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_singlethread",
+      "label": "SingleThread",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 341,
+      "community_name": "oracle_point.hpp",
+      "file_type": "code",
+      "norm_label": "singlethread",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L89"
     },
     {
       "id": "src_cachegen_gpu_projections_gpu_safe_deviceconfigview",
@@ -1902,19 +1863,6 @@
       "source_location": "L600"
     },
     {
-      "id": "src_core_f2_functions_v2_neumaiercomplexsum",
-      "label": "NeumaierComplexSum",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "F2_functions_v2.h",
-      "file_type": "code",
-      "norm_label": "neumaiercomplexsum",
-      "source_file": "src/core/F2_functions_v2.h",
-      "source_location": "L522"
-    },
-    {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_detrow",
       "label": "DetRow",
       "_callable": true,
@@ -1952,6 +1900,32 @@
       "norm_label": "v32ztallobjwriter",
       "source_file": "src/cachegen_gpu/F3_gpu_cachegen_v32zu.cu",
       "source_location": "L869"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer",
+      "label": "ScopedTimer",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 354,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "scopedtimer",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L113"
+    },
+    {
+      "id": "src_core_f2_functions_v2_neumaiercomplexsum",
+      "label": "NeumaierComplexSum",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "NeumaierComplexSum",
+      "file_type": "code",
+      "norm_label": "neumaiercomplexsum",
+      "source_file": "src/core/F2_functions_v2.h",
+      "source_location": "L522"
     },
     {
       "id": "src_cachegen_gpu_f2_gpu_safe_builder_f2gpuoptions",
@@ -2422,6 +2396,19 @@
       "source_location": "L18"
     },
     {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats",
+      "label": "MatrixCompareStats",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "matrixcomparestats",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L476"
+    },
+    {
       "id": "src_cachegen_gpu_g_gpu_safe_builder_vec3d",
       "label": "Vec3d",
       "_callable": true,
@@ -2433,6 +2420,19 @@
       "norm_label": "vec3d",
       "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
       "source_location": "L31"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats",
+      "label": "MatrixCompareStats",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "matrixcomparestats",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L679"
     },
     {
       "id": "tools_legacy_v32_inspect_v32_f3inv_cache_v32f_fixed_cacheeof",
@@ -6435,6 +6435,18 @@
       "source_location": "L1512"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_classify_inward_shape",
+      "label": "classify_inward_shape()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "classify_inward_shape()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1895"
+    },
+    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_compute_one_energy_device_resident",
       "label": "compute_one_energy_device_resident()",
       "_callable": true,
@@ -6553,18 +6565,6 @@
       "norm_label": "run_scan_device_resident()",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
       "source_location": "L1545"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_scopedtimer",
-      "label": ".ScopedTimer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 148,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": ".scopedtimer()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L118"
     },
     {
       "id": "src_cachegen_gpu_k2_functions_gpu_safe_devicescatterparams_view",
@@ -9243,66 +9243,6 @@
       "source_location": "L142"
     },
     {
-      "id": "src_qc3_core_oracle_point_clock_lap",
-      "label": ".lap()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": ".lap()",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L80"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_compute_k3",
-      "label": "compute_k3()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "compute_k3()",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L173"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_evaluate",
-      "label": "evaluate()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "evaluate()",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L187"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_make_kinematics",
-      "label": "make_kinematics()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "make_kinematics()",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L124"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_singlethread_singlethread",
-      "label": ".SingleThread()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": ".singlethread()",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L94"
-    },
-    {
       "id": "tests_reference_compare_k3_cpp_vs_python_add_qc3_paths",
       "label": "add_qc3_paths()",
       "_callable": true,
@@ -9615,18 +9555,6 @@
       "source_location": "L11"
     },
     {
-      "id": "tests_acceptance_m1_m1_helpers_accepted_windows",
-      "label": "accepted_windows()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "sector",
-      "file_type": "code",
-      "norm_label": "accepted_windows()",
-      "source_file": "tests/acceptance/m1/m1_helpers.py",
-      "source_location": "L94"
-    },
-    {
       "id": "tests_acceptance_m1_m1_helpers_sector",
       "label": "sector()",
       "_callable": true,
@@ -9651,18 +9579,6 @@
       "source_location": "L180"
     },
     {
-      "id": "tests_acceptance_m1_test_m1_fast_v2_test_fast_options_projector_values",
-      "label": "test_fast_options_projector_values()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "sector",
-      "file_type": "code",
-      "norm_label": "test_fast_options_projector_values()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L146"
-    },
-    {
       "id": "tests_acceptance_m1_test_m1_fast_v2_test_fast_speedup_single_thread_largest_point_ge_150x",
       "label": "test_fast_speedup_single_thread_largest_point_ge_150x()",
       "_callable": true,
@@ -9673,18 +9589,6 @@
       "norm_label": "test_fast_speedup_single_thread_largest_point_ge_150x()",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
       "source_location": "L237"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_v2_test_projector_cache_key_complete",
-      "label": "test_projector_cache_key_complete()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "sector",
-      "file_type": "code",
-      "norm_label": "test_projector_cache_key_complete()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L78"
     },
     {
       "id": "tests_acceptance_m1_test_m1_roots_evaluate",
@@ -12519,18 +12423,6 @@
       "source_location": "L136"
     },
     {
-      "id": "tests_acceptance_m1_m1_helpers_as_c",
-      "label": "as_c()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 311,
-      "community_name": "test_m1_fast_v2.py",
-      "file_type": "code",
-      "norm_label": "as_c()",
-      "source_file": "tests/acceptance/m1/m1_helpers.py",
-      "source_location": "L72"
-    },
-    {
       "id": "tests_acceptance_m1_test_m1_fast_v2_fast",
       "label": "_fast()",
       "_callable": true,
@@ -12591,6 +12483,18 @@
       "source_location": "L161"
     },
     {
+      "id": "tests_acceptance_m1_test_m1_fast_v2_test_fast_options_projector_values",
+      "label": "test_fast_options_projector_values()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "test_m1_fast_v2.py",
+      "file_type": "code",
+      "norm_label": "test_fast_options_projector_values()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L146"
+    },
+    {
       "id": "tests_acceptance_m1_test_m1_fast_v2_test_fast_single_thread_cpu_time",
       "label": "test_fast_single_thread_cpu_time()",
       "_callable": true,
@@ -12613,6 +12517,18 @@
       "norm_label": "test_fast_tail_consistent_with_numpy_and_want_subset()",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
       "source_location": "L209"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_v2_test_projector_cache_key_complete",
+      "label": "test_projector_cache_key_complete()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "test_m1_fast_v2.py",
+      "file_type": "code",
+      "norm_label": "test_projector_cache_key_complete()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L78"
     },
     {
       "id": "tests_acceptance_m1_test_m1_fast_v2_test_projector_cold_build_is_fast",
@@ -12649,6 +12565,18 @@
       "norm_label": "_thresholds_rule()",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
       "source_location": "L46"
+    },
+    {
+      "id": "tests_acceptance_m1_m1_helpers_accepted_windows",
+      "label": "accepted_windows()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 312,
+      "community_name": "m1_helpers.py",
+      "file_type": "code",
+      "norm_label": "accepted_windows()",
+      "source_file": "tests/acceptance/m1/m1_helpers.py",
+      "source_location": "L94"
     },
     {
       "id": "tests_acceptance_m1_m1_helpers_fast_point",
@@ -12709,18 +12637,6 @@
       "norm_label": "_compare()",
       "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
       "source_location": "L20"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_basis_identical_to_oracle",
-      "label": "test_fast_basis_identical_to_oracle()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 312,
-      "community_name": "m1_helpers.py",
-      "file_type": "code",
-      "norm_label": "test_fast_basis_identical_to_oracle()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L53"
     },
     {
       "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_metadata_and_timings",
@@ -12807,6 +12723,18 @@
       "source_location": "L37"
     },
     {
+      "id": "tests_acceptance_m1_m1_helpers_as_c",
+      "label": "as_c()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 317,
+      "community_name": "anchor_points",
+      "file_type": "code",
+      "norm_label": "as_c()",
+      "source_file": "tests/acceptance/m1/m1_helpers.py",
+      "source_location": "L72"
+    },
+    {
       "id": "tests_acceptance_m1_m1_helpers_basis_list",
       "label": "basis_list()",
       "_callable": true,
@@ -12853,6 +12781,18 @@
       "norm_label": "rel_frob()",
       "source_file": "tests/acceptance/m1/m1_helpers.py",
       "source_location": "L76"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_basis_identical_to_oracle",
+      "label": "test_fast_basis_identical_to_oracle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 317,
+      "community_name": "anchor_points",
+      "file_type": "code",
+      "norm_label": "test_fast_basis_identical_to_oracle()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L53"
     },
     {
       "id": "tests_acceptance_m1_test_m1_oracle_check_anchor",
@@ -13081,30 +13021,6 @@
       "norm_label": ".scopedtimer()",
       "source_file": "src/core/dig_tools.hpp",
       "source_location": "L30"
-    },
-    {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_compare_matrices",
-      "label": "compare_matrices()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 319,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "compare_matrices()",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L488"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_compare_matrices",
-      "label": "compare_matrices()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 319,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "compare_matrices()",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L693"
     },
     {
       "id": "src_cache_io_v33h_patched_gpu_cache_oldscale_det_scan_assemble_scaled_projected_qc_for_row",
@@ -13585,78 +13501,6 @@
       "norm_label": "test_sector_properties()",
       "source_file": "tests/unit/test_sector_oracle.py",
       "source_location": "L9"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_adaptive_final_zeros_device_resident",
-      "label": "adaptive_final_zeros_device_resident()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "adaptive_final_zeros_device_resident()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1902"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_classify_inward_shape",
-      "label": "classify_inward_shape()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "classify_inward_shape()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1895"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_classify_inward_shape_result",
-      "label": "classify_inward_shape_result()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "classify_inward_shape_result()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1765"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_linear_zero",
-      "label": "linear_zero()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "linear_zero()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1747"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_main",
-      "label": "main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L2017"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_sign_flip",
-      "label": "sign_flip()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "sign_flip()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L1742"
     },
     {
       "id": "tests_acceptance_m1_qc3ref_basis_basis_to_list",
@@ -14415,6 +14259,66 @@
       "source_location": "L16"
     },
     {
+      "id": "src_qc3_core_oracle_point_clock_lap",
+      "label": ".lap()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 341,
+      "community_name": "oracle_point.hpp",
+      "file_type": "code",
+      "norm_label": ".lap()",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L80"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_compute_k3",
+      "label": "compute_k3()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 341,
+      "community_name": "oracle_point.hpp",
+      "file_type": "code",
+      "norm_label": "compute_k3()",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L173"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_evaluate",
+      "label": "evaluate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 341,
+      "community_name": "oracle_point.hpp",
+      "file_type": "code",
+      "norm_label": "evaluate()",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L187"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_make_kinematics",
+      "label": "make_kinematics()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 341,
+      "community_name": "oracle_point.hpp",
+      "file_type": "code",
+      "norm_label": "make_kinematics()",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L124"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_singlethread_singlethread",
+      "label": ".SingleThread()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 341,
+      "community_name": "oracle_point.hpp",
+      "file_type": "code",
+      "norm_label": ".singlethread()",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L94"
+    },
+    {
       "id": "tools_audit_chi2_covariance_convention_check_chi2",
       "label": "chi2()",
       "_callable": true,
@@ -14775,18 +14679,6 @@
       "source_location": "L610"
     },
     {
-      "id": "src_core_f2_functions_v2_neumaiercomplexsum_add",
-      "label": ".add()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "F2_functions_v2.h",
-      "file_type": "code",
-      "norm_label": ".add()",
-      "source_file": "src/core/F2_functions_v2.h",
-      "source_location": "L529"
-    },
-    {
       "id": "src_core_f2_functions_v2_neumaiercomplexsum_result",
       "label": ".result()",
       "_callable": true,
@@ -15027,6 +14919,30 @@
       "source_location": "L887"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_scopedtimer",
+      "label": ".ScopedTimer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 354,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": ".scopedtimer()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L118"
+    },
+    {
+      "id": "src_core_f2_functions_v2_neumaiercomplexsum_add",
+      "label": ".add()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "NeumaierComplexSum",
+      "file_type": "code",
+      "norm_label": ".add()",
+      "source_file": "src/core/F2_functions_v2.h",
+      "source_location": "L529"
+    },
+    {
       "id": "src_cachegen_gpu_f2_gpu_safe_builder_check_cuda",
       "label": "check_cuda()",
       "_callable": true,
@@ -15193,18 +15109,6 @@
       "norm_label": "make_subchunk_copy()",
       "source_file": "legacy/root_finding_lineage/F3_gpu_omp_cublas_pipeline_v9_inward_shape_refinement.cu",
       "source_location": "L1090"
-    },
-    {
-      "id": "src_core_functions_boost",
-      "label": "boost()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "functions.h",
-      "file_type": "code",
-      "norm_label": "boost()",
-      "source_file": "src/core/functions.h",
-      "source_location": "L1281"
     },
     {
       "id": "src_core_functions_config_maker",
@@ -20331,6 +20235,18 @@
       "source_location": "L80"
     },
     {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_compare_matrices",
+      "label": "compare_matrices()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "compare_matrices()",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L488"
+    },
+    {
       "id": "src_cachegen_gpu_g_gpu_safe_builder_cpow_int",
       "label": "cpow_int()",
       "_callable": true,
@@ -20521,6 +20437,18 @@
       "norm_label": "spherical_harmonics_gpu()",
       "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
       "source_location": "L209"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_compare_matrices",
+      "label": "compare_matrices()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "compare_matrices()",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L693"
     },
     {
       "id": "tools_legacy_v32_inspect_v32_f3inv_cache_v32f_fixed_expected_coarse_grid",
@@ -21063,6 +20991,18 @@
       "source_location": "L236"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_adaptive_final_zeros_device_resident",
+      "label": "adaptive_final_zeros_device_resident()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "file_type": "code",
+      "norm_label": "adaptive_final_zeros_device_resident()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1902"
+    },
+    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_build_f3_from_f2_and_f2x1_kernel",
       "label": "build_F3_from_F2_and_F2X1_kernel()",
       "_callable": true,
@@ -21087,6 +21027,18 @@
       "source_location": "L145"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_classify_inward_shape_result",
+      "label": "classify_inward_shape_result()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "file_type": "code",
+      "norm_label": "classify_inward_shape_result()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1765"
+    },
+    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_combine_h_colmajor_kernel",
       "label": "combine_H_colmajor_kernel()",
       "_callable": true,
@@ -21109,6 +21061,42 @@
       "norm_label": "gather_real_evecs_to_complex_vsel_kernel()",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
       "source_location": "L417"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_linear_zero",
+      "label": "linear_zero()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "file_type": "code",
+      "norm_label": "linear_zero()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1747"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L2017"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_sign_flip",
+      "label": "sign_flip()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 78,
+      "community_name": "F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "file_type": "code",
+      "norm_label": "sign_flip()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L1742"
     },
     {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_v11_set_stage",
@@ -22417,6 +22405,18 @@
       "norm_label": "write_nonint_config()",
       "source_file": "scripts/plot/L20_spectrum_plotter_model_true_zeros_yaxis_fixed.py",
       "source_location": "L289"
+    },
+    {
+      "id": "src_core_functions_boost",
+      "label": "boost()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 94,
+      "community_name": "QC_functions_v2.h",
+      "file_type": "code",
+      "norm_label": "boost()",
+      "source_file": "src/core/functions.h",
+      "source_location": "L1281"
     },
     {
       "id": "src_core_g_functions_v2_g_2plus1_mat",
@@ -35134,17 +35134,6 @@
       "source_location": ""
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_time_point",
-      "label": "time_point",
-      "_origin": "ast",
-      "community": 148,
-      "community_name": "process_same_shape_group_true_batch_v15",
-      "file_type": "code",
-      "norm_label": "time_point",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_vector",
       "label": "vector",
       "_origin": "ast",
@@ -35156,37 +35145,48 @@
       "source_location": ""
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_debug",
-      "label": "debug",
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_det_norm",
+      "label": "det_norm",
       "_origin": "ast",
       "community": 148,
       "community_name": "process_same_shape_group_true_batch_v15",
       "file_type": "code",
-      "norm_label": "debug",
+      "norm_label": "det_norm",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L116"
+      "source_location": "L853"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_name",
-      "label": "name",
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_det_raw",
+      "label": "det_raw",
       "_origin": "ast",
       "community": 148,
       "community_name": "process_same_shape_group_true_batch_v15",
       "file_type": "code",
-      "norm_label": "name",
+      "norm_label": "det_raw",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L115"
+      "source_location": "L852"
     },
     {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_t0",
-      "label": "t0",
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_ecm",
+      "label": "Ecm",
       "_origin": "ast",
       "community": 148,
       "community_name": "process_same_shape_group_true_batch_v15",
       "file_type": "code",
-      "norm_label": "t0",
+      "norm_label": "ecm",
       "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L117"
+      "source_location": "L851"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_i",
+      "label": "i",
+      "_origin": "ast",
+      "community": 148,
+      "community_name": "process_same_shape_group_true_batch_v15",
+      "file_type": "code",
+      "norm_label": "i",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L850"
     },
     {
       "id": "prompts_002_m1_step7_speed_replan_projector_basis_k3_g",
@@ -41732,6 +41732,18 @@
       "source_location": "L37"
     },
     {
+      "id": "notes_status_decisions_answered_at_the_cloud_session_2026_10_22",
+      "label": "Decisions answered at the cloud session (2026-10-22)",
+      "_origin": "ast",
+      "community": 192,
+      "community_name": "STATUS",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "decisions answered at the cloud session (2026-10-22)",
+      "source_file": "notes/STATUS.md",
+      "source_location": "L76"
+    },
+    {
       "id": "notes_status_decisions_from_digonto_answered_2026_10_21",
       "label": "Decisions from Digonto (answered 2026-10-21)",
       "_origin": "ast",
@@ -41802,18 +41814,6 @@
       "norm_label": "open failures and attempt counters",
       "source_file": "notes/STATUS.md",
       "source_location": "L83"
-    },
-    {
-      "id": "notes_status_pending_decision_for_digonto",
-      "label": "Pending decision for Digonto",
-      "_origin": "ast",
-      "community": 192,
-      "community_name": "STATUS",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pending decision for digonto",
-      "source_file": "notes/STATUS.md",
-      "source_location": "L76"
     },
     {
       "id": "notes_status_status",
@@ -45668,50 +45668,6 @@
       "source_location": "L1217"
     },
     {
-      "id": "src_qc3_core_oracle_point",
-      "label": "oracle_point.hpp",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "oracle_point.hpp",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_clock_t0",
-      "label": "t0_",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "t0_",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L78"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_hpp_array",
-      "label": "array",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "array",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_oracle_point_hpp_comp",
-      "label": "comp",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "comp",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "src_qc3_core_oracle_point_hpp_map",
       "label": "map",
       "_origin": "ast",
@@ -45721,204 +45677,6 @@
       "norm_label": "map",
       "source_file": "",
       "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_oracle_point_hpp_mat",
-      "label": "Mat",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "mat",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_oracle_point_hpp_physicsparams",
-      "label": "PhysicsParams",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "physicsparams",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_oracle_point_hpp_time_point",
-      "label": "time_point",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "time_point",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_oracle_point_hpp_vector",
-      "label": "vector",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "vector",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_basis",
-      "label": "basis",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "basis",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L121"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_en_c",
-      "label": "En_c",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "en_c",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L117"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_klm_config",
-      "label": "klm_config",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "klm_config",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L118"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_l",
-      "label": "L",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "l",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L115"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_n",
-      "label": "N",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "n",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L120"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_n1",
-      "label": "N1",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "n1",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L120"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_n2",
-      "label": "N2",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "n2",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L120"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_nk_config",
-      "label": "nk_config",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "nk_config",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L119"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_nnp_config",
-      "label": "nnP_config",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "nnp_config",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L116"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_np_config",
-      "label": "np_config",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "np_config",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L119"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_par",
-      "label": "par",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "par",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L113"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_plm_config",
-      "label": "plm_config",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "plm_config",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L118"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_spec",
-      "label": "spec",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "spec",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L114"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_kin_total_p",
-      "label": "total_P",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "total_p",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L116"
     },
     {
       "id": "src_qc3_core_oracle_point_output_basis",
@@ -45952,17 +45710,6 @@
       "norm_label": "ecm",
       "source_file": "src/qc3_core/oracle_point.hpp",
       "source_location": "L63"
-    },
-    {
-      "id": "src_qc3_core_oracle_point_output_f3",
-      "label": "F3",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "f3",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L67"
     },
     {
       "id": "src_qc3_core_oracle_point_output_f3inv",
@@ -46152,17 +45899,6 @@
       "source_location": "L67"
     },
     {
-      "id": "src_qc3_core_oracle_point_singlethread_eigen_prev",
-      "label": "eigen_prev",
-      "_origin": "ast",
-      "community": 212,
-      "community_name": "Output",
-      "file_type": "code",
-      "norm_label": "eigen_prev",
-      "source_file": "src/qc3_core/oracle_point.hpp",
-      "source_location": "L93"
-    },
-    {
       "id": "src_fitter_qc_fitter_norm_refine_v2_multil_windowgridrow_det_imag",
       "label": "det_imag",
       "_origin": "ast",
@@ -46264,14 +46000,14 @@
       "source_location": "L1"
     },
     {
-      "id": "claude_decisions_already_made_by_digonto_2026_10_21_details_in_notes_status_md",
-      "label": "Decisions already made by Digonto (2026-10-21; details in `notes/STATUS.md`)",
+      "id": "claude_decisions_already_made_by_digonto_2026_10_21_22_details_in_notes_status_md",
+      "label": "Decisions already made by Digonto (2026-10-21/22; details in `notes/STATUS.md`)",
       "_origin": "ast",
       "community": 215,
       "community_name": "CLAUDE.md \u2014 project rules for 3body-qc-v4",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "decisions already made by digonto (2026-10-21; details in `notes/status.md`)",
+      "norm_label": "decisions already made by digonto (2026-10-21/22; details in `notes/status.md`)",
       "source_file": "CLAUDE.md",
       "source_location": "L47"
     },
@@ -46309,7 +46045,7 @@
       "node_kind": "heading",
       "norm_label": "pushing to github (pre-authorised by digonto, 2026-10-21)",
       "source_file": "CLAUDE.md",
-      "source_location": "L60"
+      "source_location": "L63"
     },
     {
       "id": "claude_setting_up_a_fresh_cloud_checkout",
@@ -46333,7 +46069,7 @@
       "node_kind": "heading",
       "norm_label": "stop and ask digonto",
       "source_file": "CLAUDE.md",
-      "source_location": "L66"
+      "source_location": "L69"
     },
     {
       "id": "claude_things_that_are_known_to_be_wrong_or_unverified_see_docs_open_issues_md",
@@ -46345,7 +46081,7 @@
       "node_kind": "heading",
       "norm_label": "things that are known to be wrong or unverified (see `docs/open_issues.md`)",
       "source_file": "CLAUDE.md",
-      "source_location": "L54"
+      "source_location": "L57"
     },
     {
       "id": "legacy_root_finding_lineage_f3_cpu_openmp_v24_k3_qc_multi_signflip_side_abs_refinement_cpp_time_point",
@@ -48598,17 +48334,6 @@
       "source_location": ""
     },
     {
-      "id": "tests_acceptance_m1_m1_helpers_rationale_95",
-      "label": "Rows of data/windows/L20/L20_<irrep>/accepted_windows.csv as dicts (strings).",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "sector",
-      "file_type": "rationale",
-      "norm_label": "rows of data/windows/l20/l20_<irrep>/accepted_windows.csv as dicts (strings).",
-      "source_file": "tests/acceptance/m1/m1_helpers.py",
-      "source_location": "L95"
-    },
-    {
       "id": "tests_acceptance_m1_test_m1_fast_v2_rationale_181",
       "label": "Every basis the production range can produce: the fast path's basis equals the\u2026",
       "_origin": "ast",
@@ -48618,17 +48343,6 @@
       "norm_label": "every basis the production range can produce: the fast path's basis equals the...",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
       "source_location": "L181"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_v2_rationale_79",
-      "label": "Report 006 note 2: the legacy key omitted eig_tol, so eig_tol=1e-30 after a\u2026",
-      "_origin": "ast",
-      "community": 239,
-      "community_name": "sector",
-      "file_type": "rationale",
-      "norm_label": "report 006 note 2: the legacy key omitted eig_tol, so eig_tol=1e-30 after a...",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L79"
     },
     {
       "id": "tests_acceptance_m1_test_m1_roots_rationale_1",
@@ -55306,6 +55020,17 @@
       "source_location": "L62"
     },
     {
+      "id": "tests_acceptance_m1_test_m1_fast_v2_rationale_79",
+      "label": "Report 006 note 2: the legacy key omitted eig_tol, so eig_tol=1e-30 after a\u2026",
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "test_m1_fast_v2.py",
+      "file_type": "rationale",
+      "norm_label": "report 006 note 2: the legacy key omitted eig_tol, so eig_tol=1e-30 after a...",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L79"
+    },
+    {
       "id": "tests_acceptance_m1_m1_helpers",
       "label": "m1_helpers.py",
       "_origin": "ast",
@@ -55348,6 +55073,17 @@
       "norm_label": "shared helpers for the m1 acceptance tests (planner-owned, locked). nothing...",
       "source_file": "tests/acceptance/m1/m1_helpers.py",
       "source_location": "L1"
+    },
+    {
+      "id": "tests_acceptance_m1_m1_helpers_rationale_95",
+      "label": "Rows of data/windows/L20/L20_<irrep>/accepted_windows.csv as dicts (strings).",
+      "_origin": "ast",
+      "community": 312,
+      "community_name": "m1_helpers.py",
+      "file_type": "rationale",
+      "norm_label": "rows of data/windows/l20/l20_<irrep>/accepted_windows.csv as dicts (strings).",
+      "source_file": "tests/acceptance/m1/m1_helpers.py",
+      "source_location": "L95"
     },
     {
       "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_rationale_1",
@@ -55836,125 +55572,180 @@
       "source_location": "L28"
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_frob_abs",
-      "label": "frob_abs",
+      "id": "src_qc3_core_oracle_point_hpp_array",
+      "label": "array",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "frob_abs",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L479"
+      "norm_label": "array",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_frob_rel",
-      "label": "frob_rel",
+      "id": "src_qc3_core_oracle_point_hpp_physicsparams",
+      "label": "PhysicsParams",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "frob_rel",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L480"
+      "norm_label": "physicsparams",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_abs",
-      "label": "max_abs",
+      "id": "src_qc3_core_oracle_point_hpp_vector",
+      "label": "vector",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "max_abs",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L477"
+      "norm_label": "vector",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_i",
-      "label": "max_i",
+      "id": "src_qc3_core_oracle_point_kin_basis",
+      "label": "basis",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "max_i",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L481"
+      "norm_label": "basis",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L121"
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_j",
-      "label": "max_j",
+      "id": "src_qc3_core_oracle_point_kin_en_c",
+      "label": "En_c",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "max_j",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L482"
+      "norm_label": "en_c",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L117"
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_rel",
-      "label": "max_rel",
+      "id": "src_qc3_core_oracle_point_kin_klm_config",
+      "label": "klm_config",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "max_rel",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L478"
+      "norm_label": "klm_config",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L118"
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_bad_abs",
-      "label": "n_bad_abs",
+      "id": "src_qc3_core_oracle_point_kin_n",
+      "label": "N",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "n_bad_abs",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L483"
+      "norm_label": "n",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L120"
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_bad_rel",
-      "label": "n_bad_rel",
+      "id": "src_qc3_core_oracle_point_kin_n1",
+      "label": "N1",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "n_bad_rel",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L484"
+      "norm_label": "n1",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L120"
     },
     {
-      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_nan_inf",
-      "label": "n_nan_inf",
+      "id": "src_qc3_core_oracle_point_kin_n2",
+      "label": "N2",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "n_nan_inf",
-      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
-      "source_location": "L485"
+      "norm_label": "n2",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L120"
     },
     {
-      "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_evaldata_a",
-      "label": "A",
+      "id": "src_qc3_core_oracle_point_kin_nk_config",
+      "label": "nk_config",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "a",
-      "source_file": "src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp",
-      "source_location": "L331"
+      "norm_label": "nk_config",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L119"
     },
     {
-      "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_evaldata_b",
-      "label": "B",
+      "id": "src_qc3_core_oracle_point_kin_nnp_config",
+      "label": "nnP_config",
       "_origin": "ast",
       "community": 319,
-      "community_name": "MatrixCompareStats",
+      "community_name": "Kin",
       "file_type": "code",
-      "norm_label": "b",
-      "source_file": "src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp",
-      "source_location": "L331"
+      "norm_label": "nnp_config",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L116"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_kin_np_config",
+      "label": "np_config",
+      "_origin": "ast",
+      "community": 319,
+      "community_name": "Kin",
+      "file_type": "code",
+      "norm_label": "np_config",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L119"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_kin_par",
+      "label": "par",
+      "_origin": "ast",
+      "community": 319,
+      "community_name": "Kin",
+      "file_type": "code",
+      "norm_label": "par",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L113"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_kin_plm_config",
+      "label": "plm_config",
+      "_origin": "ast",
+      "community": 319,
+      "community_name": "Kin",
+      "file_type": "code",
+      "norm_label": "plm_config",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L118"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_kin_spec",
+      "label": "spec",
+      "_origin": "ast",
+      "community": 319,
+      "community_name": "Kin",
+      "file_type": "code",
+      "norm_label": "spec",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L114"
+    },
+    {
+      "id": "src_qc3_core_oracle_point_kin_total_p",
+      "label": "total_P",
+      "_origin": "ast",
+      "community": 319,
+      "community_name": "Kin",
+      "file_type": "code",
+      "norm_label": "total_p",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L116"
     },
     {
       "id": "src_cache_io_v33h_patched_gpu_cache_oldscale_det_scan",
@@ -56509,50 +56300,6 @@
       "norm_label": "/kickoff \u2014 start the physics loop here",
       "source_file": ".claude/skills/kickoff/SKILL.md",
       "source_location": "L7"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_det_norm",
-      "label": "det_norm",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "det_norm",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L853"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_det_raw",
-      "label": "det_raw",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "det_raw",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L852"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_ecm",
-      "label": "Ecm",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "ecm",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L851"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow_i",
-      "label": "i",
-      "_origin": "ast",
-      "community": 324,
-      "community_name": "InwardShapeResult",
-      "file_type": "code",
-      "norm_label": "i",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L850"
     },
     {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_inwardshaperesult_classification",
@@ -58154,114 +57901,92 @@
       "source_location": "L1"
     },
     {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_abs",
-      "label": "frob_abs",
+      "id": "src_qc3_core_oracle_point",
+      "label": "oracle_point.hpp",
       "_origin": "ast",
       "community": 341,
-      "community_name": "MatrixCompareStats",
+      "community_name": "oracle_point.hpp",
       "file_type": "code",
-      "norm_label": "frob_abs",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L683"
+      "norm_label": "oracle_point.hpp",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L1"
     },
     {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_ref",
-      "label": "frob_ref",
+      "id": "src_qc3_core_oracle_point_clock_t0",
+      "label": "t0_",
       "_origin": "ast",
       "community": 341,
-      "community_name": "MatrixCompareStats",
+      "community_name": "oracle_point.hpp",
       "file_type": "code",
-      "norm_label": "frob_ref",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L684"
+      "norm_label": "t0_",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L78"
     },
     {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_rel",
-      "label": "frob_rel",
+      "id": "src_qc3_core_oracle_point_hpp_comp",
+      "label": "comp",
       "_origin": "ast",
       "community": 341,
-      "community_name": "MatrixCompareStats",
+      "community_name": "oracle_point.hpp",
       "file_type": "code",
-      "norm_label": "frob_rel",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L685"
+      "norm_label": "comp",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_abs",
-      "label": "max_abs",
+      "id": "src_qc3_core_oracle_point_hpp_mat",
+      "label": "Mat",
       "_origin": "ast",
       "community": 341,
-      "community_name": "MatrixCompareStats",
+      "community_name": "oracle_point.hpp",
       "file_type": "code",
-      "norm_label": "max_abs",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L681"
+      "norm_label": "mat",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_i",
-      "label": "max_i",
+      "id": "src_qc3_core_oracle_point_hpp_time_point",
+      "label": "time_point",
       "_origin": "ast",
       "community": 341,
-      "community_name": "MatrixCompareStats",
+      "community_name": "oracle_point.hpp",
       "file_type": "code",
-      "norm_label": "max_i",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L686"
+      "norm_label": "time_point",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_j",
-      "label": "max_j",
+      "id": "src_qc3_core_oracle_point_kin_l",
+      "label": "L",
       "_origin": "ast",
       "community": 341,
-      "community_name": "MatrixCompareStats",
+      "community_name": "oracle_point.hpp",
       "file_type": "code",
-      "norm_label": "max_j",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L687"
+      "norm_label": "l",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L115"
     },
     {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_rel",
-      "label": "max_rel",
+      "id": "src_qc3_core_oracle_point_output_f3",
+      "label": "F3",
       "_origin": "ast",
       "community": 341,
-      "community_name": "MatrixCompareStats",
+      "community_name": "oracle_point.hpp",
       "file_type": "code",
-      "norm_label": "max_rel",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L682"
+      "norm_label": "f3",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L67"
     },
     {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_bad_abs",
-      "label": "n_bad_abs",
+      "id": "src_qc3_core_oracle_point_singlethread_eigen_prev",
+      "label": "eigen_prev",
       "_origin": "ast",
       "community": 341,
-      "community_name": "MatrixCompareStats",
+      "community_name": "oracle_point.hpp",
       "file_type": "code",
-      "norm_label": "n_bad_abs",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L688"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_bad_rel",
-      "label": "n_bad_rel",
-      "_origin": "ast",
-      "community": 341,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "n_bad_rel",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L689"
-    },
-    {
-      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_nan_inf",
-      "label": "n_nan_inf",
-      "_origin": "ast",
-      "community": 341,
-      "community_name": "MatrixCompareStats",
-      "file_type": "code",
-      "norm_label": "n_nan_inf",
-      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
-      "source_location": "L690"
+      "norm_label": "eigen_prev",
+      "source_file": "src/qc3_core/oracle_point.hpp",
+      "source_location": "L93"
     },
     {
       "id": "tools_audit_chi2_covariance_convention_check",
@@ -58787,48 +58512,15 @@
       "source_location": "L601"
     },
     {
-      "id": "src_core_f2_functions_v2_neumaiercomplexsum_c_im",
-      "label": "c_im",
+      "id": "src_core_spherical_functions",
+      "label": "spherical_functions.h",
       "_origin": "ast",
       "community": 35,
       "community_name": "F2_functions_v2.h",
       "file_type": "code",
-      "norm_label": "c_im",
-      "source_file": "src/core/F2_functions_v2.h",
-      "source_location": "L527"
-    },
-    {
-      "id": "src_core_f2_functions_v2_neumaiercomplexsum_c_re",
-      "label": "c_re",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "F2_functions_v2.h",
-      "file_type": "code",
-      "norm_label": "c_re",
-      "source_file": "src/core/F2_functions_v2.h",
-      "source_location": "L526"
-    },
-    {
-      "id": "src_core_f2_functions_v2_neumaiercomplexsum_sum_im",
-      "label": "sum_im",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "F2_functions_v2.h",
-      "file_type": "code",
-      "norm_label": "sum_im",
-      "source_file": "src/core/F2_functions_v2.h",
-      "source_location": "L524"
-    },
-    {
-      "id": "src_core_f2_functions_v2_neumaiercomplexsum_sum_re",
-      "label": "sum_re",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "F2_functions_v2.h",
-      "file_type": "code",
-      "norm_label": "sum_re",
-      "source_file": "src/core/F2_functions_v2.h",
-      "source_location": "L523"
+      "norm_label": "spherical_functions.h",
+      "source_file": "src/core/spherical_functions.h",
+      "source_location": "L1"
     },
     {
       "id": "src_core_spherical_functions_h_comp",
@@ -58983,6 +58675,94 @@
       "norm_label": "entries",
       "source_file": "src/cachegen_gpu/F3_gpu_cachegen_v32zu.cu",
       "source_location": "L878"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_time_point",
+      "label": "time_point",
+      "_origin": "ast",
+      "community": 354,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "time_point",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_debug",
+      "label": "debug",
+      "_origin": "ast",
+      "community": 354,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "debug",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L116"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 354,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L115"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_t0",
+      "label": "t0",
+      "_origin": "ast",
+      "community": 354,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "t0",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L117"
+    },
+    {
+      "id": "src_core_f2_functions_v2_neumaiercomplexsum_c_im",
+      "label": "c_im",
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "NeumaierComplexSum",
+      "file_type": "code",
+      "norm_label": "c_im",
+      "source_file": "src/core/F2_functions_v2.h",
+      "source_location": "L527"
+    },
+    {
+      "id": "src_core_f2_functions_v2_neumaiercomplexsum_c_re",
+      "label": "c_re",
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "NeumaierComplexSum",
+      "file_type": "code",
+      "norm_label": "c_re",
+      "source_file": "src/core/F2_functions_v2.h",
+      "source_location": "L526"
+    },
+    {
+      "id": "src_core_f2_functions_v2_neumaiercomplexsum_sum_im",
+      "label": "sum_im",
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "NeumaierComplexSum",
+      "file_type": "code",
+      "norm_label": "sum_im",
+      "source_file": "src/core/F2_functions_v2.h",
+      "source_location": "L524"
+    },
+    {
+      "id": "src_core_f2_functions_v2_neumaiercomplexsum_sum_re",
+      "label": "sum_re",
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "NeumaierComplexSum",
+      "file_type": "code",
+      "norm_label": "sum_re",
+      "source_file": "src/core/F2_functions_v2.h",
+      "source_location": "L523"
     },
     {
       "id": "src_cachegen_gpu_f2_gpu_safe_builder_f2gpuoptions_debug",
@@ -59379,17 +59159,6 @@
       "norm_label": "vector",
       "source_file": "",
       "source_location": ""
-    },
-    {
-      "id": "src_core_spherical_functions",
-      "label": "spherical_functions.h",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "functions.h",
-      "file_type": "code",
-      "norm_label": "spherical_functions.h",
-      "source_file": "src/core/spherical_functions.h",
-      "source_location": "L1"
     },
     {
       "id": "src_gpu_det_v33p_gpu_det_lu_v33pcomplex_real",
@@ -66578,6 +66347,105 @@
       "source_location": "L20"
     },
     {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_frob_abs",
+      "label": "frob_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_abs",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L479"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_frob_rel",
+      "label": "frob_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_rel",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L480"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_abs",
+      "label": "max_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_abs",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L477"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_i",
+      "label": "max_i",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_i",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L481"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_j",
+      "label": "max_j",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_j",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L482"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_max_rel",
+      "label": "max_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_rel",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L478"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_bad_abs",
+      "label": "n_bad_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_bad_abs",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L483"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_bad_rel",
+      "label": "n_bad_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_bad_rel",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L484"
+    },
+    {
+      "id": "src_cachegen_gpu_g_gpu_safe_builder_matrixcomparestats_n_nan_inf",
+      "label": "n_nan_inf",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_nan_inf",
+      "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
+      "source_location": "L485"
+    },
+    {
       "id": "src_cachegen_gpu_g_gpu_safe_builder_vec3d_x",
       "label": "x",
       "_origin": "ast",
@@ -66609,6 +66477,138 @@
       "norm_label": "z",
       "source_file": "src/cachegen_gpu/G_gpu_safe_builder.cuh",
       "source_location": "L34"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_abs",
+      "label": "frob_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_abs",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L683"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_ref",
+      "label": "frob_ref",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_ref",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L684"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_frob_rel",
+      "label": "frob_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "frob_rel",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L685"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_abs",
+      "label": "max_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_abs",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L681"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_i",
+      "label": "max_i",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_i",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L686"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_j",
+      "label": "max_j",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_j",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L687"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_max_rel",
+      "label": "max_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "max_rel",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L682"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_bad_abs",
+      "label": "n_bad_abs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_bad_abs",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L688"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_bad_rel",
+      "label": "n_bad_rel",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_bad_rel",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L689"
+    },
+    {
+      "id": "src_cachegen_gpu_k2_functions_gpu_safe_matrixcomparestats_n_nan_inf",
+      "label": "n_nan_inf",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "n_nan_inf",
+      "source_file": "src/cachegen_gpu/K2_functions_gpu_safe.cuh",
+      "source_location": "L690"
+    },
+    {
+      "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_evaldata_a",
+      "label": "A",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "a",
+      "source_file": "src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp",
+      "source_location": "L331"
+    },
+    {
+      "id": "src_fitter_debug_v30r_svd_validated_cartesian_l1_100_a2_zero_scan_evaldata_b",
+      "label": "B",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "G_gpu_safe_builder.cuh",
+      "file_type": "code",
+      "norm_label": "b",
+      "source_file": "src/fitter/debug_v30r_svd_validated_cartesian_l1_100_A2_zero_scan.cpp",
+      "source_location": "L331"
     },
     {
       "id": "tools_legacy_v32_inspect_v32_f3inv_cache_v32f_fixed",
@@ -95523,18 +95523,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_fast",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L33",
-      "weight": 1.0
-    },
-    {
       "source": "tests_acceptance_m1_test_m1_fast_v2_jumps_rule",
       "target": "tests_acceptance_m1_test_m1_fast_v2_thresholds_rule",
       "relation": "calls",
@@ -95544,30 +95532,6 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
       "source_location": "L63",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_proj",
-      "target": "tests_acceptance_m1_m1_helpers_as_c",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L37",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_dimension_jumps_match_rule_and_n",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L165",
       "weight": 1.0
     },
     {
@@ -95583,42 +95547,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_basis_all_signatures_vs_reference",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L187",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_basis_all_signatures_vs_reference",
-      "target": "tests_acceptance_m1_qc3ref_basis_expected_basis",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L195",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_options_projector_values",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L148",
-      "weight": 1.0
-    },
-    {
       "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_single_thread_cpu_time",
       "target": "tests_acceptance_m1_test_m1_fast_v2_fast",
       "relation": "calls",
@@ -95628,30 +95556,6 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
       "source_location": "L228",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_speedup_single_thread_largest_point_ge_150x",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L239",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_tail_consistent_with_numpy_and_want_subset",
-      "target": "tests_acceptance_m1_m1_helpers_anchor_points",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L211",
       "weight": 1.0
     },
     {
@@ -95668,18 +95572,6 @@
     },
     {
       "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_tail_consistent_with_numpy_and_want_subset",
-      "target": "tests_acceptance_m1_m1_helpers_as_c",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L218",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_tail_consistent_with_numpy_and_want_subset",
       "target": "tests_acceptance_m1_test_m1_fast_v2_rel",
       "relation": "calls",
       "_origin": "ast",
@@ -95688,30 +95580,6 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
       "source_location": "L221",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_cache_key_complete",
-      "target": "tests_acceptance_m1_m1_helpers_oracle_point",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L83",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_cache_key_complete",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -95728,18 +95596,6 @@
     },
     {
       "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_orbit_matches_eigen_and_oracle_subspace",
-      "target": "tests_acceptance_m1_m1_helpers_anchor_points",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L109",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_orbit_matches_eigen_and_oracle_subspace",
       "target": "tests_acceptance_m1_test_m1_fast_v2_fast",
       "relation": "calls",
       "_origin": "ast",
@@ -95748,30 +95604,6 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
       "source_location": "L113",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_orbit_matches_eigen_and_oracle_subspace",
-      "target": "tests_acceptance_m1_m1_helpers_oracle_point",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L115",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_orbit_matches_eigen_and_oracle_subspace",
-      "target": "tests_acceptance_m1_m1_helpers_as_c",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -96663,18 +96495,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_acceptance_m1_test_m1_roots_test_classify_sign_change_on_step9_cases",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_roots.py",
-      "source_location": "L52",
-      "weight": 1.0
-    },
-    {
       "source": "tests_acceptance_m1_test_m1_roots_test_find_zeros_recovers_hidden_zeros",
       "target": "tests_acceptance_m1_test_m1_roots_evaluate",
       "relation": "calls",
@@ -96684,18 +96504,6 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_roots.py",
       "source_location": "L106",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_roots_test_find_zeros_recovers_hidden_zeros",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_roots.py",
-      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -96723,30 +96531,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_acceptance_m1_test_m1_roots_test_refine_root_classifies_12_coded_v2_zeros",
-      "target": "tests_acceptance_m1_m1_helpers_accepted_windows",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_roots.py",
-      "source_location": "L86",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_roots_test_refine_root_classifies_12_coded_v2_zeros",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_roots.py",
-      "source_location": "L90",
-      "weight": 1.0
-    },
-    {
       "source": "tests_acceptance_m1_test_m1_roots_test_refine_root_rejects_pole_110_a2_n1_q0",
       "target": "tests_acceptance_m1_test_m1_roots_evaluate",
       "relation": "calls",
@@ -96760,18 +96544,6 @@
     },
     {
       "source": "tests_acceptance_m1_test_m1_roots_test_refine_root_rejects_pole_110_a2_n1_q0",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_roots.py",
-      "source_location": "L68",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_roots_test_refine_root_rejects_pole_110_a2_n1_q0",
       "target": "tests_acceptance_m1_test_m1_roots_window",
       "relation": "calls",
       "_origin": "ast",
@@ -96780,18 +96552,6 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_roots.py",
       "source_location": "L69",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_roots_window",
-      "target": "tests_acceptance_m1_m1_helpers_accepted_windows",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/acceptance/m1/test_m1_roots.py",
-      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -134211,66 +133971,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_acceptance_m1_test_m1_fast_v2",
-      "target": "tests_acceptance_m1_m1_helpers_anchor_points",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2",
-      "target": "tests_acceptance_m1_m1_helpers_as_c",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2",
-      "target": "tests_acceptance_m1_m1_helpers_oracle_point",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_fast_v2",
-      "target": "tests_acceptance_m1_qc3ref_basis_expected_basis",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
-      "source_location": "L184",
-      "weight": 1.0
-    },
-    {
       "source": "tests_acceptance_m1_test_m1_fast_vs_oracle",
       "target": "tests_acceptance_m1_m1_helpers_accepted_windows",
       "relation": "imports",
@@ -134520,30 +134220,6 @@
       "context": "import",
       "source_file": "tests/acceptance/m1/test_m1_reference.py",
       "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_roots",
-      "target": "tests_acceptance_m1_m1_helpers_accepted_windows",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/test_m1_roots.py",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_acceptance_m1_test_m1_roots",
-      "target": "tests_acceptance_m1_m1_helpers_sector",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/acceptance/m1/test_m1_roots.py",
-      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -158975,7 +158651,7 @@
     },
     {
       "source": "claude_claude_md_project_rules_for_3body_qc_v4",
-      "target": "claude_decisions_already_made_by_digonto_2026_10_21_details_in_notes_status_md",
+      "target": "claude_decisions_already_made_by_digonto_2026_10_21_22_details_in_notes_status_md",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -158992,7 +158668,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L54",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -159003,7 +158679,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L60",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -159014,7 +158690,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L66",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -175266,7 +174942,7 @@
     },
     {
       "source": "notes_status_decisions_from_digonto_answered_2026_10_21",
-      "target": "notes_status_pending_decision_for_digonto",
+      "target": "notes_status_decisions_answered_at_the_cloud_session_2026_10_22",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -203113,6 +202789,102 @@
       "weight": 1.0
     },
     {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_fast",
+      "target": "tests_acceptance_m1_m1_helpers_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_proj",
+      "target": "tests_acceptance_m1_m1_helpers_as_c",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_dimension_jumps_match_rule_and_n",
+      "target": "tests_acceptance_m1_m1_helpers_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_basis_all_signatures_vs_reference",
+      "target": "tests_acceptance_m1_m1_helpers_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_basis_all_signatures_vs_reference",
+      "target": "tests_acceptance_m1_qc3ref_basis_expected_basis",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L195",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_options_projector_values",
+      "target": "tests_acceptance_m1_m1_helpers_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_speedup_single_thread_largest_point_ge_150x",
+      "target": "tests_acceptance_m1_m1_helpers_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L239",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_tail_consistent_with_numpy_and_want_subset",
+      "target": "tests_acceptance_m1_m1_helpers_anchor_points",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
       "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_tail_consistent_with_numpy_and_want_subset",
       "target": "src_python_qc3_qc_slogdet",
       "relation": "calls",
@@ -203122,6 +202894,66 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
       "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_fast_tail_consistent_with_numpy_and_want_subset",
+      "target": "tests_acceptance_m1_m1_helpers_as_c",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_cache_key_complete",
+      "target": "tests_acceptance_m1_m1_helpers_oracle_point",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_orbit_matches_eigen_and_oracle_subspace",
+      "target": "tests_acceptance_m1_m1_helpers_anchor_points",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_orbit_matches_eigen_and_oracle_subspace",
+      "target": "tests_acceptance_m1_m1_helpers_oracle_point",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_fast_v2_test_projector_orbit_matches_eigen_and_oracle_subspace",
+      "target": "tests_acceptance_m1_m1_helpers_as_c",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_fast_v2.py",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -203338,6 +203170,78 @@
       "context": "call",
       "source_file": "tests/acceptance/m1/test_m1_qc_identities.py",
       "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_roots_test_classify_sign_change_on_step9_cases",
+      "target": "tests_acceptance_m1_m1_helpers_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_roots.py",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_roots_test_find_zeros_recovers_hidden_zeros",
+      "target": "tests_acceptance_m1_m1_helpers_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_roots.py",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_roots_test_refine_root_classifies_12_coded_v2_zeros",
+      "target": "tests_acceptance_m1_m1_helpers_accepted_windows",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_roots.py",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_roots_test_refine_root_classifies_12_coded_v2_zeros",
+      "target": "tests_acceptance_m1_m1_helpers_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_roots.py",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_roots_test_refine_root_rejects_pole_110_a2_n1_q0",
+      "target": "tests_acceptance_m1_m1_helpers_sector",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_roots.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_acceptance_m1_test_m1_roots_window",
+      "target": "tests_acceptance_m1_m1_helpers_accepted_windows",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "tests/acceptance/m1/test_m1_roots.py",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -203565,5 +203469,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "47425c93a37b3b67f037d13cd225a07673d15eca"
+  "built_at_commit": "6fefefe16c4943f8b3ddc5a2ba62802193869b23"
 }
