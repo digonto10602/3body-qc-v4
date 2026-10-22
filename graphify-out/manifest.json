@@ -1434,9 +1434,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/bench.py": {
-    "mtime": 1792614272.353001,
-    "seen": 1792696025.850137,
-    "ast_hash": "eed452b5debedcc9ef80418be1cd0684",
+    "mtime": 1792698114.7892382,
+    "seen": 1792698180.364171,
+    "ast_hash": "3ea10ae7017e996209677657d7c3c579",
     "semantic_hash": ""
   },
   "src/python/qc3/constants.py": {
@@ -2085,6 +2085,12 @@
     "mtime": 1792697886.2102294,
     "seen": 1792697937.8224273,
     "ast_hash": "ba6a315d9d0fba640034484773bba748",
+    "semantic_hash": ""
+  },
+  "tests/unit/test_bench.py": {
+    "mtime": 1792698121.2162733,
+    "seen": 1792698180.364213,
+    "ast_hash": "7f90ccea4a65ce4c704083fb7fc84dd8",
     "semantic_hash": ""
   }
 }
