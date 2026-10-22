@@ -1,0 +1,9 @@
+0 0 0 classes 727 groups 1 points 68921 bytes 69904
+1 0 0 classes 8118 groups 41 points 68921 bytes 780400
+1 1 0 classes 13298 groups 81 points 68921 bytes 1278640
+1 1 1 classes 9836 groups 121 points 68921 bytes 947248
+2 0 0 classes 8118 groups 41 points 68921 bytes 780400
+2 1 0 classes 22129 groups 121 points 68921 bytes 2127376
+2 1 1 classes 23004 groups 161 points 68921 bytes 2212336
+3 0 0 classes 8118 groups 41 points 68921 bytes 780400
+TOTAL classes 93348 bytes 8976704 sizeof(FClass)=96 sizeof(FGroup)=24

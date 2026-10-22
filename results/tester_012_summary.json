@@ -1,0 +1,49 @@
+{
+ "commit": "5792545 (code identical to d444181; only graphify-out differs)",
+ "seed": 20261022,
+ "acceptance_m1": "47 passed (incl. slow), 4m56s",
+ "unit": "74 passed, 33.9 s",
+ "acceptance_check": "PASS acceptance-v4",
+ "oracle_diff_73c4e2d": "empty",
+ "share": {
+  "f_sums_equals_distinct_flavour_c_p2_at_12_anchors": true
+ },
+ "sweep": {
+  "000_A1m": {
+   "n": 308,
+   "term_mismatch": 0,
+   "max_F_rel": 1.7447203729658277e-15,
+   "max_dln": 2.8251179173821583e-10
+  },
+  "100_A2": {
+   "n": 322,
+   "term_mismatch": 0,
+   "max_F_rel": 4.1998782764380085e-15,
+   "max_dln": 3.9605652091267984e-11
+  },
+  "110_A2": {
+   "n": 330,
+   "term_mismatch": 0,
+   "max_F_rel": 1.733105728990076e-14,
+   "max_dln": 6.16751094639767e-12
+  },
+  "111_A2": {
+   "n": 324,
+   "term_mismatch": 0,
+   "max_F_rel": 1.0235818810804603e-13,
+   "max_dln": 2.460268433424062e-09
+  },
+  "200_A2": {
+   "n": 322,
+   "term_mismatch": 0,
+   "max_F_rel": 1.0594543727874722e-13,
+   "max_dln": 7.358380571531598e-11
+  }
+ },
+ "tables": {
+  "n_tables": 8,
+  "total_bytes": 8976704,
+  "largest_bytes": 2212336,
+  "sizeof_FClass": 96
+ }
+}

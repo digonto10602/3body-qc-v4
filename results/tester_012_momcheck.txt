@@ -1,0 +1,2 @@
+direct-double worst = 4.070e-13
+compared 1144 (nP, case) pairs; worst error/(sum|term|-scale) of (T0,T1,T2) rotated-class vs long-double brute force = 3.025e-13; all term counts equal: 1

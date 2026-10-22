@@ -4,7 +4,16 @@
 - **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
 - **Acceptance tag:** `acceptance-v4` = `504a689` (47 tests). v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 step 7.7 (optional $F$ work, in a builder worktree). After it: the milestone gate.
+- **Current step:** **M1 milestone gate.** Tester report 012 already ran the full m1 suite incl. slow (47/47), the unit tests (74/74) and `acceptance-check` at `5792545`. Next is the auditor, then the tester in mode `benchmark`.
+- **Step 7.7 DONE**, verified by `reports/tests/012-m1-step7-7-f-classes.md` (PASS). Merge commit `d444181`.
+  - Method: class moment tables plus sums shared across spectator momenta with the same canonical $(\vec n_P$ orbit$, |\vec p|^2)$, with double accumulators.
+  - The rotation algebra is proven and brute-force checked over 1144 cases. The kept lattice points are identical to the direct sum at 1606 energies.
+  - Accuracy: $F$ vs oracle $\le5.4\times10^{-15}$; per block $\le4.4\times10^{-14}$; $\ln|\det Q|$ $\le7.1\times10^{-10}$ at the anchors.
+  - Warm time per point: 0.49–3.89 ms on 1 core. A/B against the direct sum: 3.1–5.8× on the total, 14–51× on the $F$ stage.
+  - **χ² proxy: 0.140 s warm** (min 0.112 s), down from 0.52 s; 102 evaluations.
+  - Memory: 8 F tables, 9 MB in total for a full scan.
+  - N1: near $F$ poles, classes vs direct reaches $1.1\times10^{-13}$ of $\|F\|$ at 4 of 1606 energies, within the $10^{-12}$ acceptance bar (margin 9×). The unit test's $10^{-13}$ class-vs-direct check uses only 6 benign points.
+  - Docs to update at the gate (planner): METHODS §3/§15 for 7.7; `prompts/002` §2.3 for the coordinator's $G$ fill-mode decision.
 - **Step 8 DONE**, verified by `reports/tests/011-m1-step8-bench-harness.md` (PASS). Code: `qc3.bench` and `python -m qc3.bench`.
   - Smoke-run speed-up vs the oracle: 367–2019× (median 716) including the oracle's projector build, or 348–854× without it.
   - **χ² proxy** (12 labelled L20 roots, `coded_v2`, 1 core, no caches): warm 0.49–0.53 s, cold 0.57–0.63 s.
