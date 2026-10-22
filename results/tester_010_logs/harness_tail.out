@@ -1,0 +1,7 @@
+real: worst rel ln|det| diff 2.11608e-13, sign mismatches 0 (negative-det cases: 94)
+complex Hermitian: worst rel ln|det| diff 1.03351e-14, sign mismatches 0, max |Im phase| 7.82152e-14
+singular: THROW fast: Q is singular (zero pivot in LU)
+nan: THROW fast: Q contains non-finite entries
+inf: THROW fast: Q contains non-finite entries
+swap matrix det=-1: sign -1 ln 0
+tiny 1e-200 I3: sign 1 ln -1381.55 expected -1381.55

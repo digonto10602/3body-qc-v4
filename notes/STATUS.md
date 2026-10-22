@@ -4,7 +4,17 @@
 - **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
 - **Acceptance tag:** `acceptance-v4` = `504a689` (47 tests). v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **steps 7.4–7.6**: the $\mathcal K_3$ and $G$ pair kernels and the C++ tail. The builder works in a separate git worktree; the coordinator merges.
+- **Current step:** M1 step 7.7 (optional $F$ work; $F$ is now 68% of the warm time) and step 8 (benchmark + χ² proxy), in parallel.
+- **Steps 7.4–7.6 DONE**, verified by `reports/tests/010-m1-step7-4-5-6-kernels-tail.md` (PASS). **All 47 acceptance tests are green.** Merge commit `3e26d29`.
+  - $\mathcal K_{\rm df,3}$ agrees with the oracle to $\le8.9\times10^{-17}$ over 47 energies, including energies at dimension jumps.
+  - $G$ is bit-identical to the oracle. The default fills every ordered pair (see the decision below).
+  - The tail computes $Q$ by an LU solve; it equals the projection of the explicit inverse to $1.7\times10^{-15}$.
+  - Fast vs oracle at the 12 anchors: $\ln|\det Q|$ differs by $\le3.6\times10^{-9}$.
+  - Warm time per point: 3.3–13.8 ms. At $N=160$ the speed-up is **581×** single-core, or 554× without counting the oracle's projector build. Cold minus warm is $\le25$ ms.
+  - Truly single-threaded: CPU/wall is 0.97–1.00 with BLAS not pinned.
+  - **Coordinator decision:** the $G$ fill mode defaults to every ordered pair. That deviates from `prompts/002` §2.3, costs +0.14 ms, and gives bit-equality with the oracle. The symmetric fill is still available as `g_symmetric=True`. The planner is to record this in 002 and METHODS §15 at the gate.
+  - **Test-defect candidate (ask Digonto at the gate):** `test_fast_single_thread_cpu_time` fails when run alone, because of OpenBLAS's 0.1–0.3 s thread spin after `import numpy` (verified with a bare probe). It is order-dependent and can't detect real threading at its small point.
+  - **N2:** at 111_A2 $E^*=0.3382011860823352$ ($\kappa(Q)=1.5\times10^{13}$), fast vs oracle is $3.06\times10^{-6}$. A 60-digit mpmath check shows the fast path is within $1.2\times10^{-12}$ of exact, and the oracle is the inaccurate side. The point is not in the locked tests; it is for the auditor.
 - **Steps 7.2 and 7.3 DONE**, verified by `reports/tests/009-m1-step7-2-3-orbit-projector-basis.md` (PASS). 45 of 47 tests pass; the 2 pending need 7.4–7.6.
   - Orbit projector: $N_{\rm proj}$ agrees with an independent dense projector, with eigen and with the oracle at all 58 production bases. $\|VV^\dagger-P\|/\|P\|\le4\times10^{-16}$.
   - Cold build is at most 1.2 ms over the 58 bases (5.4 s before).

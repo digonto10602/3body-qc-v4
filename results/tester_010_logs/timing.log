@@ -1,0 +1,27 @@
+100_A2 0.291556099879 N=56 Np=17 cold    22.0 warm    6.6 cold-warm   15.4 | cold basis 14.87 proj 0.383 | warm basis 0.513 proj 0.048 F 5.3 G 0.1 K3 0.1 tot 6.4
+100_A2 0.291798362 N=56 Np=17 cold    22.0 warm    6.6 cold-warm   15.4 | cold basis 15.29 proj 0.297 | warm basis 0.489 proj 0.047 F 5.3 G 0.1 K3 0.1 tot 6.4
+000_A1m 0.26932 N=35 Np=5 cold    18.9 warm    3.3 cold-warm   15.6 | cold basis 15.34 proj 0.508 | warm basis 0.472 proj 0.035 F 2.4 G 0.0 K3 0.1 tot 3.1
+000_A1m 0.34538 N=103 Np=9 cold    22.9 warm    6.4 cold-warm   16.5 | cold basis 15.18 proj 0.708 | warm basis 0.362 proj 0.041 F 4.8 G 0.1 K3 0.2 tot 6.3
+100_A2 0.3599 N=108 Np=30 cold    18.6 warm    6.6 cold-warm   12.0 | cold basis 11.71 proj 0.309 | warm basis 0.370 proj 0.046 F 4.9 G 0.1 K3 0.2 tot 6.4
+100_A2 0.36 N=108 Np=30 cold    14.1 warm    6.8 cold-warm    7.4 | cold basis 7.64 proj 0.307 | warm basis 0.364 proj 0.045 F 5.0 G 0.1 K3 0.2 tot 6.6
+110_A2 0.30733 N=68 Np=27 cold    12.7 warm    4.6 cold-warm    8.1 | cold basis 8.20 proj 0.195 | warm basis 0.328 proj 0.034 F 3.7 G 0.0 K3 0.1 tot 4.5
+110_A2 0.35 N=108 Np=41 cold    15.0 warm    7.8 cold-warm    7.2 | cold basis 7.66 proj 0.280 | warm basis 0.345 proj 0.049 F 5.9 G 0.1 K3 0.2 tot 7.7
+111_A2 0.32036 N=64 Np=20 cold    18.2 warm    9.9 cold-warm    8.3 | cold basis 8.45 proj 0.191 | warm basis 0.426 proj 0.051 F 8.5 G 0.1 K3 0.2 tot 9.7
+111_A2 0.35103 N=160 Np=40 cold    38.5 warm   13.8 cold-warm   24.7 | cold basis 14.54 proj 0.786 | warm basis 0.472 proj 0.136 F 8.8 G 0.2 K3 0.9 tot 13.4
+200_A2 0.28664 N=47 Np=16 cold    11.5 warm    3.5 cold-warm    8.1 | cold basis 8.02 proj 0.210 | warm basis 0.364 proj 0.030 F 2.7 G 0.0 K3 0.1 tot 3.3
+200_A2 0.34738 N=121 Np=32 cold    16.2 warm    7.9 cold-warm    8.3 | cold basis 8.00 proj 0.343 | warm basis 0.335 proj 0.051 F 5.6 G 0.1 K3 0.3 tot 7.7
+bases 58 max cold projector (ms) over 58 bases x5 repeats: {'irrep': '000_A1m', 'Ecm': 0.32080689978027555, 'N': 95, 'Nproj': 8, 'cold_projector_ms_min': 0.527072, 'cold_projector_ms_max': 0.954557, 'cold_basis_ms_median': 7.695406, 'warm_basis_ms': 0.375612}
+111_A2 0.35103 builder breakdown (median of 7): {
+ "table_build_ms_both_channels": 7.7767810007571825,
+ "threshold_entries": 2,
+ "projcold_basis_ms": 0.341623,
+ "projcold_proj_ms": 0.52545,
+ "projcold_total_ms": 13.573781,
+ "allcold_basis_ms": 7.712253,
+ "allcold_proj_ms": 0.51996,
+ "allcold_total_ms": 20.773243,
+ "warm_basis_ms": 0.400133,
+ "warm_total_ms": 12.758428,
+ "allcold_wall_ms": 21.067716000288783,
+ "warm_wall_ms": 13.013353999667743
+}

@@ -1,0 +1,12 @@
+{
+ "hp_oracle_mats_oracleV": -119.84557658436283,
+ "hp_oracle_mats_orbitV": -119.84557658436283,
+ "hp_fast_mats_orbitV": -119.84557658436204,
+ "double_oracle": -119.8455796476132,
+ "double_fast_orbit": -119.84557658436087,
+ "double_fast_eigen": -119.8455759450704,
+ "kappa_Q_oracle": 15257104782472.207,
+ "kappa_Q_fast": 15257100819822.316,
+ "F_rel_fast_vs_oracle": 1.1010471016160096e-14,
+ "F3_rel_fast_vs_oracle": 6.636555184629746e-14
+}

@@ -1,0 +1,85 @@
+...............................................                          [100%]
+==================================== PASSES ====================================
+============================== slowest durations ===============================
+77.20s call     tests/acceptance/m1/test_m1_reference.py::test_ingredients_vs_reference_large_points
+62.65s call     tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_root_vs_oracle_100_A2_windows
+45.25s call     tests/acceptance/m1/test_m1_oracle.py::test_oracle_anchors_all_points
+43.79s call     tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_vs_oracle_all_anchor_points
+35.95s call     tests/acceptance/m1/test_m1_fast_v2.py::test_fast_basis_all_signatures_vs_reference
+34.02s call     tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_vs_oracle_random_energies_all_irreps
+15.38s call     tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_speedup_single_thread_ge_20x
+9.84s call     tests/acceptance/m1/test_m1_reference.py::test_F_G_K2inv_vs_reference_small_points
+9.83s call     tests/acceptance/m1/test_m1_roots.py::test_find_zeros_recovers_hidden_zeros
+9.05s call     tests/acceptance/m1/test_m1_fast_v2.py::test_projector_orbit_matches_eigen_and_oracle_subspace
+8.45s call     tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_vs_oracle_small_points
+8.40s call     tests/acceptance/m1/test_m1_fast_v2.py::test_fast_speedup_single_thread_largest_point_ge_150x
+3.59s call     tests/acceptance/m1/test_m1_reference.py::test_K2inv_pwave_both_forms_vs_reference
+2.93s call     tests/acceptance/m1/test_m1_fast_v2.py::test_projector_cache_key_complete
+2.56s call     tests/acceptance/m1/test_m1_oracle.py::test_oracle_basis_rule_and_order
+1.16s call     tests/acceptance/m1/test_m1_reference.py::test_K3_basis_vs_reference_small_points
+1.01s call     tests/acceptance/m1/test_m1_roots.py::test_refine_root_classifies_12_coded_v2_zeros
+0.71s call     tests/acceptance/m1/test_m1_fast_v2.py::test_dimension_jumps_match_rule_and_N
+0.60s call     tests/acceptance/m1/test_m1_roots.py::test_refine_root_rejects_pole_110_A2_n1_q0
+0.12s call     tests/acceptance/m1/test_m1_roots.py::test_classify_sign_change_on_step9_cases
+0.04s call     tests/acceptance/m1/test_m1_fast_v2.py::test_fast_single_thread_cpu_time
+0.04s call     tests/acceptance/m1/test_m1_fast_v2.py::test_projector_cold_build_is_fast
+0.03s call     tests/acceptance/m1/test_m1_fast_v2.py::test_fast_tail_consistent_with_numpy_and_want_subset
+0.03s call     tests/acceptance/m1/test_m1_lattice.py::test_level_counts_per_cutoff_L20
+0.01s call     tests/acceptance/m1/test_m1_fast_v2.py::test_fast_options_projector_values
+0.01s call     tests/acceptance/m1/test_m1_production_default.py::test_production_default_k2_pwave_form_is_q0_consistent
+0.01s call     tests/acceptance/m1/test_m1_portability.py::test_no_absolute_home_paths_in_m1_code
+
+(114 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_projector_cache_key_complete
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_projector_orbit_matches_eigen_and_oracle_subspace
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_projector_cold_build_is_fast
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_options_projector_values
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_dimension_jumps_match_rule_and_N
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_basis_all_signatures_vs_reference
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_tail_consistent_with_numpy_and_want_subset
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_single_thread_cpu_time
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_speedup_single_thread_largest_point_ge_150x
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_vs_oracle_small_points
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_basis_identical_to_oracle
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_metadata_and_timings
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_vs_oracle_all_anchor_points
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_vs_oracle_random_energies_all_irreps
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_root_vs_oracle_100_A2_windows
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_speedup_single_thread_ge_20x
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_read_jack_and_resample_synthetic
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_jackknife_mean_cov_equals_sample_cov_over_N
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_load_levels_conversion_order_matches_legacy_reader
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_real_file_000_A1m_n0_vs_independent_numpy
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_level_counts_per_cutoff_L20
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_covariance_symmetric_psd_and_correlated
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_match_levels_D3
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_chi2_pseudoinverse
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_anchors_small_points
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_anchors_all_points
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_anchors_k3_baseline_small_points
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_reality_hermiticity_isometry
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_metadata_has_production_constants
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_basis_rule_and_order
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_timings_present
+PASSED tests/acceptance/m1/test_m1_portability.py::test_no_absolute_home_paths_in_m1_code
+PASSED tests/acceptance/m1/test_m1_portability.py::test_data_root_env_var
+PASSED tests/acceptance/m1/test_m1_production_default.py::test_production_default_k2_pwave_form_is_q0_consistent
+PASSED tests/acceptance/m1/test_m1_qc_identities.py::test_project_Q_matches_definition
+PASSED tests/acceptance/m1/test_m1_qc_identities.py::test_slogdet_matches_numpy_and_sign_is_integer
+PASSED tests/acceptance/m1/test_m1_qc_identities.py::test_lndet_invariant_under_unitary_mixing_of_Vsel
+PASSED tests/acceptance/m1/test_m1_qc_identities.py::test_scale_applies_to_matrix_not_determinant
+PASSED tests/acceptance/m1/test_m1_reference.py::test_F_G_K2inv_vs_reference_small_points
+PASSED tests/acceptance/m1/test_m1_reference.py::test_K2inv_pwave_both_forms_vs_reference
+PASSED tests/acceptance/m1/test_m1_reference.py::test_K3_basis_vs_reference_small_points
+PASSED tests/acceptance/m1/test_m1_reference.py::test_K3_basis_symmetric_and_linear
+PASSED tests/acceptance/m1/test_m1_reference.py::test_ingredients_vs_reference_large_points
+PASSED tests/acceptance/m1/test_m1_roots.py::test_classify_sign_change_on_step9_cases
+PASSED tests/acceptance/m1/test_m1_roots.py::test_refine_root_rejects_pole_110_A2_n1_q0
+PASSED tests/acceptance/m1/test_m1_roots.py::test_refine_root_classifies_12_coded_v2_zeros
+PASSED tests/acceptance/m1/test_m1_roots.py::test_find_zeros_recovers_hidden_zeros
+47 passed in 373.17s (0:06:13)
+
+real	6m13.643s
+user	8m25.065s
+sys	0m7.550s

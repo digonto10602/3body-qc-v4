@@ -1,0 +1,63 @@
+{
+ "commit": "338a0e8",
+ "code_commit": "3e26d29 (338a0e8 differs only in graphify-out)",
+ "date": "2026-10-22",
+ "prompt": "prompts/002",
+ "mode": "step",
+ "seed": 20261022,
+ "k2_pwave_form_for_own_scripts": "coded_v2",
+ "m1_suite_unpinned": "47 passed in 373 s",
+ "m1_suite_pinned": "47 passed in 300 s",
+ "unit": "63 passed in 33.5 s",
+ "acceptance_check": "PASS (acceptance-v4, 47 collected)",
+ "oracle_diff_vs_b6ad563": 0,
+ "cpu_time_test_alone": {
+  "unpinned": [
+   4.0,
+   3.85,
+   3.68
+  ],
+  "OPENBLAS_NUM_THREADS=1": "3/3 passed (ratio ~0.97-1.0)",
+  "delay0.3s": 0.978,
+  "bare_numpy_import_first_100ms_sleep_ratio": [
+   1.95,
+   1.6,
+   2.22
+  ]
+ },
+ "K3_max_rel_47_points": 8.9e-17,
+ "G_ordered_max_rel": 0.0,
+ "G_symmetric_max_rel": 1.03e-13,
+ "lndet_anchor_max_ordered": 3.63e-09,
+ "lndet_anchor_max_symmetric": 1.31e-08,
+ "lndet_all_other_than_one": "<=3.7e-11 (random), 1.5e-9 (jump)",
+ "near_singular_point": {
+  "irrep": "111_A2",
+  "Ecm": 0.3382011860823352,
+  "kappa_Q": 15000000000000.0,
+  "fast_minus_HP": 1.2e-12,
+  "oracle_minus_HP": -3.06e-06
+ },
+ "speedup_111_A2_0.35103": {
+  "fast_wall_ms": 13.98,
+  "oracle_s": 8.13,
+  "with_projector": 581.5,
+  "without_projector": 553.9
+ },
+ "G_fill_cost_ms_N160": {
+  "ordered": 0.442,
+  "symmetric": 0.298
+ },
+ "files": [
+  "tester_010_compare.json",
+  "tester_010_refcmp.json",
+  "tester_010_tail.json",
+  "tester_010_timing.json",
+  "tester_010_speedup.json",
+  "tester_010_gmodes.json",
+  "tester_010_gmode_hp.json",
+  "tester_010_illcond.json",
+  "tester_010_offprod.json",
+  "tester_010_coldwarm_111A2.json"
+ ]
+}

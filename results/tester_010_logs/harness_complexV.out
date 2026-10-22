@@ -1,0 +1,5 @@
+100_A2 0.291556 Nproj 17/17  |Q'-U^dag Q U|/|Q| = 3.52949e-16  Q' Hermitian dev 2.79888e-16  dln 1.09272e-05  sign -1/-1  sign_imag 1.08936e-05  max|Im Q'| 1.76307
+111_A2 0.32036 Nproj 20/20  |Q'-U^dag Q U|/|Q| = 2.98695e-16  Q' Hermitian dev 3.42476e-16  dln 1.36708e-11  sign 1/1  sign_imag 1.52775e-11  max|Im Q'| 19.5991
+110_A2 0.30733 Nproj 27/27  |Q'-U^dag Q U|/|Q| = 4.26854e-16  Q' Hermitian dev 4.53935e-16  dln 2.27374e-13  sign 1/1  sign_imag 2.30593e-13  max|Im Q'| 0.0323674
+000_A1m 0.34538 Nproj 9/9  |Q'-U^dag Q U|/|Q| = 4.40982e-16  Q' Hermitian dev 5.25389e-16  dln 6.048e-10  sign -1/-1  sign_imag 2.79348e-10  max|Im Q'| 0.0204622
+200_A2 0.34738 Nproj 32/32  |Q'-U^dag Q U|/|Q| = 5.52996e-16  Q' Hermitian dev 5.67404e-16  dln 6.38806e-10  sign -1/-1  sign_imag 6.05775e-10  max|Im Q'| 42.0699

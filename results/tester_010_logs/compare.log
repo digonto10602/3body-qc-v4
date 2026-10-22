@@ -1,0 +1,47 @@
+100_A2 0.291556100 anchor         N= 56/ 56 K3max=8.2e-18 K3=7.1e-18 G=0.0e+00 Gsym=3.4e-15 dln=3.6e-09 dlnGs=1.3e-08 sign=True Qnp=2.1e-16 kQ=3.8e+12
+100_A2 0.291798362 anchor         N= 56/ 56 K3max=9.2e-18 K3=8.9e-18 G=0.0e+00 Gsym=3.7e-15 dln=2.8e-14 dlnGs=7.1e-14 sign=True Qnp=2.3e-18 kQ=2.2e+06
+000_A1m 0.269320000 anchor         N= 35/ 35 K3max=0.0e+00 K3=0.0e+00 G=0.0e+00 Gsym=2.1e-17 dln=1.8e-13 dlnGs=1.8e-13 sign=True Qnp=1.9e-16 kQ=3.6e+06
+000_A1m 0.345380000 anchor         N=103/103 K3max=2.4e-18 K3=0.0e+00 G=0.0e+00 Gsym=5.7e-15 dln=2.2e-12 dlnGs=3.1e-12 sign=True Qnp=3.1e-16 kQ=4.5e+07
+100_A2 0.359900000 anchor         N=108/108 K3max=4.3e-17 K3=3.9e-17 G=0.0e+00 Gsym=3.1e-15 dln=4.3e-12 dlnGs=4.3e-12 sign=True Qnp=2.3e-16 kQ=7.0e+04
+100_A2 0.360000000 anchor         N=108/108 K3max=4.1e-17 K3=4.8e-17 G=0.0e+00 Gsym=3.3e-15 dln=4.3e-12 dlnGs=4.3e-12 sign=True Qnp=6.6e-16 kQ=8.0e+04
+110_A2 0.307330000 anchor         N= 68/ 68 K3max=2.6e-17 K3=2.3e-17 G=0.0e+00 Gsym=6.6e-16 dln=8.5e-14 dlnGs=8.5e-14 sign=True Qnp=2.1e-16 kQ=4.2e+04
+110_A2 0.350000000 anchor         N=108/108 K3max=4.5e-17 K3=4.7e-17 G=0.0e+00 Gsym=5.7e-16 dln=2.8e-14 dlnGs=2.8e-14 sign=True Qnp=1.4e-16 kQ=9.5e+04
+111_A2 0.320360000 anchor         N= 64/ 64 K3max=1.7e-17 K3=1.6e-17 G=0.0e+00 Gsym=1.6e-15 dln=0.0e+00 dlnGs=0.0e+00 sign=True Qnp=2.0e-18 kQ=1.1e+07
+111_A2 0.351030000 anchor         N=160/160 K3max=5.8e-17 K3=5.7e-17 G=0.0e+00 Gsym=9.0e-16 dln=1.1e-13 dlnGs=1.1e-13 sign=True Qnp=1.7e-16 kQ=7.4e+05
+200_A2 0.286640000 anchor         N= 47/ 47 K3max=3.9e-17 K3=3.4e-17 G=0.0e+00 Gsym=7.7e-16 dln=1.4e-14 dlnGs=1.4e-14 sign=True Qnp=3.8e-18 kQ=8.9e+04
+200_A2 0.347380000 anchor         N=121/121 K3max=5.2e-17 K3=6.0e-17 G=0.0e+00 Gsym=3.8e-14 dln=3.5e-10 dlnGs=3.5e-10 sign=True Qnp=1.3e-16 kQ=5.2e+08
+000_A1m 0.276928280 random         N= 35/ 35 K3max=4.7e-19 K3=5.0e-19 G=0.0e+00 Gsym=9.4e-17 dln=0.0e+00 dlnGs=0.0e+00 sign=True Qnp=3.5e-16 kQ=1.2e+03
+000_A1m 0.263311581 random         N= 35/ 35 K3max=0.0e+00 K3=0.0e+00 G=0.0e+00 Gsym=7.5e-20 dln=7.1e-15 dlnGs=7.1e-15 sign=True Qnp=1.3e-16 kQ=5.7e+05
+000_A1m 0.279020366 random         N= 47/ 47 K3max=4.6e-19 K3=4.0e-19 G=0.0e+00 Gsym=4.6e-17 dln=7.1e-15 dlnGs=7.1e-15 sign=True Qnp=2.8e-19 kQ=3.9e+05
+000_A1m 0.332790061 jump+6.7e-09   N=103/103 K3max=3.8e-17 K3=3.3e-17 G=0.0e+00 Gsym=2.1e-16 dln=7.1e-15 dlnGs=7.1e-15 sign=True Qnp=1.5e-16 kQ=3.7e+08
+000_A1m 0.332790048 jump-6.7e-09   N= 95/ 95 K3max=9.7e-18 K3=8.3e-18 G=0.0e+00 Gsym=1.8e-16 dln=1.4e-14 dlnGs=1.4e-14 sign=True Qnp=1.8e-16 kQ=1.7e+04
+000_A1m 0.308823918 jump+1.7e-07   N= 95/ 95 K3max=5.4e-17 K3=6.2e-17 G=0.0e+00 Gsym=1.9e-16 dln=0.0e+00 dlnGs=0.0e+00 sign=True Qnp=2.2e-16 kQ=8.8e+09
+000_A1m 0.308823572 jump-1.7e-07   N= 47/ 47 K3max=3.8e-19 K3=2.2e-19 G=0.0e+00 Gsym=2.8e-16 dln=7.1e-15 dlnGs=7.1e-15 sign=True Qnp=2.1e-16 kQ=1.1e+03
+100_A2 0.307539340 random         N= 60/ 60 K3max=6.2e-19 K3=6.5e-19 G=0.0e+00 Gsym=5.4e-16 dln=2.8e-14 dlnGs=2.8e-14 sign=True Qnp=1.6e-16 kQ=2.0e+03
+100_A2 0.278284880 random         N= 51/ 51 K3max=5.6e-18 K3=6.4e-18 G=0.0e+00 Gsym=1.4e-15 dln=2.7e-13 dlnGs=2.7e-13 sign=True Qnp=6.7e-17 kQ=2.1e+04
+100_A2 0.296986944 random         N= 60/ 60 K3max=1.8e-17 K3=1.7e-17 G=0.0e+00 Gsym=4.6e-15 dln=1.4e-14 dlnGs=2.8e-14 sign=True Qnp=1.7e-16 kQ=1.5e+04
+100_A2 0.275623703 jump+1.6e-09   N= 51/ 51 K3max=1.9e-18 K3=2.4e-19 G=0.0e+00 Gsym=7.5e-16 dln=2.3e-10 dlnGs=2.3e-10 sign=True Qnp=1.3e-16 kQ=2.2e+07
+100_A2 0.275623700 jump-1.6e-09   N= 50/ 50 K3max=3.3e-17 K3=5.1e-17 G=0.0e+00 Gsym=7.9e-16 dln=2.8e-14 dlnGs=2.8e-14 sign=True Qnp=2.8e-17 kQ=2.2e+04
+100_A2 0.316146337 jump+6.6e-09   N= 68/ 68 K3max=5.1e-17 K3=4.5e-17 G=0.0e+00 Gsym=2.0e-16 dln=0.0e+00 dlnGs=0.0e+00 sign=True Qnp=1.3e-16 kQ=1.1e+10
+100_A2 0.316146324 jump-6.6e-09   N= 64/ 64 K3max=2.3e-17 K3=3.3e-17 G=0.0e+00 Gsym=2.4e-16 dln=1.4e-14 dlnGs=1.4e-14 sign=True Qnp=2.0e-16 kQ=1.3e+04
+110_A2 0.335013368 random         N=100/100 K3max=5.7e-17 K3=5.2e-17 G=0.0e+00 Gsym=2.1e-16 dln=2.8e-13 dlnGs=2.8e-13 sign=True Qnp=2.3e-16 kQ=3.3e+05
+110_A2 0.359071495 random         N=116/116 K3max=3.4e-17 K3=3.3e-17 G=0.0e+00 Gsym=8.1e-16 dln=2.8e-14 dlnGs=2.8e-14 sign=True Qnp=2.0e-16 kQ=2.5e+04
+110_A2 0.323842452 random         N= 76/ 76 K3max=5.8e-17 K3=5.4e-17 G=0.0e+00 Gsym=1.1e-15 dln=1.4e-13 dlnGs=1.4e-13 sign=True Qnp=3.4e-16 kQ=8.1e+04
+110_A2 0.300434197 jump+1.9e-09   N= 66/ 66 K3max=4.9e-17 K3=4.7e-17 G=0.0e+00 Gsym=1.2e-14 dln=8.5e-14 dlnGs=5.7e-14 sign=True Qnp=3.9e-16 kQ=2.9e+09
+110_A2 0.300434194 jump-1.9e-09   N= 64/ 64 K3max=5.1e-17 K3=4.5e-17 G=0.0e+00 Gsym=1.9e-14 dln=1.1e-13 dlnGs=8.5e-14 sign=True Qnp=1.9e-16 kQ=5.7e+05
+110_A2 0.352864442 jump+2.6e-09   N=112/112 K3max=3.5e-17 K3=4.2e-17 G=0.0e+00 Gsym=5.3e-16 dln=5.1e-13 dlnGs=5.1e-13 sign=True Qnp=1.2e-16 kQ=2.2e+07
+110_A2 0.352864436 jump-2.6e-09   N=108/108 K3max=3.9e-17 K3=4.5e-17 G=0.0e+00 Gsym=4.9e-16 dln=2.0e-13 dlnGs=2.0e-13 sign=True Qnp=3.7e-16 kQ=5.3e+05
+111_A2 0.264011986 random         N= 40/ 40 K3max=3.6e-17 K3=3.3e-17 G=0.0e+00 Gsym=1.6e-16 dln=1.4e-14 dlnGs=1.4e-14 sign=True Qnp=1.7e-16 kQ=1.3e+03
+111_A2 0.347174787 random         N=160/160 K3max=6.6e-17 K3=7.0e-17 G=0.0e+00 Gsym=3.8e-16 dln=9.9e-13 dlnGs=9.9e-13 sign=True Qnp=2.8e-16 kQ=1.9e+11
+111_A2 0.337697478 random         N= 88/ 88 K3max=4.3e-17 K3=4.4e-17 G=0.0e+00 Gsym=1.0e-13 dln=2.6e-11 dlnGs=3.7e-11 sign=True Qnp=4.4e-14 kQ=5.0e+07
+111_A2 0.345578885 jump+8.4e-09   N=148/148 K3max=8.1e-17 K3=8.3e-17 G=0.0e+00 Gsym=6.4e-16 dln=1.5e-09 dlnGs=1.5e-09 sign=True Qnp=1.7e-16 kQ=1.3e+12
+111_A2 0.345578868 jump-8.4e-09   N=136/136 K3max=8.9e-17 K3=9.2e-17 G=0.0e+00 Gsym=1.0e-15 dln=8.5e-14 dlnGs=8.5e-14 sign=True Qnp=1.9e-16 kQ=2.7e+06
+111_A2 0.338201186 jump+1.1e-07   N=112/112 K3max=6.2e-17 K3=5.7e-17 G=0.0e+00 Gsym=9.5e-15 dln=3.1e-06 dlnGs=3.1e-06 sign=True Qnp=8.8e-17 kQ=1.5e+13
+111_A2 0.338200966 jump-1.1e-07   N= 88/ 88 K3max=3.2e-17 K3=3.3e-17 G=0.0e+00 Gsym=9.4e-15 dln=1.8e-12 dlnGs=1.3e-12 sign=True Qnp=3.5e-17 kQ=2.2e+07
+200_A2 0.282602294 random         N= 47/ 47 K3max=5.8e-18 K3=4.0e-19 G=0.0e+00 Gsym=1.4e-16 dln=1.4e-14 dlnGs=1.4e-14 sign=True Qnp=1.3e-16 kQ=2.8e+04
+200_A2 0.305902023 random         N= 79/ 79 K3max=4.5e-17 K3=4.7e-17 G=0.0e+00 Gsym=1.9e-16 dln=2.8e-14 dlnGs=2.8e-14 sign=True Qnp=1.4e-16 kQ=8.0e+03
+200_A2 0.331691855 random         N=104/104 K3max=7.1e-17 K3=6.6e-17 G=0.0e+00 Gsym=8.9e-16 dln=5.7e-14 dlnGs=5.7e-14 sign=True Qnp=2.2e-17 kQ=3.8e+06
+200_A2 0.330478543 jump+1.8e-09   N=104/104 K3max=8.1e-17 K3=8.4e-17 G=0.0e+00 Gsym=1.3e-15 dln=2.6e-13 dlnGs=5.7e-14 sign=True Qnp=5.4e-18 kQ=2.3e+08
+200_A2 0.330478540 jump-1.8e-09   N=103/103 K3max=3.3e-17 K3=3.3e-17 G=0.0e+00 Gsym=1.5e-15 dln=2.7e-12 dlnGs=2.6e-12 sign=True Qnp=3.3e-16 kQ=4.1e+06
+200_A2 0.317008771 jump+1.3e-08   N= 99/ 99 K3max=5.6e-17 K3=5.7e-17 G=0.0e+00 Gsym=8.0e-16 dln=7.1e-14 dlnGs=7.1e-14 sign=True Qnp=4.7e-20 kQ=2.9e+07
+200_A2 0.317008746 jump-1.3e-08   N= 95/ 95 K3max=5.4e-17 K3=4.9e-17 G=0.0e+00 Gsym=8.0e-16 dln=0.0e+00 dlnGs=0.0e+00 sign=True Qnp=9.4e-17 kQ=1.6e+04
