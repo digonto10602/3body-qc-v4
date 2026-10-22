@@ -1,7 +1,10 @@
-// fast_point.hpp : the cache-free fast path v1 (prompts/001 step 6, rungs 1-4).
+// fast_point.hpp : the cache-free fast path (prompts/001 step 6 rungs 1-4; prompts/002 7.4 K3 pair kernel, 7.5 G pair kernel,
+// 7.6 C++ tail).
 //
-// Same physics, same basis (threshold builder fast_kinematics, bit-identical to qc3_oracle::make_kinematics) and same G, K2^{-1}, K3 functions as the oracle;
-// the expensive F lattice sum is reorganised:
+// Same physics, same basis (threshold builder fast_kinematics, bit-identical to qc3_oracle::make_kinematics) and the oracle's
+// K2^{-1}; K_df,3 and G use the pair kernels of fast_k3.hpp / fast_g.hpp (same formulas as K3_functions_2plus1.hpp /
+// G_functions_v2.h, restructured per momentum pair); the tail (F3 from the block structure of F, Q by one LU solve with N_proj
+// right-hand sides, (sign, ln|det|) by LU) is in this file (Eigen, one thread).  The expensive F lattice sum is reorganised:
 //   rung 1  one sum pass per spectator momentum for ALL (l'm'; lm) pairs (the oracle repeats the 41^3 cube 16x);
 //   rung 2  ellipsoid-within-cube truncation  r^2 <= R^2  with R^2 chosen so that every omitted term is
 //           <= trunc_eps  (per-term bound below); NOT a sphere in n;
@@ -23,6 +26,8 @@
 #include "oracle_point.hpp"
 #include "fast_projector.hpp"
 #include "fast_basis.hpp"
+#include "fast_k3.hpp"
+#include "fast_g.hpp"
 
 namespace qc3_fast {
 
@@ -33,6 +38,10 @@ using namespace k3df_fit_v32f;
 struct Options {
     double trunc_eps = 1.0e-16;
     std::string projector = "orbit";   // "orbit" (prompts/002 2.1, default) | "eigen" (existing builder, cross-check)
+    // which matrices are converted into the Output (prompts/002 2.4: conversions on demand).  The full inverse F3^{-1} is
+    // formed ONLY if want_F3inv (Q never needs it).  The K3 basis matrices and K3 are returned iff want_K3.
+    bool want_F = true, want_G = true, want_K2inv = true, want_F3 = true, want_F3inv = true, want_Vsel = true, want_K3 = true;
+    bool g_symmetric = false;          // G pair kernel: every ordered pair (default: bit-faithful to the oracle, +0.2 ms at N=160) or symmetric fill (plan 2.3)
 };
 
 struct Stats {
@@ -190,6 +199,24 @@ inline Mat to_complex(const MatR& M) { return M.cast<comp>(); }
 
 inline double max_abs_imag(const Mat& M) { return M.imag().cwiseAbs().maxCoeff(); }
 
+// (sign, ln|det|) from a partial-pivot LU (invariant 2), same expressions as the oracle's tail.  Singular or non-finite -> domain_error.
+template <class M>
+inline void slogdet_lu(const M& Q, int& sign, double& sign_imag, double& lnabs) {
+    if (!Q.allFinite()) throw std::domain_error("fast: Q contains non-finite entries");
+    Eigen::PartialPivLU<M> luQ(Q);
+    const M& LU = luQ.matrixLU();
+    lnabs = 0.0;
+    comp phase(double(luQ.permutationP().determinant()), 0.0);
+    for (int k = 0; k < LU.rows(); ++k) {
+        const double a = std::abs(LU(k, k));
+        if (!(a > 0.0) || !std::isfinite(a)) throw std::domain_error("fast: Q is singular (zero pivot in LU)");
+        lnabs += std::log(a);
+        phase *= comp(LU(k, k)) / a;
+    }
+    sign = (phase.real() >= 0.0) ? 1 : -1;
+    sign_imag = std::abs(phase.imag());
+}
+
 inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& opt) {
     using namespace qc3_oracle;
     SingleThread single_thread_guard;
@@ -204,6 +231,7 @@ inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& o
     out.N1 = kin.N1; out.N2 = kin.N2; out.N = kin.N;
     out.basis = kin.basis;
     const int N = kin.N, N1 = kin.N1, N2 = kin.N2;
+    const std::vector<Group> groups = make_groups(kin);
     out.timings["basis"] = clk.lap();
 
     // ---- F (rungs 1-3) ----
@@ -215,57 +243,110 @@ inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& o
                                              par.alpha, par.epsilon_h, int(par.max_shell_num), par.Q0norm, opt.trunc_eps, st);
     out.timings["F"] = clk.lap();
 
-    // ---- K2inv (honours k2_pwave_form), G: oracle functions, unchanged ----
+    // ---- K2inv (honours k2_pwave_form): oracle function, unchanged ----
     auto plm = kin.plm_config; auto klm = kin.klm_config;
-    Mat K2inv(N, N), G(N, N);
+    Mat K2inv(N, N);
     K2inv_2plus1_by_form(in.k2_pwave_form, K2inv, par.eta_1, par.eta_2, par.scatter_params_1, par.scatter_params_2, kin.En_c, plm, klm, kin.total_P, par.atmK, par.atmpi, par.epsilon_h, kin.L);
     out.timings["K2inv"] = clk.lap();
-    G_2plus1_mat(G, kin.En_c, plm, klm, kin.total_P, par.atmK, par.atmpi, kin.L, par.alpha, par.epsilon_h, par.max_shell_num, par.Q0norm);
+    {
+        const double sc = max_abs_imag(K2inv);
+        const double scr = std::max(K2inv.real().cwiseAbs().maxCoeff(), 1e-300);
+        if (sc > 1e-14 * scr) throw std::runtime_error("fast: K2inv has a non-negligible imaginary part (real arithmetic invalid)");
+    }
+    const MatR K2r = K2inv.real();
+
+    // ---- G: pair kernel (prompts/002 2.3, fast_g.hpp), real ----
+    const MatR Gr = g_matrix(kin, groups, opt.g_symmetric);
     out.timings["G"] = clk.lap();
 
-    // ---- F3 = F/3 - F H^{-1} F in real arithmetic ----
-    {
-        const double sc = std::max({max_abs_imag(K2inv), max_abs_imag(G)});
-        const double scr = std::max({K2inv.real().cwiseAbs().maxCoeff(), G.real().cwiseAbs().maxCoeff(), 1e-300});
-        if (sc > 1e-14 * scr) throw std::runtime_error("fast: K2inv or G has a non-negligible imaginary part (real arithmetic invalid)");
-    }
-    const MatR K2r = K2inv.real(), Gr = G.real();
+    // ---- F3 = F/3 - F H^{-1} F in real arithmetic; F is block diagonal (one block per spectator momentum) ----
     const MatR H = K2r + Fr + Gr;
     Eigen::PartialPivLU<MatR> luH(H);
     const MatR X1 = luH.solve(Fr);
-    MatR F3 = Fr / 3.0 - Fr * X1;
+    MatR FX1 = MatR::Zero(N, N);
+    for (const Group& g : groups) FX1.middleRows(g.row0, g.nlm).noalias() = Fr.block(g.row0, g.row0, g.nlm, g.nlm) * X1.middleRows(g.row0, g.nlm);
+    const MatR F3 = Fr / 3.0 - FX1;
     out.timings["F3"] = clk.lap();
 
     // ---- projector: fast-owned in-memory cache with the complete key (the legacy map is not used) ----
     bool phit = false;
     FastProjector fproj = fast_projector_cached(kin, opt.projector, phit);
     st.projector_cache_hit = phit ? 1 : 0;
-    Mat Vsel = fproj.Vsel;
+    const Mat& Vsel = fproj.Vsel;
     out.Nproj = fproj.Nproj;
     out.timings["projector"] = clk.lap();
     if (out.Nproj <= 0) throw std::runtime_error("fast: ZERO_PROJECTED_DIM");
 
-    // ---- F3^{-1}: scaled partial-pivot LU, full inverse (the inverse is what gets projected: invariant 1) ----
+    // ---- scaled partial-pivot LU of F3 (the inverse is what gets projected: invariant 1) ----
     const double f3_scale = F3.cwiseAbs().maxCoeff();
     if (!(f3_scale > 0.0) || !std::isfinite(f3_scale)) throw std::runtime_error("fast: BAD_F3_SCALE");
     const MatR F3s = F3 / f3_scale;
     Eigen::PartialPivLU<MatR> luF3(F3s);
-    MatR F3invr = luF3.solve(MatR::Identity(N, N));
-    F3invr /= f3_scale;
+    MatR F3invr;
+    if (opt.want_F3inv) {          // the full inverse is formed ONLY when requested
+        F3invr = luF3.solve(MatR::Identity(N, N));
+        F3invr /= f3_scale;
+    }
     out.timings["F3inv"] = clk.lap();
-    if (!Fr.allFinite() || !F3.allFinite() || !F3invr.allFinite() || !Vsel.allFinite()) throw std::runtime_error("fast: NONFINITE_COMPONENT");
+    if (!Fr.allFinite() || !F3.allFinite() || !Vsel.allFinite() || (opt.want_F3inv && !F3invr.allFinite())) throw std::runtime_error("fast: NONFINITE_COMPONENT");
 
-    // ---- K3 ----
-    const bool any_c = (in.c[0] != 0.0 || in.c[1] != 0.0 || in.c[2] != 0.0 || in.c[3] != 0.0);
-    Mat K3 = Mat::Zero(N, N);
-    if (any_c || in.compute_k3) {
-        compute_k3(kin, in.c, out.K3_basis, K3);
-        out.has_k3_basis = true;
+    // ---- K3: pair kernel for the four basis matrices (prompts/002 2.3, fast_k3.hpp), K3(c) = sum_i c_i B_i ----
+    MatR K3r = MatR::Zero(N, N);
+    {
+        bool need[4];
+        for (int i = 0; i < 4; ++i) need[i] = opt.want_K3 || in.c[std::size_t(i)] != 0.0;
+        if (need[0] || need[1] || need[2] || need[3]) {
+            std::array<MatR, 4> B;
+            k3_basis_matrices(kin, groups, need, B);
+            for (int i = 0; i < 4; ++i)
+                if (in.c[std::size_t(i)] != 0.0) K3r += in.c[std::size_t(i)] * B[std::size_t(i)];
+            if (opt.want_K3) {
+                for (int i = 0; i < 4; ++i) out.K3_basis[std::size_t(i)] = to_complex(B[std::size_t(i)]);
+                out.has_k3_basis = true;
+            }
+        }
     }
     out.timings["K3"] = clk.lap();
 
-    out.F = to_complex(Fr); out.G = std::move(G); out.K2inv = std::move(K2inv);
-    out.F3 = to_complex(F3); out.F3inv = to_complex(F3invr); out.Vsel = std::move(Vsel); out.K3 = std::move(K3);
+    // ---- projection of the inverse: Q = L^-6 V^dag (X/s + K3 V) with X = (F3/s)^{-1} V  (N_proj right-hand sides) ----
+    // identical to L^-6 V^dag (F3^{-1} + K3) V (invariant 1: project the inverse, scale the matrix, no N_proj factor)
+    const double L6 = std::pow(kin.L, 6);
+    const bool v_real = (Vsel.imag().cwiseAbs().maxCoeff() == 0.0);
+    Mat Q;
+    MatR Qr;
+    if (v_real) {
+        const MatR Vr = Vsel.real();
+        const MatR X = luF3.solve(Vr);
+        const MatR W = X / f3_scale + K3r * Vr;
+        Qr = (Vr.transpose() * W) / L6;
+        Q = to_complex(Qr);
+    } else {
+        MatR rhs(N, 2 * out.Nproj);
+        rhs.leftCols(out.Nproj) = Vsel.real();
+        rhs.rightCols(out.Nproj) = Vsel.imag();
+        const MatR XX = luF3.solve(rhs);
+        Mat X(N, out.Nproj);
+        X.real() = XX.leftCols(out.Nproj);
+        X.imag() = XX.rightCols(out.Nproj);
+        const Mat W = X / comp(f3_scale, 0.0) + K3r.cast<comp>() * Vsel;
+        Q = (Vsel.adjoint() * W) / comp(L6, 0.0);
+    }
+    out.timings["projection"] = clk.lap();
+
+    // ---- (sign, ln|det Q|) by partial-pivot LU (invariant 2) ----
+    if (v_real) slogdet_lu(Qr, out.sign, out.sign_imag, out.lnabsdet);
+    else slogdet_lu(Q, out.sign, out.sign_imag, out.lnabsdet);
+    out.timings["lu"] = clk.lap();
+
+    // ---- conversions on demand ----
+    if (opt.want_F) out.F = to_complex(Fr);
+    if (opt.want_G) out.G = to_complex(Gr);
+    if (opt.want_K2inv) out.K2inv = std::move(K2inv);
+    if (opt.want_F3) out.F3 = to_complex(F3);
+    if (opt.want_F3inv) out.F3inv = to_complex(F3invr);
+    if (opt.want_Vsel) out.Vsel = Vsel;
+    if (opt.want_K3) out.K3 = to_complex(K3r);
+    out.Q = std::move(Q);
     out.timings["total"] = total.lap();
     out.stats["lattice_terms"] = double(st.lattice_terms);
     out.stats["lattice_cube_per_entry"] = double(st.lattice_cube);
