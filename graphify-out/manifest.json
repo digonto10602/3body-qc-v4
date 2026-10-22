@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792697930.8114505,
-    "seen": 1792697937.8224075,
-    "ast_hash": "79c499cae1bbb1254c22f4fdc8ffd1e0",
+    "mtime": 1792698674.9384418,
+    "seen": 1792698681.812606,
+    "ast_hash": "c7338a02198555d1ba0fe852d21b4f66",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -2091,6 +2091,36 @@
     "mtime": 1792698121.2162733,
     "seen": 1792698180.364213,
     "ast_hash": "7f90ccea4a65ce4c704083fb7fc84dd8",
+    "semantic_hash": ""
+  },
+  "results/bench_tester_fastonly_step8.json": {
+    "mtime": 1792698548.3181553,
+    "seen": 1792698681.8123157,
+    "ast_hash": "7c417f09d11b7899e69131801f7122d0",
+    "semantic_hash": ""
+  },
+  "results/bench_tester_smoke_step8.json": {
+    "mtime": 1792698523.989623,
+    "seen": 1792698681.8123188,
+    "ast_hash": "57a72334ae4850b6db7a5974e3ffa2cd",
+    "semantic_hash": ""
+  },
+  "results/bench_tester_threads4_smoke_step8.json": {
+    "mtime": 1792698612.217842,
+    "seen": 1792698681.8123198,
+    "ast_hash": "24409cd7148651088b158b68eb61ce9f",
+    "semantic_hash": ""
+  },
+  "results/tester_011_chi2_independent.json": {
+    "mtime": 1792698578.2124028,
+    "seen": 1792698681.8124194,
+    "ast_hash": "5e7c3563e0f8de0e951b88ac57d798f0",
+    "semantic_hash": ""
+  },
+  "reports/tests/011-m1-step8-bench-harness.md": {
+    "mtime": 1792698651.4875426,
+    "seen": 1792698681.8126278,
+    "ast_hash": "a2af4dfdc21b967b2d831835b540f7c6",
     "semantic_hash": ""
   }
 }
