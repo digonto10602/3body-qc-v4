@@ -1,0 +1,28 @@
+{
+ "commit": "00dbb32 (tested; HEAD later moved to e5d72a5 with no src/tests change)",
+ "mode": "step",
+ "tag": "acceptance-v4",
+ "m1_pass": 40,
+ "m1_fail_notimpl": 7,
+ "unit_pass": 33,
+ "acceptance_check": "PASS",
+ "oracle_diff_lines": 0,
+ "cache_key_differential": {
+  "cases": 130,
+  "mismatch": 0
+ },
+ "discriminants": {
+  "n_points": 26,
+  "zeros": 24,
+  "poles": 2,
+  "zero_range": [
+   -26.605355113263187,
+   -13.129808101116112
+  ],
+  "pole_values": [
+   12.645341429664853,
+   11.907004444987649
+  ]
+ },
+ "seed": 20261022
+}

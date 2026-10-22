@@ -1,0 +1,66 @@
+[
+ {
+  "irrep": "100_A2",
+  "Ecm": 0.291556099879,
+  "form": "coded_v2",
+  "lnabsdet": -105.99137851854572,
+  "anchor": null,
+  "absdiff": null
+ },
+ {
+  "irrep": "100_A2",
+  "Ecm": 0.291556099879,
+  "form": "q0_consistent",
+  "lnabsdet": -104.84882787679236,
+  "anchor": null,
+  "absdiff": null
+ },
+ {
+  "irrep": "100_A2",
+  "Ecm": 0.291798362,
+  "form": "coded_v2",
+  "lnabsdet": -106.34903333544038,
+  "anchor": null,
+  "absdiff": null
+ },
+ {
+  "irrep": "100_A2",
+  "Ecm": 0.291798362,
+  "form": "q0_consistent",
+  "lnabsdet": -105.83841002090561,
+  "anchor": null,
+  "absdiff": null
+ },
+ {
+  "irrep": "000_A1m",
+  "Ecm": 0.26932,
+  "form": "coded_v2",
+  "lnabsdet": -45.28486893432314,
+  "anchor": null,
+  "absdiff": null
+ },
+ {
+  "irrep": "000_A1m",
+  "Ecm": 0.26932,
+  "form": "q0_consistent",
+  "lnabsdet": -45.296233107128,
+  "anchor": null,
+  "absdiff": null
+ },
+ {
+  "irrep": "200_A2",
+  "Ecm": 0.28664,
+  "form": "coded_v2",
+  "lnabsdet": -101.43616587497485,
+  "anchor": null,
+  "absdiff": null
+ },
+ {
+  "irrep": "200_A2",
+  "Ecm": 0.28664,
+  "form": "q0_consistent",
+  "lnabsdet": -102.30822562433019,
+  "anchor": null,
+  "absdiff": null
+ }
+]

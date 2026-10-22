@@ -4,7 +4,14 @@
 - **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
 - **Acceptance tag:** `acceptance-v4` = `504a689` (47 tests). v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** M1 **step 7.0**: the fast-owned projector cache with a complete key. Next come 7.1 (pole/zero discrimination in `qc3.roots`) and 7.8 (production default `q0_consistent`, D7), then 7.2–7.6.
+- **Current step:** M1 **steps 7.2 and 7.3**: the orbit/character projector, and the threshold basis builder with `dimension_jumps`.
+- **Steps 7.0, 7.1 and 7.8 DONE**, verified by `reports/tests/008-m1-step7-0-1-8-cache-roots-default.md` (PASS). 40 of 47 acceptance tests pass; the 7 pending ones are 7.2/7.3 stubs.
+  - 7.0: the cache key is complete. A differential test of 130 inputs found 0 stale hits; a C++ harness checks `norm_tol` and `proj_tol`.
+  - 7.1: the discriminant gives zeros $-13.1\ldots-26.6$ and poles $+11.9$, $+12.7$. The derived bound is $|\Delta_h|\ge\ln(h/x_{\rm tol})=11.5$.
+    - It is reliable for opposite-type pairs separated by more than about $5.5\times10^{-10}$. Closer pairs come out "ambiguous", never the wrong kind.
+    - `kind="any"` is identical to the old Brent on 36 real windows.
+  - 7.8: the production default is `q0_consistent` (D7). No test compares across forms.
+  - Note: `xtol` must stay below $h e^{-4}\approx1.8\times10^{-8}$. Larger values fail loudly as "ambiguous"; add a docstring note.
 - **Step 9 DONE**, verified by `reports/tests/007-m1-step9-pwave-shift.md` (PASS). The table is in `results/k2_pwave_shift_L20.json`.
   - `q0_consistent` lowers all 12 levels, by $0.6$–$3.0\times10^{-4}\,a_t^{-1}$, i.e. $0.11$–$0.39\,\sigma$.
   - The oracle confirms all 24 roots as simple zeros, to $\le2\times10^{-12}$.
