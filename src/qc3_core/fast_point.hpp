@@ -9,6 +9,8 @@
 //   rung 2  ellipsoid-within-cube truncation  r^2 <= R^2  with R^2 chosen so that every omitted term is
 //           <= trunc_eps  (per-term bound below); NOT a sphere in n;
 //   rung 3  real arithmetic (F, G, K2inv, F3, F3^{-1} are real: harmonics are the real Q0 ones, x^2 real);
+//   rung 5  (prompts/002 7.7, fast_fclass.hpp, default; Options::f_classes=false gives the direct sum below) class moment tables
+//           per canonical nP and one shared sum per (canonical nP, |p|^2); the direct term sum is kept as the cross-check
 //   rung 4  energy-independent pieces cached in memory per process (projector V_sel per basis signature = the
 //           existing get_projector_cached_v30q map), symmetric block fills.
 //
@@ -28,6 +30,7 @@
 #include "fast_basis.hpp"
 #include "fast_k3.hpp"
 #include "fast_g.hpp"
+#include "fast_fclass.hpp"
 
 namespace qc3_fast {
 
@@ -41,6 +44,7 @@ struct Options {
     // which matrices are converted into the Output (prompts/002 2.4: conversions on demand).  The full inverse F3^{-1} is
     // formed ONLY if want_F3inv (Q never needs it).  The K3 basis matrices and K3 are returned iff want_K3.
     bool want_F = true, want_G = true, want_K2inv = true, want_F3 = true, want_F3inv = true, want_Vsel = true, want_K3 = true;
+    bool f_classes = true;             // F lattice sum via class moment tables + shared (nP orbit, |p|^2) sums (prompts/002 2.7); false = direct term sum (cross-check)
     bool g_symmetric = false;          // G pair kernel: every ordered pair (default: bit-faithful to the oracle, +0.2 ms at N=160) or symmetric fill (plan 2.3)
 };
 
@@ -48,6 +52,9 @@ struct Stats {
     long long lattice_terms = 0;   // summed terms over all momenta (channel 1 + 2)
     long long lattice_cube = 0;    // terms the oracle's cube would have summed per (l'm';lm) entry
     int projector_cache_hit = 0;
+    long long f_classes = 0;       // class terms evaluated (class path)
+    long long f_sums = 0;          // distinct (canonical nP, |p|^2) moment sums computed
+    long long f_blocks = 0;        // spectator-momentum blocks with a non-zero cutoff
 };
 
 // smallest R^2 such that 3 R^2 exp(-alpha (R^2-x2))/(R^2-x2) <= eps   (x2 = Re x^2 may be negative)
@@ -73,7 +80,7 @@ inline double Yreal(int ell, int m, double rx, double ry, double rz) {
 // F matrix of one channel (spectator mass mi, pair masses mj, mk). Returns the N_c x N_c real block.
 inline MatR F_channel(const std::vector<std::vector<comp>>& cfg, const std::vector<std::vector<int>>& ncfg, comp En,
                       const std::vector<comp>& total_P, double mi, double mj, double mk, double L, double alpha,
-                      double epsilon_h, int nmax, bool Q0norm, double trunc_eps, Stats& st) {
+                      double epsilon_h, int nmax, bool Q0norm, double trunc_eps, Stats& st, bool use_classes = true) {
     const int n = int(cfg[0].size());
     MatR F = MatR::Zero(n, n);
     if (!Q0norm) throw std::runtime_error("fast path: only the Q0 normalisation is implemented");
@@ -81,6 +88,9 @@ inline MatR F_channel(const std::vector<std::vector<comp>>& cfg, const std::vect
     const comp Lby2pi = comp(L) / (comp(2.0) * pi);
     const comp twopibyL = comp(2.0) * pi / comp(L);
     const double tpl = twopibyL.real();
+    struct FCacheEntry { int c[3]; int p2; double x2, gamma, xii; FMoments m; };
+    std::vector<FCacheEntry> fcache;
+    fcache.reserve(64);   // pointers into it must stay valid while the block is assembled
 
     int i0 = 0;
     while (i0 < n) {
@@ -133,6 +143,55 @@ inline MatR F_channel(const std::vector<std::vector<comp>>& cfg, const std::vect
         // moments S_ab accumulated in long double (Neumaier-grade accuracy without a stored term vector)
         long double S[4][4] = {{0}};
         long long count = 0;
+        ++st.f_blocks;
+        if (use_classes) {
+            // ---- class path (fast_fclass.hpp): canonical nP, shared sums, rotation back ----
+            int nPi[3] = {int(std::lround(nPx)), int(std::lround(nPy)), int(std::lround(nPz))};
+            if (std::abs(nPx - nPi[0]) > 1e-6 || std::abs(nPy - nPi[1]) > 1e-6 || std::abs(nPz - nPi[2]) > 1e-6)
+                throw std::runtime_error("fast path: nP is not an integer vector");
+            int idx[3] = {0, 1, 2};
+            std::stable_sort(idx, idx + 3, [&](int a, int b) { return std::abs(nPi[a]) > std::abs(nPi[b]); });
+            int cvec[3], sgn[3];
+            for (int j = 0; j < 3; ++j) { cvec[j] = std::abs(nPi[idx[j]]); sgn[j] = (nPi[idx[j]] < 0) ? -1 : 1; }
+            const int p2 = ncfg[0][std::size_t(i0)] * ncfg[0][std::size_t(i0)] + ncfg[1][std::size_t(i0)] * ncfg[1][std::size_t(i0)] +
+                           ncfg[2][std::size_t(i0)] * ncfg[2][std::size_t(i0)];
+            const FMoments* mom = nullptr;
+            for (const FCacheEntry& e : fcache)
+                if (e.c[0] == cvec[0] && e.c[1] == cvec[1] && e.c[2] == cvec[2] && e.p2 == p2 &&
+                    std::abs(e.x2 - x2) <= 1e-10 * (1.0 + std::abs(x2)) && std::abs(e.gamma - gamma) <= 1e-10 * gamma &&
+                    std::abs(e.xii - xii) <= 1e-10 * (1.0 + std::abs(xii))) { mom = &e.m; break; }
+            if (!mom) {
+                FCacheEntry e;
+                e.c[0] = cvec[0]; e.c[1] = cvec[1]; e.c[2] = cvec[2]; e.p2 = p2; e.x2 = x2; e.gamma = gamma; e.xii = xii;
+                const std::shared_ptr<const FTable> tab = ftable_cached(cvec, nmax, alpha);
+                e.m = class_moments(*tab, x2, gamma, xii, R2);
+                fcache.push_back(e);
+                mom = &fcache.back().m;
+                ++st.f_sums;
+                st.f_classes += mom->classes;
+            }
+            // rotate the canonical-frame moments back: r_act[idx[j]] = sgn[j] r_can[j]
+            double T1[3], T2[3][3];
+            for (int j = 0; j < 3; ++j) T1[idx[j]] = sgn[j] * mom->T1[j];
+            for (int j = 0; j < 3; ++j)
+                for (int k = 0; k < 3; ++k) T2[idx[j]][idx[k]] = sgn[j] * sgn[k] * mom->T2[j][k];
+            double u[4], v[4][3];
+            for (int a = 0; a < nlm; ++a) {
+                u[a] = 0.0; v[a][0] = v[a][1] = v[a][2] = 0.0;
+                if (ell[a] == 0) u[a] = 1.0;
+                else if (ell[a] == 1 && mm[a] >= -1 && mm[a] <= 1) v[a][mm[a] == -1 ? 1 : (mm[a] == 0 ? 2 : 0)] = std::sqrt(3.0);
+                else throw std::runtime_error("fast path: only l <= 1 is implemented");
+            }
+            for (int a = 0; a < nlm; ++a)
+                for (int b = a; b < nlm; ++b) {
+                    double s = u[a] * u[b] * mom->T0;
+                    for (int i = 0; i < 3; ++i) s += (u[a] * v[b][i] + u[b] * v[a][i]) * T1[i];
+                    for (int i = 0; i < 3; ++i)
+                        for (int j = 0; j < 3; ++j) s += v[a][i] * T2[i][j] * v[b][j];
+                    S[a][b] = s;
+                }
+            count = mom->terms;
+        } else {
         const int lo = -nmax, hi = nmax;
         // bounding box in n: half-width R sqrt(1 + (gamma^2-1) nh_i^2) = R sqrt(M^{-1}_ii)
         double hb[3];
@@ -175,8 +234,9 @@ inline MatR F_channel(const std::vector<std::vector<comp>>& cfg, const std::vect
                 }
             }
         }
+        }
         st.lattice_terms += count;
-        st.lattice_cube += (long long)(hi - lo + 1) * (hi - lo + 1) * (hi - lo + 1);
+        st.lattice_cube += (long long)(2 * nmax + 1) * (2 * nmax + 1) * (2 * nmax + 1);
 
         for (int a = 0; a < nlm; ++a) {
             for (int b = a; b < nlm; ++b) {
@@ -238,9 +298,9 @@ inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& o
     Stats st;
     MatR Fr = MatR::Zero(N, N);
     Fr.topLeftCorner(N1, N1) = F_channel(kin.plm_config, kin.np_config, kin.En_c, kin.total_P, par.atmK, par.atmK, par.atmpi, kin.L,
-                                         par.alpha, par.epsilon_h, int(par.max_shell_num), par.Q0norm, opt.trunc_eps, st);
+                                         par.alpha, par.epsilon_h, int(par.max_shell_num), par.Q0norm, opt.trunc_eps, st, opt.f_classes);
     Fr.bottomRightCorner(N2, N2) = F_channel(kin.klm_config, kin.nk_config, kin.En_c, kin.total_P, par.atmpi, par.atmK, par.atmK, kin.L,
-                                             par.alpha, par.epsilon_h, int(par.max_shell_num), par.Q0norm, opt.trunc_eps, st);
+                                             par.alpha, par.epsilon_h, int(par.max_shell_num), par.Q0norm, opt.trunc_eps, st, opt.f_classes);
     out.timings["F"] = clk.lap();
 
     // ---- K2inv (honours k2_pwave_form): oracle function, unchanged ----
@@ -350,6 +410,9 @@ inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& o
     out.timings["total"] = total.lap();
     out.stats["lattice_terms"] = double(st.lattice_terms);
     out.stats["lattice_cube_per_entry"] = double(st.lattice_cube);
+    out.stats["f_class_terms"] = double(st.f_classes);
+    out.stats["f_sums"] = double(st.f_sums);
+    out.stats["f_blocks"] = double(st.f_blocks);
     out.stats["projector_cache_hit"] = double(st.projector_cache_hit);
     return out;
 }

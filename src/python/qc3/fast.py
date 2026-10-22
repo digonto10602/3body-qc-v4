@@ -3,8 +3,11 @@
 Implemented in src/qc3_core/fast_point.hpp: the threshold basis builder (fast_basis.hpp, bit-identical to the oracle's),
 the K2^{-1} of the oracle, the pair kernels for K_df,3 (fast_k3.hpp) and G (fast_g.hpp: same formulas as
 K3_functions_2plus1.hpp / G_functions_v2.h, one kinematics evaluation per unordered momentum pair), the
-orbit/character projector (fast_projector.hpp); the F lattice sum is done in one pass per spectator momentum,
-truncated to the ellipsoid r^2 <= R^2 inside the oracle's cube (per-term bound <= trunc_eps), in real arithmetic.
+orbit/character projector (fast_projector.hpp); the F lattice sum (prompts/002 7.7, fast_fclass.hpp) uses class moment
+tables: per canonical nP (cubic-group orbit of the pair momentum) the cube points are grouped into classes of equal
+(n^2, n.nP), the ellipsoid r^2 <= R^2 (per-term bound <= trunc_eps, same point set as the direct sum) is selected per class,
+momenta with equal (canonical nP, |p|^2) share one sum which is rotated back; real arithmetic.  options["use_classes"]=False
+selects the direct term-by-term sum (cross-check).
 Energy-independent pieces (the projector V_sel per basis signature, the basis threshold tables) are cached in memory
 per process.  The tail is in C++ (Eigen, one thread, no BLAS): F3 from the block structure of F,
 Q = L^-6 V^dag (X/s + K3 V) with X = (F3/s)^-1 V by one LU solve with N_proj right-hand sides (mathematically the
@@ -20,7 +23,7 @@ from .sector import Sector  # noqa: F401
 # projector, no eigen-solve, mandatory self-check P V = V); "eigen" = the existing eigen-decomposition builder, kept for
 # cross-checks.  Both go through the fast-owned in-memory cache with a complete key (step 7.0).
 PROJECTOR_METHODS = ("orbit", "eigen")
-DEFAULT_OPTIONS = {"trunc_eps": 1e-16, "use_classes": False, "threads": 1, "projector": "orbit"}
+DEFAULT_OPTIONS = {"trunc_eps": 1e-16, "use_classes": True, "threads": 1, "projector": "orbit"}
 
 
 def _params(sector, Ecm, c, compute_k3):
@@ -41,8 +44,6 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
         if unknown:
             raise ValueError(f"fast: unknown options {sorted(unknown)}")
         opts.update(options)
-    if opts["use_classes"]:
-        raise NotImplementedError("qc3.fast: use_classes=True is prompts/001 step 7")
     if int(opts["threads"]) != 1:
         raise NotImplementedError("qc3.fast: only threads=1 is implemented (OpenMP is an optional later rung)")
     if opts["projector"] not in PROJECTOR_METHODS:
@@ -59,7 +60,7 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
         raise ValueError("c must be (Kiso0, Kiso1, KB, KE)")
     want = set(want)
     params = _params(sector, Ecm, c, bool("K3" in want))
-    d = core.fast_point(params, trunc_eps, opts["projector"], sorted(want))
+    d = core.fast_point(params, trunc_eps, opts["projector"], sorted(want), use_classes=bool(opts["use_classes"]))
     if tuple(d["nnP"]) != tuple(sector.nnP):
         raise RuntimeError(f"nnP mismatch between Sector {sector.nnP} and C++ parse_label {d['nnP']}")
     if abs(d["sign_imag"]) > 1e-10:   # same check as qc3.qc.slogdet: the determinant phase must be +-1
@@ -74,7 +75,7 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
     md = _metadata(sector, core)
     md["backend"] = "fast"
     md["trunc_eps"] = trunc_eps
-    md["use_classes"] = False
+    md["use_classes"] = bool(opts["use_classes"])
     md["projector_method"] = opts["projector"]
     md["tail"] = "cpp"   # prompts/002 step 7.6: F3, Q and the LU in C++ (Eigen, one thread); no NumPy/BLAS call
     md["projector_cache_hit"] = bool(d["stats"]["projector_cache_hit"])
