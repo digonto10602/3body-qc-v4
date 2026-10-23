@@ -2,7 +2,7 @@
 
 - **Updated:** 2026-10-21 (cloud kickoff)
 - **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
-- **Acceptance tag:** `acceptance-v4` = `504a689` (47 tests). v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
+- **Acceptance tag:** `acceptance-v5` = `e384ce6` (47 tests; v5 = v4 plus the audit-001 test fixes C and D, approved by Digonto 2026-10-23). `acceptance-v4` = `504a689`. v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
 - **Current step:** **M1 milestone gate.**
   - The auditor returned **PASS WITH NOTES** (`reports/audits/001-m1-milestone-audit.md`), with no blocking issue.
