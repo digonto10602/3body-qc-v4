@@ -684,9 +684,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792689859.7041445,
-    "seen": 1792700102.9301498,
-    "ast_hash": "09f51699df3f4fa39cbfb9cfb95e8064",
+    "mtime": 1792774184.6542265,
+    "seen": 1792774191.4816208,
+    "ast_hash": "8c1ba5a988ba05e5f2626b66f944a773",
     "semantic_hash": ""
   },
   "README.md": {
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792701256.0693896,
-    "seen": 1792701263.5157309,
-    "ast_hash": "b6ec9b0e10861e429da691005fa528b0",
+    "mtime": 1792774184.6549594,
+    "seen": 1792774191.4816663,
+    "ast_hash": "52153b6bd35cd9cb68c4e008674465f8",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -2277,6 +2277,12 @@
     "mtime": 1792701141.3704169,
     "seen": 1792701263.5157983,
     "ast_hash": "56860f783f03e26845856cff66e238fd",
+    "semantic_hash": ""
+  },
+  "reports/audits/001-m1-milestone-audit.md": {
+    "mtime": 1792702051.0077448,
+    "seen": 1792774191.4816709,
+    "ast_hash": "ddf1b8aa093b7647da881d76eedf2326",
     "semantic_hash": ""
   }
 }
