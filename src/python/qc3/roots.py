@@ -6,6 +6,12 @@ discriminant
         Delta_h(E*) = l(E*) - [ l(E*-h) + l(E*+h) ] / 2 ,        h = 1e-6  (0.2 grid rows)
 is ~ ln(|E*-E0|/h) <= ln(xtol/h) = -11.5 for a simple zero and ~ +11.5 for a simple pole (higher order: larger |Delta_h|;
 the smooth background adds O(h |l'_bg|) << 1).  zero if Delta_h <= -D, pole if Delta_h >= +D, else ambiguous (D = 4).
+
+xtol coupling (audit 001 N6): Brent stops within xtol of the sign change, so |E* - E0| <= xtol and a simple zero has
+Delta_h ~ ln(|E*-E0|/h) <= ln(xtol/h).  Classification as a zero needs Delta_h <= -D, which is guaranteed only for
+xtol <= h e^{-D} (= 1.8e-8 for h = 1e-6, D = 4); a larger xtol makes the pole/zero discriminant ambiguous (reports/tests/008).
+refine_root, refine_root_info, find_sign_changes and find_zeros therefore raise ValueError for xtol > h e^{-D}
+(kind="any" in refine_root does not classify and is exempt).
 """
 from __future__ import annotations
 
@@ -115,6 +121,16 @@ def _brent(point, E_left, E_right, xtol, max_iter, ends=None):
     return float(brentq(g, E_left, E_right, xtol=xtol, rtol=4 * np.finfo(float).eps, maxiter=max_iter))
 
 
+def _check_xtol(xtol, h, D):
+    """Delta_h is only a reliable pole/zero discriminant if xtol <= h e^{-D} (see the module docstring)."""
+    if not (h > 0.0 and np.isfinite(h)) or not (xtol > 0.0 and np.isfinite(xtol)):
+        raise ValueError(f"xtol and h must be finite and positive, got xtol={xtol!r}, h={h!r}")
+    xmax = h * float(np.exp(-D))
+    if xtol > xmax:
+        raise ValueError(f"xtol={xtol!r} > h*exp(-D)={xmax!r} (h={h!r}, D={D!r}): a larger xtol makes the pole/zero "
+                         f"discriminant Delta_h ambiguous (a simple zero then gives Delta_h > -D); lower xtol or raise h")
+
+
 def _check_kind(kind):
     if kind not in ("zero", "any"):
         raise ValueError(f"kind must be 'zero' or 'any', got {kind!r}")
@@ -129,8 +145,10 @@ def _raise_unless_zero(info):
 
 def refine_root_info(evaluate, sector, c, E_left, E_right, xtol=1e-11, max_iter=200, kind="zero", h=1e-6, D=4.0):
     """Brent refinement plus Delta_h classification.  kind="zero": raise PoleError / AmbiguousRootError unless the sign
-    change is a zero.  kind="any": return the RootInfo of whatever sign change was found."""
+    change is a zero.  kind="any": return the RootInfo of whatever sign change was found.
+    Requires xtol <= h exp(-D) (ValueError otherwise: the discriminant would be ambiguous)."""
     _check_kind(kind)
+    _check_xtol(xtol, h, D)
     point = _Counter(evaluate, sector, c)
     E = _brent(point, E_left, E_right, xtol, max_iter)
     info = _classify(point, E, h, D, (E_left, E_right), point.n)
@@ -143,7 +161,9 @@ def refine_root(evaluate, sector, c, E_left, E_right, xtol=1e-11, max_iter=200, 
     """Root of det Q(E) = 0 in [E_left, E_right]; returns E.  Default kind="zero" raises PoleError / AmbiguousRootError
     if the sign change found is not a zero (3 extra evaluations); kind="any" is the plain Brent sign-change finder.
     MissingRootError if det Q has equal signs at both ends.  `evaluate` is qc3.oracle.evaluate_point or
-    qc3.fast.evaluate_point, called as evaluate(sector, E, c, want=("Q",))."""
+    qc3.fast.evaluate_point, called as evaluate(sector, E, c, want=("Q",)).
+    With kind="zero" the classification needs xtol <= h exp(-D) (= 1.8e-8 for the defaults); a larger xtol raises
+    ValueError because the pole/zero discriminant Delta_h would be ambiguous.  kind="any" does not classify, no limit."""
     _check_kind(kind)
     if kind == "any":
         return _brent(_Counter(evaluate, sector, c), E_left, E_right, xtol, max_iter)
@@ -153,7 +173,8 @@ def refine_root(evaluate, sector, c, E_left, E_right, xtol=1e-11, max_iter=200, 
 def find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-11, h=1e-6, D=4.0):
     """Scan [E_left, E_right] on n_scan equally spaced points, Brent-refine every sign-change bracket and classify it.
     Returns all RootInfo sorted by E (zeros, poles, ambiguous).  A sign change that sits on a basis-dimension jump raises
-    DimensionJumpError (loud).  For the D7 table and M2; NOT the fit function."""
+    DimensionJumpError (loud).  Requires xtol <= h exp(-D) (ValueError otherwise).  For the D7 table and M2; NOT the fit function."""
+    _check_xtol(xtol, h, D)
     if n_scan < 2:
         raise ValueError("n_scan must be >= 2")
     Es = np.linspace(E_left, E_right, int(n_scan))
@@ -172,5 +193,6 @@ def find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-
 
 
 def find_zeros(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-11, h=1e-6, D=4.0):
-    """The zeros among find_sign_changes."""
+    """The zeros among find_sign_changes (same xtol <= h exp(-D) requirement)."""
+    _check_xtol(xtol, h, D)
     return [r for r in find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan, xtol, h, D) if r.kind == "zero"]

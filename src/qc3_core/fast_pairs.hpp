@@ -11,8 +11,10 @@
 // for zero imaginary parts).  The per-pair arithmetic is therefore done in double, in the SAME operation order as the
 // oracle's formulas (written next to each formula).  The per-momentum scalars (omega, sigma, q*^2, cutoffs, boost
 // parameters) are computed ONCE per momentum with the oracle's own scalar helpers (comp arithmetic) and converted.
-// Any sqrt of a negative number would yield NaN here (the oracle: an imaginary part); every result matrix is checked
-// for finiteness by the caller, so the real-domain assumption cannot fail silently.
+// The per-momentum scalars are computed in comp arithmetic, where a sqrt of a negative number gives a purely imaginary
+// value (not NaN): every comp value converted with .real() therefore goes through check_real() first (exact zero
+// imaginary part, NaN also throws).  The per-pair arithmetic is plain double (a sqrt of a negative number gives NaN) and
+// every result matrix is checked for finiteness by the caller, so the real-domain assumption cannot fail silently.
 #pragma once
 
 #include "oracle_point.hpp"
@@ -63,6 +65,11 @@ inline std::vector<Group> make_groups(const qc3_oracle::Kin& kin) {
     return gs;
 }
 
+// Loud guard before .real(): throws unless the imaginary part is exactly 0 (a NaN imaginary part fails the comparison and throws).
+inline void check_real(comp x, const char* what) {
+    if (!(x.imag() == 0.0)) throw std::runtime_error(std::string("fast pair kernels: complex ") + what + " (real arithmetic invalid)");
+}
+
 // Parameters of boost(p0, p, E2, P2) (functions.h): P2hat, beta2 = |P2|/E2, gam2 = 1/sqrt(1-beta2^2); exact-zero P2 returns p.
 struct BoostPar {
     bool zero = true;
@@ -78,7 +85,12 @@ inline BoostPar make_boost_par(const comp P2[3], comp E2) {
     const comp P2norm = std::sqrt(P2[0] * P2[0] + P2[1] * P2[1] + P2[2] * P2[2]);
     const comp beta2 = P2norm / E2;
     const comp gam2 = 1.0 / std::sqrt(1.0 - beta2 * beta2);
-    for (int c = 0; c < 3; ++c) b.hat[c] = (P2[c] / P2norm).real();
+    check_real(P2norm, "boost |P2|"); check_real(beta2, "boost beta"); check_real(gam2, "boost gamma");
+    for (int c = 0; c < 3; ++c) {
+        const comp hc = P2[c] / P2norm;
+        check_real(hc, "boost P2hat");
+        b.hat[c] = hc.real();
+    }
     b.beta = beta2.real();
     b.gam = gam2.real();
     return b;
@@ -101,10 +113,6 @@ inline double Yq0(int ell, int m, const double v[3]) {
     static const double s3 = std::sqrt(comp(3.0)).real();
     if (ell == 0) return 1.0;
     return s3 * (m == -1 ? v[1] : (m == 0 ? v[2] : v[0]));
-}
-
-inline void check_real(comp x, const char* what) {
-    if (x.imag() != 0.0) throw std::runtime_error(std::string("fast pair kernels: complex ") + what + " (real arithmetic invalid)");
 }
 
 }  // namespace qc3_fast

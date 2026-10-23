@@ -738,15 +738,15 @@
     "semantic_hash": ""
   },
   "docs/METHODS.md": {
-    "mtime": 1792690024.88303,
-    "seen": 1792700102.9301627,
-    "ast_hash": "52878f311a1385d2e23245635220a8dd",
+    "mtime": 1792774739.8634355,
+    "seen": 1792774924.7758262,
+    "ast_hash": "fb979cb562e41d359f9fd6b42977d7a5",
     "semantic_hash": ""
   },
   "docs/OPEN_ISSUES.md": {
-    "mtime": 1792690025.1286895,
-    "seen": 1792700102.9301643,
-    "ast_hash": "cb4d954b8818488df3292ae67cd5b936",
+    "mtime": 1792774802.203439,
+    "seen": 1792774924.7758272,
+    "ast_hash": "e882ec7bea975f172bc1b2b18fd93d3b",
     "semantic_hash": ""
   },
   "docs/PIPELINE.md": {
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792774184.6549594,
-    "seen": 1792774191.4816663,
-    "ast_hash": "52153b6bd35cd9cb68c4e008674465f8",
+    "mtime": 1792774918.6649764,
+    "seen": 1792774924.7758627,
+    "ast_hash": "66d4d85041e089565f27c879545958ac",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -1404,9 +1404,9 @@
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_oracle.py": {
-    "mtime": 1792689918.0310235,
-    "seen": 1792700102.9301136,
-    "ast_hash": "9125b4e77e97485a7183dc2449afca16",
+    "mtime": 1792774498.967421,
+    "seen": 1792774924.7757876,
+    "ast_hash": "e3dbae8e5a48740c4a872ad6105402ab",
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_portability.py": {
@@ -1476,9 +1476,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/roots.py": {
-    "mtime": 1792690625.7079782,
-    "seen": 1792700102.9300816,
-    "ast_hash": "366bf967514f1ea964eb7b27d2dcdfb0",
+    "mtime": 1792774280.1134937,
+    "seen": 1792774924.7757614,
+    "ast_hash": "527d5775b4055117321f2f226f379882",
     "semantic_hash": ""
   },
   "src/python/qc3/sector.py": {
@@ -1542,9 +1542,9 @@
     "semantic_hash": ""
   },
   "tests/unit/test_qc_lattice_roots.py": {
-    "mtime": 1792690844.4516153,
-    "seen": 1792700102.9301307,
-    "ast_hash": "31bd1e397d0b6280c7984875f2735173",
+    "mtime": 1792774419.8714163,
+    "seen": 1792774924.7758002,
+    "ast_hash": "d4b835414566abd431a2e2cafa656adc",
     "semantic_hash": ""
   },
   "results/tester_003_m1_step3_reference_pwave.json": {
@@ -1584,15 +1584,15 @@
     "semantic_hash": ""
   },
   "src/qc3_core/fast_point.hpp": {
-    "mtime": 1792700088.111628,
-    "seen": 1792700102.930091,
-    "ast_hash": "28ebbd5c7a3fb567cb715809885aef72",
+    "mtime": 1792774261.1527612,
+    "seen": 1792774924.7757704,
+    "ast_hash": "3a4342ed2b4089f4876ae4d50f5a0ca7",
     "semantic_hash": ""
   },
   "tests/unit/test_fast_path.py": {
-    "mtime": 1792700088.111628,
-    "seen": 1792700102.9301293,
-    "ast_hash": "098f5635b239468c75107c0e7a10c97a",
+    "mtime": 1792774644.2754297,
+    "seen": 1792774924.7757993,
+    "ast_hash": "97112e86c00928f867992584c2143e7f",
     "semantic_hash": ""
   },
   "results/m1_step6_cachekey_check.json": {
@@ -1680,9 +1680,9 @@
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_fast_v2.py": {
-    "mtime": 1792624258.653859,
-    "seen": 1792700102.9301097,
-    "ast_hash": "2cde4f6f522f17b27a704498a1555232",
+    "mtime": 1792774473.0794196,
+    "seen": 1792774924.7757845,
+    "ast_hash": "ea56bd0bb1abee5a4f26585caade27b8",
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_roots.py": {
@@ -1692,9 +1692,9 @@
     "semantic_hash": ""
   },
   "prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md": {
-    "mtime": 1792690038.1510308,
-    "seen": 1792700102.9302173,
-    "ast_hash": "18e55f3fbe7490a81aecae6dbc2af37e",
+    "mtime": 1792774820.3314402,
+    "seen": 1792774924.7758658,
+    "ast_hash": "0373c286a0e962bc5c62fce5ac64e219",
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_production_default.py": {
@@ -1776,15 +1776,15 @@
     "semantic_hash": ""
   },
   "src/qc3_core/fast_k3.hpp": {
-    "mtime": 1792696011.3617127,
-    "seen": 1792700102.9300885,
-    "ast_hash": "77e71a05ad9dfe7854fbe5cf6ca8c6f1",
+    "mtime": 1792774280.1129408,
+    "seen": 1792774924.775768,
+    "ast_hash": "7172f8fe789e85b79dd362d32d6d9f90",
     "semantic_hash": ""
   },
   "src/qc3_core/fast_pairs.hpp": {
-    "mtime": 1792696011.3617127,
-    "seen": 1792700102.9300897,
-    "ast_hash": "29f6861294d487a3ec150cc0a8bab586",
+    "mtime": 1792774261.153156,
+    "seen": 1792774924.7757688,
+    "ast_hash": "4b0b4db47bac0e2ffd1cabe36026c280",
     "semantic_hash": ""
   },
   "tests/unit/test_fast_k3_g_tail.py": {

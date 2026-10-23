@@ -71,7 +71,7 @@ inline void k3_momentum(const K3Const& c, const comp E, const std::vector<comp>&
         if (std::abs(beta) != 0.0) bhat = bvec / beta;
         check_real(gam, "gamma"); check_real(beta, "beta");
         r.gam = gam.real(); r.beta = beta.real();
-        for (int a = 0; a < 3; ++a) { check_real(bvec[a], "beta vec"); r.bv[a] = bvec[a].real(); r.bh[a] = bhat[a].real(); }
+        for (int a = 0; a < 3; ++a) { check_real(bvec[a], "beta vec"); check_real(bhat[a], "beta hat"); r.bv[a] = bvec[a].real(); r.bh[a] = bhat[a].real(); }
     }
     // pms_0 = om_q1 - om_q2 with q*^2 = kallentriangle(sig, Mx^2, My^2) / (4 sig); (Mx, My) = (M1, M2) for a kaon partner
     // (v = 1) and (M2, M1) for a pion partner (v = 2); q*^2 + M^2 = (sig + M^2 - M'^2)^2 / (4 sig) >= 0 for a kaon spectator.

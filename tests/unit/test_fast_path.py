@@ -201,3 +201,49 @@ def test_class_tables_share_sums_and_cache_clears():
     assert d["stats"]["f_class_terms"] < 0.1 * r.metadata["lattice_terms"]   # classes, not points (measured 18k vs 297k)
     fast.clear_caches()
     assert fast.cache_info()["f_table_entries"] == 0
+
+
+# ---- audit 001 follow-ups: loud guards (ISSUE A, ISSUE B) and the explicit k2_pwave_form (N8) ----
+
+def test_fast_raises_on_nonfinite_K2inv_like_oracle():
+    """Issue A: waves_2=(0,1) puts l=1 on the identical-particle KK channel where a_1 = 0, so K2inv has -inf (Im = NaN)
+    entries.  The oracle stops (BAD_F3_SCALE); the fast path must stop too instead of returning ln|det Q| = -75.89."""
+    s = Sector.production("000_A1m", waves_2=(0, 1))
+    with pytest.raises(RuntimeError, match="BAD_F3_SCALE"):
+        oracle.evaluate_point(s, 0.34, want=("Q",))
+    with pytest.raises(RuntimeError, match="NONFINITE_K2INV"):
+        fast.evaluate_point(s, 0.34, want=("Q",))
+    with pytest.raises(RuntimeError, match="NONFINITE_K2INV"):
+        fast.evaluate_point(s, 0.34, want=("K2inv",))
+
+
+@pytest.mark.parametrize("kw", [dict(xi=-3.4), dict(Lbyas=-20.0)])
+def test_fast_raises_on_complex_prefactor_instead_of_dropping_imag(kw):
+    """Issue B: a negative xi or L makes the complex F prefactors / I_l non-real; .real() used to drop the imaginary part
+    silently (the oracle returns a number, the fast path must not)."""
+    import dataclasses
+    s = dataclasses.replace(Sector.production("100_A2"), **kw)
+    with pytest.raises(RuntimeError, match="complex .*real arithmetic invalid"):
+        fast.evaluate_point(s, 0.2915561, want=("Q",))
+
+
+def test_pwave_form_is_always_passed_explicitly_to_the_core():
+    """N8: the C++ Input struct still defaults k2_pwave_form to "coded_v2" (oracle_point.hpp is frozen).  The default is
+    unreachable from Python: the bindings read p["k2_pwave_form"] with no fallback, and oracle.py / fast.py always pass
+    the Sector's form.  Both backends honour it (K2inv equal to each other per form, different between the forms)."""
+    from qc3 import _core
+    s = Sector.production("100_A2")
+    assert s.k2_pwave_form == "q0_consistent"
+    params = fast._params(s, 0.2915561, (0.0, 0.0, 0.0, 0.0), False)
+    assert params["k2_pwave_form"] == "q0_consistent"
+    del params["k2_pwave_form"]
+    with pytest.raises(KeyError):
+        _core.oracle_point(params)
+    with pytest.raises(KeyError):
+        _core.fast_point(params, 1e-16, "orbit", ["Q"])
+    K = {}
+    for form in ("q0_consistent", "coded_v2"):
+        sf = Sector.production("100_A2", k2_pwave_form=form)
+        K[form] = (fast.evaluate_point(sf, 0.2915561, want=("K2inv",)).K2inv, oracle.evaluate_point(sf, 0.2915561, want=("K2inv",)).K2inv)
+        assert np.array_equal(K[form][0], K[form][1])
+    assert not np.array_equal(K["q0_consistent"][0], K["coded_v2"][0])

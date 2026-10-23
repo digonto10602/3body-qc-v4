@@ -11,8 +11,8 @@
 //   rung 3  real arithmetic (F, G, K2inv, F3, F3^{-1} are real: harmonics are the real Q0 ones, x^2 real);
 //   rung 5  (prompts/002 7.7, fast_fclass.hpp, default; Options::f_classes=false gives the direct sum below) class moment tables
 //           per canonical nP and one shared sum per (canonical nP, |p|^2); the direct term sum is kept as the cross-check
-//   rung 4  energy-independent pieces cached in memory per process (projector V_sel per basis signature = the
-//           existing get_projector_cached_v30q map), symmetric block fills.
+//   rung 4  energy-independent pieces cached in memory per process (projector V_sel per complete basis signature in the
+//           fast-owned cache of fast_projector.hpp; the legacy get_projector_cached_v30q map is NOT used), symmetric block fills.
 //
 // F-block for spectator momentum p (rows/cols = its (l,m) list), oracle formula F2_ang_mom/I_sum_ang_mom:
 //   F_ab = A * ( (2pi/L)^(l_a+l_b) * S_ab  -  delta_ab * I_l ),   A = H/(16 pi^2 L^4 w_p (E-w_p)),
@@ -116,13 +116,20 @@ inline MatR F_channel(const std::vector<std::vector<comp>>& cfg, const std::vect
         const comp gamma_c = (En - omega_func(spec_p, mi)) / std::sqrt(sigp);
         const comp x_c = std::sqrt(q2psq_star(sigp, mj, mk)) * Lby2pi;
         const comp xii_c = comp(0.5) * (comp(1.0) + comp(mj * mj - mk * mk) / sigp);
+        // every complex quantity below is real for sigma_p > sigma_min > 0; .real() would silently drop an imaginary part,
+        // so each is checked exactly like fast_pairs.hpp check_real (an exactly-zero imaginary part; NaN also throws)
+        const comp x2_c = x_c * x_c, xibygamma_c = xii_c / gamma_c;
+        const comp nPx_c = (total_P[0] - p[0]) * Lby2pi, nPy_c = (total_P[1] - p[1]) * Lby2pi, nPz_c = (total_P[2] - p[2]) * Lby2pi;
+        check_real(A, "F prefactor A"); check_real(gamma_c, "F boost gamma"); check_real(x2_c, "F x^2");
+        check_real(xibygamma_c, "F xi/gamma"); check_real(xii_c, "F xi"); check_real(nPx_c, "F nP_x");
+        check_real(nPy_c, "F nP_y"); check_real(nPz_c, "F nP_z");
         const double gamma = gamma_c.real();
-        const double x2 = (x_c * x_c).real();
-        const double xibygamma = (xii_c / gamma_c).real();
+        const double x2 = x2_c.real();
+        const double xibygamma = xibygamma_c.real();
         const double xii = xii_c.real();
-        const double nPx = ((total_P[0] - p[0]) * Lby2pi).real();
-        const double nPy = ((total_P[1] - p[1]) * Lby2pi).real();
-        const double nPz = ((total_P[2] - p[2]) * Lby2pi).real();
+        const double nPx = nPx_c.real();
+        const double nPy = nPy_c.real();
+        const double nPz = nPz_c.real();
         const double nPsq = nPx * nPx + nPy * nPy + nPz * nPz;
         const bool boosted = (nPsq != 0.0);
         const double invg_m1 = 1.0 / gamma - 1.0;
@@ -242,10 +249,13 @@ inline MatR F_channel(const std::vector<std::vector<comp>>& cfg, const std::vect
             for (int b = a; b < nlm; ++b) {
                 const double Bab = double(S[a][b]) * std::pow(tpl, double(ell[a] + ell[b]));
                 double Cab = 0.0;
-                if (a == b)
-                    Cab = I_int_ang_mom(En, sigp, spec_p, std::sqrt(total_P[0] * total_P[0] + total_P[1] * total_P[1] + total_P[2] * total_P[2]),
-                                        ell[a], mm[a], ell[b], mm[b], alpha, mi, mj, mk, L, Q0norm).real();
-                const double val = (A * comp(Bab - Cab)).real();
+                if (a == b) {
+                    const comp Cab_c = I_int_ang_mom(En, sigp, spec_p, std::sqrt(total_P[0] * total_P[0] + total_P[1] * total_P[1] + total_P[2] * total_P[2]),
+                                                     ell[a], mm[a], ell[b], mm[b], alpha, mi, mj, mk, L, Q0norm);
+                    check_real(Cab_c, "F integral I_l");
+                    Cab = Cab_c.real();
+                }
+                const double val = A.real() * (Bab - Cab);   // A is real (checked above); A * comp(x) = A.real() * x exactly for imag(A) = 0
                 F(i0 + a, i0 + b) = val;
                 F(i0 + b, i0 + a) = val;
             }
@@ -308,10 +318,13 @@ inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& o
     Mat K2inv(N, N);
     K2inv_2plus1_by_form(in.k2_pwave_form, K2inv, par.eta_1, par.eta_2, par.scatter_params_1, par.scatter_params_2, kin.En_c, plm, klm, kin.total_P, par.atmK, par.atmpi, par.epsilon_h, kin.L);
     out.timings["K2inv"] = clk.lap();
+    // K2inv must be finite (a -inf diagonal entry, e.g. a_1 = 0 for waves_2 containing l = 1, gives Im = NaN under complex
+    // multiplication) and real; all comparisons are written so that NaN fails them (audit 001 ISSUE A).
+    if (!K2inv.allFinite()) throw std::runtime_error("fast: NONFINITE_K2INV (K2inv has inf/NaN entries; oracle: BAD_F3_SCALE)");
     {
         const double sc = max_abs_imag(K2inv);
         const double scr = std::max(K2inv.real().cwiseAbs().maxCoeff(), 1e-300);
-        if (sc > 1e-14 * scr) throw std::runtime_error("fast: K2inv has a non-negligible imaginary part (real arithmetic invalid)");
+        if (!(sc <= 1e-14 * scr)) throw std::runtime_error("fast: K2inv has a non-negligible imaginary part (real arithmetic invalid)");
     }
     const MatR K2r = K2inv.real();
 
@@ -320,9 +333,12 @@ inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& o
     out.timings["G"] = clk.lap();
 
     // ---- F3 = F/3 - F H^{-1} F in real arithmetic; F is block diagonal (one block per spectator momentum) ----
+    if (!Fr.allFinite() || !Gr.allFinite()) throw std::runtime_error("fast: NONFINITE_COMPONENT (F or G)");
     const MatR H = K2r + Fr + Gr;
+    if (!H.allFinite()) throw std::runtime_error("fast: NONFINITE_COMPONENT (H = K2inv + F + G)");
     Eigen::PartialPivLU<MatR> luH(H);
     const MatR X1 = luH.solve(Fr);
+    if (!X1.allFinite()) throw std::runtime_error("fast: NONFINITE_COMPONENT (H^-1 F)");
     MatR FX1 = MatR::Zero(N, N);
     for (const Group& g : groups) FX1.middleRows(g.row0, g.nlm).noalias() = Fr.block(g.row0, g.row0, g.nlm, g.nlm) * X1.middleRows(g.row0, g.nlm);
     const MatR F3 = Fr / 3.0 - FX1;
@@ -348,7 +364,7 @@ inline qc3_oracle::Output evaluate(const qc3_oracle::Input& in, const Options& o
         F3invr /= f3_scale;
     }
     out.timings["F3inv"] = clk.lap();
-    if (!Fr.allFinite() || !F3.allFinite() || !Vsel.allFinite() || (opt.want_F3inv && !F3invr.allFinite())) throw std::runtime_error("fast: NONFINITE_COMPONENT");
+    if (!K2r.allFinite() || !Fr.allFinite() || !F3.allFinite() || !Vsel.allFinite() || (opt.want_F3inv && !F3invr.allFinite())) throw std::runtime_error("fast: NONFINITE_COMPONENT");
 
     // ---- K3: pair kernel for the four basis matrices (prompts/002 2.3, fast_k3.hpp), K3(c) = sum_i c_i B_i ----
     MatR K3r = MatR::Zero(N, N);

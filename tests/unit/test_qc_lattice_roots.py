@@ -253,3 +253,32 @@ def test_find_sign_changes_and_zeros_synthetic():
     # equal signs at both ends (zero+pole inside) -> plain refine_root finds nothing, as in step 9
     with pytest.raises(MissingRootError):
         R.refine_root(evaluate, None, (0,) * 4, 0.2995, 0.3035, kind="any")
+
+
+def test_xtol_guard_rejects_ambiguous_discriminant_settings():
+    """audit 001 N6: xtol > h*exp(-D) makes Delta_h of a simple zero ambiguous -> ValueError naming the reason (loud)."""
+    E0 = 0.3012345678
+    z = _synthetic("zero", E0)
+    c = (0,) * 4
+    h, D = 1e-6, 4.0
+    xmax = h * np.exp(-D)
+    # at the limit it still works (and classifies a zero)
+    assert abs(R.refine_root(z, None, c, 0.30, 0.31, xtol=xmax) - E0) <= xmax
+    for xtol in (2 * xmax, 1e-6, 1e-3):
+        with pytest.raises(ValueError, match="discriminant"):
+            R.refine_root(z, None, c, 0.30, 0.31, xtol=xtol)
+        with pytest.raises(ValueError, match="discriminant"):
+            R.refine_root_info(z, None, c, 0.30, 0.31, xtol=xtol, kind="any")
+        with pytest.raises(ValueError, match="discriminant"):
+            R.find_zeros(z, None, c, 0.30, 0.31, n_scan=11, xtol=xtol)
+        with pytest.raises(ValueError, match="discriminant"):
+            R.find_sign_changes(z, None, c, 0.30, 0.31, n_scan=11, xtol=xtol)
+    # the limit follows h and D
+    with pytest.raises(ValueError, match="discriminant"):
+        R.refine_root(z, None, c, 0.30, 0.31, xtol=1e-9, h=1e-8)
+    assert abs(R.refine_root(z, None, c, 0.30, 0.31, xtol=1e-9, h=1e-6) - E0) < 1e-9
+    # kind="any" does not classify: no limit
+    assert abs(R.refine_root(z, None, c, 0.30, 0.31, xtol=1e-6, kind="any") - E0) < 1e-6
+    for bad in (0.0, -1e-11, float("nan")):
+        with pytest.raises(ValueError):
+            R.refine_root(z, None, c, 0.30, 0.31, xtol=bad)
