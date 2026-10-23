@@ -1,0 +1,93 @@
+........................................................................ [ 91%]
+.......                                                                  [100%]
+==================================== PASSES ====================================
+_____________________ test_cli_parses_defaults_and_options _____________________
+----------------------------- Captured stderr call -----------------------------
+usage: python -m qc3.bench [-h] [--out OUT] [--no-oracle] [--threads THREADS]
+                           [--k2-pwave-form {coded_v2,q0_consistent}]
+                           [--repeats REPEATS] [--warmup WARMUP]
+                           [--oracle-repeats ORACLE_REPEATS]
+                           [--proxy-repeats PROXY_REPEATS] [--core CORE]
+                           [--no-anchors] [--no-proxy] [--no-cold]
+python -m qc3.bench: error: argument --k2-pwave-form: invalid choice: 'nonsense' (choose from 'coded_v2', 'q0_consistent')
+=========================== short test summary info ============================
+PASSED tests/unit/test_bench.py::test_cli_parses_defaults_and_options
+PASSED tests/unit/test_bench.py::test_set_thread_env
+PASSED tests/unit/test_bench.py::test_json_schema_keys
+PASSED tests/unit/test_bench.py::test_chi2_proxy_returns_12_zeros
+PASSED tests/unit/test_fast_k3_g_tail.py::test_k3_pair_kernel_matches_oracle_and_is_symmetric[100_A2-0.2915561]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_k3_pair_kernel_matches_oracle_and_is_symmetric[000_A1m-0.26932]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_k3_pair_kernel_matches_oracle_and_is_symmetric[111_A2-0.32036]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_k3_pair_kernel_matches_oracle_and_is_symmetric[110_A2-0.30733]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_k3_pair_kernel_matches_oracle_and_is_symmetric[200_A2-0.28664]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_k3_basis_matrices_are_independent_of_which_are_needed
+PASSED tests/unit/test_fast_k3_g_tail.py::test_g_pair_kernel_matches_oracle[100_A2-0.2915561]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_g_pair_kernel_matches_oracle[000_A1m-0.26932]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_g_pair_kernel_matches_oracle[111_A2-0.32036]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_g_pair_kernel_matches_oracle[110_A2-0.30733]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_g_pair_kernel_matches_oracle[200_A2-0.28664]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_cpp_tail_matches_oracle_projection[100_A2-0.2915561]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_cpp_tail_matches_oracle_projection[000_A1m-0.26932]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_cpp_tail_matches_oracle_projection[111_A2-0.32036]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_cpp_tail_matches_oracle_projection[110_A2-0.30733]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_cpp_tail_matches_oracle_projection[200_A2-0.28664]
+PASSED tests/unit/test_fast_k3_g_tail.py::test_want_subsets_and_lazy_conversion
+PASSED tests/unit/test_fast_k3_g_tail.py::test_fast_module_has_no_numpy_tail
+PASSED tests/unit/test_fast_k3_g_tail.py::test_complex_projector_branch_agrees_with_real_branch
+PASSED tests/unit/test_fast_path.py::test_truncation_error_below_bound[100_A2-0.2915561]
+PASSED tests/unit/test_fast_path.py::test_truncation_error_below_bound[000_A1m-0.26932]
+PASSED tests/unit/test_fast_path.py::test_truncation_error_below_bound[111_A2-0.32036]
+PASSED tests/unit/test_fast_path.py::test_term_count_is_much_smaller_than_cube
+PASSED tests/unit/test_fast_path.py::test_cached_projector_identical_to_cold_build[orbit]
+PASSED tests/unit/test_fast_path.py::test_cached_projector_identical_to_cold_build[eigen]
+PASSED tests/unit/test_fast_path.py::test_orbit_and_eigen_projectors_agree[100_A2-0.2915561]
+PASSED tests/unit/test_fast_path.py::test_orbit_and_eigen_projectors_agree[000_A1m-0.26932]
+PASSED tests/unit/test_fast_path.py::test_orbit_and_eigen_projectors_agree[111_A2-0.32036]
+PASSED tests/unit/test_fast_path.py::test_orbit_projector_independent_of_eig_tol
+PASSED tests/unit/test_fast_path.py::test_dimension_jumps_basic_properties
+PASSED tests/unit/test_fast_path.py::test_threshold_basis_equals_oracle_basis[000_A1m]
+PASSED tests/unit/test_fast_path.py::test_threshold_basis_equals_oracle_basis[100_A2]
+PASSED tests/unit/test_fast_path.py::test_threshold_basis_equals_oracle_basis[110_A2]
+PASSED tests/unit/test_fast_path.py::test_threshold_basis_equals_oracle_basis[111_A2]
+PASSED tests/unit/test_fast_path.py::test_threshold_basis_equals_oracle_basis[200_A2]
+PASSED tests/unit/test_fast_path.py::test_options_and_metadata
+PASSED tests/unit/test_fast_path.py::test_both_pwave_forms_follow_oracle
+PASSED tests/unit/test_fast_path.py::test_projector_cache_key_includes_eig_tol
+PASSED tests/unit/test_fast_path.py::test_projector_option_values
+PASSED tests/unit/test_fast_path.py::test_class_tables_match_direct_sum[000_A1m-0.34538]
+PASSED tests/unit/test_fast_path.py::test_class_tables_match_direct_sum[100_A2-0.2915561]
+PASSED tests/unit/test_fast_path.py::test_class_tables_match_direct_sum[100_A2-0.3599]
+PASSED tests/unit/test_fast_path.py::test_class_tables_match_direct_sum[110_A2-0.30733]
+PASSED tests/unit/test_fast_path.py::test_class_tables_match_direct_sum[111_A2-0.32036]
+PASSED tests/unit/test_fast_path.py::test_class_tables_match_direct_sum[200_A2-0.28664]
+PASSED tests/unit/test_fast_path.py::test_class_tables_share_sums_and_cache_clears
+PASSED tests/unit/test_fast_path.py::test_fast_raises_on_nonfinite_K2inv_like_oracle
+PASSED tests/unit/test_fast_path.py::test_fast_raises_on_complex_prefactor_instead_of_dropping_imag[kw0]
+PASSED tests/unit/test_fast_path.py::test_fast_raises_on_complex_prefactor_instead_of_dropping_imag[kw1]
+PASSED tests/unit/test_fast_path.py::test_pwave_form_is_always_passed_explicitly_to_the_core
+PASSED tests/unit/test_qc_lattice_roots.py::test_project_Q_expression_and_real_inputs
+PASSED tests/unit/test_qc_lattice_roots.py::test_slogdet_values_and_errors
+PASSED tests/unit/test_qc_lattice_roots.py::test_refine_root_finds_simple_zero_and_raises_without_sign_change
+PASSED tests/unit/test_qc_lattice_roots.py::test_read_jack_header_mismatch_raises
+PASSED tests/unit/test_qc_lattice_roots.py::test_sigma_is_sd_over_sqrt_N_for_per_config_file
+PASSED tests/unit/test_qc_lattice_roots.py::test_jackknife_mean_cov_vs_explicit_loops
+PASSED tests/unit/test_qc_lattice_roots.py::test_load_levels_nonfinite_ecm_raises_naming_file
+PASSED tests/unit/test_qc_lattice_roots.py::test_chi2_rejects_asymmetric_non_psd_and_nonpositive
+PASSED tests/unit/test_qc_lattice_roots.py::test_load_levels_malformed_level_file_name_raises
+PASSED tests/unit/test_qc_lattice_roots.py::test_default_data_dir_env_and_repo_root
+PASSED tests/unit/test_qc_lattice_roots.py::test_cutoff_selection_and_cov_shape
+PASSED tests/unit/test_qc_lattice_roots.py::test_elab_to_ecm
+PASSED tests/unit/test_qc_lattice_roots.py::test_match_levels_edge_cases
+PASSED tests/unit/test_qc_lattice_roots.py::test_chi2_matches_solve_and_drops_null_direction
+PASSED tests/unit/test_qc_lattice_roots.py::test_classify_synthetic_zero_pole_ambiguous
+PASSED tests/unit/test_qc_lattice_roots.py::test_refine_root_kind_zero_pole_any
+PASSED tests/unit/test_qc_lattice_roots.py::test_classify_dimension_jump_raises
+PASSED tests/unit/test_qc_lattice_roots.py::test_find_sign_changes_and_zeros_synthetic
+PASSED tests/unit/test_qc_lattice_roots.py::test_xtol_guard_rejects_ambiguous_discriminant_settings
+PASSED tests/unit/test_sector_oracle.py::test_sector_properties
+PASSED tests/unit/test_sector_oracle.py::test_sector_overrides_and_unknown_irrep
+PASSED tests/unit/test_sector_oracle.py::test_oracle_rejects_unknown_pwave_form
+PASSED tests/unit/test_sector_oracle.py::test_oracle_point_shapes_and_consistency
+PASSED tests/unit/test_sector_oracle.py::test_oracle_want_subset
+PASSED tests/unit/test_sector_oracle.py::test_k2_pwave_forms_differ_only_in_channel1_pwave_diagonal
+79 passed in 71.12s (0:01:11)

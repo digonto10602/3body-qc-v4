@@ -1,0 +1,20 @@
+{
+ "commit": "c0334de",
+ "_core_git_commit": "c0334de",
+ "acceptance_tag": "acceptance-v5",
+ "m1_acceptance": "47 passed in 271.31s",
+ "unit": "79 passed in 71.12s",
+ "acceptance_check": "PASS",
+ "oracle_diff_vs_b6ad563": "empty",
+ "v5_tests_alone_unpinned": {
+  "test_fast_single_thread_cpu_time": [
+   "passed 1.62s",
+   "passed 1.60s"
+  ],
+  "test_oracle_reality_hermiticity_isometry": [
+   "passed 7.85s",
+   "passed 8.64s"
+  ]
+ },
+ "machine": "4-core Xeon 2.1GHz, 15 GiB"
+}

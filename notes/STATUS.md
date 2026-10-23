@@ -3,14 +3,21 @@
 - **Updated:** 2026-10-21 (cloud kickoff)
 - **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
 - **Acceptance tag:** `acceptance-v5` = `e384ce6` (47 tests; v5 = v4 plus the audit-001 test fixes C and D, approved by Digonto 2026-10-23). `acceptance-v4` = `504a689`. v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
-- **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** **M1 milestone gate.**
-  - The auditor returned **PASS WITH NOTES** (`reports/audits/001-m1-milestone-audit.md`), with no blocking issue.
-  - In progress:
-    1. The planner fixes the acceptance-test defects C (`test_fast_single_thread_cpu_time`, order-dependent and non-discriminating) and D (tautological slogdet assertion), approved by Digonto 2026-10-23, to be locked as `acceptance-v5`. It also updates the stale docs.
-    2. The builder fixes the non-blocking code issues A ($\mathcal K_2^{-1}$ finiteness guard), B (unchecked `.real()`), N6 (`xtol` guard) and N8 (C++ `Input` default form).
-  - Then: regenerate `results/k2_pwave_shift_L20.json` from a clean tree; rebuild `_core` at the gate commit; tester in modes `full` and `benchmark`; tag `milestone-1`.
-  - **Invariant 3** now includes `k2_pwave_form = q0_consistent` (Digonto 2026-10-23).
+- **Current milestone:** **M1 DONE**, tagged `milestone-1` (local tag; tag push gives HTTP 403). Next: M2, root finding without human labels plus fewer evaluations per root. Its plan is to be written by the planner (`prompts/003`).
+- **M1 gate (2026-10-23):**
+  - Tester `full`: `reports/tests/013-m1-gate-full.md` (PASS). 47/47 acceptance tests incl. slow, 79/79 unit tests, `acceptance-check` PASS (v5); oracle sources unchanged.
+  - Auditor: `reports/audits/001-m1-milestone-audit.md` (PASS WITH NOTES). Code notes A/B/N6/N8 fixed at `5dbd693`; test defects C/D fixed in `acceptance-v5`.
+  - Benchmark: `reports/benchmarks/001-m1-single-energy-qc.md`, raw numbers in `results/bench_m1_gate.json`. 1 core, g++ 13.3 `-O3`, Xeon 2.1 GHz.
+    - Fast path, warm: **0.39–3.85 ms per energy point**. At $N=160$: 3.85 ms median (3.43 ms min) vs the oracle's 7.49 s, **1946×**.
+    - Speed-up over 27 points: 1841–8372× (median 2551×); 1761–4176× without the oracle's projector build.
+    - Cold call: 11–34 ms.
+    - $\max|\Delta\ln|\det Q||=4.1\times10^{-10}$; all signs agree.
+    - **χ² proxy, 12 roots: 0.122 s** (102 evaluations of 1.19 ms each). That is 11.5× faster than the old direct FCN (1.4 s) and 5.1× slower than the hot-window FCN (24 ms with GBs of caches).
+    - Peak RSS 93 MiB.
+- **Open items carried into M2:**
+  - Anchor tolerances $10^{-10}$/$10^{-9}$ are below the round-off floor at $\kappa\gtrsim10^{12}$ (audit note N4). Changing them is a tolerance change, so Digonto must approve.
+  - D8: detect even-order zeros and free-level solutions.
+  - Fewer evaluations per root: a warm start from the previous fit iterate, and Newton steps on $\ln|\det Q|$.
 - **Step 7.7 DONE**, verified by `reports/tests/012-m1-step7-7-f-classes.md` (PASS). Merge commit `d444181`.
   - Method: class moment tables plus sums shared across spectator momenta with the same canonical $(\vec n_P$ orbit$, |\vec p|^2)$, with double accumulators.
   - The rotation algebra is proven and brute-force checked over 1144 cases. The kept lattice points are identical to the direct sum at 1606 energies.
@@ -155,8 +162,10 @@ Counters were reset at `acceptance-v4` (`prompts/002`).
 
 ## Next action
 
-1. Builder: 7.0 (cache key), 7.1 (pole/zero discrimination), 7.8 (D7 default), per `prompts/002` §3. Then the tester.
-2. 7.2 orbit projector → 7.3 threshold basis → 7.4 $\mathcal K_{\rm df,3}$ pair kernel → 7.5 $G$ pair kernel → 7.6 C++ tail (7.7 optional).
-3. Step 8 (benchmark + χ² proxy). Use the classifying `refine_root`, and pin `coded_v2` for the 12 labelled roots (`prompts/002` §2.5). Pin `OPENBLAS_NUM_THREADS=1`.
-4. Milestone gate: tester full, auditor, tester benchmark, tag `milestone-1`.
-5. M2 note: with `q0_consistent`, 5 of the 12 labelled windows have no end-point sign change. So M2's own root finder (FP = FN = 0, scored with `coded_v2`) is on the critical path before any `q0_consistent` fit.
+1. Planner: M2 plan (`prompts/003`) with acceptance tests `tests/acceptance/m2/`. Scope:
+   - label-free root finding with FP = FN = 0 against the labels (scored with `coded_v2`);
+   - D8 free-level exclusion;
+   - fewer evaluations per root;
+   - the L20 fit with corrected covariance in `q0_consistent` (old M1 steps 7/8: re-run the cutoff fits and cross-check v32w);
+   - iminuit as the minimiser.
+2. Then `acceptance-lock` and the build loop.
