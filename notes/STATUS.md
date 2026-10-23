@@ -4,7 +4,13 @@
 - **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
 - **Acceptance tag:** `acceptance-v4` = `504a689` (47 tests). v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
 - **Current milestone:** M1, a cache-free single-energy QC (plus the D1 covariance fix and the D3 level matching).
-- **Current step:** **M1 milestone gate.** Tester report 012 already ran the full m1 suite incl. slow (47/47), the unit tests (74/74) and `acceptance-check` at `5792545`. Next is the auditor, then the tester in mode `benchmark`.
+- **Current step:** **M1 milestone gate.**
+  - The auditor returned **PASS WITH NOTES** (`reports/audits/001-m1-milestone-audit.md`), with no blocking issue.
+  - In progress:
+    1. The planner fixes the acceptance-test defects C (`test_fast_single_thread_cpu_time`, order-dependent and non-discriminating) and D (tautological slogdet assertion), approved by Digonto 2026-10-23, to be locked as `acceptance-v5`. It also updates the stale docs.
+    2. The builder fixes the non-blocking code issues A ($\mathcal K_2^{-1}$ finiteness guard), B (unchecked `.real()`), N6 (`xtol` guard) and N8 (C++ `Input` default form).
+  - Then: regenerate `results/k2_pwave_shift_L20.json` from a clean tree; rebuild `_core` at the gate commit; tester in modes `full` and `benchmark`; tag `milestone-1`.
+  - **Invariant 3** now includes `k2_pwave_form = q0_consistent` (Digonto 2026-10-23).
 - **Step 7.7 DONE**, verified by `reports/tests/012-m1-step7-7-f-classes.md` (PASS). Merge commit `d444181`.
   - Method: class moment tables plus sums shared across spectator momenta with the same canonical $(\vec n_P$ orbit$, |\vec p|^2)$, with double accumulators.
   - The rotation algebra is proven and brute-force checked over 1144 cases. The kept lattice points are identical to the direct sum at 1606 energies.

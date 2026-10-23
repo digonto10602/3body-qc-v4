@@ -38,7 +38,7 @@ graphify update .                              # rebuild graphify-out/ for this 
 ## Physics invariants (never change silently)
 1. $Q=(L\xi)^{-6}\,V_{\rm sel}^\dagger(F_3^{-1}+\mathcal K_{\rm df,3})V_{\rm sel}$. Project the inverse; scale the matrix, not the determinant; no $N_{\rm proj}$ rescaling.
 2. Determinants via LU as (sign, log|det|). Never compare determinants across an $N_{\rm proj}$ change.
-3. Production physics constants: $\xi=3.444$, $a_tm_K=0.09698$, $a_tm_\pi=0.06906$, $\eta=(1,\tfrac12)$, $\alpha=0.5$, $\epsilon_H=0$, `max_shell_num`=20, waves $\{0,1\}$ / $\{0\}$, parity $-1$, `eig_tol`=0.05, scatter $(4.04,-43.2,4.12)$. Changing any of them invalidates every cache. Record them in every result's metadata.
+3. Production physics constants: $\xi=3.444$, $a_tm_K=0.09698$, $a_tm_\pi=0.06906$, $\eta=(1,\tfrac12)$, $\alpha=0.5$, $\epsilon_H=0$, `max_shell_num`=20, waves $\{0,1\}$ / $\{0\}$, parity $-1$, `eig_tol`=0.05, scatter $(4.04,-43.2,4.12)$, p-wave $\mathcal K_2^{-1}$ form `k2_pwave_form`=`q0_consistent` (D7; added to this list by Digonto 2026-10-23). Changing any of them invalidates every cache. Record them in every result's metadata.
 4. Grid: $E_i=0.26310+i\cdot0.0969/19999$, $i<20000$. The cache sidecar is the source of truth.
 5. Raw-cache complex order is natural (Re, Im) on disk. Any new reader must pass the Hermiticity test ($\|F_3^{-1}-F_3^{-1\dagger}\|/\|F_3^{-1}\|\lesssim10^{-14}$, $\max|\mathrm{Im}\det Q|\approx0$).
 6. No root-finding fallback to full-cache reads inside the FCN. Caches load once, outside the FCN.
