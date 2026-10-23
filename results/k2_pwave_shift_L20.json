@@ -1,9 +1,9 @@
 {
   "description": "K2^{-1} p-wave form level shifts, L20, cutoff 0.335, baseline c (prompts/001 step 9, decision D7)",
-  "git_commit": "97ead1d",
-  "git_tree_dirty": true,
+  "git_commit": "5dbd693",
+  "git_tree_dirty": false,
   "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONPATH=src/python python3 scripts/m1/k2_pwave_shift.py",
-  "machine": "Linux-6.18.44-fc-v140-x86_64-with-glibc2.39",
+  "machine": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
   "python": "3.13.16",
   "production_constants": {
     "xi": 3.444,
@@ -65,14 +65,14 @@
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -24.280644313178676,
-        "lnabsdet_at_root": -73.99121879544984,
+        "discriminant": -24.261523486173346,
+        "lnabsdet_at_root": -73.97209796844368,
         "lnabsdet_at_window_ends": [
           -49.3679755621126,
-          -48.47597077512357
+          -48.47597077512343
         ],
         "n_evaluations": 10,
-        "seconds": 0.6425141179998946
+        "seconds": 0.016288776999999754
       },
       "q0_consistent": {
         "E_root": 0.2693226784857993,
@@ -82,30 +82,30 @@
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -25.025834986847826,
-        "lnabsdet_at_root": -74.7476542658703,
+        "discriminant": -25.089483319079534,
+        "lnabsdet_at_root": -74.81130259810188,
         "lnabsdet_at_window_ends": [
-          -49.3944249693139,
-          -48.48104991954116
+          -49.394424969313945,
+          -48.481049919540936
         ],
         "n_evaluations": 10,
-        "seconds": 0.28579480199994123,
+        "seconds": 0.00419669600000816,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
               "E": 0.26932267848578534,
-              "ln_root": -67.80754264879369,
+              "ln_root": -67.80752382617396,
               "bracket": [
                 0.2693135992424621,
                 0.2693237136856843
               ],
-              "discriminant": -18.0857233697663
+              "discriminant": -18.085704547146705
             }
           ],
           "n_pole_sign_changes": 0,
           "n_evaluations": 247,
-          "seconds": 6.9373030699999845
+          "seconds": 0.12062718399988626
         },
         "E_root_scan_nearest_to_coded_v2": 0.26932267848578534
       },
@@ -134,14 +134,14 @@
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -21.07940955485526,
-        "lnabsdet_at_root": -131.8259991913443,
+        "discriminant": -21.080735992240477,
+        "lnabsdet_at_root": -131.82732562872977,
         "lnabsdet_at_window_ends": [
-          -109.13667445116741,
-          -115.5506130688809
+          -109.13667445116677,
+          -115.55061306885939
         ],
         "n_evaluations": 10,
-        "seconds": 0.3679091240001071
+        "seconds": 0.02328963699983433
       },
       "q0_consistent": {
         "E_root": null,
@@ -155,23 +155,23 @@
         "lnabsdet_at_root": null,
         "lnabsdet_at_window_ends": null,
         "n_evaluations": 4,
-        "seconds": 0.14155977100006112,
+        "seconds": 0.0035662049999700685,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
               "E": 0.2914252169900899,
-              "ln_root": -122.23992079886116,
+              "ln_root": -122.23991916456076,
               "bracket": [
                 0.29142219742237113,
                 0.29143231186559326
               ],
-              "discriminant": -13.189013479570846
+              "discriminant": -13.189011845270542
             }
           ],
           "n_pole_sign_changes": 1,
           "n_evaluations": 278,
-          "seconds": 9.138154578000012
+          "seconds": 0.23980956900004458
         },
         "E_root_scan_nearest_to_coded_v2": 0.2914252169900899
       },
@@ -193,21 +193,21 @@
       ],
       "previous_model_zero": 0.30044149754668775,
       "coded_v2": {
-        "E_root": 0.3004414964611617,
+        "E_root": 0.30044149646116175,
         "window_used": [
           0.3004374368718436,
           0.30044228211410573
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -21.63215977435172,
-        "lnabsdet_at_root": -150.64360796793858,
+        "discriminant": -21.757518427340216,
+        "lnabsdet_at_root": -150.76896662092193,
         "lnabsdet_at_window_ends": [
-          -127.60898380120994,
-          -129.25295575183986
+          -127.60898380122006,
+          -129.2529557518131
         ],
         "n_evaluations": 10,
-        "seconds": 0.40576019200000246
+        "seconds": 0.013141096000026664
       },
       "q0_consistent": {
         "E_root": 0.3003162581565104,
@@ -217,38 +217,38 @@
         ],
         "note": "widened +-250 rows; earlier: accepted window: MissingRootError: no sign change of det Q on [0.3004374368718436, 0.30044228211410573] (sign 1, 1)",
         "kind": "zero",
-        "discriminant": -18.224254604504466,
-        "lnabsdet_at_root": -147.1781903508482,
+        "discriminant": -18.221826997729835,
+        "lnabsdet_at_root": -147.1757627441228,
         "lnabsdet_at_window_ends": [
-          -121.49994012394458,
-          -122.13800502085053
+          -121.49994012394455,
+          -122.13800502085051
         ],
         "n_evaluations": 16,
-        "seconds": 0.6598647859999573,
+        "seconds": 0.015569877999951132,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
-              "E": 0.30031625815648344,
-              "ln_root": -146.98122376681738,
+              "E": 0.3003162581564834,
+              "ln_root": -146.98035671895684,
               "bracket": [
                 0.3003083717310866,
                 0.30031848617430873
               ],
-              "discriminant": -18.02728802044507
+              "discriminant": -18.02642097256677
             }
           ],
           "n_pole_sign_changes": 0,
           "n_evaluations": 247,
-          "seconds": 8.679010596000012
+          "seconds": 0.22967084400011117
         },
-        "E_root_scan_nearest_to_coded_v2": 0.30031625815648344
+        "E_root_scan_nearest_to_coded_v2": 0.3003162581564834
       },
-      "dE": -0.00012523830465127617,
-      "dE_over_sigma": -0.2145693351014854,
-      "dE_scan_assisted": -0.00012523830467825459,
-      "dE_scan_assisted_over_sigma": -0.2145693351477072,
-      "coded_v2_minus_previous_model_zero": -1.0855260579312187e-09
+      "dE": -0.00012523830465133168,
+      "dE_over_sigma": -0.21456933510158052,
+      "dE_scan_assisted": -0.0001252383046783656,
+      "dE_scan_assisted_over_sigma": -0.21456933514789744,
+      "coded_v2_minus_previous_model_zero": -1.0855260024200675e-09
     },
     {
       "irrep": "110_A2",
@@ -262,21 +262,21 @@
       ],
       "previous_model_zero": 0.3067911009653987,
       "coded_v2": {
-        "E_root": 0.3067910667228688,
+        "E_root": 0.30679106672286877,
         "window_used": [
           0.3067895494774739,
           0.30679439471973596
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -20.535876522612767,
-        "lnabsdet_at_root": -184.0021558262209,
+        "discriminant": -20.461795579989058,
+        "lnabsdet_at_root": -183.92807488360145,
         "lnabsdet_at_window_ends": [
-          -163.0391480292894,
-          -162.28633440106594
+          -163.03914802927275,
+          -162.28633440108217
         ],
         "n_evaluations": 11,
-        "seconds": 0.474057020000032
+        "seconds": 0.031974235000006956
       },
       "q0_consistent": {
         "E_root": null,
@@ -290,31 +290,31 @@
         "lnabsdet_at_root": null,
         "lnabsdet_at_window_ends": null,
         "n_evaluations": 4,
-        "seconds": 0.19698846799997227,
+        "seconds": 0.004920185999935711,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
-              "E": 0.3066350722070048,
-              "ln_root": -176.85669124023175,
+              "E": 0.30663507220700487,
+              "ln_root": -176.85660398491711,
               "bracket": [
                 0.3066301410070503,
                 0.3066402554502725
               ],
-              "discriminant": -14.39505450818396
+              "discriminant": -14.394967252830497
             }
           ],
           "n_pole_sign_changes": 3,
           "n_evaluations": 335,
-          "seconds": 13.097500904999947
+          "seconds": 0.38021271900015563
         },
-        "E_root_scan_nearest_to_coded_v2": 0.3066350722070048
+        "E_root_scan_nearest_to_coded_v2": 0.30663507220700487
       },
       "dE": null,
       "dE_over_sigma": null,
-      "dE_scan_assisted": -0.0001559945158640108,
-      "dE_scan_assisted_over_sigma": -0.29775101167259643,
-      "coded_v2_minus_previous_model_zero": -3.4242529867167804e-08
+      "dE_scan_assisted": -0.00015599451586389979,
+      "dE_scan_assisted_over_sigma": -0.29775101167238455,
+      "coded_v2_minus_previous_model_zero": -3.4242529922678955e-08
     },
     {
       "irrep": "110_A2",
@@ -335,14 +335,14 @@
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -26.605355113263187,
-        "lnabsdet_at_root": -206.70496798702408,
+        "discriminant": -26.585068124701024,
+        "lnabsdet_at_root": -206.68468099846274,
         "lnabsdet_at_window_ends": [
-          -178.6315411101355,
-          -181.0471902818861
+          -178.63154111013446,
+          -181.0471902818876
         ],
         "n_evaluations": 11,
-        "seconds": 0.4028614119999929
+        "seconds": 0.010676284000055603
       },
       "q0_consistent": {
         "E_root": null,
@@ -350,29 +350,29 @@
           0.31461461573078653,
           0.31704208210410517
         ],
-        "note": "MissingRootError (plan rule): accepted window: MissingRootError: no sign change of det Q on [0.3158259262963148, 0.3158307715385769] (sign 1, 1) | widened +-250 rows: PoleError: sign change at E=0.31612911112995534 is a pole (Delta_h = 12.65)",
+        "note": "MissingRootError (plan rule): accepted window: MissingRootError: no sign change of det Q on [0.3158259262963148, 0.3158307715385769] (sign 1, 1) | widened +-250 rows: PoleError: sign change at E=0.3161291111299768 is a pole (Delta_h = 12.65)",
         "kind": null,
         "discriminant": null,
         "lnabsdet_at_root": null,
         "lnabsdet_at_window_ends": null,
         "n_evaluations": 47,
-        "seconds": 1.639030147000085,
+        "seconds": 0.04625360299996828,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
               "E": 0.31564501983275506,
-              "ln_root": -194.89733079783264,
+              "ln_root": -194.8973306878885,
               "bracket": [
                 0.3156361744962248,
                 0.31564628893944696
               ],
-              "discriminant": -13.922602013027387
+              "discriminant": -13.922601903083347
             }
           ],
           "n_pole_sign_changes": 2,
           "n_evaluations": 308,
-          "seconds": 12.296891896000034
+          "seconds": 0.30860415200004354
         },
         "E_root_scan_nearest_to_coded_v2": 0.31564501983275506
       },
@@ -394,62 +394,62 @@
       ],
       "previous_model_zero": 0.31915497052908925,
       "coded_v2": {
-        "E_root": 0.31915494272902056,
+        "E_root": 0.31915494272901224,
         "window_used": [
           0.3191546077303865,
           0.31915945297264864
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -18.41506068179413,
-        "lnabsdet_at_root": -206.0114162066559,
+        "discriminant": -20.95520989288798,
+        "lnabsdet_at_root": -208.55156542315856,
         "lnabsdet_at_window_ends": [
-          -188.6840550801952,
-          -186.16997959283984
+          -188.68405507792818,
+          -186.16997959096372
         ],
         "n_evaluations": 11,
-        "seconds": 0.589010452000025
+        "seconds": 0.012674430000060966
       },
       "q0_consistent": {
-        "E_root": 0.3189395550629678,
+        "E_root": 0.3189395550629675,
         "window_used": [
           0.31794329716485825,
           0.3203707635381769
         ],
         "note": "widened +-250 rows; earlier: accepted window: MissingRootError: no sign change of det Q on [0.3191546077303865, 0.31915945297264864] (sign 1, 1)",
         "kind": "zero",
-        "discriminant": -13.129808101116112,
-        "lnabsdet_at_root": -197.36093473879328,
+        "discriminant": -13.12995329199967,
+        "lnabsdet_at_root": -197.3610799287014,
         "lnabsdet_at_window_ends": [
-          -166.16707850863784,
-          -180.69693071454583
+          -166.16707850863787,
+          -180.69693071454435
         ],
         "n_evaluations": 24,
-        "seconds": 1.0096084049999945,
+        "seconds": 0.026419958999895243,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
-              "E": 0.31893955506495353,
-              "ln_root": -204.21881987538137,
+              "E": 0.3189395550649526,
+              "ln_root": -207.05399180869088,
               "bracket": [
                 0.31893451260063005,
                 0.3189446270438522
               ],
-              "discriminant": -19.98769321289808
+              "discriminant": -22.822865146213303
             }
           ],
           "n_pole_sign_changes": 0,
           "n_evaluations": 249,
-          "seconds": 10.368608776999963
+          "seconds": 0.26289406099999724
         },
-        "E_root_scan_nearest_to_coded_v2": 0.31893955506495353
+        "E_root_scan_nearest_to_coded_v2": 0.3189395550649526
       },
-      "dE": -0.00021538766605277981,
-      "dE_over_sigma": -0.2795595532817732,
-      "dE_scan_assisted": -0.0002153876640670349,
-      "dE_scan_assisted_over_sigma": -0.279559550704402,
-      "coded_v2_minus_previous_model_zero": -2.7800068691519186e-08
+      "dE": -0.0002153876660447307,
+      "dE_over_sigma": -0.2795595532713259,
+      "dE_scan_assisted": -0.00021538766405965193,
+      "dE_scan_assisted_over_sigma": -0.27955955069481936,
+      "coded_v2_minus_previous_model_zero": -2.780007701819187e-08
     },
     {
       "irrep": "110_A2",
@@ -463,62 +463,62 @@
       ],
       "previous_model_zero": 0.3287180485505124,
       "coded_v2": {
-        "E_root": 0.3287180438827592,
+        "E_root": 0.3287180438827593,
         "window_used": [
           0.32871427071353565,
           0.3287191159557978
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -17.36575630795437,
-        "lnabsdet_at_root": -209.31369492908567,
+        "discriminant": -17.3738244212212,
+        "lnabsdet_at_root": -209.32176304239587,
         "lnabsdet_at_window_ends": [
-          -190.61566110982392,
-          -191.879581990575
+          -190.61566110983995,
+          -191.87958199048023
         ],
         "n_evaluations": 10,
-        "seconds": 0.4524281120000069
+        "seconds": 0.012008773000161455
       },
       "q0_consistent": {
-        "E_root": 0.3286459066230466,
+        "E_root": 0.3286459066230467,
         "window_used": [
           0.3275029601480074,
           0.32993042652132604
         ],
         "note": "widened +-250 rows; earlier: accepted window: MissingRootError: no sign change of det Q on [0.32871427071353565, 0.3287191159557978] (sign -1, -1)",
         "kind": "zero",
-        "discriminant": -16.39616737519387,
-        "lnabsdet_at_root": -208.1621596647355,
+        "discriminant": -16.395982108938483,
+        "lnabsdet_at_root": -208.1619743985029,
         "lnabsdet_at_window_ends": [
-          -182.50194979609068,
-          -154.9070911082218
+          -182.50194979609074,
+          -154.9070911086839
         ],
         "n_evaluations": 19,
-        "seconds": 0.850564621999979,
+        "seconds": 0.022320357999888074,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
-              "E": 0.3286459066229742,
-              "ln_root": -211.32419026637848,
+              "E": 0.3286459066229741,
+              "ln_root": -211.33957281666045,
               "bracket": [
                 0.3286458922321116,
                 0.32865600667533373
               ],
-              "discriminant": -19.55819797694363
+              "discriminant": -19.57358052715381
             }
           ],
           "n_pole_sign_changes": 0,
           "n_evaluations": 247,
-          "seconds": 11.445844469999997
+          "seconds": 0.29048953000005895
         },
-        "E_root_scan_nearest_to_coded_v2": 0.3286459066229742
+        "E_root_scan_nearest_to_coded_v2": 0.3286459066229741
       },
       "dE": -7.213725971261242e-05,
       "dE_over_sigma": -0.13937524993097214,
-      "dE_scan_assisted": -7.213725978499896e-05,
-      "dE_scan_assisted_over_sigma": -0.13937525007082902,
-      "coded_v2_minus_previous_model_zero": -4.667753183973389e-09
+      "dE_scan_assisted": -7.213725978522101e-05,
+      "dE_scan_assisted_over_sigma": -0.13937525007125803,
+      "coded_v2_minus_previous_model_zero": -4.667753072951086e-09
     },
     {
       "irrep": "111_A2",
@@ -539,14 +539,14 @@
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -13.732413084963838,
-        "lnabsdet_at_root": -120.79020357489051,
+        "discriminant": -13.732424964779781,
+        "lnabsdet_at_root": -120.790215454705,
         "lnabsdet_at_window_ends": [
-          -107.32843738125902,
-          -105.63028718990459
+          -107.32843738125362,
+          -105.63028718990574
         ],
         "n_evaluations": 10,
-        "seconds": 0.4061460249999982
+        "seconds": 0.022386643000118056
       },
       "q0_consistent": {
         "E_root": null,
@@ -560,23 +560,23 @@
         "lnabsdet_at_root": null,
         "lnabsdet_at_window_ends": null,
         "n_evaluations": 42,
-        "seconds": 1.7089511899999934,
+        "seconds": 0.040126844999804234,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
               "E": 0.3192435345105379,
-              "ln_root": -128.7609517121423,
+              "ln_root": -128.75878079781882,
               "bracket": [
                 0.3192414586979349,
                 0.31925157314115704
               ],
-              "discriminant": -21.5675357040748
+              "discriminant": -21.565364789752095
             }
           ],
           "n_pole_sign_changes": 2,
           "n_evaluations": 307,
-          "seconds": 10.307176658000003
+          "seconds": 0.2777706379999927
         },
         "E_root_scan_nearest_to_coded_v2": 0.3192435345105379
       },
@@ -605,14 +605,14 @@
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -18.996765523578603,
-        "lnabsdet_at_root": -181.96076274213704,
+        "discriminant": -18.996398384086774,
+        "lnabsdet_at_root": -181.96039560264464,
         "lnabsdet_at_window_ends": [
-          -162.15152520034712,
-          -162.01709683247267
+          -162.15152520034684,
+          -162.01709683247464
         ],
         "n_evaluations": 11,
-        "seconds": 0.5380815299999995
+        "seconds": 0.01471019200016599
       },
       "q0_consistent": {
         "E_root": 0.33403517451625425,
@@ -622,30 +622,30 @@
         ],
         "note": "widened +-250 rows; earlier: accepted window: MissingRootError: no sign change of det Q on [0.3343299064953248, 0.33433475173758687] (sign 1, 1)",
         "kind": "zero",
-        "discriminant": -14.724546144620433,
-        "lnabsdet_at_root": -175.21667589852353,
+        "discriminant": -14.72454998279835,
+        "lnabsdet_at_root": -175.21667973670034,
         "lnabsdet_at_window_ends": [
           -142.94227285761585,
           -163.06625036299383
         ],
         "n_evaluations": 20,
-        "seconds": 0.9758758229999103,
+        "seconds": 0.025598549000051207,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
               "E": 0.33403517451766274,
-              "ln_root": -174.30208188784508,
+              "ln_root": -174.30208355418966,
               "bracket": [
                 0.334028895819791,
                 0.3340390102630132
               ],
-              "discriminant": -13.809952121653595
+              "discriminant": -13.809953787997756
             }
           ],
           "n_pole_sign_changes": 0,
           "n_evaluations": 248,
-          "seconds": 11.810822045999998
+          "seconds": 0.30875638900010927
         },
         "E_root_scan_nearest_to_coded_v2": 0.33403517451766274
       },
@@ -674,14 +674,14 @@
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -24.30136448347099,
-        "lnabsdet_at_root": -135.58232206411617,
+        "discriminant": -24.2669077177527,
+        "lnabsdet_at_root": -135.54786529839794,
         "lnabsdet_at_window_ends": [
-          -110.04435494682986,
-          -110.97006485926981
+          -110.04435494682963,
+          -110.97006485926757
         ],
         "n_evaluations": 11,
-        "seconds": 0.31481279000001905
+        "seconds": 0.013807770000084929
       },
       "q0_consistent": {
         "E_root": 0.28605537552657084,
@@ -691,30 +691,30 @@
         ],
         "note": "widened +-250 rows; earlier: accepted window: MissingRootError: no sign change of det Q on [0.2862408770438522, 0.2862457222861143] (sign 1, 1)",
         "kind": "zero",
-        "discriminant": -14.247870888466622,
-        "lnabsdet_at_root": -126.28343856843603,
+        "discriminant": -14.247871351954544,
+        "lnabsdet_at_root": -126.283439031923,
         "lnabsdet_at_window_ends": [
           -106.21991317765875,
-          -105.3309479694686
+          -105.33094796946851
         ],
         "n_evaluations": 19,
-        "seconds": 0.4974931879999076,
+        "seconds": 0.012641851000125826,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
               "E": 0.2860553755272191,
-              "ln_root": -133.00624084930834,
+              "ln_root": -133.00485538999231,
               "bracket": [
                 0.2860511252437622,
                 0.2860612396869843
               ],
-              "discriminant": -20.97067317068411
+              "discriminant": -20.969287711368466
             }
           ],
           "n_pole_sign_changes": 2,
           "n_evaluations": 306,
-          "seconds": 9.643854066000017
+          "seconds": 0.293522916000029
         },
         "E_root_scan_nearest_to_coded_v2": 0.2860553755272191
       },
@@ -736,62 +736,62 @@
       ],
       "previous_model_zero": 0.299178293717562,
       "coded_v2": {
-        "E_root": 0.2991782676914368,
+        "E_root": 0.29917826769143696,
         "window_used": [
           0.2991776738836942,
           0.2991825191259563
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -20.10420548906947,
-        "lnabsdet_at_root": -138.39093876208844,
+        "discriminant": -21.599036825687364,
+        "lnabsdet_at_root": -139.88577009870406,
         "lnabsdet_at_window_ends": [
-          -118.80191742138302,
-          -116.88249771136834
+          -118.8019174206878,
+          -116.88249771135887
         ],
         "n_evaluations": 11,
-        "seconds": 0.5861868439999398
+        "seconds": 0.023024609999993118
       },
       "q0_consistent": {
-        "E_root": 0.2991156800151645,
+        "E_root": 0.2991156800151639,
         "window_used": [
           0.29796636331816595,
           0.30039382969148454
         ],
         "note": "widened +-250 rows; earlier: accepted window: MissingRootError: no sign change of det Q on [0.2991776738836942, 0.2991825191259563] (sign 1, 1)",
         "kind": "zero",
-        "discriminant": -14.75928195225191,
-        "lnabsdet_at_root": -132.3619589899819,
+        "discriminant": -14.758819121920311,
+        "lnabsdet_at_root": -132.3614961594136,
         "lnabsdet_at_window_ends": [
-          -88.45074405367498,
-          -119.49353674673443
+          -88.45074405367482,
+          -119.49353674673446
         ],
         "n_evaluations": 23,
-        "seconds": 1.0214210539999158,
+        "seconds": 0.02882951900005537,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
-              "E": 0.2991156800123485,
-              "ln_root": -130.5315193367926,
+              "E": 0.29911568001234934,
+              "ln_root": -130.53225123384613,
               "bracket": [
                 0.2991092954022701,
                 0.2991194098454923
               ],
-              "discriminant": -12.928842329667404
+              "discriminant": -12.929574226270546
             }
           ],
           "n_pole_sign_changes": 0,
           "n_evaluations": 248,
-          "seconds": 11.044434402999968
+          "seconds": 0.29971039499992
         },
-        "E_root_scan_nearest_to_coded_v2": 0.2991156800123485
+        "E_root_scan_nearest_to_coded_v2": 0.29911568001234934
       },
-      "dE": -6.258767627231876e-05,
-      "dE_over_sigma": -0.1073135493021702,
-      "dE_scan_assisted": -6.258767908828844e-05,
-      "dE_scan_assisted_over_sigma": -0.10731355413046419,
-      "coded_v2_minus_previous_model_zero": -2.6026125199418715e-08
+      "dE": -6.25876762730404e-05,
+      "dE_over_sigma": -0.10731354930340754,
+      "dE_scan_assisted": -6.25876790876223e-05,
+      "dE_scan_assisted_over_sigma": -0.10731355412932203,
+      "coded_v2_minus_previous_model_zero": -2.602612503288526e-08
     },
     {
       "irrep": "200_A2",
@@ -805,21 +805,21 @@
       ],
       "previous_model_zero": 0.3309818290076919,
       "coded_v2": {
-        "E_root": 0.3309818287145227,
+        "E_root": 0.33098182871452275,
         "window_used": [
           0.33097699884994247,
           0.3309818440922046
         ],
         "note": "accepted window",
         "kind": "zero",
-        "discriminant": -21.42567936012901,
-        "lnabsdet_at_root": -173.25951403959388,
+        "discriminant": -21.551590052141705,
+        "lnabsdet_at_root": -173.38542473153825,
         "lnabsdet_at_window_ends": [
-          -150.23976958622458,
-          -156.0087354296021
+          -150.2397695862234,
+          -156.0087354280947
         ],
         "n_evaluations": 10,
-        "seconds": 0.7628515600000583
+        "seconds": 0.018763896999871577
       },
       "q0_consistent": {
         "E_root": null,
@@ -833,58 +833,58 @@
         "lnabsdet_at_root": null,
         "lnabsdet_at_window_ends": null,
         "n_evaluations": 4,
-        "seconds": 0.4949105340000415,
+        "seconds": 0.007965520999960063,
         "scan": {
           "npts": 241,
           "zeros_in_widened_window": [
             {
-              "E": 0.33077631011278064,
-              "ln_root": -171.38574983884092,
+              "E": 0.3307763101127805,
+              "ln_root": -171.4058851405341,
               "bracket": [
                 0.33076701816340814,
                 0.33077713260663033
               ],
-              "discriminant": -20.403034507753944
+              "discriminant": -20.423169809387332
             }
           ],
           "n_pole_sign_changes": 1,
           "n_evaluations": 276,
-          "seconds": 15.430509377000135
+          "seconds": 0.48391170800005057
         },
-        "E_root_scan_nearest_to_coded_v2": 0.33077631011278064
+        "E_root_scan_nearest_to_coded_v2": 0.3307763101127805
       },
       "dE": null,
       "dE_over_sigma": null,
-      "dE_scan_assisted": -0.00020551860174206071,
-      "dE_scan_assisted_over_sigma": -0.3365251181650555,
-      "coded_v2_minus_previous_model_zero": -2.9316921112965133e-10
+      "dE_scan_assisted": -0.00020551860174222725,
+      "dE_scan_assisted_over_sigma": -0.33652511816532815,
+      "coded_v2_minus_previous_model_zero": -2.931691556185001e-10
     }
   ],
   "timings_seconds": {
-    "000_A1m_0_coded_v2": 0.6425141179998946,
-    "000_A1m_0_q0_consistent": 0.28579480199994123,
-    "100_A2_0_coded_v2": 0.3679091240001071,
-    "100_A2_0_q0_consistent": 0.14155977100006112,
-    "100_A2_1_coded_v2": 0.40576019200000246,
-    "100_A2_1_q0_consistent": 0.6598647859999573,
-    "110_A2_0_coded_v2": 0.474057020000032,
-    "110_A2_0_q0_consistent": 0.19698846799997227,
-    "110_A2_1_coded_v2": 0.4028614119999929,
-    "110_A2_1_q0_consistent": 1.639030147000085,
-    "110_A2_2_coded_v2": 0.589010452000025,
-    "110_A2_2_q0_consistent": 1.0096084049999945,
-    "110_A2_3_coded_v2": 0.4524281120000069,
-    "110_A2_3_q0_consistent": 0.850564621999979,
-    "111_A2_0_coded_v2": 0.4061460249999982,
-    "111_A2_0_q0_consistent": 1.7089511899999934,
-    "111_A2_1_coded_v2": 0.5380815299999995,
-    "111_A2_1_q0_consistent": 0.9758758229999103,
-    "200_A2_0_coded_v2": 0.31481279000001905,
-    "200_A2_0_q0_consistent": 0.4974931879999076,
-    "200_A2_1_coded_v2": 0.5861868439999398,
-    "200_A2_1_q0_consistent": 1.0214210539999158,
-    "200_A2_2_coded_v2": 0.7628515600000583,
-    "200_A2_2_q0_consistent": 0.4949105340000415
+    "000_A1m_0_coded_v2": 0.016288776999999754,
+    "000_A1m_0_q0_consistent": 0.00419669600000816,
+    "100_A2_0_coded_v2": 0.02328963699983433,
+    "100_A2_0_q0_consistent": 0.0035662049999700685,
+    "100_A2_1_coded_v2": 0.013141096000026664,
+    "100_A2_1_q0_consistent": 0.015569877999951132,
+    "110_A2_0_coded_v2": 0.031974235000006956,
+    "110_A2_0_q0_consistent": 0.004920185999935711,
+    "110_A2_1_coded_v2": 0.010676284000055603,
+    "110_A2_1_q0_consistent": 0.04625360299996828,
+    "110_A2_2_coded_v2": 0.012674430000060966,
+    "110_A2_2_q0_consistent": 0.026419958999895243,
+    "110_A2_3_coded_v2": 0.012008773000161455,
+    "110_A2_3_q0_consistent": 0.022320357999888074,
+    "111_A2_0_coded_v2": 0.022386643000118056,
+    "111_A2_0_q0_consistent": 0.040126844999804234,
+    "111_A2_1_coded_v2": 0.01471019200016599,
+    "111_A2_1_q0_consistent": 0.025598549000051207,
+    "200_A2_0_coded_v2": 0.013807770000084929,
+    "200_A2_0_q0_consistent": 0.012641851000125826,
+    "200_A2_1_coded_v2": 0.023024609999993118,
+    "200_A2_1_q0_consistent": 0.02882951900005537,
+    "200_A2_2_coded_v2": 0.018763896999871577,
+    "200_A2_2_q0_consistent": 0.007965520999960063
   },
-  "total_seconds": 145.65763212000002
+  "total_seconds": 3.965831504000107
 }
