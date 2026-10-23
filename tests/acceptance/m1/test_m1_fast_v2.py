@@ -221,16 +221,59 @@ def test_fast_tail_consistent_with_numpy_and_want_subset():
         assert sub.Q.shape == (sub.Nproj, sub.Nproj) and _rel(as_c(sub.Q), as_c(full.Q)) <= 1e-9, tag
 
 
-def test_fast_single_thread_cpu_time():
-    """Report 006 note 1: the NumPy tail used ~4 cores (CPU/wall 3.9).  With the tail in C++ the fast path must stay on
-    one core without any environment pinning: CPU time / wall time <= 1.3 over 20 warm calls."""
-    irrep, Ecm = "000_A1m", 0.26932
-    _fast(irrep, Ecm, C_BASELINE, want=("Q",))   # warm-up
+CPU_WALL_MAX = 1.3            # unchanged bar (prompts/002 section 4); measured 0.97-1.00 in steady state (reports/tests/010)
+CPU_WORK_WINDOW = 0.6         # s of fast-path work per point; >= 2x the 0.1-0.3 s OpenBLAS spin-down, so a residual spin cannot
+                              # push a one-core loop over the bar by itself (1 extra core for 0.3 s of a 0.6 s window = 1.5 only
+                              # if it were all inside the window, which the settle step below excludes)
+CPU_SETTLE_MAX = 3.0          # s; upper limit on the idle wait for the process to go quiet (measured need: <= 0.3 s)
+CPU_POINTS = (("111_A2", 0.35103), ("000_A1m", 0.34538))   # N = 160 and N = 103: where the pre-7.6 NumPy tail DID thread
+                                                            # (unpinned CPU/wall 3.06 and 2.29, reports/tests/009)
+
+
+def _settle_idle(max_wait=CPU_SETTLE_MAX, step=0.1, quiet=0.05):
+    """Wait until the process is idle: an idle `step` window uses < `quiet` of a core.  OpenBLAS worker threads spin for
+    0.1-0.3 s after `import numpy` (and after a BLAS call); this makes the measurement independent of test order."""
+    waited = 0.0
+    while waited < max_wait:
+        c0, w0 = time.process_time(), time.perf_counter()
+        time.sleep(step)
+        dc, dw = time.process_time() - c0, time.perf_counter() - w0
+        waited += dw
+        if dc / dw < quiet:
+            return waited
+    return waited
+
+
+def _cpu_wall_ratio(irrep, Ecm, min_wall=CPU_WORK_WINDOW, min_calls=20):
+    """Process CPU time / wall time of warm `want=("Q",)` calls only, over at least `min_wall` s and `min_calls` calls."""
+    _fast(irrep, Ecm, C_BASELINE, want=("Q",))   # warm-up (projector, threshold tables, F class tables)
+    settled = _settle_idle()
+    n = 0
     t0c, t0w = time.process_time(), time.perf_counter()
-    for _ in range(20):
+    while True:
         _fast(irrep, Ecm, C_BASELINE, want=("Q",))
-    cpu, wall = time.process_time() - t0c, time.perf_counter() - t0w
-    assert wall > 0 and cpu / wall <= 1.3, (cpu, wall, cpu / wall)
+        n += 1
+        wall = time.perf_counter() - t0w
+        if wall >= min_wall and n >= min_calls:
+            break
+    cpu = time.process_time() - t0c
+    return cpu, wall, n, settled
+
+
+def test_fast_single_thread_cpu_time():
+    """Report 006 note 1: the NumPy tail used ~4 cores (CPU/wall 3.9 at N = 160).  With the tail in C++ the fast path
+    must stay on one core without any environment pinning (no OPENBLAS_NUM_THREADS / OMP_NUM_THREADS in the test).
+
+    Amendment acceptance-v5 (audit 001 ISSUE C): the earlier version measured a ~40 ms window at N = 35, which (i) fell
+    inside OpenBLAS's post-import thread spin when the test ran alone (CPU/wall 3.3-4.0, a false failure) and (ii) could
+    not detect real BLAS threading, which only sets in at N >~ 100.  Now: settle until the process is idle, then measure
+    process CPU / wall over >= 0.6 s of warm calls at the two large points where the NumPy tail did thread.  The bar
+    (1.3) is unchanged.  Verified to FAIL (ratio > 2) against a variant whose tail calls NumPy/BLAS matmul + slogdet."""
+    for irrep, Ecm in CPU_POINTS:
+        cpu, wall, n, settled = _cpu_wall_ratio(irrep, Ecm)
+        assert wall >= CPU_WORK_WINDOW and n >= 20, (irrep, Ecm, cpu, wall, n)
+        assert cpu / wall <= CPU_WALL_MAX, (irrep, Ecm, "cpu", cpu, "wall", wall, "calls", n, "ratio", cpu / wall,
+                                            "settle_s", settled)
 
 
 @pytest.mark.slow

@@ -9,6 +9,23 @@ from m1_helpers import (C_BASELINE, C_ZERO, PRODUCTION, anchor_points, as_c, bas
 TOL_LNDET_ANCHOR = 1e-10      # same code, same flags; only the LU library differs (~1e-13 measured)
 TOL_LNDET_BASELINE = 1e-9     # anchor K3 from the reference (9e-16 agreement with the port); sensitivity <= 100 eps
 
+# Amendment acceptance-v5 (audit 001 ISSUE D): NumPy slogdet(Q) vs the oracle's INDEPENDENT Eigen partial-pivot LU
+# (metadata "lnabsdet_eigen_lu", "sign_eigen_lu"; C++ assembles its own Q from the same F3inv, K3, Vsel).  The two
+# values differ by the summation order of the projection and by the two LU codes' rounding; a backward error dQ with
+# |dQ| ~ u|Q| (u = 2^-53) moves ln|det Q| by tr(Q^-1 dQ), which for random-sign rounding over O(N_proj N) terms is
+# ~ sqrt(N_proj N) kappa(Q) u <~ 30 kappa u.  Bound: 50 kappa(Q) u, floored at 1e-12 (>= 10 ulps of |ln|det|| <~ 1e3).
+# Measured 2026-10-23 at the 4 small baseline anchors: kappa 8.9e4 / 2.2e6 / 3.6e6 / 3.8e12, gaps 4.3e-14 / 0 / 2.8e-14 /
+# 1.1e-9, bounds 9.9e-10 / 2.4e-8 / 4.0e-8 / 4.2e-2 (margin >= 2e4 everywhere).  The sign is exact: a flip needs a
+# relative perturbation >= 1/kappa >= 2.6e-13 >> u.
+EIGEN_LU_KAPPA_FACTOR = 50.0
+EIGEN_LU_FLOOR = 1e-12
+
+
+def eigen_lu_tolerance(Q):
+    """kappa(Q)-aware bound on |ln|det Q|_numpy - ln|det Q|_eigen|: max(1e-12, 50 kappa_2(Q) u)."""
+    kappa = float(np.linalg.cond(np.asarray(Q, dtype=np.complex128)))
+    return max(EIGEN_LU_FLOOR, EIGEN_LU_KAPPA_FACTOR * kappa * np.finfo(float).eps), kappa
+
 
 def _check_anchor(p, c, tol):
     r = oracle_point(p["irrep"], p["Ecm"], c)
@@ -61,8 +78,18 @@ def test_oracle_reality_hermiticity_isometry():
     assert Q.shape == (r.Nproj, r.Nproj)
     s, l = np.linalg.slogdet(Q)
     assert abs(s.imag) <= 1e-10 and int(np.sign(s.real)) == int(r.sign)
-    assert abs(l - r.lnabsdet) <= 1e-10
     assert r.sign in (-1, 1)
+    # Amendment acceptance-v5 (audit 001 ISSUE D).  Before: `abs(l - r.lnabsdet) <= 1e-10`, but r.lnabsdet IS
+    # np.linalg.slogdet(Q) (qc3.oracle), so that compared NumPy with itself.  Now: NumPy's LU vs the oracle's independent
+    # Eigen LU, at every small baseline anchor (the first one, kappa = 3.8e12, gets a loose bound; the other three,
+    # kappa <= 3.6e6, get bounds <= 4e-8), with the kappa-aware tolerance defined above.
+    for q in anchor_points(small_only=True, with_baseline=True):
+        rq = oracle_point(q["irrep"], q["Ecm"], C_BASELINE)
+        tol, kappa = eigen_lu_tolerance(rq.Q)
+        tag = (q["irrep"], q["Ecm"], "kappa", kappa, "tol", tol)
+        assert int(rq.metadata["sign_eigen_lu"]) == int(rq.sign), (tag, rq.metadata["sign_eigen_lu"], rq.sign)
+        gap = abs(float(rq.metadata["lnabsdet_eigen_lu"]) - rq.lnabsdet)
+        assert gap <= tol, (tag, "gap", gap, rq.lnabsdet, rq.metadata["lnabsdet_eigen_lu"])
 
 
 def test_oracle_metadata_has_production_constants():
