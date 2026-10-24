@@ -6,7 +6,10 @@
 - **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
   - Plan: `prompts/003`. Research: `reports/research/009`.
   - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
-- **Current step:** M2 **step 1**. The builder is done (stubs plus `qc3.free_levels`, exact to $5.6\times10^{-17}$ vs brute force). 10 of the 11 free-level tests are blocked by the test defect; the planner is fixing it. Then the tester.
+- **Current step:** M2 **step 2**, `qc3.rootscan.scan_sector`, including item 4b (zero-pole pair detection).
+- **M2 step 1 DONE** (`reports/tests/014`, PASS). `qc3.free_levels` agrees with an independent brute force to $5.6\times10^{-17}$.
+  - Free-level counts: L20 2/3/4/6/5, L24 3/6/11/6/9.
+  - The stubs name the correct steps.
 - **M1 DONE**, tagged `milestone-1`.
 - **M1 gate (2026-10-23):**
   - Tester `full`: `reports/tests/013-m1-gate-full.md` (PASS). 47/47 acceptance tests incl. slow, 79/79 unit tests, `acceptance-check` PASS (v5); oracle sources unchanged.

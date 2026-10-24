@@ -1,0 +1,90 @@
+{
+ "commit": "e1016fc",
+ "range": [
+  0.2631,
+  0.36
+ ],
+ "R": 8,
+ "results": [
+  {
+   "L": 20,
+   "irrep": "000_A1m",
+   "n": 2,
+   "n_prod": 2,
+   "maxdE": 0.0,
+   "mult_ok": true
+  },
+  {
+   "L": 20,
+   "irrep": "100_A2",
+   "n": 3,
+   "n_prod": 3,
+   "maxdE": 0.0,
+   "mult_ok": true
+  },
+  {
+   "L": 20,
+   "irrep": "110_A2",
+   "n": 4,
+   "n_prod": 4,
+   "maxdE": 0.0,
+   "mult_ok": true
+  },
+  {
+   "L": 20,
+   "irrep": "111_A2",
+   "n": 6,
+   "n_prod": 6,
+   "maxdE": 0.0,
+   "mult_ok": true
+  },
+  {
+   "L": 20,
+   "irrep": "200_A2",
+   "n": 5,
+   "n_prod": 5,
+   "maxdE": 0.0,
+   "mult_ok": true
+  },
+  {
+   "L": 24,
+   "irrep": "000_A1m",
+   "n": 3,
+   "n_prod": 3,
+   "maxdE": 5.551115123125783e-17,
+   "mult_ok": true
+  },
+  {
+   "L": 24,
+   "irrep": "100_A2",
+   "n": 6,
+   "n_prod": 6,
+   "maxdE": 0.0,
+   "mult_ok": true
+  },
+  {
+   "L": 24,
+   "irrep": "110_A2",
+   "n": 11,
+   "n_prod": 11,
+   "maxdE": 0.0,
+   "mult_ok": true
+  },
+  {
+   "L": 24,
+   "irrep": "111_A2",
+   "n": 6,
+   "n_prod": 6,
+   "maxdE": 0.0,
+   "mult_ok": true
+  },
+  {
+   "L": 24,
+   "irrep": "200_A2",
+   "n": 9,
+   "n_prod": 9,
+   "maxdE": 0.0,
+   "mult_ok": true
+  }
+ ]
+}
