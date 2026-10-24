@@ -170,10 +170,15 @@ def refine_root(evaluate, sector, c, E_left, E_right, xtol=1e-11, max_iter=200, 
     return refine_root_info(evaluate, sector, c, E_left, E_right, xtol, max_iter, "zero", h, D).E
 
 
-def find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-11, h=1e-6, D=4.0):
+def find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-11, h=1e-6, D=4.0, skipped=None):
     """Scan [E_left, E_right] on n_scan equally spaced points, Brent-refine every sign-change bracket and classify it.
-    Returns all RootInfo sorted by E (zeros, poles, ambiguous).  A sign change that sits on a basis-dimension jump raises
-    DimensionJumpError (loud).  Requires xtol <= h exp(-D) (ValueError otherwise).  For the D7 table and M2; NOT the fit function."""
+    Returns all RootInfo sorted by E (zeros, poles, ambiguous).
+    A bracket that contains a basis-dimension jump is SKIPPED (audit 001 N6; prompts/003 step 3): a sign change across a
+    jump is an artefact of the changing basis, not a pole or zero of det Q.  A bracket is skipped if the dimension N differs
+    at its two scan points, or if DimensionJumpError is raised while classifying its Brent root.  Skipped brackets are never
+    silent: pass a list as `skipped` and (E_left, E_right) of each is appended.  (Use qc3.rootscan.scan_sector, which splits
+    the range at the jumps, to search the segments on both sides.)
+    Requires xtol <= h exp(-D) (ValueError otherwise).  For the D7 table and M2; NOT the fit function."""
     _check_xtol(xtol, h, D)
     if n_scan < 2:
         raise ValueError("n_scan must be >= 2")
@@ -183,16 +188,26 @@ def find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-
     out = []
     for k in range(len(Es) - 1):
         if pts[k][0] * pts[k + 1][0] < 0:
+            bracket = (float(Es[k]), float(Es[k + 1]))
+            if pts[k][2] != pts[k + 1][2]:
+                if skipped is not None:
+                    skipped.append(bracket)
+                continue
             point = _Counter(evaluate, sector, c)
-            E = _brent(point, float(Es[k]), float(Es[k + 1]), xtol, 200,
+            E = _brent(point, bracket[0], bracket[1], xtol, 200,
                        ends=((pts[k][0], pts[k][1]), (pts[k + 1][0], pts[k + 1][1])))
-            info = _classify(point, E, h, D, (float(Es[k]), float(Es[k + 1])), point.n)
+            try:
+                info = _classify(point, E, h, D, bracket, point.n)
+            except DimensionJumpError:
+                if skipped is not None:
+                    skipped.append(bracket)
+                continue
             out.append(info)
     out.sort(key=lambda r: r.E)
     return out
 
 
-def find_zeros(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-11, h=1e-6, D=4.0):
-    """The zeros among find_sign_changes (same xtol <= h exp(-D) requirement)."""
+def find_zeros(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-11, h=1e-6, D=4.0, skipped=None):
+    """The zeros among find_sign_changes (same xtol <= h exp(-D) requirement; brackets with a jump are skipped, see there)."""
     _check_xtol(xtol, h, D)
-    return [r for r in find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan, xtol, h, D) if r.kind == "zero"]
+    return [r for r in find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan, xtol, h, D, skipped) if r.kind == "zero"]

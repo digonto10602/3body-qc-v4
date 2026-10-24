@@ -1,0 +1,5610 @@
+{
+ "description": "M2 step 3 label gate: label-free scan_sector vs human labels, coded_v2, C_BASELINE (prompts/003 section 3)",
+ "git_commit": "134c3bb",
+ "git_tree_dirty": true,
+ "core_built_at_commit": "c0334de",
+ "machine": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
+ "python": "3.13.16",
+ "numpy": "2.5.3",
+ "scipy": "1.18.1",
+ "production_constants": {
+  "xi": 3.444,
+  "atmK": 0.09698,
+  "atmpi": 0.06906,
+  "eta_1": 1.0,
+  "eta_2": 0.5,
+  "alpha": 0.5,
+  "epsilon_H": 0.0,
+  "max_shell_num": 20,
+  "waves_1": [
+   0,
+   1
+  ],
+  "waves_2": [
+   0
+  ],
+  "parity": -1,
+  "eig_tol": 0.05,
+  "scatter": {
+   "a0_Kpi": 4.04,
+   "a1_Kpi": -43.2,
+   "a0_KK": 4.12
+  },
+  "Q0norm": true,
+  "z_min": 0.02
+ },
+ "k2_pwave_form": "coded_v2",
+ "c_baseline": [
+  73735.84089401191,
+  -972421.1406075779,
+  347174.0554811695,
+  -1226756.7068845264
+ ],
+ "grid_E0": 0.2631,
+ "grid_dE": 4.845242262113106e-06,
+ "E_max": 0.36,
+ "backend": "fast",
+ "slack_rows": 0.25,
+ "free_tol": 1e-07,
+ "excluded_brackets": {
+  "L24/100_A2": [
+   36
+  ]
+ },
+ "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONPATH=src/python python3 scripts/m2/score_labels.py ",
+ "subset": null,
+ "gate_passed": true,
+ "total_seconds": 99.75861037200048,
+ "sectors": {
+  "L20/000_A1m": {
+   "tp": 3,
+   "fp": 0,
+   "fn": 0,
+   "tn": 7,
+   "n_scored": 10,
+   "n_labelled": 10,
+   "excluded_bracket_ids": [],
+   "mismatches": [],
+   "unlabelled_zeros": [],
+   "problems": [],
+   "passed": true,
+   "kinds": {
+    "zero": 3,
+    "pole": 7,
+    "free_level": 2
+   },
+   "n_evaluations": 5917,
+   "n_grid": 5006,
+   "seconds": 6.799299635999887,
+   "jumps": [
+    0.27821324789589547,
+    0.3088237451379444,
+    0.3327900544226066,
+    0.35875675273431884
+   ],
+   "segments": [
+    [
+     0.2631,
+     0.27821324789589547
+    ],
+    [
+     0.27821324789589547,
+     0.3088237451379444
+    ],
+    [
+     0.3088237451379444,
+     0.3327900544226066
+    ],
+    [
+     0.3327900544226066,
+     0.35875675273431884
+    ],
+    [
+     0.35875675273431884,
+     0.36
+    ]
+   ],
+   "candidates": [
+    {
+     "E": 0.26932269974456335,
+     "kind": "zero",
+     "order": 0.9999999446625706,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -21.01300851783219,
+     "slope": 0.007422544663003745,
+     "N": 35,
+     "segment": [
+      0.2631,
+      0.27821324789589547
+     ],
+     "bracket": [
+      0.26932003663408005,
+      0.2693394074647158
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 8
+    },
+    {
+     "E": 0.3000583095089854,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.501927622401219,
+     "slope": null,
+     "N": 47,
+     "segment": [
+      0.27821324789589547,
+      0.3088237451379444
+     ],
+     "bracket": [
+      0.30004659118183796,
+      0.30006596238262406
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.30577555311693283,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.332074029639585,
+     "slope": null,
+     "N": 47,
+     "segment": [
+      0.27821324789589547,
+      0.3088237451379444
+     ],
+     "bracket": [
+      0.3057610954137395,
+      0.3057804666145256
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.3220168120785197,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.258545164134134,
+     "slope": null,
+     "N": 95,
+     "segment": [
+      0.3088237451379444,
+      0.3327900544226066
+     ],
+     "bracket": [
+      0.321998235286344,
+      0.32201760659538575
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.3243277344838876,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.935439821302474,
+     "slope": null,
+     "N": 95,
+     "segment": [
+      0.3088237451379444,
+      0.3327900544226066
+     ],
+     "bracket": [
+      0.3243227923713557,
+      0.3243421636803975
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3300423421345472,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.372123038390491,
+     "slope": null,
+     "N": 95,
+     "segment": [
+      0.3088237451379444,
+      0.3327900544226066
+     ],
+     "bracket": [
+      0.3300373285386761,
+      0.3300566998477179
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.33045980808821196,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.607090507900416,
+     "slope": null,
+     "N": 95,
+     "segment": [
+      0.3088237451379444,
+      0.3327900544226066
+     ],
+     "bracket": [
+      0.33044412602855316,
+      0.33046349733759495
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.33533865771796334,
+     "kind": "free_level",
+     "order": 2.0000027799342646,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -14.50165842926151,
+     "slope": 6.239704688267705e-10,
+     "N": 103,
+     "segment": [
+      0.3327900544226066,
+      0.35875675273431884
+     ],
+     "bracket": [
+      0.3353108236618026,
+      0.3353495739577902
+     ],
+     "via": "min",
+     "free_level": 0.33533865771796334,
+     "n_evaluations": 42
+    },
+    {
+     "E": 0.3398532753518809,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.072363203510946,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.3327900544226066,
+      0.35875675273431884
+     ],
+     "bracket": [
+      0.3398446082923553,
+      0.3398639834403491
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3445319334487736,
+     "kind": "free_level",
+     "order": 3.9999962200546246,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -31.041500394356262,
+     "slope": -1.0595019956857743e-10,
+     "N": 103,
+     "segment": [
+      0.3327900544226066,
+      0.35875675273431884
+     ],
+     "bracket": [
+      0.34451401895886474,
+      0.3445527692548524
+     ],
+     "via": "min",
+     "free_level": 0.3445319334487736,
+     "n_evaluations": 38
+    },
+    {
+     "E": 0.34538563225205027,
+     "kind": "zero",
+     "order": 0.9999802380127735,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -23.401183904735007,
+     "slope": 0.0003614890646565078,
+     "N": 103,
+     "segment": [
+      0.3327900544226066,
+      0.35875675273431884
+     ],
+     "bracket": [
+      0.3453665254705926,
+      0.34538590061858643
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.35794609308640785,
+     "kind": "zero",
+     "order": 1.0000002870153188,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -14.60942247341508,
+     "slope": 0.008986115153365707,
+     "N": 103,
+     "segment": [
+      0.3327900544226066,
+      0.35875675273431884
+     ],
+     "bracket": [
+      0.3579409965185786,
+      0.3579603716665724
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 8
+    }
+   ]
+  },
+  "L20/100_A2": {
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "tn": 23,
+   "n_scored": 25,
+   "n_labelled": 25,
+   "excluded_bracket_ids": [],
+   "mismatches": [],
+   "unlabelled_zeros": [],
+   "problems": [],
+   "passed": true,
+   "kinds": {
+    "pole": 23,
+    "free_level": 3,
+    "zero": 2
+   },
+   "n_evaluations": 7205,
+   "n_grid": 5014,
+   "seconds": 9.779934474000584,
+   "jumps": [
+    0.2653295153055912,
+    0.27562370158047717,
+    0.2846424190166141,
+    0.29032452175318363,
+    0.2928055192308954,
+    0.3092659859767095,
+    0.3161463302358074,
+    0.3200741218599397,
+    0.32209374914681316,
+    0.33503804373126606,
+    0.3401141657010312
+   ],
+   "segments": [
+    [
+     0.2631,
+     0.2653295153055912
+    ],
+    [
+     0.2653295153055912,
+     0.27562370158047717
+    ],
+    [
+     0.27562370158047717,
+     0.2846424190166141
+    ],
+    [
+     0.2846424190166141,
+     0.29032452175318363
+    ],
+    [
+     0.29032452175318363,
+     0.2928055192308954
+    ],
+    [
+     0.2928055192308954,
+     0.3092659859767095
+    ],
+    [
+     0.3092659859767095,
+     0.3161463302358074
+    ],
+    [
+     0.3161463302358074,
+     0.3200741218599397
+    ],
+    [
+     0.3200741218599397,
+     0.32209374914681316
+    ],
+    [
+     0.32209374914681316,
+     0.33503804373126606
+    ],
+    [
+     0.33503804373126606,
+     0.3401141657010312
+    ],
+    [
+     0.3401141657010312,
+     0.36
+    ]
+   ],
+   "candidates": [
+    {
+     "E": 0.2701206341543024,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.963496543565476,
+     "slope": null,
+     "N": 50,
+     "segment": [
+      0.2653295153055912,
+      0.27562370158047717
+     ],
+     "bracket": [
+      0.2701180991283724,
+      0.270137478010246
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.2733497201704938,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.45565896324915,
+     "slope": null,
+     "N": 50,
+     "segment": [
+      0.2653295153055912,
+      0.27562370158047717
+     ],
+     "bracket": [
+      0.2733349935193914,
+      0.273354372401265
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.27933393388166294,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.603557926082416,
+     "slope": null,
+     "N": 51,
+     "segment": [
+      0.27562370158047717,
+      0.2846424190166141
+     ],
+     "bracket": [
+      0.27932057503606117,
+      0.2793399199232632
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.28069025212567145,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.635170639244748,
+     "slope": null,
+     "N": 51,
+     "segment": [
+      0.27562370158047717,
+      0.2846424190166141
+     ],
+     "bracket": [
+      0.2806747171402019,
+      0.28069406202740393
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.28493387009530935,
+     "kind": "free_level",
+     "order": 4.000026771142654,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -28.60739070969791,
+     "slope": -2.861219209476795e-09,
+     "N": 52,
+     "segment": [
+      0.2846424190166141,
+      0.29032452175318363
+     ],
+     "bracket": [
+      0.2849157276797949,
+      0.28495448606024926
+     ],
+     "via": "min",
+     "free_level": 0.28493387009530935,
+     "n_evaluations": 45
+    },
+    {
+     "E": 0.2857554457753456,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.894834657987474,
+     "slope": null,
+     "N": 52,
+     "segment": [
+      0.2846424190166141,
+      0.29032452175318363
+     ],
+     "bracket": [
+      0.2857490328595645,
+      0.28576841204979164
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.29117735778612314,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.074620558042739,
+     "slope": null,
+     "N": 56,
+     "segment": [
+      0.29032452175318363,
+      0.2928055192308954
+     ],
+     "bracket": [
+      0.2911586380933524,
+      0.29117798963614705
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.29155609960818946,
+     "kind": "zero",
+     "order": 1.000030142489597,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -21.50574109911402,
+     "slope": 0.008214130506977092,
+     "N": 56,
+     "segment": [
+      0.29032452175318363,
+      0.2928055192308954
+     ],
+     "bracket": [
+      0.2915456689492449,
+      0.2915650204920395
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 10
+    },
+    {
+     "E": 0.2945720671965895,
+     "kind": "free_level",
+     "order": 2.000005335416635,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -21.63380041039423,
+     "slope": -1.284872347406818e-09,
+     "N": 60,
+     "segment": [
+      0.2928055192308954,
+      0.3092659859767095
+     ],
+     "bracket": [
+      0.2945499686510404,
+      0.29458868974926583
+     ],
+     "via": "min",
+     "free_level": 0.2945720671965895,
+     "n_evaluations": 45
+    },
+    {
+     "E": 0.30044149646116214,
+     "kind": "zero",
+     "order": 1.0000004002804237,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -27.28347802134209,
+     "slope": 0.00999880504392107,
+     "N": 60,
+     "segment": [
+      0.2928055192308954,
+      0.3092659859767095
+     ],
+     "bracket": [
+      0.30043557558130807,
+      0.3004549361304208
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.3166304984482665,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.043701118514647,
+     "slope": null,
+     "N": 68,
+     "segment": [
+      0.3161463302358074,
+      0.3200741218599397
+     ],
+     "bracket": [
+      0.31661222678250284,
+      0.31663155580528185
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3249293268814269,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.224625204890899,
+     "slope": null,
+     "N": 100,
+     "segment": [
+      0.32209374914681316,
+      0.33503804373126606
+     ],
+     "bracket": [
+      0.32492401712485225,
+      0.32494338882333196
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3289463692798142,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.155044082416026,
+     "slope": null,
+     "N": 100,
+     "segment": [
+      0.32209374914681316,
+      0.33503804373126606
+     ],
+     "bracket": [
+      0.3289339587101543,
+      0.328953330408634
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.33314822389166254,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.842123909467716,
+     "slope": null,
+     "N": 100,
+     "segment": [
+      0.32209374914681316,
+      0.33503804373126606
+     ],
+     "bracket": [
+      0.3331376172802535,
+      0.33315698897873325
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3343591728063874,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.254692677002197,
+     "slope": null,
+     "N": 100,
+     "segment": [
+      0.32209374914681316,
+      0.33503804373126606
+     ],
+     "bracket": [
+      0.33435803428447586,
+      0.33437740598295557
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.3366798508982708,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.290020085878936,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33503804373126606,
+      0.3401141657010312
+     ],
+     "bracket": [
+      0.3366662202406564,
+      0.3366855794848158
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.33692663807688755,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.981169175602119,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33503804373126606,
+      0.3401141657010312
+     ],
+     "bracket": [
+      0.33691789041472875,
+      0.33693724965888816
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3392031369844181,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.26089691558849,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33503804373126606,
+      0.3401141657010312
+     ],
+     "bracket": [
+      0.33920228122553897,
+      0.3392216404696984
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3396244646188279,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.75835617775499,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33503804373126606,
+      0.3401141657010312
+     ],
+     "bracket": [
+      0.33960882535288656,
+      0.33962818459704597
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3405748776554496,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.489090008430622,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3401141657010312,
+      0.36
+     ],
+     "bracket": [
+      0.34056185984223614,
+      0.3405812378483755
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3423696909561272,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.967501428265052,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3401141657010312,
+      0.36
+     ],
+     "bracket": [
+      0.3423640144131953,
+      0.3423833924193347
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3468658899875126,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.786069436732163,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3401141657010312,
+      0.36
+     ],
+     "bracket": [
+      0.3468597118375235,
+      0.3468790898436629
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.34778337670272846,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.269061688508685,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3401141657010312,
+      0.36
+     ],
+     "bracket": [
+      0.3477704781260728,
+      0.34778985613221214
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3507037868057882,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.372370854072159,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3401141657010312,
+      0.36
+     ],
+     "bracket": [
+      0.350696557053114,
+      0.35071593505925336
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3519615551882984,
+     "kind": "free_level",
+     "order": 4.000003781383527,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -28.19205848259554,
+     "slope": -2.579651044100524e-10,
+     "N": 108,
+     "segment": [
+      0.3401141657010312,
+      0.36
+     ],
+     "bracket": [
+      0.35193674944603215,
+      0.3519755054583108
+     ],
+     "via": "min",
+     "free_level": 0.3519615551882984,
+     "n_evaluations": 38
+    },
+    {
+     "E": 0.3545833389259244,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.281722698321289,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3401141657010312,
+      0.36
+     ],
+     "bracket": [
+      0.35457215828098315,
+      0.35459153628712253
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3568670096550199,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.622212501019447,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3401141657010312,
+      0.36
+     ],
+     "bracket": [
+      0.35685876300542596,
+      0.3568781410115653
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.35740804853816466,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.243870103306847,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3401141657010312,
+      0.36
+     ],
+     "bracket": [
+      0.35740134717732763,
+      0.357420725183467
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    }
+   ]
+  },
+  "L20/110_A2": {
+   "tp": 4,
+   "fp": 0,
+   "fn": 0,
+   "tn": 32,
+   "n_scored": 36,
+   "n_labelled": 36,
+   "excluded_bracket_ids": [],
+   "mismatches": [],
+   "unlabelled_zeros": [],
+   "problems": [],
+   "passed": true,
+   "kinds": {
+    "pole": 32,
+    "free_level": 4,
+    "zero": 4
+   },
+   "n_evaluations": 8019,
+   "n_grid": 5020,
+   "seconds": 12.148429257000316,
+   "jumps": [
+    0.2721879707617851,
+    0.2780403833844391,
+    0.2805889958337388,
+    0.28254354792992037,
+    0.293086589694173,
+    0.3004341955213702,
+    0.3046252449152422,
+    0.316389889046576,
+    0.3245402077550428,
+    0.32970676472734906,
+    0.33319320556397347,
+    0.3422520616954138,
+    0.3483225273617358,
+    0.3528644390350318,
+    0.3555597119894584
+   ],
+   "segments": [
+    [
+     0.2631,
+     0.2721879707617851
+    ],
+    [
+     0.2721879707617851,
+     0.2780403833844391
+    ],
+    [
+     0.2780403833844391,
+     0.2805889958337388
+    ],
+    [
+     0.2805889958337388,
+     0.28254354792992037
+    ],
+    [
+     0.28254354792992037,
+     0.293086589694173
+    ],
+    [
+     0.293086589694173,
+     0.3004341955213702
+    ],
+    [
+     0.3004341955213702,
+     0.3046252449152422
+    ],
+    [
+     0.3046252449152422,
+     0.316389889046576
+    ],
+    [
+     0.316389889046576,
+     0.3245402077550428
+    ],
+    [
+     0.3245402077550428,
+     0.32970676472734906
+    ],
+    [
+     0.32970676472734906,
+     0.33319320556397347
+    ],
+    [
+     0.33319320556397347,
+     0.3422520616954138
+    ],
+    [
+     0.3422520616954138,
+     0.3483225273617358
+    ],
+    [
+     0.3483225273617358,
+     0.3528644390350318
+    ],
+    [
+     0.3528644390350318,
+     0.3555597119894584
+    ],
+    [
+     0.3555597119894584,
+     0.36
+    ]
+   ],
+   "candidates": [
+    {
+     "E": 0.28073979944413957,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.907932286840186,
+     "slope": null,
+     "N": 60,
+     "segment": [
+      0.2805889958337388,
+      0.28254354792992037
+     ],
+     "bracket": [
+      0.28072618261268206,
+      0.280745495009674
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.2852980082563311,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.842613254970175,
+     "slope": null,
+     "N": 62,
+     "segment": [
+      0.28254354792992037,
+      0.293086589694173
+     ],
+     "bracket": [
+      0.2852965478022069,
+      0.28531592104074416
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.2879229643695043,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.987375525504874,
+     "slope": null,
+     "N": 62,
+     "segment": [
+      0.28254354792992037,
+      0.293086589694173
+     ],
+     "bracket": [
+      0.28791193500473283,
+      0.28793130824327007
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.29447275516644533,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.01678047696494,
+     "slope": null,
+     "N": 64,
+     "segment": [
+      0.293086589694173,
+      0.3004341955213702
+     ],
+     "bracket": [
+      0.29446430476998037,
+      0.29448368103865374
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.29653606339061467,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.83882697097593,
+     "slope": null,
+     "N": 64,
+     "segment": [
+      0.293086589694173,
+      0.3004341955213702
+     ],
+     "bracket": [
+      0.2965181892493548,
+      0.2965375655180281
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.2975677374714465,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.501980630607065,
+     "slope": null,
+     "N": 64,
+     "segment": [
+      0.293086589694173,
+      0.3004341955213702
+     ],
+     "bracket": [
+      0.29756450775771537,
+      0.2975838840263887
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3009470242219958,
+     "kind": "free_level",
+     "order": 4.0000113186677675,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -26.718284048893622,
+     "slope": 3.3325547907185615e-09,
+     "N": 66,
+     "segment": [
+      0.3004341955213702,
+      0.3046252449152422
+     ],
+     "bracket": [
+      0.30091857448379783,
+      0.30095716480079204
+     ],
+     "via": "min",
+     "free_level": 0.3009470242219958,
+     "n_evaluations": 42
+    },
+    {
+     "E": 0.3042396486000261,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.353673446300519,
+     "slope": null,
+     "N": 66,
+     "segment": [
+      0.3004341955213702,
+      0.3046252449152422
+     ],
+     "bracket": [
+      0.30423734174530004,
+      0.3042566369037972
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3055977057241678,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.15720246373317,
+     "slope": null,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.30559599649113456,
+      0.30561537152265245
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.30577617857777073,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.196703496942462,
+     "slope": null,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.3057703717747952,
+      0.30578974680631305
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.30581037859037696,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.654774039942055,
+     "slope": null,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.30580912183783093,
+      0.30582849686934876
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.30679106672287026,
+     "kind": "zero",
+     "order": 1.0000134525888205,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -22.24750475308639,
+     "slope": 0.01629219421600374,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.3067778734137233,
+      0.30679724844524114
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 10
+    },
+    {
+     "E": 0.30953205711532567,
+     "kind": "free_level",
+     "order": 2.000004265935557,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -16.88833119267221,
+     "slope": -3.205687569562965e-09,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.3095097528577399,
+      0.3095485029207756
+     ],
+     "via": "min",
+     "free_level": 0.30953205711532567,
+     "n_evaluations": 44
+    },
+    {
+     "E": 0.310795936698113,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.095435026819928,
+     "slope": null,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.3107885049379179,
+      0.3108078799694357
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.31404734351215025,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.682912034003465,
+     "slope": null,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.3140435102329164,
+      0.3140628852644342
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.3148847772123781,
+     "kind": "free_level",
+     "order": 2.0000181302240425,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -21.60235403537365,
+     "slope": -7.09941022636329e-10,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.314857261556666,
+      0.3148960116197017
+     ],
+     "via": "min",
+     "free_level": 0.3148847772123781,
+     "n_evaluations": 43
+    },
+    {
+     "E": 0.3153899253834382,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.386732331812823,
+     "slope": null,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.3153803874076479,
+      0.31539976243916573
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3158303847671015,
+     "kind": "zero",
+     "order": 1.0002778177122202,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -13.42148509150445,
+     "slope": 0.008339344870806679,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.3158260131325584,
+      0.31584538816407626
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.31594715695911213,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.238454032569251,
+     "slope": null,
+     "N": 68,
+     "segment": [
+      0.3046252449152422,
+      0.316389889046576
+     ],
+     "bracket": [
+      0.3159422633216655,
+      0.31596163835318336
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3191549427291956,
+     "kind": "zero",
+     "order": 0.9998597981091482,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -15.509344858969314,
+     "slope": 0.0001321449155223788,
+     "N": 76,
+     "segment": [
+      0.316389889046576,
+      0.3245402077550428
+     ],
+     "bracket": [
+      0.3191395784921871,
+      0.3191589284178604
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 10
+    },
+    {
+     "E": 0.31946882819441086,
+     "kind": "free_level",
+     "order": 3.999970631702914,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -24.10604886910272,
+     "slope": 5.8638715421961e-10,
+     "N": 76,
+     "segment": [
+      0.316389889046576,
+      0.3245402077550428
+     ],
+     "bracket": [
+      0.3194491773029602,
+      0.3194878771543068
+     ],
+     "via": "min",
+     "free_level": 0.31946882819441086,
+     "n_evaluations": 37
+    },
+    {
+     "E": 0.32871804388255793,
+     "kind": "zero",
+     "order": 1.0000035405975105,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -15.285797566159914,
+     "slope": 0.009354129074437136,
+     "N": 84,
+     "segment": [
+      0.3245402077550428,
+      0.32970676472734906
+     ],
+     "bracket": [
+      0.32869932292000853,
+      0.32871865833938047
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 8
+    },
+    {
+     "E": 0.3351577151199038,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.779314913422496,
+     "slope": null,
+     "N": 100,
+     "segment": [
+      0.33319320556397347,
+      0.3422520616954138
+     ],
+     "bracket": [
+      0.33514935186584416,
+      0.33516869984903097
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3375691978824974,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.730150815095271,
+     "slope": null,
+     "N": 100,
+     "segment": [
+      0.33319320556397347,
+      0.3422520616954138
+     ],
+     "bracket": [
+      0.3375678497641989,
+      0.33758719774738577
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.33904829384375074,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.87721135391513,
+     "slope": null,
+     "N": 100,
+     "segment": [
+      0.33319320556397347,
+      0.3422520616954138
+     ],
+     "bracket": [
+      0.3390382964863986,
+      0.3390576444695855
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3416214320812905,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.585350721768265,
+     "slope": null,
+     "N": 100,
+     "segment": [
+      0.33319320556397347,
+      0.3422520616954138
+     ],
+     "bracket": [
+      0.3416115782502481,
+      0.34163092623343494
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.34182228844621887,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.758585269770265,
+     "slope": null,
+     "N": 100,
+     "segment": [
+      0.33319320556397347,
+      0.3422520616954138
+     ],
+     "bracket": [
+      0.3418050580821165,
+      0.34182440606530334
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 28
+    },
+    {
+     "E": 0.3477412491544403,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.848894999071774,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.3422520616954138,
+      0.3483225273617358
+     ],
+     "bracket": [
+      0.3477409287311955,
+      0.34776024868554684
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3506743281135338,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.21635111497767,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3483225273617358,
+      0.3528644390350318
+     ],
+     "bracket": [
+      0.35066106911692224,
+      0.3506803793793618
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3513031551569512,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.422123547477526,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3483225273617358,
+      0.3528644390350318
+     ],
+     "bracket": [
+      0.35129830777742765,
+      0.3513176180398672
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.35147070020177895,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.537247404162457,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3483225273617358,
+      0.3528644390350318
+     ],
+     "bracket": [
+      0.3514527898769441,
+      0.3514721001393837
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3519319458288201,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.779338764134707,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3483225273617358,
+      0.3528644390350318
+     ],
+     "bracket": [
+      0.35191623617549345,
+      0.351935546437933
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3519643528393439,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.069169605313334,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.3483225273617358,
+      0.3528644390350318
+     ],
+     "bracket": [
+      0.3519548567003726,
+      0.35197416696281214
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3535992651029017,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.610922421939676,
+     "slope": null,
+     "N": 112,
+     "segment": [
+      0.3528644390350318,
+      0.3555597119894584
+     ],
+     "bracket": [
+      0.35358282104448346,
+      0.3536021827204146
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.35378867812197884,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.638724129429193,
+     "slope": null,
+     "N": 112,
+     "segment": [
+      0.3528644390350318,
+      0.3555597119894584
+     ],
+     "bracket": [
+      0.35377643780379475,
+      0.3537957994797259
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3543160917116427,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.599580811222467,
+     "slope": null,
+     "N": 112,
+     "segment": [
+      0.3528644390350318,
+      0.3555597119894584
+     ],
+     "bracket": [
+      0.35429920305393514,
+      0.3543185647298663
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3545863391995987,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.159772245149725,
+     "slope": null,
+     "N": 112,
+     "segment": [
+      0.3528644390350318,
+      0.3555597119894584
+     ],
+     "bracket": [
+      0.35457026651697093,
+      0.3545896281929021
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.35707146708769627,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.066965130890566,
+     "slope": null,
+     "N": 116,
+     "segment": [
+      0.3555597119894584,
+      0.36
+     ],
+     "bracket": [
+      0.3570533896174571,
+      0.35707276205418437
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3571864428512284,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.404476646117303,
+     "slope": null,
+     "N": 116,
+     "segment": [
+      0.3555597119894584,
+      0.36
+     ],
+     "bracket": [
+      0.3571696242378206,
+      0.3571889966745479
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.35734015425680327,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.186101186665468,
+     "slope": null,
+     "N": 116,
+     "segment": [
+      0.3555597119894584,
+      0.36
+     ],
+     "bracket": [
+      0.35732460373163866,
+      0.35734397616836594
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    }
+   ]
+  },
+  "L20/111_A2": {
+   "tp": 5,
+   "fp": 0,
+   "fn": 0,
+   "tn": 25,
+   "n_scored": 30,
+   "n_labelled": 30,
+   "excluded_bracket_ids": [],
+   "mismatches": [],
+   "unlabelled_zeros": [],
+   "problems": [],
+   "passed": true,
+   "kinds": {
+    "pole": 25,
+    "free_level": 6,
+    "zero": 5
+   },
+   "n_evaluations": 7776,
+   "n_grid": 5016,
+   "seconds": 11.702642580999964,
+   "jumps": [
+    0.28872079942573153,
+    0.3005299293449426,
+    0.30920635467149377,
+    0.314699419657025,
+    0.3183850080973513,
+    0.32004457910992823,
+    0.3228137101453362,
+    0.3320283937993833,
+    0.33820107611768596,
+    0.342836277933009,
+    0.3455788763111772,
+    0.3470146865759855
+   ],
+   "segments": [
+    [
+     0.2631,
+     0.28872079942573153
+    ],
+    [
+     0.28872079942573153,
+     0.3005299293449426
+    ],
+    [
+     0.3005299293449426,
+     0.30920635467149377
+    ],
+    [
+     0.30920635467149377,
+     0.314699419657025
+    ],
+    [
+     0.314699419657025,
+     0.3183850080973513
+    ],
+    [
+     0.3183850080973513,
+     0.32004457910992823
+    ],
+    [
+     0.32004457910992823,
+     0.3228137101453362
+    ],
+    [
+     0.3228137101453362,
+     0.3320283937993833
+    ],
+    [
+     0.3320283937993833,
+     0.33820107611768596
+    ],
+    [
+     0.33820107611768596,
+     0.342836277933009
+    ],
+    [
+     0.342836277933009,
+     0.3455788763111772
+    ],
+    [
+     0.3455788763111772,
+     0.3470146865759855
+    ],
+    [
+     0.3470146865759855,
+     0.36
+    ]
+   ],
+   "candidates": [
+    {
+     "E": 0.28863079768943467,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.229290217651638,
+     "slope": null,
+     "N": 40,
+     "segment": [
+      0.2631,
+      0.28872079942573153
+     ],
+     "bracket": [
+      0.2886219128923513,
+      0.28864129019902734
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.2948453008232037,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.79978304231075,
+     "slope": null,
+     "N": 43,
+     "segment": [
+      0.28872079942573153,
+      0.3005299293449426
+     ],
+     "bracket": [
+      0.2948382437773228,
+      0.2948575964493215
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.2988910917996907,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.888439994495947,
+     "slope": null,
+     "N": 43,
+     "segment": [
+      0.28872079942573153,
+      0.3005299293449426
+     ],
+     "bracket": [
+      0.2988829522250525,
+      0.2989023048970512
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.302595097257541,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.080516911296293,
+     "slope": null,
+     "N": 46,
+     "segment": [
+      0.3005299293449426,
+      0.30920635467149377
+     ],
+     "bracket": [
+      0.3025838871230998,
+      0.30260324521534654
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3065269515002521,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.40452235491405,
+     "slope": null,
+     "N": 46,
+     "segment": [
+      0.3005299293449426,
+      0.30920635467149377
+     ],
+     "bracket": [
+      0.3065135798491933,
+      0.30653293794144004
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.309331570852598,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.828607680337143,
+     "slope": null,
+     "N": 52,
+     "segment": [
+      0.30920635467149377,
+      0.314699419657025
+     ],
+     "bracket": [
+      0.3093243208331599,
+      0.30934364852677093
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3139066968396595,
+     "kind": "free_level",
+     "order": 4.000057085629856,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -32.713567502001524,
+     "slope": 3.136085900082991e-09,
+     "N": 52,
+     "segment": [
+      0.30920635467149377,
+      0.314699419657025
+     ],
+     "bracket": [
+      0.31388565652536193,
+      0.313924311912584
+     ],
+     "via": "min",
+     "free_level": 0.3139066968396595,
+     "n_evaluations": 39
+    },
+    {
+     "E": 0.31417010677625523,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.220787469462522,
+     "slope": null,
+     "N": 52,
+     "segment": [
+      0.30920635467149377,
+      0.314699419657025
+     ],
+     "bracket": [
+      0.3141562442359163,
+      0.31417557192952733
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.31519728156566273,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.244088759975554,
+     "slope": null,
+     "N": 58,
+     "segment": [
+      0.314699419657025,
+      0.3183850080973513
+     ],
+     "bracket": [
+      0.3151858391886469,
+      0.3152052159699118
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.31713575061240984,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.792337083536282,
+     "slope": null,
+     "N": 58,
+     "segment": [
+      0.314699419657025,
+      0.3183850080973513
+     ],
+     "bracket": [
+      0.31712351731513444,
+      0.3171428940963993
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3183680536005249,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.324498946533822,
+     "slope": null,
+     "N": 58,
+     "segment": [
+      0.314699419657025,
+      0.3183850080973513
+     ],
+     "bracket": [
+      0.3183636313160864,
+      0.3183830080973513
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3194218619126318,
+     "kind": "zero",
+     "order": 1.000442498118289,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -15.24063008545528,
+     "slope": 0.02151778773437885,
+     "N": 61,
+     "segment": [
+      0.3183850080973513,
+      0.32004457910992823
+     ],
+     "bracket": [
+      0.31940730186091615,
+      0.31942655268664377
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.31951399746820175,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.680151606382566,
+     "slope": null,
+     "N": 61,
+     "segment": [
+      0.3183850080973513,
+      0.32004457910992823
+     ],
+     "bracket": [
+      0.3195035559895544,
+      0.319522806815282
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.32122641863399537,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.377206738991433,
+     "slope": null,
+     "N": 64,
+     "segment": [
+      0.32004457910992823,
+      0.3228137101453362
+     ],
+     "bracket": [
+      0.3212261105306267,
+      0.32124544711129394
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3231150853281747,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.326850758397327,
+     "slope": null,
+     "N": 76,
+     "segment": [
+      0.3228137101453362,
+      0.3320283937993833
+     ],
+     "bracket": [
+      0.3231059627814932,
+      0.32312531295723695
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.32574070642742875,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.201849060639319,
+     "slope": null,
+     "N": 76,
+     "segment": [
+      0.3228137101453362,
+      0.3320283937993833
+     ],
+     "bracket": [
+      0.32573758668264946,
+      0.3257569368583933
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.32611535551184223,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.854334975348507,
+     "slope": null,
+     "N": 76,
+     "segment": [
+      0.3228137101453362,
+      0.3320283937993833
+     ],
+     "bracket": [
+      0.3261052400217816,
+      0.32612459019752543
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3274675790861219,
+     "kind": "free_level",
+     "order": 4.00000981325206,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -32.013532122731874,
+     "slope": 3.596163427400977e-10,
+     "N": 76,
+     "segment": [
+      0.3228137101453362,
+      0.3320283937993833
+     ],
+     "bracket": [
+      0.32744040214810355,
+      0.32747910249959117
+     ],
+     "via": "min",
+     "free_level": 0.3274675790861219,
+     "n_evaluations": 39
+    },
+    {
+     "E": 0.3286016361511671,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.934565945351096,
+     "slope": null,
+     "N": 76,
+     "segment": [
+      0.3228137101453362,
+      0.3320283937993833
+     ],
+     "bracket": [
+      0.32860141269273135,
+      0.32862076286847514
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.3302610759081717,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.247797145944531,
+     "slope": null,
+     "N": 76,
+     "segment": [
+      0.3228137101453362,
+      0.3320283937993833
+     ],
+     "bracket": [
+      0.33024617763095404,
+      0.3302655278066978
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3305735598616763,
+     "kind": "free_level",
+     "order": 2.0000391547552927,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -23.53419014762696,
+     "slope": 9.54567110252047e-08,
+     "N": 76,
+     "segment": [
+      0.3228137101453362,
+      0.3320283937993833
+     ],
+     "bracket": [
+      0.3305557804428548,
+      0.3305944807943424
+     ],
+     "via": "min",
+     "free_level": 0.3305735598616763,
+     "n_evaluations": 43
+    },
+    {
+     "E": 0.3323848994690507,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.762759285459325,
+     "slope": null,
+     "N": 88,
+     "segment": [
+      0.3320283937993833,
+      0.33820107611768596
+     ],
+     "bracket": [
+      0.33237846991765746,
+      0.3323978074797838
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.33433212297778003,
+     "kind": "zero",
+     "order": 1.0000119116636548,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -20.44694193619958,
+     "slope": 0.009367656403528424,
+     "N": 88,
+     "segment": [
+      0.3320283937993833,
+      0.33820107611768596
+     ],
+     "bracket": [
+      0.33433156369241784,
+      0.3343509012545442
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.3364549629766605,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.05501477478279,
+     "slope": null,
+     "N": 88,
+     "segment": [
+      0.3320283937993833,
+      0.33820107611768596
+     ],
+     "bracket": [
+      0.33643935796418895,
+      0.3364586955263153
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3376458250808612,
+     "kind": "free_level",
+     "order": 4.000011648527716,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -25.036036369654227,
+     "slope": -7.113398975758245e-11,
+     "N": 88,
+     "segment": [
+      0.3320283937993833,
+      0.33820107611768596
+     ],
+     "bracket": [
+      0.33761894925389574,
+      0.33765762437814845
+     ],
+     "via": "min",
+     "free_level": 0.3376458250808612,
+     "n_evaluations": 40
+    },
+    {
+     "E": 0.33820736139997587,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.105392965542407,
+     "slope": null,
+     "N": 112,
+     "segment": [
+      0.33820107611768596,
+      0.342836277933009
+     ],
+     "bracket": [
+      0.33820307611768596,
+      0.3382224535311392
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3383607229024425,
+     "kind": "zero",
+     "order": 1.0003415113277587,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -21.46566812022226,
+     "slope": 0.000862383174127436,
+     "N": 112,
+     "segment": [
+      0.33820107611768596,
+      0.342836277933009
+     ],
+     "bracket": [
+      0.33835809542531187,
+      0.33837747283876507
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 11
+    },
+    {
+     "E": 0.3385806432019416,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.798342987737868,
+     "slope": null,
+     "N": 112,
+     "segment": [
+      0.33820107611768596,
+      0.342836277933009
+     ],
+     "bracket": [
+      0.33857124697329744,
+      0.33859062438675064
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 28
+    },
+    {
+     "E": 0.341684010601363,
+     "kind": "free_level",
+     "order": 4.000023607982876,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -30.10057087190151,
+     "slope": -4.705923529763761e-09,
+     "N": 112,
+     "segment": [
+      0.33820107611768596,
+      0.342836277933009
+     ],
+     "bracket": [
+      0.34167163312581494,
+      0.3417103879527214
+     ],
+     "via": "min",
+     "free_level": 0.341684010601363,
+     "n_evaluations": 41
+    },
+    {
+     "E": 0.34219899737149245,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.969373607231262,
+     "slope": null,
+     "N": 112,
+     "segment": [
+      0.33820107611768596,
+      0.342836277933009
+     ],
+     "bracket": [
+      0.34219482328905226,
+      0.3422142007025055
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.34258069445547246,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.74422798379453,
+     "slope": null,
+     "N": 112,
+     "segment": [
+      0.33820107611768596,
+      0.342836277933009
+     ],
+     "bracket": [
+      0.34256299414466373,
+      0.342582371558117
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.34319612357810353,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.653246973481018,
+     "slope": null,
+     "N": 136,
+     "segment": [
+      0.342836277933009,
+      0.3455788763111772
+     ],
+     "bracket": [
+      0.34318542420629794,
+      0.34320471011036957
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.34390283712099484,
+     "kind": "zero",
+     "order": 1.0000650428725912,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -13.898017269669822,
+     "slope": 0.0029406317449598195,
+     "N": 136,
+     "segment": [
+      0.342836277933009,
+      0.3455788763111772
+     ],
+     "bracket": [
+      0.3438990026569474,
+      0.343918288561019
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 10
+    },
+    {
+     "E": 0.34635668858910734,
+     "kind": "free_level",
+     "order": 2.0000568091577215,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -12.839673910708711,
+     "slope": 2.0200395339597154e-09,
+     "N": 148,
+     "segment": [
+      0.3455788763111772,
+      0.3470146865759855
+     ],
+     "bracket": [
+      0.34633547901830586,
+      0.34637417659303044
+     ],
+     "via": "min",
+     "free_level": 0.34635668858910734,
+     "n_evaluations": 45
+    },
+    {
+     "E": 0.3501283974306449,
+     "kind": "zero",
+     "order": 1.0000116038100286,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -23.405324487675045,
+     "slope": 0.003947191701467543,
+     "N": 160,
+     "segment": [
+      0.3470146865759855,
+      0.36
+     ],
+     "bracket": [
+      0.3501167017220188,
+      0.3501360768166815
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 10
+    },
+    {
+     "E": 0.3515452519504151,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.050150075558747,
+     "slope": null,
+     "N": 160,
+     "segment": [
+      0.3470146865759855,
+      0.36
+     ],
+     "bracket": [
+      0.3515310836323965,
+      0.3515504587270592
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    }
+   ]
+  },
+  "L20/200_A2": {
+   "tp": 5,
+   "fp": 0,
+   "fn": 0,
+   "tn": 30,
+   "n_scored": 35,
+   "n_labelled": 35,
+   "excluded_bracket_ids": [],
+   "mismatches": [],
+   "unlabelled_zeros": [],
+   "problems": [],
+   "passed": true,
+   "kinds": {
+    "pole": 30,
+    "free_level": 5,
+    "zero": 5
+   },
+   "n_evaluations": 8033,
+   "n_grid": 5015,
+   "seconds": 13.782202041000346,
+   "jumps": [
+    0.2631688204946026,
+    0.278326028905888,
+    0.2888955536398311,
+    0.29779930401471083,
+    0.30890543160713907,
+    0.31700875817037166,
+    0.32355318278395445,
+    0.33047854163638757,
+    0.34406549892383503,
+    0.34584190456952907,
+    0.35142066596377475
+   ],
+   "segments": [
+    [
+     0.2631,
+     0.2631688204946026
+    ],
+    [
+     0.2631688204946026,
+     0.278326028905888
+    ],
+    [
+     0.278326028905888,
+     0.2888955536398311
+    ],
+    [
+     0.2888955536398311,
+     0.29779930401471083
+    ],
+    [
+     0.29779930401471083,
+     0.30890543160713907
+    ],
+    [
+     0.30890543160713907,
+     0.31700875817037166
+    ],
+    [
+     0.31700875817037166,
+     0.32355318278395445
+    ],
+    [
+     0.32355318278395445,
+     0.33047854163638757
+    ],
+    [
+     0.33047854163638757,
+     0.34406549892383503
+    ],
+    [
+     0.34406549892383503,
+     0.34584190456952907
+    ],
+    [
+     0.34584190456952907,
+     0.35142066596377475
+    ],
+    [
+     0.35142066596377475,
+     0.36
+    ]
+   ],
+   "candidates": [
+    {
+     "E": 0.26815040071045637,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.298916037149652,
+     "slope": null,
+     "N": 43,
+     "segment": [
+      0.2631688204946026,
+      0.278326028905888
+     ],
+     "bracket": [
+      0.26813146161134055,
+      0.2681508391157028
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.27545815928155715,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.178779730922088,
+     "slope": null,
+     "N": 43,
+     "segment": [
+      0.2631688204946026,
+      0.278326028905888
+     ],
+     "bracket": [
+      0.27545615826027386,
+      0.2754755357646361
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.2755355563282924,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.788245241184754,
+     "slope": null,
+     "N": 43,
+     "segment": [
+      0.2631688204946026,
+      0.278326028905888
+     ],
+     "bracket": [
+      0.2755336682777229,
+      0.27555304578208517
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.27809284517103994,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.377872258728587,
+     "slope": null,
+     "N": 43,
+     "segment": [
+      0.2631688204946026,
+      0.278326028905888
+     ],
+     "bracket": [
+      0.2780914988535409,
+      0.27811087635790316
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.2813683944653434,
+     "kind": "free_level",
+     "order": 2.0000024988182323,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -23.391145767781637,
+     "slope": -3.1441645164179133e-09,
+     "N": 47,
+     "segment": [
+      0.278326028905888,
+      0.2888955536398311
+     ],
+     "bracket": [
+      0.28134675025844313,
+      0.2813854518142451
+     ],
+     "via": "min",
+     "free_level": 0.2813683944653434,
+     "n_evaluations": 42
+    },
+    {
+     "E": 0.2862443643111879,
+     "kind": "zero",
+     "order": 1.0000343804647802,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -17.57100106115712,
+     "slope": 0.030467904667270146,
+     "N": 47,
+     "segment": [
+      0.278326028905888,
+      0.2888955536398311
+     ],
+     "bracket": [
+      0.2862424970673948,
+      0.28626184784529585
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.28661988941947253,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.182863888214229,
+     "slope": null,
+     "N": 47,
+     "segment": [
+      0.278326028905888,
+      0.2888955536398311
+     ],
+     "bracket": [
+      0.2866101618475137,
+      0.2866295126254147
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.28690189054406245,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.344226203461602,
+     "slope": null,
+     "N": 47,
+     "segment": [
+      0.278326028905888,
+      0.2888955536398311
+     ],
+     "bracket": [
+      0.2869004235160286,
+      0.2869197742939296
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.2894544494274563,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.170629869959242,
+     "slope": null,
+     "N": 63,
+     "segment": [
+      0.2888955536398311,
+      0.29779930401471083
+     ],
+     "bracket": [
+      0.2894392775756934,
+      0.289458624859117
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.29226428315801756,
+     "kind": "free_level",
+     "order": 4.000006553304793,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -28.599877753051544,
+     "slope": 3.0481949700076564e-09,
+     "N": 63,
+     "segment": [
+      0.2888955536398311,
+      0.29779930401471083
+     ],
+     "bracket": [
+      0.29224463367212283,
+      0.29228332823897013
+     ],
+     "via": "min",
+     "free_level": 0.29226428315801756,
+     "n_evaluations": 43
+    },
+    {
+     "E": 0.29917826769126515,
+     "kind": "zero",
+     "order": 1.0000281449190773,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -15.574652399612546,
+     "slope": 0.009580041151656421,
+     "N": 79,
+     "segment": [
+      0.29779930401471083,
+      0.30890543160713907
+     ],
+     "bracket": [
+      0.2991769603132491,
+      0.29919633575407356
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.30665034992512574,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.271719380039144,
+     "slope": null,
+     "N": 79,
+     "segment": [
+      0.29779930401471083,
+      0.30890543160713907
+     ],
+     "bracket": [
+      0.3066365050306747,
+      0.30665588047149916
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.319110610165732,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.1701035794529,
+     "slope": null,
+     "N": 99,
+     "segment": [
+      0.31700875817037166,
+      0.32355318278395445
+     ],
+     "bracket": [
+      0.3191005979877295,
+      0.3191199483564087
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.3203734027616301,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.190702227731506,
+     "slope": null,
+     "N": 99,
+     "segment": [
+      0.31700875817037166,
+      0.32355318278395445
+     ],
+     "bracket": [
+      0.32035837195188,
+      0.3203777223205593
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3208706742538358,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.51741047482895,
+     "slope": null,
+     "N": 99,
+     "segment": [
+      0.31700875817037166,
+      0.32355318278395445
+     ],
+     "bracket": [
+      0.32086148153754024,
+      0.32088083190621947
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.32494072016389536,
+     "kind": "free_level",
+     "order": 4.0000121262052355,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -34.003499742031664,
+     "slope": 3.295103054887054e-10,
+     "N": 103,
+     "segment": [
+      0.32355318278395445,
+      0.33047854163638757
+     ],
+     "bracket": [
+      0.3249278545116716,
+      0.3249665213209031
+     ],
+     "via": "min",
+     "free_level": 0.32494072016389536,
+     "n_evaluations": 47
+    },
+    {
+     "E": 0.32608367547968764,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.68245028093969,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.32355318278395445,
+      0.33047854163638757
+     ],
+     "bracket": [
+      0.326068525384,
+      0.32608785878861574
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.32743575479187553,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.84516286737383,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.32355318278395445,
+      0.33047854163638757
+     ],
+     "bracket": [
+      0.32742186370710147,
+      0.32744119711171715
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.32747058600856527,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.746888087331413,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.32355318278395445,
+      0.33047854163638757
+     ],
+     "bracket": [
+      0.3274605305163329,
+      0.32747986392094863
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.32999692706141226,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.875627012993533,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.32355318278395445,
+      0.33047854163638757
+     ],
+     "bracket": [
+      0.3299932065209942,
+      0.3300125399256099
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.33098182871462034,
+     "kind": "zero",
+     "order": 1.0000108969721948,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -16.147409065378298,
+     "slope": 0.021651503807124946,
+     "N": 104,
+     "segment": [
+      0.33047854163638757,
+      0.34406549892383503
+     ],
+     "bracket": [
+      0.3309649552343707,
+      0.33098433177829006
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.3332417513946204,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.42663766182963,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33047854163638757,
+      0.34406549892383503
+     ],
+     "bracket": [
+      0.33323201087293186,
+      0.3332513874168512
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.3340490974605002,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.95732504314958,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33047854163638757,
+      0.34406549892383503
+     ],
+     "bracket": [
+      0.33404582571754354,
+      0.33406520226146286
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3342053721990491,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.232235410907919,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33047854163638757,
+      0.34406549892383503
+     ],
+     "bracket": [
+      0.33420083806889817,
+      0.3342202146128175
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3393031832192263,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.434851092211233,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33047854163638757,
+      0.34406549892383503
+     ],
+     "bracket": [
+      0.3392968691196809,
+      0.3393162456636002
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3400267997324502,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.848016052279974,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33047854163638757,
+      0.34406549892383503
+     ],
+     "bracket": [
+      0.34001380124469593,
+      0.34003317778861525
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.34042183656022007,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.954440426715877,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33047854163638757,
+      0.34406549892383503
+     ],
+     "bracket": [
+      0.34042070866700175,
+      0.34044008521092106
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.3417683984732481,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.443941954709317,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.33047854163638757,
+      0.34406549892383503
+     ],
+     "bracket": [
+      0.34175769019743524,
+      0.34177706674135455
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.34360171067957485,
+     "kind": "free_level",
+     "order": 2.0000020379921706,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -16.618041531423017,
+     "slope": 3.826616674137279e-09,
+     "N": 104,
+     "segment": [
+      0.33047854163638757,
+      0.34406549892383503
+     ],
+     "bracket": [
+      0.3435790853258519,
+      0.34361783841369054
+     ],
+     "via": "min",
+     "free_level": 0.34360171067957485,
+     "n_evaluations": 42
+    },
+    {
+     "E": 0.346779822711924,
+     "kind": "free_level",
+     "order": 2.4222900329665307,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -12.992924564692771,
+     "slope": -2.9678670398548303e-09,
+     "N": 121,
+     "segment": [
+      0.34584190456952907,
+      0.35142066596377475
+     ],
+     "bracket": [
+      0.34677303146857,
+      0.3467923882789667
+     ],
+     "via": "sign",
+     "free_level": 0.346779822711924,
+     "n_evaluations": 25
+    },
+    {
+     "E": 0.346783594325237,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.277086871270882,
+     "slope": null,
+     "N": 121,
+     "segment": [
+      0.34584190456952907,
+      0.35142066596377475
+     ],
+     "bracket": [
+      0.34678345565949326,
+      0.3467846669700588
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 26
+    },
+    {
+     "E": 0.3479746075692941,
+     "kind": "zero",
+     "order": 1.000013288237118,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -18.44552530469619,
+     "slope": 0.017955439333166786,
+     "N": 121,
+     "segment": [
+      0.34584190456952907,
+      0.35142066596377475
+     ],
+     "bracket": [
+      0.34797315371316456,
+      0.3479925105235613
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.3493966522859866,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.295273010519907,
+     "slope": null,
+     "N": 121,
+     "segment": [
+      0.34584190456952907,
+      0.35142066596377475
+     ],
+     "bracket": [
+      0.3493862008721227,
+      0.34940555768251935
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3508902096028822,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.086627526094048,
+     "slope": null,
+     "N": 121,
+     "segment": [
+      0.34584190456952907,
+      0.35142066596377475
+     ],
+     "bracket": [
+      0.3508766752726675,
+      0.3508960320830642
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.35261707702686745,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.160103235394558,
+     "slope": null,
+     "N": 137,
+     "segment": [
+      0.35142066596377475,
+      0.36
+     ],
+     "bracket": [
+      0.35260346816740845,
+      0.3526228255805828
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.3534186131081318,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.132834916429772,
+     "slope": null,
+     "N": 137,
+     "segment": [
+      0.35142066596377475,
+      0.36
+     ],
+     "bracket": [
+      0.3534164795207301,
+      0.3534358369339044
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3534632290426124,
+     "kind": "zero",
+     "order": 1.0018592108518556,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -20.30776227046448,
+     "slope": 0.013437565240567578,
+     "N": 137,
+     "segment": [
+      0.35142066596377475,
+      0.36
+     ],
+     "bracket": [
+      0.35345519434707867,
+      0.353474551760253
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 11
+    },
+    {
+     "E": 0.3546602637675995,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.798188175394813,
+     "slope": null,
+     "N": 137,
+     "segment": [
+      0.35142066596377475,
+      0.36
+     ],
+     "bracket": [
+      0.35465535396388675,
+      0.3546747113770611
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3550856946907234,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.245495000431646,
+     "slope": null,
+     "N": 137,
+     "segment": [
+      0.35142066596377475,
+      0.36
+     ],
+     "bracket": [
+      0.35508121705372186,
+      0.3551005744668962
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3557458383298371,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.38959308490439,
+     "slope": null,
+     "N": 137,
+     "segment": [
+      0.35142066596377475,
+      0.36
+     ],
+     "bracket": [
+      0.35573936910164883,
+      0.35575872651482315
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    }
+   ]
+  },
+  "L24/000_A1m": {
+   "tp": 3,
+   "fp": 0,
+   "fn": 0,
+   "tn": 17,
+   "n_scored": 20,
+   "n_labelled": 20,
+   "excluded_bracket_ids": [],
+   "mismatches": [],
+   "unlabelled_zeros": [],
+   "problems": [],
+   "passed": true,
+   "kinds": {
+    "zero": 3,
+    "pole": 17,
+    "free_level": 3
+   },
+   "n_evaluations": 6740,
+   "n_grid": 5009,
+   "seconds": 16.46042129699981,
+   "jumps": [
+    0.2738229154943097,
+    0.2831669021488885,
+    0.31329103995727714,
+    0.32146907911061096,
+    0.34828319619171155,
+    0.3556468967084645
+   ],
+   "segments": [
+    [
+     0.2631,
+     0.2738229154943097
+    ],
+    [
+     0.2738229154943097,
+     0.2831669021488885
+    ],
+    [
+     0.2831669021488885,
+     0.31329103995727714
+    ],
+    [
+     0.31329103995727714,
+     0.32146907911061096
+    ],
+    [
+     0.32146907911061096,
+     0.34828319619171155
+    ],
+    [
+     0.34828319619171155,
+     0.3556468967084645
+    ],
+    [
+     0.3556468967084645,
+     0.36
+    ]
+   ],
+   "candidates": [
+    {
+     "E": 0.2666170541680803,
+     "kind": "zero",
+     "order": 0.9999996592570964,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -25.668608608167908,
+     "slope": 0.00802545002131683,
+     "N": 47,
+     "segment": [
+      0.2631,
+      0.2738229154943097
+     ],
+     "bracket": [
+      0.26660402834741886,
+      0.2666233765703328
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.2894025850533438,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.08398914322865,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.2831669021488885,
+      0.31329103995727714
+     ],
+     "bracket": [
+      0.28938662834598994,
+      0.28940599820953233
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.2937646685074141,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.459528532697533,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.2831669021488885,
+      0.31329103995727714
+     ],
+     "bracket": [
+      0.29376421750656606,
+      0.2937835873701084
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3068778693741232,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.444232621861651,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.2831669021488885,
+      0.31329103995727714
+     ],
+     "bracket": [
+      0.306877615124752,
+      0.3068969849882943
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.30764592999477003,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.702251614563401,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.2831669021488885,
+      0.31329103995727714
+     ],
+     "bracket": [
+      0.30763303980290446,
+      0.30765240966644686
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.31258225899032493,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.39350570847521,
+     "slope": null,
+     "N": 103,
+     "segment": [
+      0.2831669021488885,
+      0.31329103995727714
+     ],
+     "bracket": [
+      0.3125723550062094,
+      0.31259172486975173
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.31337933060286166,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.047657207087461,
+     "slope": null,
+     "N": 135,
+     "segment": [
+      0.31329103995727714,
+      0.32146907911061096
+     ],
+     "bracket": [
+      0.3133705190013846,
+      0.3133898887624114
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.31550322010590365,
+     "kind": "free_level",
+     "order": 2.000011343921754,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -12.391009649021825,
+     "slope": -3.2758673063678495e-09,
+     "N": 135,
+     "segment": [
+      0.31329103995727714,
+      0.32146907911061096
+     ],
+     "bracket": [
+      0.315481822953312,
+      0.31552056247536575
+     ],
+     "via": "min",
+     "free_level": 0.31550322010590365,
+     "n_evaluations": 33
+    },
+    {
+     "E": 0.31989475771656284,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.720631781431479,
+     "slope": null,
+     "N": 135,
+     "segment": [
+      0.31329103995727714,
+      0.32146907911061096
+     ],
+     "bracket": [
+      0.31987875870640864,
+      0.3198981284674355
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3217234835819473,
+     "kind": "zero",
+     "order": 1.0000074611578538,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -18.56426897299167,
+     "slope": 0.0018655832408411809,
+     "N": 141,
+     "segment": [
+      0.32146907911061096,
+      0.34828319619171155
+     ],
+     "bracket": [
+      0.32172290824504324,
+      0.32174227971692265
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.32290374432503843,
+     "kind": "free_level",
+     "order": 4.000004827952336,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -27.29437903596633,
+     "slope": -1.2949467767075888e-09,
+     "N": 141,
+     "segment": [
+      0.32146907911061096,
+      0.34828319619171155
+     ],
+     "bracket": [
+      0.32288519655780773,
+      0.32292393950156656
+     ],
+     "via": "min",
+     "free_level": 0.32290374432503843,
+     "n_evaluations": 45
+    },
+    {
+     "E": 0.3306314395142415,
+     "kind": "zero",
+     "order": 1.0000002868665114,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -26.664287638172695,
+     "slope": 0.004981103510946772,
+     "N": 141,
+     "segment": [
+      0.32146907911061096,
+      0.34828319619171155
+     ],
+     "bracket": [
+      0.3306144138376915,
+      0.33063378530957094
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.33540771411294446,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.236435596437559,
+     "slope": null,
+     "N": 141,
+     "segment": [
+      0.32146907911061096,
+      0.34828319619171155
+     ],
+     "bracket": [
+      0.3353991673919053,
+      0.3354185388637847
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.34392722096777995,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.495333216862242,
+     "slope": null,
+     "N": 141,
+     "segment": [
+      0.32146907911061096,
+      0.34828319619171155
+     ],
+     "bracket": [
+      0.34392261501884475,
+      0.34394198649072416
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.34460663948662407,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.932350075578228,
+     "slope": null,
+     "N": 141,
+     "segment": [
+      0.32146907911061096,
+      0.34828319619171155
+     ],
+     "bracket": [
+      0.34460061653462404,
+      0.34461998800650345
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3450030114118201,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.24655379194349,
+     "slope": null,
+     "N": 141,
+     "segment": [
+      0.32146907911061096,
+      0.34828319619171155
+     ],
+     "bracket": [
+      0.3449880459722122,
+      0.3450074174440916
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3467198878802159,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.744692348052318,
+     "slope": null,
+     "N": 141,
+     "segment": [
+      0.32146907911061096,
+      0.34828319619171155
+     ],
+     "bracket": [
+      0.3467121069694795,
+      0.34673147844135893
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.34955482480110256,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.844634327135104,
+     "slope": null,
+     "N": 165,
+     "segment": [
+      0.34828319619171155,
+      0.3556468967084645
+     ],
+     "bracket": [
+      0.3495440923327351,
+      0.3495634599656739
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3546280239260447,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.153893077143053,
+     "slope": null,
+     "N": 165,
+     "segment": [
+      0.34828319619171155,
+      0.3556468967084645
+     ],
+     "bracket": [
+      0.35461841216270684,
+      0.35463777979564565
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3551259545859359,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.079055722326515,
+     "slope": null,
+     "N": 165,
+     "segment": [
+      0.34828319619171155,
+      0.3556468967084645
+     ],
+     "bracket": [
+      0.35512197061911627,
+      0.35514133825205507
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.35658680183975255,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.105803040709276,
+     "slope": null,
+     "N": 189,
+     "segment": [
+      0.3556468967084645,
+      0.36
+     ],
+     "bracket": [
+      0.3565767054106587,
+      0.3565960347586211
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.35862526012685597,
+     "kind": "free_level",
+     "order": 2.0000128419418077,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -14.03481775321903,
+     "slope": -1.967393258072228e-09,
+     "N": 189,
+     "segment": [
+      0.3556468967084645,
+      0.36
+     ],
+     "bracket": [
+      0.35860628694670865,
+      0.3586449456426334
+     ],
+     "via": "min",
+     "free_level": 0.35862526012685597,
+     "n_evaluations": 44
+    },
+    {
+     "E": 0.3593280839748919,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.930187150264189,
+     "slope": null,
+     "N": 189,
+     "segment": [
+      0.3556468967084645,
+      0.36
+     ],
+     "bracket": [
+      0.3593214728213167,
+      0.35934080216927905
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    }
+   ]
+  },
+  "L24/100_A2": {
+   "tp": 9,
+   "fp": 0,
+   "fn": 0,
+   "tn": 42,
+   "n_scored": 51,
+   "n_labelled": 52,
+   "excluded_bracket_ids": [
+    36
+   ],
+   "mismatches": [],
+   "unlabelled_zeros": [],
+   "problems": [],
+   "passed": true,
+   "kinds": {
+    "pole": 43,
+    "free_level": 5,
+    "zero": 9
+   },
+   "n_evaluations": 9337,
+   "n_grid": 5024,
+   "seconds": 28.740589046000423,
+   "jumps": [
+    0.2742638492723575,
+    0.2810771035270369,
+    0.2825173509132267,
+    0.28443543822768796,
+    0.28457059187808514,
+    0.2901579024140649,
+    0.31571491424406095,
+    0.320239082151753,
+    0.3242955310007757,
+    0.3281981296729127,
+    0.3292975600497669,
+    0.3305298333044237,
+    0.35158443489609476,
+    0.3548872186861846,
+    0.3556164960594091,
+    0.35667438018676106
+   ],
+   "segments": [
+    [
+     0.2631,
+     0.2742638492723575
+    ],
+    [
+     0.2742638492723575,
+     0.2810771035270369
+    ],
+    [
+     0.2810771035270369,
+     0.2825173509132267
+    ],
+    [
+     0.2825173509132267,
+     0.28443543822768796
+    ],
+    [
+     0.28443543822768796,
+     0.28457059187808514
+    ],
+    [
+     0.28457059187808514,
+     0.2901579024140649
+    ],
+    [
+     0.2901579024140649,
+     0.31571491424406095
+    ],
+    [
+     0.31571491424406095,
+     0.320239082151753
+    ],
+    [
+     0.320239082151753,
+     0.3242955310007757
+    ],
+    [
+     0.3242955310007757,
+     0.3281981296729127
+    ],
+    [
+     0.3281981296729127,
+     0.3292975600497669
+    ],
+    [
+     0.3292975600497669,
+     0.3305298333044237
+    ],
+    [
+     0.3305298333044237,
+     0.35158443489609476
+    ],
+    [
+     0.35158443489609476,
+     0.3548872186861846
+    ],
+    [
+     0.3548872186861846,
+     0.3556164960594091
+    ],
+    [
+     0.3556164960594091,
+     0.35667438018676106
+    ],
+    [
+     0.35667438018676106,
+     0.36
+    ]
+   ],
+   "candidates": [
+    {
+     "E": 0.2683824666284757,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.445258302369268,
+     "slope": null,
+     "N": 60,
+     "segment": [
+      0.2631,
+      0.2742638492723575
+     ],
+     "bracket": [
+      0.2683719288230577,
+      0.26839130356137775
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.27094269966377194,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.838259050461033,
+     "slope": null,
+     "N": 60,
+     "segment": [
+      0.2631,
+      0.2742638492723575
+     ],
+     "bracket": [
+      0.2709293942813063,
+      0.27094876901962633
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.2755940535097444,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.61155792140606,
+     "slope": null,
+     "N": 64,
+     "segment": [
+      0.2742638492723575,
+      0.2810771035270369
+     ],
+     "bracket": [
+      0.27558127338973876,
+      0.27560061786205314
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.27651237820705515,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.06040717785757,
+     "slope": null,
+     "N": 64,
+     "segment": [
+      0.2742638492723575,
+      0.2810771035270369
+     ],
+     "bracket": [
+      0.27650980806083136,
+      0.2765291525331458
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.279094669003878,
+     "kind": "free_level",
+     "order": 4.000004195244029,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -33.311384946605955,
+     "slope": -2.92487600833018e-09,
+     "N": 64,
+     "segment": [
+      0.2742638492723575,
+      0.2810771035270369
+     ],
+     "bracket": [
+      0.2790826228786506,
+      0.2791213118232795
+     ],
+     "via": "min",
+     "free_level": 0.279094669003878,
+     "n_evaluations": 44
+    },
+    {
+     "E": 0.2807522450105183,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.962041122464257,
+     "slope": null,
+     "N": 64,
+     "segment": [
+      0.2742638492723575,
+      0.2810771035270369
+     ],
+     "bracket": [
+      0.2807462474976916,
+      0.280765591970006
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.2830039164408644,
+     "kind": "zero",
+     "order": 1.0000700560362867,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -19.04729722483873,
+     "slope": 0.008144856951128949,
+     "N": 84,
+     "segment": [
+      0.2825173509132267,
+      0.28443543822768796
+     ],
+     "bracket": [
+      0.28300270629566643,
+      0.283022040510964
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 10
+    },
+    {
+     "E": 0.28465808298639605,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.835556770724367,
+     "slope": null,
+     "N": 104,
+     "segment": [
+      0.28457059187808514,
+      0.2901579024140649
+     ],
+     "bracket": [
+      0.2846498695325624,
+      0.2846691889461817
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.28675769758949426,
+     "kind": "free_level",
+     "order": 2.000019314042418,
+     "order_int": 2,
+     "sign_change": false,
+     "discriminant": -17.755331682372713,
+     "slope": 2.245961593354967e-09,
+     "N": 104,
+     "segment": [
+      0.28457059187808514,
+      0.2901579024140649
+     ],
+     "bracket": [
+      0.28673636620344756,
+      0.28677500503068615
+     ],
+     "via": "min",
+     "free_level": 0.28675769758949426,
+     "n_evaluations": 46
+    },
+    {
+     "E": 0.290055165247589,
+     "kind": "zero",
+     "order": 1.0000032826517289,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -15.801721242585188,
+     "slope": 0.010203173235649954,
+     "N": 104,
+     "segment": [
+      0.28457059187808514,
+      0.2901579024140649
+     ],
+     "bracket": [
+      0.2900399859323491,
+      0.29005930534596835
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.30193898559573096,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.026480822203155,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.2901579024140649,
+      0.31571491424406095
+     ],
+     "bracket": [
+      0.30193869785958244,
+      0.3019580708784073
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3084569704135649,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.958802659658375,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.2901579024140649,
+      0.31571491424406095
+     ],
+     "bracket": [
+      0.3084480321847368,
+      0.3084674052035617
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.31144301506961697,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.055890050361029,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.2901579024140649,
+      0.31571491424406095
+     ],
+     "bracket": [
+      0.31143147708376595,
+      0.3114508501025908
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3139736388629562,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.317628675368951,
+     "slope": null,
+     "N": 108,
+     "segment": [
+      0.2901579024140649,
+      0.31571491424406095
+     ],
+     "bracket": [
+      0.31396934254982317,
+      0.31398871556864805
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.31843765948381525,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.348499652629641,
+     "slope": null,
+     "N": 124,
+     "segment": [
+      0.31571491424406095,
+      0.320239082151753
+     ],
+     "bracket": [
+      0.31842128820592797,
+      0.3184406051627985
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.31906345950276005,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.48564787008047,
+     "slope": null,
+     "N": 124,
+     "segment": [
+      0.31571491424406095,
+      0.320239082151753
+     ],
+     "bracket": [
+      0.3190587477826538,
+      0.31907806473952427
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.31946704374757456,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.764856781042369,
+     "slope": null,
+     "N": 124,
+     "segment": [
+      0.31571491424406095,
+      0.320239082151753
+     ],
+     "bracket": [
+      0.31946440387693387,
+      0.31948372083380433
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.32031042936165505,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.825928607742526,
+     "slope": null,
+     "N": 140,
+     "segment": [
+      0.320239082151753,
+      0.3242955310007757
+     ],
+     "bracket": [
+      0.3202989742781676,
+      0.32031827165363913
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.321181122377408,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.258530281955416,
+     "slope": null,
+     "N": 140,
+     "segment": [
+      0.320239082151753,
+      0.3242955310007757
+     ],
+     "bracket": [
+      0.32116735617438674,
+      0.3211866535498583
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.32574137024173544,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.103620314709644,
+     "slope": null,
+     "N": 144,
+     "segment": [
+      0.3242955310007757,
+      0.3281981296729127
+     ],
+     "bracket": [
+      0.32572573051433085,
+      0.3257450305077572
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.32657091041480063,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.56706912959902,
+     "slope": null,
+     "N": 144,
+     "segment": [
+      0.3242955310007757,
+      0.3281981296729127
+     ],
+     "bracket": [
+      0.3265556302316669,
+      0.3265749302250933
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.32838065896332996,
+     "kind": "free_level",
+     "order": 4.000039161726497,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -31.071786361358278,
+     "slope": -8.962042794078556e-10,
+     "N": 148,
+     "segment": [
+      0.3281981296729127,
+      0.3292975600497669
+     ],
+     "bracket": [
+      0.328353874287208,
+      0.3283923104407818
+     ],
+     "via": "min",
+     "free_level": 0.32838065896332996,
+     "n_evaluations": 44
+    },
+    {
+     "E": 0.32898602592631243,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.014130360510592,
+     "slope": null,
+     "N": 148,
+     "segment": [
+      0.3281981296729127,
+      0.3292975600497669
+     ],
+     "bracket": [
+      0.3289688527443893,
+      0.32898807082117626
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3310966087895203,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.363045371463159,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.33109344089058607,
+      0.3311128066694192
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.33263837098943183,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.968586854614358,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3326233374184076,
+      0.33264270319724076
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.33304715658130973,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.19850490868177,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3330300187739044,
+      0.33304938455273764
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.33539826571355513,
+     "kind": "zero",
+     "order": 0.9999660839815764,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -19.252851906192063,
+     "slope": 0.0011572357072712266,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3353926437915529,
+      0.3354120095703861
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 10
+    },
+    {
+     "E": 0.3359725123945111,
+     "kind": "free_level",
+     "order": 4.000027846142801,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -26.56438230270328,
+     "slope": 1.1303314020015554e-08,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.33595425137771523,
+      0.3359929829353816
+     ],
+     "via": "min",
+     "free_level": 0.3359725123945111,
+     "n_evaluations": 44
+    },
+    {
+     "E": 0.3363617877871642,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.034665856644523,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3363609327332121,
+      0.33638029851204526
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.33679074223154915,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.757260155923944,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.33678697986754214,
+      0.33680634564637535
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.33706330090723946,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.342565578935705,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.33705810077120674,
+      0.3370774665500399
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 32
+    },
+    {
+     "E": 0.33832029481526105,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.28055519697645,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3383168763953637,
+      0.3383362421741969
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.33852068903545685,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.403064487836161,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.33851053418369553,
+      0.3385298999625287
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.33860531238632985,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.68800328213041,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3385879972990283,
+      0.33860736307786143
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.33943152640872043,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.11227410221943,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3394207257888552,
+      0.33944009156768834
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.3395710834926214,
+     "kind": "free_level",
+     "order": 4.000128199400763,
+     "order_int": 4,
+     "sign_change": false,
+     "discriminant": -28.234074888776433,
+     "slope": -1.8309042225037042e-09,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.33955628624068745,
+      0.3395950177983538
+     ],
+     "via": "min",
+     "free_level": 0.3395710834926214,
+     "n_evaluations": 45
+    },
+    {
+     "E": 0.339679822855984,
+     "kind": "zero",
+     "order": 1.0011305508736006,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -14.952024422312434,
+     "slope": 2.1104489687092613e-05,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.33967248091368657,
+      0.3396918466925197
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 12
+    },
+    {
+     "E": 0.33972231698719846,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.118893689902677,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.33971121247135294,
+      0.3397305782501861
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.33981626917685054,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.647358965580054,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.33980804136551884,
+      0.33982740714435206
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.33986504640105525,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.198166496684394,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3398467729231852,
+      0.3398661387020184
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.34077076141661333,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 34.65945545876332,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.34075696452834486,
+      0.3407763303071781
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 37
+    },
+    {
+     "E": 0.3415773021492246,
+     "kind": "zero",
+     "order": 0.9999434103838873,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -18.915437186470967,
+     "slope": 0.0034411160204750003,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3415703272393386,
+      0.34158969301817177
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 10
+    },
+    {
+     "E": 0.34222635629819986,
+     "kind": "zero",
+     "order": 0.999978613043825,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -14.428850578763559,
+     "slope": 0.002858427175438547,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.34220939794083366,
+      0.3422287637196669
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.34374719126468095,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.286357946256146,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3437392944686552,
+      0.3437586602474884
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.34557961745739496,
+     "kind": "zero",
+     "order": 1.0000026491138176,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -21.015451551968795,
+     "slope": 0.0028651454906597398,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3455790434578077,
+      0.34559840923664087
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 8
+    },
+    {
+     "E": 0.3462885566863969,
+     "kind": "zero",
+     "order": 1.0004666132535218,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -15.041127506330099,
+     "slope": 0.003517513992182941,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.34627621149580234,
+      0.3462955772746355
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 10
+    },
+    {
+     "E": 0.34638447553667867,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.929564493847721,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.34637304038996825,
+      0.3463924061688014
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.34650483067814375,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.519863656508022,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.34648923506296736,
+      0.3465086008418005
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3495231592393485,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.620609837198657,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.34951029656094407,
+      0.3495296623397772
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.35024951917165037,
+     "kind": "zero",
+     "order": 1.0000179052368328,
+     "order_int": 1,
+     "sign_change": true,
+     "discriminant": -17.91505655682124,
+     "slope": 0.007958547522548261,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.35024619615660507,
+      0.35026556193543823
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 9
+    },
+    {
+     "E": 0.3508396226279682,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.319355482890671,
+     "slope": null,
+     "N": 156,
+     "segment": [
+      0.3305298333044237,
+      0.35158443489609476
+     ],
+     "bracket": [
+      0.3508271695216006,
+      0.35084653530043375
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.3539261752147911,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.14890231978751,
+     "slope": null,
+     "N": 172,
+     "segment": [
+      0.35158443489609476,
+      0.3548872186861846
+     ],
+     "bracket": [
+      0.3539206620224156,
+      0.35393995315569104
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.35674535763448445,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.045631349588945,
+     "slope": null,
+     "N": 220,
+     "segment": [
+      0.35667438018676106,
+      0.36
+     ],
+     "bracket": [
+      0.35673431541606176,
+      0.356753627159162
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 29
+    },
+    {
+     "E": 0.3574957475356503,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.68800226121354,
+     "slope": null,
+     "N": 220,
+     "segment": [
+      0.35667438018676106,
+      0.36
+     ],
+     "bracket": [
+      0.35748747339697057,
+      0.3575067851400708
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 30
+    },
+    {
+     "E": 0.35844604328995067,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.0453815063197,
+     "slope": null,
+     "N": 220,
+     "segment": [
+      0.35667438018676106,
+      0.36
+     ],
+     "bracket": [
+      0.3584337488088817,
+      0.3584530605519819
+     ],
+     "via": "sign",
+     "free_level": null,
+     "n_evaluations": 31
+    },
+    {
+     "E": 0.35868538196965466,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 12.137994787345832,
+     "slope": null,
+     "N": 220,
+     "segment": [
+      0.35667438018676106,
+      0.36
+     ],
+     "bracket": [
+      0.3586848014691846,
+      0.35868600845312837
+     ],
+     "via": "max",
+     "free_level": null,
+     "n_evaluations": 25
+    },
+    {
+     "E": 0.3587022356762493,
+     "kind": "pole",
+     "order": null,
+     "order_int": null,
+     "sign_change": true,
+     "discriminant": 11.76948463859577,
+     "slope": null,
+     "N": 220,
+     "segment": [
+      0.35667438018676106,
+      0.36
+     ],
+     "bracket": [
+      0.3587016992443973,
+      0.35870290622834106
+     ],
+     "via": "max",
+     "free_level": null,
+     "n_evaluations": 26
+    }
+   ]
+  }
+ }
+}

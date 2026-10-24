@@ -255,6 +255,32 @@ def test_find_sign_changes_and_zeros_synthetic():
         R.refine_root(evaluate, None, (0,) * 4, 0.2995, 0.3035, kind="any")
 
 
+def test_find_sign_changes_skips_brackets_with_a_dimension_jump_audit_N6():
+    """audit 001 N6: a sign change that sits on a basis-dimension jump must not abort the scan; it is skipped (reported
+    via `skipped`), and the genuine zeros on both sides are still found."""
+    E1, J, E2, E3 = 0.3010, 0.30255, 0.3040, 0.3047
+
+    def evaluate(sector, E, c, want=("Q",)):
+        # zeros at E1 (N=50), E2 (N=52), E3 (N=50 except a 1e-6 wide N=52 window around it); a sign flip without any
+        # singularity at the jump J (N: 50 -> 52)
+        sgn = (1 if E > E1 else -1) * (1 if E > J else -1) * (1 if E > E2 else -1) * (1 if E > E3 else -1)
+        ln = sum(np.log(abs(E - e)) if E != e else -np.inf for e in (E1, E2, E3))
+        N = 50 if E < J else 52
+        if abs(E - E3) < 5e-7:
+            N = 54
+        return types.SimpleNamespace(sign=sgn, lnabsdet=float(ln), N=N)
+
+    skipped = []
+    ch = R.find_sign_changes(evaluate, None, (0,) * 4, 0.2995, 0.3055, n_scan=61, skipped=skipped)   # step 1e-4
+    assert [c.kind for c in ch] == ["zero", "zero"] and abs(ch[0].E - E1) < 1e-9 and abs(ch[1].E - E2) < 1e-9
+    assert len(skipped) == 2                                    # the jump bracket (ends differ) and the E3 bracket (jump at E*)
+    assert any(a < J < b for a, b in skipped) and any(a < E3 < b for a, b in skipped)
+    # without the list the same call still succeeds and find_zeros forwards it
+    assert len(R.find_sign_changes(evaluate, None, (0,) * 4, 0.2995, 0.3055, n_scan=61)) == 2
+    sk2 = []
+    assert len(R.find_zeros(evaluate, None, (0,) * 4, 0.2995, 0.3055, n_scan=61, skipped=sk2)) == 2 and len(sk2) == 2
+
+
 def test_xtol_guard_rejects_ambiguous_discriminant_settings():
     """audit 001 N6: xtol > h*exp(-D) makes Delta_h of a simple zero ambiguous -> ValueError naming the reason (loud)."""
     E0 = 0.3012345678
