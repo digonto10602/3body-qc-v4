@@ -1,7 +1,7 @@
 # Graph Report - 3body-qc-v4  (2026-10-24)
 
 ## Corpus Check
-- 409 files · ~637,118 words
+- 409 files · ~637,253 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `295dfc9d`
+- Built from commit: `15d351d2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -356,8 +356,10 @@
 - session_start.py
 - LocalScopedTimer
 - chi2_covariance_convention_check.py
+- HostConfigFlat
 - test_K3mat_2plus1_cpp_dump.cpp
 - Report 007: M1 step 9, p-wave $\mathcal K_2^{-1}$ level-shift table (D7)
+- ScopedTimer
 - Tester report 006: M1 step 6, fast path v1 (rungs 1-4)
 - V3Shoulder
 - 4. Q2 - Exactly how the fast FCN works (L20 code)
@@ -387,8 +389,6 @@
 - V32ztAllObjWriter
 - ValueError
 - acc.py
-- HostConfigFlat
-- ScopedTimer
 - ScopedTimer
 - Options
 
@@ -1549,6 +1549,10 @@ Nodes (3): latest(), main(), sh()
 Cohesion: 0.33
 Nodes (5): time_point, LocalScopedTimer, debug, name, t0
 
+### Community 343 - "HostConfigFlat"
+Cohesion: 0.29
+Nodes (7): HostConfigFlat, ell, m, n, nx, ny, nz
+
 ### Community 344 - "test_K3mat_2plus1_cpp_dump.cpp"
 Cohesion: 0.39
 Nodes (7): comp, MatrixXcd, string, vector, main(), write_config_file(), write_matrix_file()
@@ -1556,6 +1560,10 @@ Nodes (7): comp, MatrixXcd, string, vector, main(), write_config_file(), write_m
 ### Community 345 - "Report 007: M1 step 9, p-wave $\mathcal K_2^{-1}$ level-shift table (D7)"
 Cohesion: 0.29
 Nodes (6): Commands, Findings (not step-9 failures), Report 007: M1 step 9, p-wave $\mathcal K_2^{-1}$ level-shift table (D7), Results, Sign argument (check 5), Verdict
+
+### Community 346 - "ScopedTimer"
+Cohesion: 0.33
+Nodes (5): time_point, ScopedTimer, debug, name, t0
 
 ### Community 347 - "Tester report 006: M1 step 6, fast path v1 (rungs 1-4)"
 Cohesion: 0.20
@@ -1664,14 +1672,6 @@ Nodes (16): main(), Path, records(), dimension_jumps(), Sorted E_cm strictly ins
 ### Community 383 - "acc.py"
 Cohesion: 0.50
 Nodes (3): maxblock(), Tester 012: F (classes) vs oracle vs use_classes=False; per spectator block;…, rel()
-
-### Community 384 - "HostConfigFlat"
-Cohesion: 0.29
-Nodes (7): HostConfigFlat, ell, m, n, nx, ny, nz
-
-### Community 385 - "ScopedTimer"
-Cohesion: 0.33
-Nodes (5): time_point, ScopedTimer, debug, name, t0
 
 ### Community 386 - "ScopedTimer"
 Cohesion: 0.33

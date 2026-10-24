@@ -2123,6 +2123,32 @@
       "source_location": "L68"
     },
     {
+      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat",
+      "label": "HostConfigFlat",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "HostConfigFlat",
+      "file_type": "code",
+      "norm_label": "hostconfigflat",
+      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
+      "source_location": "L33"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer",
+      "label": "ScopedTimer",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 346,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "scopedtimer",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L113"
+    },
+    {
       "id": "src_fitter_qc_fitter_norm_refine_v2_v3shoulder",
       "label": "V3Shoulder",
       "_callable": true,
@@ -2381,32 +2407,6 @@
       "norm_label": "_countingevaluate",
       "source_file": "src/python/qc3/tracking.py",
       "source_location": "L165"
-    },
-    {
-      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat",
-      "label": "HostConfigFlat",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 384,
-      "community_name": "HostConfigFlat",
-      "file_type": "code",
-      "norm_label": "hostconfigflat",
-      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
-      "source_location": "L33"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer",
-      "label": "ScopedTimer",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 385,
-      "community_name": "ScopedTimer",
-      "file_type": "code",
-      "norm_label": "scopedtimer",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L113"
     },
     {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_scopedtimer",
@@ -17684,6 +17684,18 @@
       "source_location": "L47"
     },
     {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_scopedtimer",
+      "label": ".ScopedTimer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 346,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": ".scopedtimer()",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L118"
+    },
+    {
       "id": "src_core_f2_functions_v2_debug_f2_2plus1_component_for_lm_steps",
       "label": "debug_F2_2plus1_component_for_lm_steps()",
       "_callable": true,
@@ -19482,18 +19494,6 @@
       "norm_label": "rel()",
       "source_file": "results/tester_012_scripts/acc.py",
       "source_location": "L9"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_scopedtimer",
-      "label": ".ScopedTimer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 385,
-      "community_name": "ScopedTimer",
-      "file_type": "code",
-      "norm_label": ".scopedtimer()",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L118"
     },
     {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_scopedtimer_scopedtimer",
@@ -48285,7 +48285,7 @@
       "node_kind": "heading",
       "norm_label": "decisions answered at the cloud session (2026-10-22)",
       "source_file": "notes/STATUS.md",
-      "source_location": "L152"
+      "source_location": "L157"
     },
     {
       "id": "notes_status_decisions_from_digonto_answered_2026_10_21",
@@ -48297,7 +48297,7 @@
       "node_kind": "heading",
       "norm_label": "decisions from digonto (answered 2026-10-21)",
       "source_file": "notes/STATUS.md",
-      "source_location": "L131"
+      "source_location": "L136"
     },
     {
       "id": "notes_status_digonto_s_answers_for_m2_2026_10_24",
@@ -48309,7 +48309,7 @@
       "node_kind": "heading",
       "norm_label": "digonto's answers for m2 (2026-10-24)",
       "source_file": "notes/STATUS.md",
-      "source_location": "L171"
+      "source_location": "L176"
     },
     {
       "id": "notes_status_direction_for_the_cloud_session_d4_digonto_s_words_paraphrased",
@@ -48321,7 +48321,7 @@
       "node_kind": "heading",
       "norm_label": "direction for the cloud session (d4, digonto's words, paraphrased)",
       "source_file": "notes/STATUS.md",
-      "source_location": "L141"
+      "source_location": "L146"
     },
     {
       "id": "notes_status_known_unverified",
@@ -48333,7 +48333,7 @@
       "node_kind": "heading",
       "norm_label": "known-unverified",
       "source_file": "notes/STATUS.md",
-      "source_location": "L189"
+      "source_location": "L194"
     },
     {
       "id": "notes_status_next_action",
@@ -48345,7 +48345,7 @@
       "node_kind": "heading",
       "norm_label": "next action",
       "source_file": "notes/STATUS.md",
-      "source_location": "L196"
+      "source_location": "L201"
     },
     {
       "id": "notes_status_notes_for_the_m1_auditor_from_tester_002",
@@ -48357,7 +48357,7 @@
       "node_kind": "heading",
       "norm_label": "notes for the m1 auditor (from tester 002)",
       "source_file": "notes/STATUS.md",
-      "source_location": "L178"
+      "source_location": "L183"
     },
     {
       "id": "notes_status_open_failures_and_attempt_counters",
@@ -48369,7 +48369,7 @@
       "node_kind": "heading",
       "norm_label": "open failures and attempt counters",
       "source_file": "notes/STATUS.md",
-      "source_location": "L163"
+      "source_location": "L168"
     },
     {
       "id": "notes_status_session_preference_digonto_2026_10_24",
@@ -48381,7 +48381,7 @@
       "node_kind": "heading",
       "norm_label": "session preference (digonto, 2026-10-24)",
       "source_file": "notes/STATUS.md",
-      "source_location": "L159"
+      "source_location": "L164"
     },
     {
       "id": "notes_status_status",
@@ -65623,6 +65623,72 @@
       "source_location": "L1"
     },
     {
+      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_ell",
+      "label": "ell",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "HostConfigFlat",
+      "file_type": "code",
+      "norm_label": "ell",
+      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
+      "source_location": "L36"
+    },
+    {
+      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_m",
+      "label": "m",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "HostConfigFlat",
+      "file_type": "code",
+      "norm_label": "m",
+      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
+      "source_location": "L36"
+    },
+    {
+      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_n",
+      "label": "n",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "HostConfigFlat",
+      "file_type": "code",
+      "norm_label": "n",
+      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
+      "source_location": "L35"
+    },
+    {
+      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_nx",
+      "label": "nx",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "HostConfigFlat",
+      "file_type": "code",
+      "norm_label": "nx",
+      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
+      "source_location": "L36"
+    },
+    {
+      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_ny",
+      "label": "ny",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "HostConfigFlat",
+      "file_type": "code",
+      "norm_label": "ny",
+      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
+      "source_location": "L36"
+    },
+    {
+      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_nz",
+      "label": "nz",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "HostConfigFlat",
+      "file_type": "code",
+      "norm_label": "nz",
+      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
+      "source_location": "L36"
+    },
+    {
       "id": "tests_reference_test_k3mat_2plus1_cpp_dump",
       "label": "test_K3mat_2plus1_cpp_dump.cpp",
       "_origin": "ast",
@@ -65760,6 +65826,50 @@
       "norm_label": "verdict",
       "source_file": "reports/tests/007-m1-step9-pwave-shift.md",
       "source_location": "L92"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_time_point",
+      "label": "time_point",
+      "_origin": "ast",
+      "community": 346,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "time_point",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_debug",
+      "label": "debug",
+      "_origin": "ast",
+      "community": 346,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "debug",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L116"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 346,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L115"
+    },
+    {
+      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_t0",
+      "label": "t0",
+      "_origin": "ast",
+      "community": 346,
+      "community_name": "ScopedTimer",
+      "file_type": "code",
+      "norm_label": "t0",
+      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
+      "source_location": "L117"
     },
     {
       "id": "reports_tests_006_m1_step6_fast_path_v1",
@@ -68524,116 +68634,6 @@
       "norm_label": "tester 012: f (classes) vs oracle vs use_classes=false; per spectator block;...",
       "source_file": "results/tester_012_scripts/acc.py",
       "source_location": "L1"
-    },
-    {
-      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_ell",
-      "label": "ell",
-      "_origin": "ast",
-      "community": 384,
-      "community_name": "HostConfigFlat",
-      "file_type": "code",
-      "norm_label": "ell",
-      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
-      "source_location": "L36"
-    },
-    {
-      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_m",
-      "label": "m",
-      "_origin": "ast",
-      "community": 384,
-      "community_name": "HostConfigFlat",
-      "file_type": "code",
-      "norm_label": "m",
-      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
-      "source_location": "L36"
-    },
-    {
-      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_n",
-      "label": "n",
-      "_origin": "ast",
-      "community": 384,
-      "community_name": "HostConfigFlat",
-      "file_type": "code",
-      "norm_label": "n",
-      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
-      "source_location": "L35"
-    },
-    {
-      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_nx",
-      "label": "nx",
-      "_origin": "ast",
-      "community": 384,
-      "community_name": "HostConfigFlat",
-      "file_type": "code",
-      "norm_label": "nx",
-      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
-      "source_location": "L36"
-    },
-    {
-      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_ny",
-      "label": "ny",
-      "_origin": "ast",
-      "community": 384,
-      "community_name": "HostConfigFlat",
-      "file_type": "code",
-      "norm_label": "ny",
-      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
-      "source_location": "L36"
-    },
-    {
-      "id": "src_cachegen_gpu_projections_gpu_safe_hostconfigflat_nz",
-      "label": "nz",
-      "_origin": "ast",
-      "community": 384,
-      "community_name": "HostConfigFlat",
-      "file_type": "code",
-      "norm_label": "nz",
-      "source_file": "src/cachegen_gpu/projections_gpu_safe.cuh",
-      "source_location": "L36"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_cu_time_point",
-      "label": "time_point",
-      "_origin": "ast",
-      "community": 385,
-      "community_name": "ScopedTimer",
-      "file_type": "code",
-      "norm_label": "time_point",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_debug",
-      "label": "debug",
-      "_origin": "ast",
-      "community": 385,
-      "community_name": "ScopedTimer",
-      "file_type": "code",
-      "norm_label": "debug",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L116"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 385,
-      "community_name": "ScopedTimer",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L115"
-    },
-    {
-      "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_scopedtimer_t0",
-      "label": "t0",
-      "_origin": "ast",
-      "community": 385,
-      "community_name": "ScopedTimer",
-      "file_type": "code",
-      "norm_label": "t0",
-      "source_file": "legacy/root_finding_lineage/F3_device_resident_true_batch_v21_side_abs_trend_refine.cu",
-      "source_location": "L117"
     },
     {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_cu_time_point",
@@ -195446,7 +195446,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L141",
+      "source_location": "L146",
       "weight": 1.0
     },
     {
@@ -195457,7 +195457,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L152",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -195468,7 +195468,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L171",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -195479,7 +195479,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L131",
+      "source_location": "L136",
       "weight": 1.0
     },
     {
@@ -195490,7 +195490,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L159",
+      "source_location": "L164",
       "weight": 1.0
     },
     {
@@ -195501,7 +195501,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L163",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -195512,7 +195512,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L178",
+      "source_location": "L183",
       "weight": 1.0
     },
     {
@@ -195523,7 +195523,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L189",
+      "source_location": "L194",
       "weight": 1.0
     },
     {
@@ -195534,7 +195534,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "notes/STATUS.md",
-      "source_location": "L196",
+      "source_location": "L201",
       "weight": 1.0
     },
     {
@@ -232827,5 +232827,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "295dfc9dd29157f06570b90646c8a338eccd0afb"
+  "built_at_commit": "15d351d2c4c6ad068a5c198b5dd183716a2809c3"
 }
