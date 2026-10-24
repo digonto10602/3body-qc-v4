@@ -6,7 +6,7 @@
 - **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
   - Plan: `prompts/003`. Research: `reports/research/009`.
   - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
-- **Current step:** M2 **step 1**, the stubs and the free-level module.
+- **Current step:** M2 **step 1**. The builder is done (stubs plus `qc3.free_levels`, exact to $5.6\times10^{-17}$ vs brute force). 10 of the 11 free-level tests are blocked by the test defect; the planner is fixing it. Then the tester.
 - **M1 DONE**, tagged `milestone-1`.
 - **M1 gate (2026-10-23):**
   - Tester `full`: `reports/tests/013-m1-gate-full.md` (PASS). 47/47 acceptance tests incl. slow, 79/79 unit tests, `acceptance-check` PASS (v5); oracle sources unchanged.
@@ -146,12 +146,12 @@ Counters were reset at `acceptance-v6` (M2).
 |---|---|---|---|---|
 | — | 0 | 0 | 0 | 0 |
 
-### Questions for Digonto (prompts/003 §7; none blocks steps 1–5)
-1. **v32w cross-check.** With `coded_v2` and the D1 covariance, $\chi^2(\vec c_{\rm v32w})=55.04$, not 11.49. v32w used `masses` files that are not in the repo. Either accept it as a code-equivalence record, or provide those files.
-2. **Fit freedom at low cutoffs.** The prototype `q0_consistent` fits give $\chi^2/\nu\approx3.7$ at cutoff 0.335 and 3.6 at 0.345. At 0.315 (6 levels) the 4-parameter fit is unconstrained. Should $K_B=K_E=0$ be fixed there, or parameter limits used?
-3. **Proposed D9.** Zeros with $u^\top Q'u<0$ (wrong-sign residue) are unphysical (arXiv:1901.07095 Eq. 64). All 31 labelled zeros have the right sign. Should they be excluded?
-4. Anchor-tolerance κ-scaling (proposal only).
-5. An `even_zero`/`ambiguous` candidate away from a free level stops a fit; handle case by case.
+### Digonto's answers for M2 (2026-10-24)
+- **v32w:** record it as a **code-equivalence check**. Compare our 12 model levels at $\vec c_{\rm v32w}$ with v32w's levels, and report the corrected χ² separately. Do not try to reproduce 11.49.
+- **Low cutoffs:** **report both tables**: the 4-parameter fit everywhere, and a 2-parameter fit with $K_B=K_E=0$. Give χ²/ν, errors and correlations, and flag fits that are unconstrained.
+- **D9 (residue sign $u^\top Q'u<0$):** **flag only, do not exclude.** Record the sign for every root and report wrong-sign zeros loudly; they stay in matching until Digonto decides case by case.
+- **Third test defect (verified by the coordinator):** `m2_helpers.brute_force_free_levels` rounds $E$ to $10^{-11}$ (line 93), while `test_free_levels_match_brute_force` requires $10^{-12}$. Digonto approved a planner fix and a re-lock as `acceptance-v7`. Production stays exact.
+- Still open: anchor-tolerance κ-scaling (proposal only); an `even_zero`/`ambiguous` candidate away from a free level stops a fit (case by case).
 
 ## Notes for the M1 auditor (from tester 002)
 - **Anchor tolerances are below the round-off floor at ill-conditioned points.**

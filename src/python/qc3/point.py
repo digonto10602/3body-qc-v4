@@ -16,6 +16,11 @@ class MissingRootError(RuntimeError):
     """Raised when a root is not bracketed / fewer QC levels than lattice levels."""
 
 
+class SingularQError(ValueError):
+    """The fast path's LU of Q met an exactly zero pivot (C++ "fast: Q is singular"): E is an exact root of det Q
+    (prompts/003 section 2.5; never evaluate exactly at a converged root, but if it happens it is a documented case)."""
+
+
 @dataclass
 class PointResult:
     sector: Sector

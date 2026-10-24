@@ -16,7 +16,7 @@ is formed only if "F3inv" is in `want`.  This module does not import qc3.qc (no 
 import numpy as np
 
 from .oracle import K2_PWAVE_FORMS, _metadata
-from .point import ALL, BASIS_DTYPE, PointResult
+from .point import ALL, BASIS_DTYPE, PointResult, SingularQError
 from .sector import Sector  # noqa: F401
 
 # "projector": "orbit" (default, prompts/002 section 2.1) builds V_sel from the little-group orbits and characters (no dense
@@ -60,7 +60,14 @@ def evaluate_point(sector, Ecm, c=(0.0, 0.0, 0.0, 0.0), want=ALL, options=None):
         raise ValueError("c must be (Kiso0, Kiso1, KB, KE)")
     want = set(want)
     params = _params(sector, Ecm, c, bool("K3" in want))
-    d = core.fast_point(params, trunc_eps, opts["projector"], sorted(want), use_classes=bool(opts["use_classes"]))
+    try:
+        d = core.fast_point(params, trunc_eps, opts["projector"], sorted(want), use_classes=bool(opts["use_classes"]))
+    except ValueError as exc:
+        # the C++ tail throws std::domain_error("fast: Q is singular (zero pivot in LU)") (-> ValueError) for an exactly
+        # singular Q; re-raised as the dedicated subclass (prompts/003 section 5.0), every other error propagates unchanged.
+        if "Q is singular" in str(exc):
+            raise SingularQError(f"{exc} (sector {sector.irrep} L={sector.Lbyas}, E*={float(Ecm)!r}, c={c})") from exc
+        raise
     if tuple(d["nnP"]) != tuple(sector.nnP):
         raise RuntimeError(f"nnP mismatch between Sector {sector.nnP} and C++ parse_label {d['nnP']}")
     if abs(d["sign_imag"]) > 1e-10:   # same check as qc3.qc.slogdet: the determinant phase must be +-1

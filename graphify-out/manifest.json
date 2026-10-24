@@ -738,9 +738,9 @@
     "semantic_hash": ""
   },
   "docs/METHODS.md": {
-    "mtime": 1792774739.8634355,
-    "seen": 1792774924.7758262,
-    "ast_hash": "fb979cb562e41d359f9fd6b42977d7a5",
+    "mtime": 1792820456.3092198,
+    "seen": 1792820565.0261872,
+    "ast_hash": "1e91f9cfdd11001597b8e027293de4af",
     "semantic_hash": ""
   },
   "docs/OPEN_ISSUES.md": {
@@ -768,9 +768,9 @@
     "semantic_hash": ""
   },
   "docs/ROOT_FINDING.md": {
-    "mtime": 1792690024.95903,
-    "seen": 1792700102.9301696,
-    "ast_hash": "f73fb17a1a1124d75e723a23440e5872",
+    "mtime": 1792820456.5008557,
+    "seen": 1792820565.0261931,
+    "ast_hash": "1d73d8fb9c586f046aa355cfcbf85ce7",
     "semantic_hash": ""
   },
   "docs/original_handoffs/3body_quantization_v3_README.md": {
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792776317.8640742,
-    "seen": 1792776323.991136,
-    "ast_hash": "5f1b661d59810a9d4c7233abda821b4a",
+    "mtime": 1792820557.8163407,
+    "seen": 1792820565.0262325,
+    "ast_hash": "38b89b5eaf0c03074576839bd48a0823",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -1446,9 +1446,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/fast.py": {
-    "mtime": 1792700088.111628,
-    "seen": 1792700102.9300737,
-    "ast_hash": "2362a396a5a44048bd19a8257305071c",
+    "mtime": 1792820758.6670434,
+    "seen": 1792821106.7221408,
+    "ast_hash": "9d671103831297fa2880c05c2a609eb9",
     "semantic_hash": ""
   },
   "src/python/qc3/lattice.py": {
@@ -1464,9 +1464,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/point.py": {
-    "mtime": 1792614272.3413231,
-    "seen": 1792700102.9300787,
-    "ast_hash": "4da141a89a1b82fbebce22c4fa311cea",
+    "mtime": 1792820758.6666203,
+    "seen": 1792821106.7221556,
+    "ast_hash": "a18693c20f569ec0dbfa3591e6228b70",
     "semantic_hash": ""
   },
   "src/python/qc3/qc.py": {
@@ -2343,6 +2343,78 @@
     "mtime": 1792775922.813416,
     "seen": 1792776323.9911923,
     "ast_hash": "68d03d04f6ac869db5197d057521bd98",
+    "semantic_hash": ""
+  },
+  "tests/acceptance/m2/m2_helpers.py": {
+    "mtime": 1792819349.5511231,
+    "seen": 1792820565.0261455,
+    "ast_hash": "7083939a41afbe19a8983056df630f9d",
+    "semantic_hash": ""
+  },
+  "tests/acceptance/m2/test_m2_fit.py": {
+    "mtime": 1792819992.0857503,
+    "seen": 1792820565.026148,
+    "ast_hash": "025ce4592a8ab56697acebb3817e6fc1",
+    "semantic_hash": ""
+  },
+  "tests/acceptance/m2/test_m2_free_levels.py": {
+    "mtime": 1792819420.7876441,
+    "seen": 1792820565.0261497,
+    "ast_hash": "f9d8f303817f9f04814062983b4f53f8",
+    "semantic_hash": ""
+  },
+  "tests/acceptance/m2/test_m2_rootscan.py": {
+    "mtime": 1792819480.5956476,
+    "seen": 1792820565.026151,
+    "ast_hash": "6f9833f29071a3d679768b5ad4960617",
+    "semantic_hash": ""
+  },
+  "tests/acceptance/m2/test_m2_tracking.py": {
+    "mtime": 1792819545.5316515,
+    "seen": 1792820565.026152,
+    "ast_hash": "3c651132a7975d4e749616d27508670c",
+    "semantic_hash": ""
+  },
+  "prompts/003-m2-label-free-roots-tracking-fit.md": {
+    "mtime": 1792820456.142644,
+    "seen": 1792820565.026237,
+    "ast_hash": "125c0d03d630537795a2a7bac018b84b",
+    "semantic_hash": ""
+  },
+  "reports/research/009-m2-root-finder-tracking-fit-methods.md": {
+    "mtime": 1792820486.2429247,
+    "seen": 1792820565.0262494,
+    "ast_hash": "d2a4d56b8f4848360d95abb3309eedd3",
+    "semantic_hash": ""
+  },
+  "src/python/qc3/fit.py": {
+    "mtime": 1792820784.9333289,
+    "seen": 1792821106.7221456,
+    "ast_hash": "5280146b2ea9d40f79f6311ac4cee477",
+    "semantic_hash": ""
+  },
+  "src/python/qc3/free_levels.py": {
+    "mtime": 1792820645.3394072,
+    "seen": 1792821106.7221477,
+    "ast_hash": "6676dbdf4393fa7e1f61ca0204a50f23",
+    "semantic_hash": ""
+  },
+  "src/python/qc3/rootscan.py": {
+    "mtime": 1792820784.927725,
+    "seen": 1792821106.7221625,
+    "ast_hash": "ecf6d0dbdda3eb18337aded1177595f0",
+    "semantic_hash": ""
+  },
+  "src/python/qc3/tracking.py": {
+    "mtime": 1792820784.9317384,
+    "seen": 1792821106.7221665,
+    "ast_hash": "a35d4b7ccab96c303330cd613bc368f7",
+    "semantic_hash": ""
+  },
+  "tests/unit/test_m2_step1.py": {
+    "mtime": 1792820963.9502153,
+    "seen": 1792821106.7222571,
+    "ast_hash": "fa5be104aa4874608d4b3af4f09033f8",
     "semantic_hash": ""
   }
 }
