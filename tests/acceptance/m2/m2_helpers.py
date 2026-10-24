@@ -46,6 +46,33 @@ LABEL_EXCLUDE = {(24, "100_A2"): (36,)}
 # Free-level solutions of the truncated QC seen at the baseline (D8; reports/tests/007 finding 2 for 110_A2)
 FREE_LEVEL_110_A2 = 0.319468828          # K(0,0,0) K(0,1,0) pi(1,0,0), P = (1,1,0); quoted to 9 digits in report 007
 
+# Legacy L20 hot-window fit at cutoff 0.335 (results/legacy_L20_passonly_hotwindow, 2026-07-15, coded_v2): its parameter
+# vector and its 12 model levels are the only legacy model levels in the repo at a known c (the v32w levels are not in
+# the repo; research 003 section 7.1 has only its parameters and chi2).  Used for the code-equivalence check of
+# prompts/003 section 4 amendment 2026-10-24 (acceptance-v7).  Its chi2 and errors are invalid (OPEN_ISSUES #1) and
+# are never used; the model levels were linear interpolations of det Q sign changes on the 1-row grid.
+C_LEGACY_0335 = (32040.841899235049, -1074716.6512728098, 347174.05548116943, -1226756.7068845264)
+LEGACY_0335_FIT_LEVELS = ROOT / "results" / "legacy_L20_passonly_hotwindow" / "Ecm_cut_0p335" / "l20_full_cut_0p335_fit_levels_L20.dat"
+
+# A genuine zero of det Q 8.15e-6 (1.7 grid rows) above a pole, 110_A2 at C_LEGACY_0335, coded_v2 (planner scratch
+# 2026-10-24, Brent xtol 1e-11 + Delta_h: pole +12.16, zero -21.42).  On the production 4-row coarse grid both fall
+# inside one step, so a sign-change scan alone sees neither (prompts/003 section 2.2 item 4b).
+PAIR_110_A2_POLE = 0.315947156958689
+PAIR_110_A2_ZERO = 0.315955307088961
+
+
+def read_legacy_0335_fit_levels():
+    """[(irrep, level_index, lattice_Ecm, model_Ecm)] from the legacy fit-levels table (12 rows, internal irrep names)."""
+    rows = []
+    with open(LEGACY_0335_FIT_LEVELS) as fh:
+        for line in fh:
+            if line.startswith("#") or not line.strip():
+                continue
+            p = line.split()
+            rows.append((p[3], int(p[5]), float(p[6]), float(p[8])))
+    assert len(rows) == 12
+    return rows
+
 
 def label_path(Lbyas, irrep):
     return DATA / "labels" / LABEL_FILES[(Lbyas, irrep)]
@@ -69,14 +96,24 @@ def sector(irrep, Lbyas=20, **overrides):
     return Sector.production(irrep, Lbyas=Lbyas, **overrides)
 
 
+FREE_MERGE_TOL = 1e-11        # states whose E* agree within this are one level (prompts/003 section 2.1 convention)
+FREE_DEGENERACY_SPREAD = 1e-13  # members of one level must agree to this (symmetry-degenerate states are bit-identical)
+
+
 def brute_force_free_levels(irrep, Lbyas, E_min, E_max, nmax=6):
     """Non-interacting K K pi energies with total momentum d = NNP[irrep], any irrep, sorted distinct E* in [E_min, E_max].
     E_lab = sum_a sqrt(m_a^2 + q^2 n_a^2), n_1 + n_2 + n_3 = d, q = 2 pi / (xi Lbyas); E* = sqrt(E_lab^2 - q^2 d^2).
-    Identical kaons: unordered pair {n_1, n_2}.  Independent of qc3.free_levels."""
+    Identical kaons: unordered pair {n_1, n_2}.  Independent of qc3.free_levels.
+
+    Grouping (acceptance-v7, prompts/003 section 4 amendment 2026-10-24): the states are sorted by E* and consecutive
+    energies closer than FREE_MERGE_TOL form one level.  The reported E* of a level is the exact float64 energy of its
+    first member -- NOT a rounded value (acceptance-v6 rounded the key to 1e-11, which quantised the reference by up to
+    5e-12 and made the 1e-12 comparison unsatisfiable for an exact implementation).  Symmetry-degenerate states give
+    bit-identical E* (same multiset of |n_a|^2, commutative float additions), which is asserted (FREE_DEGENERACY_SPREAD)."""
     q = 2.0 * np.pi / (XI * Lbyas)
     d = np.asarray(NNP[irrep], dtype=int)
     rng = range(-nmax, nmax + 1)
-    vals = {}
+    rows = []
     for n1 in itertools.product(rng, repeat=3):
         n1 = np.asarray(n1)
         w1 = np.sqrt(ATMK ** 2 + q * q * float(n1 @ n1))
@@ -90,10 +127,19 @@ def brute_force_free_levels(irrep, Lbyas, E_min, E_max, nmax=6):
             E_lab = w1 + np.sqrt(ATMK ** 2 + q * q * float(n2 @ n2)) + np.sqrt(ATMPI ** 2 + q * q * float(n3 @ n3))
             Es = np.sqrt(E_lab ** 2 - q * q * float(d @ d))
             if E_min <= Es <= E_max:
-                key = round(Es, 11)
-                vals.setdefault(key, []).append((tuple(int(x) for x in n1), tuple(int(x) for x in n2), tuple(int(x) for x in n3)))
-    Es = np.array(sorted(vals.keys()), dtype=float)
-    states = [vals[k] for k in sorted(vals.keys())]
+                rows.append((float(Es), (tuple(int(x) for x in n1), tuple(int(x) for x in n2), tuple(int(x) for x in n3))))
+    rows.sort(key=lambda t: t[0])
+    groups = []                   # [(list of exact E*, list of states)]
+    for E, st in rows:
+        if groups and E - groups[-1][0][-1] <= FREE_MERGE_TOL:
+            groups[-1][0].append(E)
+            groups[-1][1].append(st)
+        else:
+            groups.append(([E], [st]))
+    for g_E, _ in groups:
+        assert g_E[-1] - g_E[0] <= FREE_DEGENERACY_SPREAD, ("free-level reference: a merged group is not exactly degenerate", g_E)
+    Es = np.array([g_E[0] for g_E, _ in groups], dtype=float)
+    states = [st for _, st in groups]
     return Es, states
 
 

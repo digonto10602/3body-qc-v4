@@ -16,8 +16,8 @@ brackets are >= 7 rows apart, so a quarter row is unambiguous.  DISC_MIN = 8 as 
 import numpy as np
 import pytest
 
-from m2_helpers import (C_BASELINE, E_MAX, FREE_LEVEL_110_A2, GRID_DE, GRID_E0, IRREPS, LABEL_COUNTS, LABEL_EXCLUDE,
-                        brute_force_free_levels, read_label_rows, sector)
+from m2_helpers import (C_BASELINE, C_LEGACY_0335, E_MAX, FREE_LEVEL_110_A2, GRID_DE, GRID_E0, IRREPS, LABEL_COUNTS,
+                        LABEL_EXCLUDE, PAIR_110_A2_POLE, PAIR_110_A2_ZERO, brute_force_free_levels, read_label_rows, sector)
 
 SLACK_ROWS = 0.25
 DISC_MIN = 8.0
@@ -189,3 +189,43 @@ def test_scan_q0_consistent_finds_the_oracle_verified_roots_without_labels():
         for c in res.candidates:
             if c.kind == "zero":
                 assert c.slope > 0.0
+
+
+def test_scan_resolves_zero_pole_pair_inside_one_coarse_step_110_A2():
+    """Amendment 2026-10-24 (acceptance-v7), prompts/003 section 2.2 item 4b.  At the legacy 0.335 fit's parameter vector
+    the 110_A2 sector (coded_v2) has a genuine zero 8.15e-6 (1.7 rows) above a pole: a weakly coupled level, whose zero
+    sits at a distance s ~ |V^T u|^2 from its pole (matrix determinant lemma, prompts/003 section 2.2).  Both fall inside
+    one 4-row coarse step for most grid phases, so no coarse sign change is visible there; the pair is visible only as a
+    +/- dipole of ln|det Q| on the two adjacent grid points (measured +0.65 / -1.85 against smooth second differences
+    <= 0.6).  The scan is run on the production segment with eight grid phases (E_min shifted by 0..3 rows, and
+    step_rows 3.6..4.0); the pair interval (1.7 rows) is straddled (no coarse grid point inside) by at least one of them
+    for any reasonable grid construction, and every phase must find both partners -- the straddling phases through the
+    extrema rules (items 4/4b + the fine rescan of item 8), not through a coarse sign change.
+    Tolerances: 1e-9 on both positions (Brent xtol 1e-11; planner reference values from the same backend)."""
+    from qc3 import fast, rootscan
+    sec = sector("110_A2", k2_pwave_form="coded_v2")
+    jumps = fast.dimension_jumps(sec, 0.30, 0.32)
+    below = jumps[jumps < PAIR_110_A2_POLE]; above = jumps[jumps > PAIR_110_A2_ZERO]
+    assert len(below) >= 1 and len(above) >= 1
+    j0, j1 = float(below[-1]), float(above[0])                  # production segment containing the pair (N = 68)
+    phases = [(0, 4.0), (1, 4.0), (2, 4.0), (3, 4.0), (0, 3.9), (0, 3.8), (0, 3.7), (0, 3.6)]
+    n_straddling = 0
+    for shift_rows, step_rows in phases:
+        res = rootscan.scan_sector(fast.evaluate_point, sec, C_LEGACY_0335, j0 + shift_rows * GRID_DE, j1,
+                                   options={"step_rows": step_rows})
+        assert res.options["step_rows"] == step_rows
+        grid = np.asarray(res.grid)
+        assert grid.ndim == 1 and np.all(np.diff(grid) > 0) and len(grid) == res.n_grid
+        assert np.max(np.diff(grid)) <= step_rows * GRID_DE * (1 + 1e-9), "coarse grid spacing must not exceed step_rows rows"
+        straddles = not np.any((grid > PAIR_110_A2_POLE) & (grid < PAIR_110_A2_ZERO))
+        n_straddling += int(straddles)
+        near = [c for c in res.candidates if 0.3159 <= c.E <= 0.3160]
+        zs = [c for c in near if c.kind == "zero"]; ps = [c for c in near if c.kind == "pole"]
+        assert len(zs) == 1 and abs(zs[0].E - PAIR_110_A2_ZERO) <= TOL_E, (shift_rows, step_rows, straddles, [(c.kind, c.E) for c in near])
+        assert len(ps) == 1 and abs(ps[0].E - PAIR_110_A2_POLE) <= TOL_E, (shift_rows, step_rows, straddles, [(c.kind, c.E) for c in near])
+        assert zs[0].discriminant <= -DISC_MIN and zs[0].sign_change is True and zs[0].order_int == 1
+        assert ps[0].discriminant >= DISC_MIN
+        assert not any(c.kind in ("ambiguous", "even_zero") for c in near)
+        assert zs[0].slope is not None and np.isfinite(zs[0].slope)        # D9: recorded, whatever its sign
+        assert res.n_evaluations <= MAX_EVALUATIONS
+    assert n_straddling >= 1, "no phase straddled the pair: the test did not exercise the no-sign-change configuration"
