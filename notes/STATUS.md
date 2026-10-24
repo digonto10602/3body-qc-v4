@@ -138,6 +138,10 @@
   - Evidence: `results/k2_pwave_shift_L20.json`, a shift of $0.11$–$0.39\,\sigma$ per level at the baseline $\vec c$.
 - **D8, free-level solutions:** exact free-level solutions of the QC are artefacts and are **excluded** from D3 level matching. Example: the even-order zero at $E^*=0.319468828$ in 110_A2. Detecting them belongs to M2 ("detection beyond sign changes").
 
+## Session preference (Digonto, 2026-10-24)
+- Cut cost. Agents run on cheaper models: Sonnet for builder, tester, planner, fixer and auditor; Haiku for trivial checks. This overrides the role table in `.claude/global-CLAUDE.md` for this session.
+- Terse reports from agents and from the coordinator.
+
 ## Open failures and attempt counters
 
 Counters were reset at `acceptance-v6` (M2).
