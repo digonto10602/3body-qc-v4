@@ -337,7 +337,10 @@ class SectorRoots:
             return None
         try:
             tr = self._make_root(E1, cs, lnabsdet_at_root=l_last)
-        except (PoleError, DimensionJumpError):
+        except (PoleError, AmbiguousRootError, DimensionJumpError):
+            # the corrector's iterate is not a zero (Delta_h > -D): a false secant convergence next to a pole (111_A2 q0_consistent,
+            # reports 2026-10-24).  Not dropped: the local rescan re-classifies the neighbourhood and its _check_loud still raises
+            # AmbiguousRootError for a genuinely ambiguous / even-order candidate.
             return None
         return tr
 
