@@ -6,7 +6,12 @@
 - **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
   - Plan: `prompts/003`. Research: `reports/research/009`.
   - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
-- **Current step:** M2 **step 4** (`qc3.tracking`). Built in a worktree; being merged, then the tester. Then step 5 (`QCChi2`).
+- **Current step:** M2 **step 5**, `QCChi2` and `make_trackers`.
+- **M2 step 4 DONE** (`reports/tests/016`, PASS).
+  - The Jacobian matches finite differences to $\le3.5\times10^{-6}$.
+  - Poles are independent of $\vec c$ to $1.5\times10^{-11}$.
+  - Tracking costs 5–6.7 evaluations per zero per sub-step, with 0 fallbacks. Tracked vs fresh roots agree to $\le2.4\times10^{-12}$.
+  - Note for step 6: a zero that enters the range from above $E_{\max}$ is caught only by `rescan()`, so the fit must keep verifying with a fresh scan.
 - **M2 step 3 DONE** (light tester PASS; no report file).
   - `scripts/m2/score_labels.py`: TP=31, FP=0, FN=0, TN=176 (207 scored + bracket 36 excluded), in 96 s; output `results/m2_label_gate.json`, clean tree.
   - Audit N6: `find_sign_changes` skips a bracket containing a dimension jump. The coordinator added a `RuntimeWarning` when no `skipped` list is passed, so a skip is never silent.
