@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1792880054.8458848,
-    "seen": 1792880060.9021811,
-    "ast_hash": "054cda49df55e39e0ce35d7b94ccef77",
+    "mtime": 1792881128.933414,
+    "seen": 1792881135.5845785,
+    "ast_hash": "5387b2747887226cb841b2d73ffe562b",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -2493,6 +2493,30 @@
     "mtime": 1792878517.7057934,
     "seen": 1792878993.736368,
     "ast_hash": "d9e75c3620432d15148259e9f058bac0",
+    "semantic_hash": ""
+  },
+  "results/m2_step5_tester_chi2.json": {
+    "mtime": 1792880590.3770058,
+    "seen": 1792881135.5843077,
+    "ast_hash": "fdbfd626dd603154d2a57c629bbb5eb8",
+    "semantic_hash": ""
+  },
+  "results/m2_step5_tester_cost.json": {
+    "mtime": 1792881077.8106296,
+    "seen": 1792881135.5843105,
+    "ast_hash": "29789df4d34a5542ee8c32e4c8881426",
+    "semantic_hash": ""
+  },
+  "results/m2_step5_tester_grad.json": {
+    "mtime": 1792880709.7875962,
+    "seen": 1792881135.5843117,
+    "ast_hash": "c33128778c28f515a0e3f11faf580d2b",
+    "semantic_hash": ""
+  },
+  "reports/tests/017-m2-step5-qcchi2.md": {
+    "mtime": 1792881097.7535236,
+    "seen": 1792881135.5846064,
+    "ast_hash": "a3a559e41decc41b481f0f9a1e7d502c",
     "semantic_hash": ""
   }
 }
