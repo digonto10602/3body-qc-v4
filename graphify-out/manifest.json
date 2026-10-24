@@ -2388,9 +2388,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/fit.py": {
-    "mtime": 1792878522.6389942,
-    "seen": 1792878993.7362993,
-    "ast_hash": "e544c2849fc2390e29f14f85c35015d6",
+    "mtime": 1792883057.1492915,
+    "seen": 1792884038.1752691,
+    "ast_hash": "a9f7d8cd9ba2bd4af0af5d60c82a70f7",
     "semantic_hash": ""
   },
   "src/python/qc3/free_levels.py": {
@@ -2412,9 +2412,9 @@
     "semantic_hash": ""
   },
   "tests/unit/test_m2_step1.py": {
-    "mtime": 1792878611.0494895,
-    "seen": 1792878993.736366,
-    "ast_hash": "3e9a20a7d023b1b551cdb9cdaabd407f",
+    "mtime": 1792881538.247133,
+    "seen": 1792882264.626671,
+    "ast_hash": "e7114a1172b131ecc2f76b4962ccfd9d",
     "semantic_hash": ""
   },
   "results/m2_step1_free_levels_bruteforce.json": {
@@ -2517,6 +2517,30 @@
     "mtime": 1792881097.7535236,
     "seen": 1792881135.5846064,
     "ast_hash": "a3a559e41decc41b481f0f9a1e7d502c",
+    "semantic_hash": ""
+  },
+  "results/fit_L20_q0_consistent_KBKE0_m2.json": {
+    "mtime": 1792883298.7994654,
+    "seen": 1792884038.1750689,
+    "ast_hash": "3ab1d0d7b9181b43244ab7c904af5f52",
+    "semantic_hash": ""
+  },
+  "results/fit_L20_q0_consistent_m2.json": {
+    "mtime": 1792883330.8982453,
+    "seen": 1792884038.175071,
+    "ast_hash": "0ab958a28c61b3c6eae8884235dba80a",
+    "semantic_hash": ""
+  },
+  "tests/unit/test_m2_step6_fit.py": {
+    "mtime": 1792882079.3879414,
+    "seen": 1792882264.626673,
+    "ast_hash": "12b36dd3736ee9f433185977252b5160",
+    "semantic_hash": ""
+  },
+  "results/fit_L20_coded_v2_code_equivalence_m2.json": {
+    "mtime": 1792883243.5628788,
+    "seen": 1792884038.1750646,
+    "ast_hash": "d17ee151375074f5ac70d2404f8173a6",
     "semantic_hash": ""
   }
 }

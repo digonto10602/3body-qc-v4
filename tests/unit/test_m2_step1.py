@@ -96,21 +96,14 @@ def test_identical_kaons_are_not_double_counted():
         assert n1 <= n2
 
 
-def test_interface_stubs_raise_not_implemented_and_modules_import():
+def test_interface_modules_import_and_step6_functions_exist():
     # rootscan.scan_sector / read_labels / score_labels: step 2 (tests/unit/test_rootscan.py); qc3.tracking: step 4 (tests/unit/test_tracking.py);
-    # fit.QCChi2 / make_trackers: step 5 (tests/unit/test_m2_step5_chi2.py); the rest of qc3.fit stays a stub until step 6
+    # fit.QCChi2 / make_trackers: step 5 (tests/unit/test_m2_step5_chi2.py); fit_cutoff / verify_fit / cutoff_scan / save_results /
+    # main: step 6 (tests/unit/test_m2_step6_fit.py)
     from qc3 import fit, rootscan, tracking
-    s = Sector.production("000_A1m")
-    calls = [
-        (fit.fit_cutoff, (None, {}, (0, 0, 0, 0))),
-        (fit.verify_fit, (None, {}, None)),
-        (fit.cutoff_scan, (None, 20, (0.335,), (0, 0, 0, 0), "q0_consistent")),
-        (fit.save_results, ([], "x.json")),
-        (fit.main, ([],)),
-    ]
-    for fn, args in calls:
-        with pytest.raises(NotImplementedError, match=r"prompts/003 step \d"):
-            fn(*args)
+    for name in ("fit_cutoff", "verify_fit", "cutoff_scan", "save_results", "main", "code_equivalence", "make_trackers"):
+        assert callable(getattr(fit, name)), name
+    assert fit.PARAM_NAMES == ("Kiso0", "Kiso1", "KB", "KE")
     assert issubclass(tracking.RootSetChangedError, RuntimeError)
     assert set(rootscan.KINDS) == {"zero", "pole", "even_zero", "free_level", "ambiguous"}
     assert rootscan.SCAN_DEFAULTS["free_tol"] == 1e-7 and rootscan.SCAN_DEFAULTS["h2"] == 3e-6
