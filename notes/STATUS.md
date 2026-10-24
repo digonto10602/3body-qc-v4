@@ -6,7 +6,12 @@
 - **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
   - Plan: `prompts/003`. Research: `reports/research/009`.
   - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
-- **Current step:** M2 **step 5**, `QCChi2` and `make_trackers`.
+- **Current step:** M2 **step 5** (`QCChi2`), under test.
+  - χ²(`C_BASELINE`): `coded_v2` 53.890296755, which reproduces M1; `q0_consistent` 47.9426.
+  - Tracker fix: the corrector's `AmbiguousRootError` now falls back to a local rescan. The 111_A2 repro passes, and a sweep of 300 random 5%/10% steps raised no exceptions.
+  - Cost per χ² call with $E_{\max}$ = cutoff + 0.005 = 0.34: **86–112 ms** (65–76 evaluations). With $E_{\max}=0.36$: 187–241 ms.
+  - **Step-6 design note:** a zero entering from above $E_{\max}$ makes `rescan()` count one more root (111_A2). It cannot change χ² when $n\ge m$. `verify_fit` should compare the tracked and fresh sets up to the highest matched root plus a margin.
+  - Speed is still well above the plan target (well below 24 ms). It is ~2 ms per evaluation, dominated by the Jacobian evaluations that need $\mathcal K_{\rm df,3}$. This goes to a later speed rung.
 - **M2 step 4 DONE** (`reports/tests/016`, PASS).
   - The Jacobian matches finite differences to $\le3.5\times10^{-6}$.
   - Poles are independent of $\vec c$ to $1.5\times10^{-11}$.

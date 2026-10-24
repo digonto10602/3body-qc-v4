@@ -247,3 +247,57 @@ def test_root_jacobian_real_core_matches_finite_difference_000_A1m():
         Jfd[i] = (Ep - Em) / (2 * d[i])
     assert np.max(np.abs(tr.J - Jfd) / np.abs(Jfd)) <= 1e-4
     assert tr.slope > 0 and tr.discriminant <= -8.0
+
+
+# ---------------------------------------------------------------- AmbiguousRootError from the corrector's re-check -> local rescan
+# 111_A2, q0_consistent: a step in c along which a weakly coupled zero (E = 0.338196073, 1.1e-5 = 2.3 rows below a pole at 0.338207361)
+# is followed.  The secant converged falsely at 0.33819589845 (Delta_h = -1.73), root_jacobian raised AmbiguousRootError and update()
+# aborted (found by the M2 step-5 robustness sweep, 2026-10-24).  The corrector's re-check failure must fall back to the local rescan.
+C_REPRO_FROM = [67657.10474834639, -984789.7597286316, 368432.33819377434, -1208507.0542940432]
+C_REPRO_TO = [70746.53613880441, -1008996.0306296272, 351573.55822514725, -1281708.2351675604]
+
+
+def test_corrector_false_convergence_next_to_a_pole_falls_back_to_local_rescan_111_A2_q0_consistent():
+    from qc3 import rootscan
+    sec = Sector.production("111_A2", Lbyas=20, k2_pwave_form="q0_consistent")
+    sr = tracking.SectorRoots(sec, C_REPRO_FROM, 0.3375, 0.3390)
+    assert len(sr.energies()) >= 1
+    E = sr.update(C_REPRO_TO)                              # used to raise AmbiguousRootError
+    fresh = rootscan.scan_sector(fast.evaluate_point, sec, tuple(C_REPRO_TO), 0.3375, 0.3390)
+    assert len(E) == len(fresh.zeros()) and np.max(np.abs(E - fresh.zeros())) <= 1e-9
+    k = int(np.argmin(np.abs(E - 0.338196073)))
+    assert abs(E[k] - 0.338196073) <= 5e-9
+    r = sr.roots[k]
+    assert r.discriminant <= -17.0 and r.slope > 0.0 and sr.n_local_rescans >= 1 and sr.n_full_rescans == 0
+
+
+def _ambiguous_candidate():
+    return tracking.RootCandidate(E=0.2850, kind="ambiguous", order=1.0, order_int=1, sign_change=True, discriminant=-1.7, slope=None,
+                                  N=2, segment=(0.27, 0.30), bracket=(0.2849, 0.2851), via="sign", free_level=None, n_evaluations=1)
+
+
+def test_corrector_ambiguous_recheck_falls_back_and_local_rescan_still_raises_for_a_genuinely_ambiguous_candidate(monkeypatch):
+    f = FakeQ()
+    sr = tracking.SectorRoots(SEC, C0, 0.270, 0.300, evaluate=f)
+    real_jac = tracking.root_jacobian
+
+    def jac(evaluate, sector, c, E0, h=1e-6, D=4.0, lnabsdet_at_root=None):
+        if lnabsdet_at_root is not None:                   # only the corrector's re-check passes the secant's ln|det|
+            raise AmbiguousRootError("forced: Delta_h = -1.7 at the secant's end point")
+        return real_jac(evaluate, sector, c, E0, h, D, lnabsdet_at_root)
+
+    monkeypatch.setattr(tracking, "root_jacobian", jac)
+    c1 = np.add(C0, [0.02, -0.01, 0.03, 0.0])
+    E = sr.update(c1)                                      # every root: re-check "ambiguous" -> local rescan -> fine
+    assert np.max(np.abs(E - _fresh(f, SEC, c1))) <= 1e-10 and sr.n_local_rescans == len(E) and sr.n_full_rescans == 0
+    # the local rescan finds a genuinely ambiguous candidate: still loud
+    real_scan = tracking._rootscan.scan_sector
+
+    def scan_with_ambiguous(evaluate, sector, c, a, b, options=None):
+        res = real_scan(evaluate, sector, c, a, b, options)
+        res.candidates.append(_ambiguous_candidate())
+        return res
+
+    monkeypatch.setattr(tracking._rootscan, "scan_sector", scan_with_ambiguous)
+    with pytest.raises(AmbiguousRootError):
+        sr.update(np.add(c1, [0.01, 0.0, 0.0, 0.0]))
