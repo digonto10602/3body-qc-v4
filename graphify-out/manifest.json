@@ -2400,9 +2400,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/rootscan.py": {
-    "mtime": 1792820784.927725,
-    "seen": 1792821106.7221625,
-    "ast_hash": "ecf6d0dbdda3eb18337aded1177595f0",
+    "mtime": 1792875013.1841705,
+    "seen": 1792875566.2909725,
+    "ast_hash": "ede4f5e838eba831bca0322d6d7ab086",
     "semantic_hash": ""
   },
   "src/python/qc3/tracking.py": {
@@ -2412,9 +2412,9 @@
     "semantic_hash": ""
   },
   "tests/unit/test_m2_step1.py": {
-    "mtime": 1792820963.9502153,
-    "seen": 1792821106.7222571,
-    "ast_hash": "fa5be104aa4874608d4b3af4f09033f8",
+    "mtime": 1792875555.551274,
+    "seen": 1792875566.291026,
+    "ast_hash": "d05456643f0ff86d54ccc8c885dd3f51",
     "semantic_hash": ""
   },
   "results/m2_step1_free_levels_bruteforce.json": {
@@ -2427,6 +2427,12 @@
     "mtime": 1792874571.5177944,
     "seen": 1792874593.309994,
     "ast_hash": "16a183de41226bb433b3c8a921b809fe",
+    "semantic_hash": ""
+  },
+  "tests/unit/test_rootscan.py": {
+    "mtime": 1792875029.3255289,
+    "seen": 1792875566.2910292,
+    "ast_hash": "c1bbffadd5b08be74d1fe23a7e3304fc",
     "semantic_hash": ""
   }
 }

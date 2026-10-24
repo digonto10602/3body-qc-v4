@@ -97,11 +97,10 @@ def test_identical_kaons_are_not_double_counted():
 
 
 def test_interface_stubs_raise_not_implemented_and_modules_import():
+    # rootscan.scan_sector / read_labels / score_labels were implemented in step 2 (tests/unit/test_rootscan.py)
     from qc3 import fit, rootscan, tracking
     s = Sector.production("000_A1m")
     calls = [
-        (rootscan.scan_sector, (None, s, (0, 0, 0, 0), 0.2631, 0.36)),
-        (rootscan.read_labels, ("x",)),
         (tracking.root_jacobian, (None, s, (0, 0, 0, 0), 0.3)),
         (tracking.secant_root, (None, s, (0, 0, 0, 0), 0.3, 1e-6)),
         (fit.make_trackers, (("000_A1m",), (0, 0, 0, 0))),
