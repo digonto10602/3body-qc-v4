@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `de4f9f5e`
+- Built from commit: `6204201c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -326,7 +326,7 @@
 - SvdMinCandidateV30r
 - src/README.md
 - real_wigner_d.hpp
-- FTable
+- oracle_point
 - WindowGridRow
 - nonint3body_general_doublecover/README.md
 - F — Development history v31 → v32y: lessons, bugs fixed, dead ends
@@ -356,19 +356,19 @@
 - session_start.py
 - LocalScopedTimer
 - chi2_covariance_convention_check.py
-- oracle_point
+- FTable
 - Ecm_to_E
 - Report 007: M1 step 9, p-wave $\mathcal K_2^{-1}$ level-shift table (D7)
 - complex
 - Tester report 006: M1 step 6, fast path v1 (rungs 1-4)
 - V3Shoulder
 - 4. Q2 - Exactly how the fast FCN works (L20 code)
-- basis_to_list
+- FTableCache
 - 9. Q6 - Recommended minimal fitter file set for the consolidated repo
 - conftest.py
 - SignFlip
-- FTableCache
 - FMoments
+- spherical_harmonics
 - Benchmark report 001: M1 single-energy QC, fast path vs oracle (milestone gate)
 - CacheKey
 - DeviceConfig
@@ -378,13 +378,13 @@
 - EnergyMatrixPack
 - v32w_single_L_fitter/qc_fitter_norm_refine_v2.cpp
 - NeumaierComplexSum
-- spherical_harmonics
+- FClass
 - string
 - Tester report 011: M1 step 8, benchmark harness `qc3.bench` and the $\chi^2$ proxy
 - DeviceResidentResult
 - Tester report 013: M1 milestone gate, mode `full`
 - test_score_labels_script.py
-- FClass
+- basis_to_list
 - comp
 - InwardShapeResult
 - blasprobe.py
@@ -1451,9 +1451,9 @@ Nodes (9): SvdMinCandidateV30r, coarse_i, E_left, E_mid, E_right, proj_dim, sigm
 Cohesion: 0.20
 Nodes (28): wigner_d_tests(), approx_equal(), approx_equal_matrix(), check_m_range(), D_real_element(), D_real_matrix(), D_real_matrix_proper(), factorial_int() (+20 more)
 
-### Community 311 - "FTable"
-Cohesion: 0.22
-Nodes (9): FTable, alpha, c, cl, grp, nmax, nPsq, total_points (+1 more)
+### Community 311 - "oracle_point"
+Cohesion: 0.29
+Nodes (13): fast_point(), _key(), oracle_point(), _compare(), slow, M1 steps 6-7 — the cache-free fast path reproduces the oracle at every energy…, Generalisation check: seeded random energies over the whole production range,…, test_fast_basis_identical_to_oracle() (+5 more)
 
 ### Community 312 - "WindowGridRow"
 Cohesion: 0.29
@@ -1559,9 +1559,9 @@ Nodes (3): latest(), main(), sh()
 Cohesion: 0.33
 Nodes (5): time_point, LocalScopedTimer, debug, name, t0
 
-### Community 343 - "oracle_point"
-Cohesion: 0.29
-Nodes (13): fast_point(), _key(), oracle_point(), _compare(), slow, M1 steps 6-7 — the cache-free fast path reproduces the oracle at every energy…, Generalisation check: seeded random energies over the whole production range,…, test_fast_basis_identical_to_oracle() (+5 more)
+### Community 343 - "FTable"
+Cohesion: 0.22
+Nodes (9): FTable, alpha, c, cl, grp, nmax, nPsq, total_points (+1 more)
 
 ### Community 344 - "Ecm_to_E"
 Cohesion: 0.33
@@ -1587,6 +1587,10 @@ Nodes (5): V3Shoulder, kind, n, reason, score
 Cohesion: 0.20
 Nodes (10): 4.1 The quantization condition as implemented, 4.2 What is precomputed and cached (three cache levels), 4.3 Startup (outside the FCN), 4.4 Accepted windows (how each lattice level gets its search window), 4.5 Inside one FCN call, 4.6 Chi-square and covariance, 4.7 Minuit2 setup and parameter mask, 4.8 Run modes of the binary `bin/v33f_k3df_fitter_multiL_v33e <config> <mode>` (+2 more)
 
+### Community 350 - "FTableCache"
+Cohesion: 0.25
+Nodes (8): FTableCache, hits, map, misses, mtx, mutex, string, unordered_map
+
 ### Community 351 - "9. Q6 - Recommended minimal fitter file set for the consolidated repo"
 Cohesion: 0.33
 Nodes (6): 9.1 C++ sources (fitter executable `v33f_k3df_fitter_multiL_v33e`), 9.2 Python scripts (under `L20/scripts/`), 9.3 Configs and data, 9.4 Not needed in the consolidated fitter, 9.5 Suggested consolidation design for a fast FCN (based on what works), 9. Q6 - Recommended minimal fitter file set for the consolidated repo
@@ -1595,13 +1599,13 @@ Nodes (6): 9.1 C++ sources (fitter executable `v33f_k3df_fitter_multiL_v33e`), 9
 Cohesion: 0.50
 Nodes (4): SignFlip, E_linear, left, right
 
-### Community 354 - "FTableCache"
-Cohesion: 0.25
-Nodes (8): FTableCache, hits, map, misses, mtx, mutex, string, unordered_map
-
-### Community 355 - "FMoments"
+### Community 354 - "FMoments"
 Cohesion: 0.29
 Nodes (7): class_moments(), FMoments, classes, T0, T1, T2, terms
+
+### Community 355 - "spherical_harmonics"
+Cohesion: 0.50
+Nodes (4): ell_m_vector(), comp, vector, spherical_harmonics()
 
 ### Community 356 - "Benchmark report 001: M1 single-energy QC, fast path vs oracle (milestone gate)"
 Cohesion: 0.20
@@ -1635,9 +1639,9 @@ Nodes (14): classify(), cnorm(), Eval, det, E, proj_dim, success, y (+6 more)
 Cohesion: 0.33
 Nodes (5): NeumaierComplexSum, c_im, c_re, sum_im, sum_re
 
-### Community 365 - "spherical_harmonics"
-Cohesion: 0.50
-Nodes (4): ell_m_vector(), comp, vector, spherical_harmonics()
+### Community 365 - "FClass"
+Cohesion: 0.40
+Nodes (5): FClass, cnt, ep, nb, perp2
 
 ### Community 366 - "string"
 Cohesion: 0.36
@@ -1658,10 +1662,6 @@ Nodes (4): Commands run, Notes, Results, Tester report 013: M1 milestone gate, m
 ### Community 370 - "test_score_labels_script.py"
 Cohesion: 0.31
 Nodes (12): cand(), fake_scan(), M2 step 3: scoring, JSON record and exit code of scripts/m2/score_labels.py…, A scan that reproduces the labels exactly (a zero in the middle of each TRUE…, run(), test_exclusion_is_applied_and_reported_for_L24_100_A2(), test_exit_code_rules_and_bad_arguments(), test_free_level_candidate_at_a_free_level_is_accepted() (+4 more)
-
-### Community 371 - "FClass"
-Cohesion: 0.40
-Nodes (5): FClass, cnt, ep, nb, perp2
 
 ### Community 372 - "comp"
 Cohesion: 0.50

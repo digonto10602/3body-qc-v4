@@ -1785,19 +1785,6 @@
       "source_location": "L178"
     },
     {
-      "id": "src_qc3_core_fast_fclass_ftable",
-      "label": "FTable",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 311,
-      "community_name": "FTable",
-      "file_type": "code",
-      "norm_label": "ftable",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L48"
-    },
-    {
       "id": "src_fitter_qc_fitter_norm_refine_v2_multil_windowgridrow",
       "label": "WindowGridRow",
       "_callable": true,
@@ -2084,6 +2071,19 @@
       "source_location": "L68"
     },
     {
+      "id": "src_qc3_core_fast_fclass_ftable",
+      "label": "FTable",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "FTable",
+      "file_type": "code",
+      "norm_label": "ftable",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L48"
+    },
+    {
       "id": "src_core_f2_functions_v2_neumaiercomplexdouble",
       "label": "NeumaierComplexDouble",
       "_callable": true,
@@ -2123,6 +2123,19 @@
       "source_location": "L154"
     },
     {
+      "id": "src_qc3_core_fast_fclass_ftablecache",
+      "label": "FTableCache",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 350,
+      "community_name": "FTableCache",
+      "file_type": "code",
+      "norm_label": "ftablecache",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L121"
+    },
+    {
       "id": "src_fitter_f3_cpu_openmp_v25_k3qc_cached_core_signflip",
       "label": "SignFlip",
       "_callable": true,
@@ -2136,25 +2149,12 @@
       "source_location": "L226"
     },
     {
-      "id": "src_qc3_core_fast_fclass_ftablecache",
-      "label": "FTableCache",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 354,
-      "community_name": "FTableCache",
-      "file_type": "code",
-      "norm_label": "ftablecache",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L121"
-    },
-    {
       "id": "src_qc3_core_fast_fclass_fmoments",
       "label": "FMoments",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 355,
+      "community": 354,
       "community_name": "FMoments",
       "file_type": "code",
       "norm_label": "fmoments",
@@ -2266,6 +2266,19 @@
       "source_location": "L522"
     },
     {
+      "id": "src_qc3_core_fast_fclass_fclass",
+      "label": "FClass",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 365,
+      "community_name": "FClass",
+      "file_type": "code",
+      "norm_label": "fclass",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L40"
+    },
+    {
       "id": "src_cachegen_gpu_f3_device_resident_true_batch_v16_custom_batched_getrs_deviceresidentresult",
       "label": "DeviceResidentResult",
       "_callable": true,
@@ -2277,19 +2290,6 @@
       "norm_label": "deviceresidentresult",
       "source_file": "src/cachegen_gpu/F3_device_resident_true_batch_v16_custom_batched_getrs.cu",
       "source_location": "L544"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_fclass",
-      "label": "FClass",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 371,
-      "community_name": "FClass",
-      "file_type": "code",
-      "norm_label": "fclass",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L40"
     },
     {
       "id": "legacy_root_finding_lineage_f3_device_resident_true_batch_v21_side_abs_trend_refine_detrow",
@@ -14047,6 +14047,126 @@
       "source_location": "L136"
     },
     {
+      "id": "tests_acceptance_m1_m1_helpers_fast_point",
+      "label": "fast_point()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "fast_point()",
+      "source_file": "tests/acceptance/m1/m1_helpers.py",
+      "source_location": "L72"
+    },
+    {
+      "id": "tests_acceptance_m1_m1_helpers_key",
+      "label": "_key()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "_key()",
+      "source_file": "tests/acceptance/m1/m1_helpers.py",
+      "source_location": "L59"
+    },
+    {
+      "id": "tests_acceptance_m1_m1_helpers_oracle_point",
+      "label": "oracle_point()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "oracle_point()",
+      "source_file": "tests/acceptance/m1/m1_helpers.py",
+      "source_location": "L64"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_compare",
+      "label": "_compare()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "_compare()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L20"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_basis_identical_to_oracle",
+      "label": "test_fast_basis_identical_to_oracle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "test_fast_basis_identical_to_oracle()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L53"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_metadata_and_timings",
+      "label": "test_fast_metadata_and_timings()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "test_fast_metadata_and_timings()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L63"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_speedup_single_thread_ge_20x",
+      "label": "test_fast_speedup_single_thread_ge_20x()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "test_fast_speedup_single_thread_ge_20x()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L126"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_vs_oracle_all_anchor_points",
+      "label": "test_fast_vs_oracle_all_anchor_points()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "test_fast_vs_oracle_all_anchor_points()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L77"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_vs_oracle_random_energies_all_irreps",
+      "label": "test_fast_vs_oracle_random_energies_all_irreps()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "test_fast_vs_oracle_random_energies_all_irreps()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L85"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_vs_oracle_small_points",
+      "label": "test_fast_vs_oracle_small_points()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "code",
+      "norm_label": "test_fast_vs_oracle_small_points()",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L45"
+    },
+    {
       "id": "tests_acceptance_m1_m1_helpers_anchor_points",
       "label": "anchor_points()",
       "_callable": true,
@@ -16351,126 +16471,6 @@
       "source_location": "L27"
     },
     {
-      "id": "tests_acceptance_m1_m1_helpers_fast_point",
-      "label": "fast_point()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "fast_point()",
-      "source_file": "tests/acceptance/m1/m1_helpers.py",
-      "source_location": "L72"
-    },
-    {
-      "id": "tests_acceptance_m1_m1_helpers_key",
-      "label": "_key()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "_key()",
-      "source_file": "tests/acceptance/m1/m1_helpers.py",
-      "source_location": "L59"
-    },
-    {
-      "id": "tests_acceptance_m1_m1_helpers_oracle_point",
-      "label": "oracle_point()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "oracle_point()",
-      "source_file": "tests/acceptance/m1/m1_helpers.py",
-      "source_location": "L64"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_compare",
-      "label": "_compare()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "_compare()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L20"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_basis_identical_to_oracle",
-      "label": "test_fast_basis_identical_to_oracle()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "test_fast_basis_identical_to_oracle()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L53"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_metadata_and_timings",
-      "label": "test_fast_metadata_and_timings()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "test_fast_metadata_and_timings()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L63"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_speedup_single_thread_ge_20x",
-      "label": "test_fast_speedup_single_thread_ge_20x()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "test_fast_speedup_single_thread_ge_20x()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L126"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_vs_oracle_all_anchor_points",
-      "label": "test_fast_vs_oracle_all_anchor_points()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "test_fast_vs_oracle_all_anchor_points()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L77"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_vs_oracle_random_energies_all_irreps",
-      "label": "test_fast_vs_oracle_random_energies_all_irreps()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "test_fast_vs_oracle_random_energies_all_irreps()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L85"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_test_fast_vs_oracle_small_points",
-      "label": "test_fast_vs_oracle_small_points()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "code",
-      "norm_label": "test_fast_vs_oracle_small_points()",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L45"
-    },
-    {
       "id": "src_core_functions_ecm_to_e",
       "label": "Ecm_to_E()",
       "_callable": true,
@@ -16831,18 +16831,6 @@
       "source_location": "L71"
     },
     {
-      "id": "tests_acceptance_m1_qc3ref_basis_basis_to_list",
-      "label": "basis_to_list()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 350,
-      "community_name": "basis_to_list",
-      "file_type": "code",
-      "norm_label": "basis_to_list()",
-      "source_file": "tests/acceptance/m1/qc3ref/basis.py",
-      "source_location": "L42"
-    },
-    {
       "id": "tests_acceptance_conftest_pytest_configure",
       "label": "pytest_configure()",
       "_callable": true,
@@ -16859,12 +16847,36 @@
       "label": "class_moments()",
       "_callable": true,
       "_origin": "ast",
-      "community": 355,
+      "community": 354,
       "community_name": "FMoments",
       "file_type": "code",
       "norm_label": "class_moments()",
       "source_file": "src/qc3_core/fast_fclass.hpp",
       "source_location": "L162"
+    },
+    {
+      "id": "src_core_spherical_functions_ell_m_vector",
+      "label": "ell_m_vector()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "spherical_harmonics",
+      "file_type": "code",
+      "norm_label": "ell_m_vector()",
+      "source_file": "src/core/spherical_functions.h",
+      "source_location": "L96"
+    },
+    {
+      "id": "src_core_spherical_functions_spherical_harmonics",
+      "label": "spherical_harmonics()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "spherical_harmonics",
+      "file_type": "code",
+      "norm_label": "spherical_harmonics()",
+      "source_file": "src/core/spherical_functions.h",
+      "source_location": "L15"
     },
     {
       "id": "src_fitter_qc_fitter_norm_refine_v2_multil_cachekey_operator",
@@ -17177,30 +17189,6 @@
       "norm_label": ".add()",
       "source_file": "src/core/F2_functions_v2.h",
       "source_location": "L529"
-    },
-    {
-      "id": "src_core_spherical_functions_ell_m_vector",
-      "label": "ell_m_vector()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 365,
-      "community_name": "spherical_harmonics",
-      "file_type": "code",
-      "norm_label": "ell_m_vector()",
-      "source_file": "src/core/spherical_functions.h",
-      "source_location": "L96"
-    },
-    {
-      "id": "src_core_spherical_functions_spherical_harmonics",
-      "label": "spherical_harmonics()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 365,
-      "community_name": "spherical_harmonics",
-      "file_type": "code",
-      "norm_label": "spherical_harmonics()",
-      "source_file": "src/core/spherical_functions.h",
-      "source_location": "L15"
     },
     {
       "id": "legacy_v32w_single_l_fitter_qc_fitter_norm_refine_v2_cov_to_corr",
@@ -17753,6 +17741,18 @@
       "norm_label": "test_zero_in_a_false_bracket_is_a_false_positive_and_exits_nonzero()",
       "source_file": "tests/unit/test_score_labels_script.py",
       "source_location": "L61"
+    },
+    {
+      "id": "tests_acceptance_m1_qc3ref_basis_basis_to_list",
+      "label": "basis_to_list()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 371,
+      "community_name": "basis_to_list",
+      "file_type": "code",
+      "norm_label": "basis_to_list()",
+      "source_file": "tests/acceptance/m1/qc3ref/basis.py",
+      "source_location": "L42"
     },
     {
       "id": "legacy_root_finding_lineage_f3_cpu_openmp_v24_k3_qc_multi_signflip_side_abs_refinement_determinant_via_partial_piv_lu",
@@ -61379,92 +61379,48 @@
       "source_location": ""
     },
     {
-      "id": "src_qc3_core_fast_fclass_ftable_alpha",
-      "label": "alpha",
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle",
+      "label": "test_m1_fast_vs_oracle.py",
       "_origin": "ast",
       "community": 311,
-      "community_name": "FTable",
+      "community_name": "oracle_point",
       "file_type": "code",
-      "norm_label": "alpha",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L52"
+      "norm_label": "test_m1_fast_vs_oracle.py",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L1"
     },
     {
-      "id": "src_qc3_core_fast_fclass_ftable_c",
-      "label": "c",
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_py_slow",
+      "label": "slow",
       "_origin": "ast",
       "community": 311,
-      "community_name": "FTable",
+      "community_name": "oracle_point",
       "file_type": "code",
-      "norm_label": "c",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L49"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_ftable_cl",
-      "label": "cl",
-      "_origin": "ast",
-      "community": 311,
-      "community_name": "FTable",
-      "file_type": "code",
-      "norm_label": "cl",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L53"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_ftable_grp",
-      "label": "grp",
-      "_origin": "ast",
-      "community": 311,
-      "community_name": "FTable",
-      "file_type": "code",
-      "norm_label": "grp",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L54"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_ftable_nmax",
-      "label": "nmax",
-      "_origin": "ast",
-      "community": 311,
-      "community_name": "FTable",
-      "file_type": "code",
-      "norm_label": "nmax",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L51"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_ftable_npsq",
-      "label": "nPsq",
-      "_origin": "ast",
-      "community": 311,
-      "community_name": "FTable",
-      "file_type": "code",
-      "norm_label": "npsq",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L50"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_ftable_total_points",
-      "label": "total_points",
-      "_origin": "ast",
-      "community": 311,
-      "community_name": "FTable",
-      "file_type": "code",
-      "norm_label": "total_points",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L55"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_hpp_vector",
-      "label": "vector",
-      "_origin": "ast",
-      "community": 311,
-      "community_name": "FTable",
-      "file_type": "code",
-      "norm_label": "vector",
+      "norm_label": "slow",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_rationale_1",
+      "label": "M1 steps 6-7 \u2014 the cache-free fast path reproduces the oracle at every energy\u2026",
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "rationale",
+      "norm_label": "m1 steps 6-7 \u2014 the cache-free fast path reproduces the oracle at every energy...",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_rationale_86",
+      "label": "Generalisation check: seeded random energies over the whole production range,\u2026",
+      "_origin": "ast",
+      "community": 311,
+      "community_name": "oracle_point",
+      "file_type": "rationale",
+      "norm_label": "generalisation check: seeded random energies over the whole production range,...",
+      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
+      "source_location": "L86"
     },
     {
       "id": "src_fitter_qc_fitter_norm_refine_v2_multil_windowgridrow_det_imag",
@@ -64837,48 +64793,92 @@
       "source_location": "L1"
     },
     {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle",
-      "label": "test_m1_fast_vs_oracle.py",
+      "id": "src_qc3_core_fast_fclass_ftable_alpha",
+      "label": "alpha",
       "_origin": "ast",
       "community": 343,
-      "community_name": "oracle_point",
+      "community_name": "FTable",
       "file_type": "code",
-      "norm_label": "test_m1_fast_vs_oracle.py",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L1"
+      "norm_label": "alpha",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L52"
     },
     {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_py_slow",
-      "label": "slow",
+      "id": "src_qc3_core_fast_fclass_ftable_c",
+      "label": "c",
       "_origin": "ast",
       "community": 343,
-      "community_name": "oracle_point",
+      "community_name": "FTable",
       "file_type": "code",
-      "norm_label": "slow",
+      "norm_label": "c",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L49"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_ftable_cl",
+      "label": "cl",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "FTable",
+      "file_type": "code",
+      "norm_label": "cl",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L53"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_ftable_grp",
+      "label": "grp",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "FTable",
+      "file_type": "code",
+      "norm_label": "grp",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L54"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_ftable_nmax",
+      "label": "nmax",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "FTable",
+      "file_type": "code",
+      "norm_label": "nmax",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L51"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_ftable_npsq",
+      "label": "nPsq",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "FTable",
+      "file_type": "code",
+      "norm_label": "npsq",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_ftable_total_points",
+      "label": "total_points",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "FTable",
+      "file_type": "code",
+      "norm_label": "total_points",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L55"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_hpp_vector",
+      "label": "vector",
+      "_origin": "ast",
+      "community": 343,
+      "community_name": "FTable",
+      "file_type": "code",
+      "norm_label": "vector",
       "source_file": "",
       "source_location": ""
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_rationale_1",
-      "label": "M1 steps 6-7 \u2014 the cache-free fast path reproduces the oracle at every energy\u2026",
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "rationale",
-      "norm_label": "m1 steps 6-7 \u2014 the cache-free fast path reproduces the oracle at every energy...",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_acceptance_m1_test_m1_fast_vs_oracle_rationale_86",
-      "label": "Generalisation check: seeded random energies over the whole production range,\u2026",
-      "_origin": "ast",
-      "community": 343,
-      "community_name": "oracle_point",
-      "file_type": "rationale",
-      "norm_label": "generalisation check: seeded random energies over the whole production range,...",
-      "source_file": "tests/acceptance/m1/test_m1_fast_vs_oracle.py",
-      "source_location": "L86"
     },
     {
       "id": "tests_reference_test_k3mat_2plus1_cpp_dump",
@@ -65425,15 +65425,81 @@
       "source_location": "L907"
     },
     {
-      "id": "tests_acceptance_m1_qc3ref_basis_rationale_43",
-      "label": "Structured basis array -> list of (flavour, pvec(3,), ell, m) with pvec = 2 pi\u2026",
+      "id": "src_qc3_core_fast_fclass_ftablecache_hits",
+      "label": "hits",
       "_origin": "ast",
       "community": 350,
-      "community_name": "basis_to_list",
-      "file_type": "rationale",
-      "norm_label": "structured basis array -> list of (flavour, pvec(3,), ell, m) with pvec = 2 pi...",
-      "source_file": "tests/acceptance/m1/qc3ref/basis.py",
-      "source_location": "L43"
+      "community_name": "FTableCache",
+      "file_type": "code",
+      "norm_label": "hits",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L124"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_ftablecache_map",
+      "label": "map",
+      "_origin": "ast",
+      "community": 350,
+      "community_name": "FTableCache",
+      "file_type": "code",
+      "norm_label": "map",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L123"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_ftablecache_misses",
+      "label": "misses",
+      "_origin": "ast",
+      "community": 350,
+      "community_name": "FTableCache",
+      "file_type": "code",
+      "norm_label": "misses",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L124"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_ftablecache_mtx",
+      "label": "mtx",
+      "_origin": "ast",
+      "community": 350,
+      "community_name": "FTableCache",
+      "file_type": "code",
+      "norm_label": "mtx",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L122"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_hpp_mutex",
+      "label": "mutex",
+      "_origin": "ast",
+      "community": 350,
+      "community_name": "FTableCache",
+      "file_type": "code",
+      "norm_label": "mutex",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_hpp_string",
+      "label": "string",
+      "_origin": "ast",
+      "community": 350,
+      "community_name": "FTableCache",
+      "file_type": "code",
+      "norm_label": "string",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_hpp_unordered_map",
+      "label": "unordered_map",
+      "_origin": "ast",
+      "community": 350,
+      "community_name": "FTableCache",
+      "file_type": "code",
+      "norm_label": "unordered_map",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "reports_research_003_fitter_lineage_and_fast_fcn_design_9_1_c_sources_fitter_executable_v33f_k3df_fitter_multil_v33e",
@@ -65563,87 +65629,10 @@
       "source_location": "L229"
     },
     {
-      "id": "src_qc3_core_fast_fclass_ftablecache_hits",
-      "label": "hits",
-      "_origin": "ast",
-      "community": 354,
-      "community_name": "FTableCache",
-      "file_type": "code",
-      "norm_label": "hits",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L124"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_ftablecache_map",
-      "label": "map",
-      "_origin": "ast",
-      "community": 354,
-      "community_name": "FTableCache",
-      "file_type": "code",
-      "norm_label": "map",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L123"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_ftablecache_misses",
-      "label": "misses",
-      "_origin": "ast",
-      "community": 354,
-      "community_name": "FTableCache",
-      "file_type": "code",
-      "norm_label": "misses",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L124"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_ftablecache_mtx",
-      "label": "mtx",
-      "_origin": "ast",
-      "community": 354,
-      "community_name": "FTableCache",
-      "file_type": "code",
-      "norm_label": "mtx",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L122"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_hpp_mutex",
-      "label": "mutex",
-      "_origin": "ast",
-      "community": 354,
-      "community_name": "FTableCache",
-      "file_type": "code",
-      "norm_label": "mutex",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_hpp_string",
-      "label": "string",
-      "_origin": "ast",
-      "community": 354,
-      "community_name": "FTableCache",
-      "file_type": "code",
-      "norm_label": "string",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_hpp_unordered_map",
-      "label": "unordered_map",
-      "_origin": "ast",
-      "community": 354,
-      "community_name": "FTableCache",
-      "file_type": "code",
-      "norm_label": "unordered_map",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "src_qc3_core_fast_fclass_fmoments_classes",
       "label": "classes",
       "_origin": "ast",
-      "community": 355,
+      "community": 354,
       "community_name": "FMoments",
       "file_type": "code",
       "norm_label": "classes",
@@ -65654,7 +65643,7 @@
       "id": "src_qc3_core_fast_fclass_fmoments_t0",
       "label": "T0",
       "_origin": "ast",
-      "community": 355,
+      "community": 354,
       "community_name": "FMoments",
       "file_type": "code",
       "norm_label": "t0",
@@ -65665,7 +65654,7 @@
       "id": "src_qc3_core_fast_fclass_fmoments_t1",
       "label": "T1",
       "_origin": "ast",
-      "community": 355,
+      "community": 354,
       "community_name": "FMoments",
       "file_type": "code",
       "norm_label": "t1",
@@ -65676,7 +65665,7 @@
       "id": "src_qc3_core_fast_fclass_fmoments_t2",
       "label": "T2",
       "_origin": "ast",
-      "community": 355,
+      "community": 354,
       "community_name": "FMoments",
       "file_type": "code",
       "norm_label": "t2",
@@ -65687,12 +65676,45 @@
       "id": "src_qc3_core_fast_fclass_fmoments_terms",
       "label": "terms",
       "_origin": "ast",
-      "community": 355,
+      "community": 354,
       "community_name": "FMoments",
       "file_type": "code",
       "norm_label": "terms",
       "source_file": "src/qc3_core/fast_fclass.hpp",
       "source_location": "L158"
+    },
+    {
+      "id": "src_core_spherical_functions",
+      "label": "spherical_functions.h",
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "spherical_harmonics",
+      "file_type": "code",
+      "norm_label": "spherical_functions.h",
+      "source_file": "src/core/spherical_functions.h",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_core_spherical_functions_h_comp",
+      "label": "comp",
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "spherical_harmonics",
+      "file_type": "code",
+      "norm_label": "comp",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "src_core_spherical_functions_h_vector",
+      "label": "vector",
+      "_origin": "ast",
+      "community": 355,
+      "community_name": "spherical_harmonics",
+      "file_type": "code",
+      "norm_label": "vector",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "reports_benchmarks_001_m1_single_energy_qc",
@@ -66532,37 +66554,48 @@
       "source_location": "L523"
     },
     {
-      "id": "src_core_spherical_functions",
-      "label": "spherical_functions.h",
+      "id": "src_qc3_core_fast_fclass_fclass_cnt",
+      "label": "cnt",
       "_origin": "ast",
       "community": 365,
-      "community_name": "spherical_harmonics",
+      "community_name": "FClass",
       "file_type": "code",
-      "norm_label": "spherical_functions.h",
-      "source_file": "src/core/spherical_functions.h",
-      "source_location": "L1"
+      "norm_label": "cnt",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L41"
     },
     {
-      "id": "src_core_spherical_functions_h_comp",
-      "label": "comp",
+      "id": "src_qc3_core_fast_fclass_fclass_ep",
+      "label": "ep",
       "_origin": "ast",
       "community": 365,
-      "community_name": "spherical_harmonics",
+      "community_name": "FClass",
       "file_type": "code",
-      "norm_label": "comp",
-      "source_file": "",
-      "source_location": ""
+      "norm_label": "ep",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L41"
     },
     {
-      "id": "src_core_spherical_functions_h_vector",
-      "label": "vector",
+      "id": "src_qc3_core_fast_fclass_fclass_nb",
+      "label": "nb",
       "_origin": "ast",
       "community": 365,
-      "community_name": "spherical_harmonics",
+      "community_name": "FClass",
       "file_type": "code",
-      "norm_label": "vector",
-      "source_file": "",
-      "source_location": ""
+      "norm_label": "nb",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L42"
+    },
+    {
+      "id": "src_qc3_core_fast_fclass_fclass_perp2",
+      "label": "perp2",
+      "_origin": "ast",
+      "community": 365,
+      "community_name": "FClass",
+      "file_type": "code",
+      "norm_label": "perp2",
+      "source_file": "src/qc3_core/fast_fclass.hpp",
+      "source_location": "L41"
     },
     {
       "id": "legacy_v32w_single_l_fitter_qc_fitter_norm_refine_v2_cpp_map",
@@ -66963,48 +66996,15 @@
       "source_location": "L28"
     },
     {
-      "id": "src_qc3_core_fast_fclass_fclass_cnt",
-      "label": "cnt",
+      "id": "tests_acceptance_m1_qc3ref_basis_rationale_43",
+      "label": "Structured basis array -> list of (flavour, pvec(3,), ell, m) with pvec = 2 pi\u2026",
       "_origin": "ast",
       "community": 371,
-      "community_name": "FClass",
-      "file_type": "code",
-      "norm_label": "cnt",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L41"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_fclass_ep",
-      "label": "ep",
-      "_origin": "ast",
-      "community": 371,
-      "community_name": "FClass",
-      "file_type": "code",
-      "norm_label": "ep",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L41"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_fclass_nb",
-      "label": "nb",
-      "_origin": "ast",
-      "community": 371,
-      "community_name": "FClass",
-      "file_type": "code",
-      "norm_label": "nb",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L42"
-    },
-    {
-      "id": "src_qc3_core_fast_fclass_fclass_perp2",
-      "label": "perp2",
-      "_origin": "ast",
-      "community": 371,
-      "community_name": "FClass",
-      "file_type": "code",
-      "norm_label": "perp2",
-      "source_file": "src/qc3_core/fast_fclass.hpp",
-      "source_location": "L41"
+      "community_name": "basis_to_list",
+      "file_type": "rationale",
+      "norm_label": "structured basis array -> list of (flavour, pvec(3,), ell, m) with pvec = 2 pi...",
+      "source_file": "tests/acceptance/m1/qc3ref/basis.py",
+      "source_location": "L43"
     },
     {
       "id": "legacy_root_finding_lineage_f3_cpu_openmp_v24_k3_qc_multi_signflip_side_abs_refinement_cpp_comp",
@@ -231371,5 +231371,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "de4f9f5e6adc727a71e0067acc5a9a81d9790ccb"
+  "built_at_commit": "6204201c4637a296152ff43af6bc824ab2d12b70"
 }
