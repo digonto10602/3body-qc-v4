@@ -6,7 +6,14 @@
 - **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
   - Plan: `prompts/003`. Research: `reports/research/009`.
   - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
-- **Current step:** M2 **step 2**, `qc3.rootscan.scan_sector`, including item 4b (zero-pole pair detection).
+- **Current step:** M2 **step 3** (label-gate script plus the audit N6 fix, main tree) and **step 4** (`qc3.tracking`, builder worktree), in parallel.
+- **M2 step 2 DONE** (`reports/tests/015`, PASS). **Label gate met: FP = FN = 0** against all 207 scored brackets (+1 excluded, bracket 36) in 7 sectors, scored by the tester's own code. No `even_zero` or `ambiguous` candidates remain.
+  - Cost: 5917–9337 evaluations, 6.5–28.6 s per sector on 1 core.
+  - The 110_A2 zero next to a pole (at $\vec c_{\rm legacy}$) has slope $+8.35\times10^{-3}$, so it is physical under D9.
+  - Notes:
+    - Snapping $E$ to the free level is justified (all 20 candidates are within $9.8\times10^{-10}$ of a free level); it needs a doc line in §2.2 item 7.
+    - `ambiguous` (e.g. a simple zero within $\sim4\times10^{-6}$ of a pole) must be a loud event in tracking and the fit, never dropped silently.
+    - The 10000-evaluation cap exists only in a test; L24 100_A2 uses 93% of it.
 - **M2 step 1 DONE** (`reports/tests/014`, PASS). `qc3.free_levels` agrees with an independent brute force to $5.6\times10^{-17}$.
   - Free-level counts: L20 2/3/4/6/5, L24 3/6/11/6/9.
   - The stubs name the correct steps.
