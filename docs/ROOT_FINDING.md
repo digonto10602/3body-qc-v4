@@ -86,13 +86,13 @@ The current root position is linear interpolation of $y$ between two rows. It is
 - **Matrix pencil inside a bracket:** with $Q(E_r+t\Delta E)\approx Q_r+t(Q_{r+1}-Q_r)$, the roots are the real eigenvalues $t\in[0,1]$ of the generalized problem $Q_rv=-t(Q_{r+1}-Q_r)v$. These are smooth functions of $\vec c$.
   - **Caveat:** near a pole the linear model is poor and gives a spurious root, so it must be combined with the $g$-jump test.
 
-### 3.3 Acceptance gate for any new method (proposal)
+### 3.3 Acceptance gate for any new method
 
 A new root finder may replace human labels in a sector only if, against the labelled brackets:
 - FP = 0 and FN = 0 in **every** labelled sector;
-- it runs on the hot-window or full grid inside the FCN time budget (now about 24 ms per FCN for 14 levels).
+- it runs inside the fit's time budget.
 
-The planner turns this into locked acceptance tests (`tests/acceptance/`).
+**Status (M2, `prompts/003`):** the gate is locked as `tests/acceptance/m2/test_m2_rootscan.py` (scored with `coded_v2` at $\vec c_{\rm base}$, the form and parameters the labels were made with; a labelled TRUE bracket widened by ¼ row must contain exactly one `zero`, a FALSE bracket none, and no `zero` may lie outside all brackets). The planner's prototype of the §5 method passed it on all 208 brackets of the 7 labelled sectors (L20 ×5, L24 ×2; `reports/research/009` §3.1). Inside the fit the roots are not re-found by scanning but tracked (§5.3), with a fresh scan at the minimum as the check.
 
 ## 4. Rules that apply to every method
 
@@ -103,3 +103,31 @@ The planner turns this into locked acceptance tests (`tests/acceptance/`).
 - **Level matching (Digonto, D3, 2026-10-21):** sort the QC levels and the lattice levels ascending in each sector and pair them in order. If there are $n$ QC levels and $m\le n$ lattice levels, use only the lowest $m$ QC levels. This is only safe when no true low-lying root is missed, because a missed root shifts every pair above it. Complete root detection is therefore part of matching (`docs/OPEN_ISSUES.md` issue 5).
 - **Poles are not roots (prompts/002 §2.5, M1 step 7.1):** every sign change found by Brent is classified with $\Delta_h=\ell(E^*)-\tfrac12[\ell(E^*-h)+\ell(E^*+h)]$, $\ell=\ln|\det Q|$, $h=10^{-6}$: zero if $\Delta_h\le-4$, pole if $\ge+4$, otherwise ambiguous (raised). `qc3.roots.refine_root` returns zeros only by default. Measured on step 9's windows: zeros $-11.6\ldots-21.6$, poles $+11.9,+12.7$ (`reports/research/008` §7).
 - **Exact free-level solutions are artefacts (Digonto, D8, 2026-10-22):** the QC can have a solution exactly at a non-interacting three-particle energy that the interaction does not lift (seen as an even-order zero, $|\det Q|\propto(E-E^*)^4$, no sign change: `110_A2` at $E^*=0.319468828=E_{\rm free}[K(\mathbf 0)K(0,1,0)\pi(1,0,0)]$, `reports/tests/007` finding 2, identical for both p-wave forms). Such solutions are **excluded from D3 matching**. Rule for any root finder (M2): the even-order-zero detector (the $g$-jump $-\to+$ without a sign change, §3) must compare each candidate with the sector's non-interacting spectrum (`docs/METHODS.md` §14, `tools/nonint3body_general_doublecover/`) and label candidates within $10^{-7}$ of a free level as `free_level`; only `zero` kinds go to `match_levels`. The labels (invariant 7) contain no free-level solutions and remain the ground truth.
+
+## 5. The M2 method (plan `prompts/003`; research `reports/research/009`)
+
+### 5.1 Label-free scan — `qc3.rootscan.scan_sector`
+1. Split $[E_{\min},E_{\max}]$ at the basis-dimension jumps (`qc3.fast.dimension_jumps`), keep $2\times10^{-6}$ away from each jump.
+2. Coarse grid, 4 rows ($1.94\times10^{-5}$): $(\mathrm{sign},\ell=\ln|\det Q|)$ at ≈5000 points per sector.
+3. Sign change → Brent → $\Delta_h$ (§4): zero / pole / ambiguous.
+4. Grid-local minimum of $\ell$ with equal signs → bounded minimisation of $\ell$ → $\Delta_h\le-4$ = even-order zero, else a smooth minimum between two poles (discarded).
+5. Order of every zero-like candidate from two stencil widths, $m=(\Delta_{h_1}-\Delta_{h_2})/\ln(h_2/h_1)$ ($h_1=10^{-6},h_2=3\times10^{-6}$); kind `zero` needs odd $m$ and a sign change, `even_zero` even $m$ and none, otherwise `ambiguous`.
+6. Slope $u^TQ'u$ of the vanishing eigenvalue recorded (physical zeros: $>0$, arXiv:1901.07095 Eq. (64); all 31 labelled zeros are).
+7. Every free level (`qc3.free_levels`) probed with $\Delta_h$; every zero-like candidate within $10^{-7}$ of a free level → kind `free_level` (D8, §4). The prototype found 27 such solutions in the 7 sectors (orders 2 and 4 = one or two degenerate free states), none elsewhere.
+8. Fine step (¼ row) within one coarse step of every candidate: resolves opposite-type pairs down to $1.2\times10^{-6}$ (4× finer than the labels). Remaining blind spot: a zero–pole pair closer than that with neither partner seen.
+Cost: ≈5100–5500 evaluations and 7–12 s per L20 sector (15–23 s at L24) in the prototype, cap 10 000 in the tests (legacy: 20 000 rows). Why "gradient change" became $\Delta_h$ plus a minimum search: both are the sign of $\ell'$ on the two sides of a candidate (§3), made threshold-free by Brent's $10^{-11}$ bracket.
+
+### 5.2 Why the hard cases of §1 are handled
+- Poles (§1 item 1): $\Delta_h\ge+4$; measured $\ge+11.6$.
+- Dimension jumps (§1 item 2): segments; candidates within $2\times10^{-6}$ of a jump are not produced (labelled zeros are $\ge10^{-4}$ away).
+- Even-order zeros (§1 item 3): the minimum search; all found ones are free-level solutions (D8).
+- Branch switching (§1 item 4): no eigenvalue tracking is used.
+- Underflow (§1 item 5): everything is in $\ell$; the secant/Brent variable is $\mathrm{sign}\,e^{\ell-\ell_{\rm ref}}$.
+
+### 5.3 Root position inside the fit — `qc3.tracking.SectorRoots`
+The §3.2 proposal is realised as a predictor–corrector continuation: predictor $E_0+J\cdot\delta\vec c$ with the analytic Jacobian $J_i=-(u^T\tilde B_iu)/(u^TQ'u)$ (`docs/METHODS.md` §17), corrector = secant to $10^{-11}$, sub-steps of at most 20 rows of predicted move, re-classification with $\Delta_h$ at every accepted root, safeguards → windowed rescan (4 → 1 → ¼ rows) → full rescan, roots above $E_{\max}+0.005$ parked. Measured: ≈6 evaluations per tracked zero per χ² call, tracked vs independent roots $\le2.4\times10^{-12}$. The fit function is smooth and has an exact gradient; a sector with fewer QC zeros than lattice levels returns a finite penalty ($100\sigma$ per missing level, counted) instead of $10^{100}$. At every minimum a fresh §5.1 scan must reproduce the tracked set (`verify_fit`).
+
+### 5.4 Rules added in M2 (to §4)
+- Kinds `zero`, `pole`, `even_zero`, `free_level`, `ambiguous`; only `zero` enters `match_levels`. `even_zero` or `ambiguous` away from a free level stops the fit (loud; Digonto decides).
+- Never evaluate $\det Q$ exactly at a converged root (exact zero pivot → `SingularQError`, meaning an exact root).
+- Record the slope $u^TQ'u$ of every zero; a negative slope is unphysical by arXiv:1901.07095 Eq. (64) — recorded, not yet used to drop roots (proposed D9, `prompts/003` §7.3).

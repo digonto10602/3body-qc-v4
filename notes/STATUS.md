@@ -1,9 +1,13 @@
 # STATUS
 
-- **Updated:** 2026-10-21 (cloud kickoff)
-- **Prompt in force:** `prompts/002-m1-step7-speed-replan-projector-basis-k3-g.md`. It covers step 7 (sub-steps 7.0–7.8). Steps 8, 9 and the milestone gate stay as in `prompts/001`.
-- **Acceptance tag:** `acceptance-v5` = `e384ce6` (47 tests; v5 = v4 plus the audit-001 test fixes C and D, approved by Digonto 2026-10-23). `acceptance-v4` = `504a689`. v4 = v3 plus the 13 step-7 tests (`test_m1_fast_v2.py`, `test_m1_roots.py`), `test_m1_production_default.py`, and the D7 pins of `coded_v2` in the locked comparisons. Earlier tags: `acceptance-v1` = `7801d97`, `-v2` = `bcf12cd`, `-v3` = `e74f94b`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing. Check with `.claude/bin/acceptance-check`.
-- **Current milestone:** **M1 DONE**, tagged `milestone-1` (local tag; tag push gives HTTP 403). Next: M2, root finding without human labels plus fewer evaluations per root. Its plan is to be written by the planner (`prompts/003`).
+- **Updated:** 2026-10-24 (M2 kickoff)
+- **Prompt in force:** `prompts/003-m2-label-free-roots-tracking-fit.md` (M2). M1 plans: `prompts/001`, `prompts/002`.
+- **Acceptance tag:** `acceptance-v6` = `b3c7f28` (76 tests = 47 M1 + 29 M2 in `tests/acceptance/m2/`). Earlier tags: `-v5` = `e384ce6`, `-v4` = `504a689`, `-v3` = `e74f94b`, `-v2` = `bcf12cd`, `-v1` = `7801d97`, `milestone-1` = `191530d`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing.
+- **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
+  - Plan: `prompts/003`. Research: `reports/research/009`.
+  - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
+- **Current step:** M2 **step 1**, the stubs and the free-level module.
+- **M1 DONE**, tagged `milestone-1`.
 - **M1 gate (2026-10-23):**
   - Tester `full`: `reports/tests/013-m1-gate-full.md` (PASS). 47/47 acceptance tests incl. slow, 79/79 unit tests, `acceptance-check` PASS (v5); oracle sources unchanged.
   - Auditor: `reports/audits/001-m1-milestone-audit.md` (PASS WITH NOTES). Code notes A/B/N6/N8 fixed at `5dbd693`; test defects C/D fixed in `acceptance-v5`.
@@ -136,11 +140,18 @@
 
 ## Open failures and attempt counters
 
-Counters were reset at `acceptance-v4` (`prompts/002`).
+Counters were reset at `acceptance-v6` (M2).
 
 | check | builder attempts | tester rounds | fixer | planner |
 |---|---|---|---|---|
 | — | 0 | 0 | 0 | 0 |
+
+### Questions for Digonto (prompts/003 §7; none blocks steps 1–5)
+1. **v32w cross-check.** With `coded_v2` and the D1 covariance, $\chi^2(\vec c_{\rm v32w})=55.04$, not 11.49. v32w used `masses` files that are not in the repo. Either accept it as a code-equivalence record, or provide those files.
+2. **Fit freedom at low cutoffs.** The prototype `q0_consistent` fits give $\chi^2/\nu\approx3.7$ at cutoff 0.335 and 3.6 at 0.345. At 0.315 (6 levels) the 4-parameter fit is unconstrained. Should $K_B=K_E=0$ be fixed there, or parameter limits used?
+3. **Proposed D9.** Zeros with $u^\top Q'u<0$ (wrong-sign residue) are unphysical (arXiv:1901.07095 Eq. 64). All 31 labelled zeros have the right sign. Should they be excluded?
+4. Anchor-tolerance κ-scaling (proposal only).
+5. An `even_zero`/`ambiguous` candidate away from a free level stops a fit; handle case by case.
 
 ## Notes for the M1 auditor (from tester 002)
 - **Anchor tolerances are below the round-off floor at ill-conditioned points.**
@@ -162,10 +173,5 @@ Counters were reset at `acceptance-v4` (`prompts/002`).
 
 ## Next action
 
-1. Planner: M2 plan (`prompts/003`) with acceptance tests `tests/acceptance/m2/`. Scope:
-   - label-free root finding with FP = FN = 0 against the labels (scored with `coded_v2`);
-   - D8 free-level exclusion;
-   - fewer evaluations per root;
-   - the L20 fit with corrected covariance in `q0_consistent` (old M1 steps 7/8: re-run the cutoff fits and cross-check v32w);
-   - iminuit as the minimiser.
-2. Then `acceptance-lock` and the build loop.
+1. M2 step 1 (builder): the interface stubs of `prompts/003` §5, plus the free-level module. Then the tester.
+2. Steps 2–7 as in `prompts/003` §3, then the M2 gate.
