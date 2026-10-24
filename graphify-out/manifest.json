@@ -1452,9 +1452,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/lattice.py": {
-    "mtime": 1792619640.5204837,
-    "seen": 1792877181.7969759,
-    "ast_hash": "ba311146a3baa1044230cdded5011ee2",
+    "mtime": 1792878447.565543,
+    "seen": 1792878993.7363029,
+    "ast_hash": "538ce9748a74ca3ffa11794fb61dd214",
     "semantic_hash": ""
   },
   "src/python/qc3/oracle.py": {
@@ -2388,9 +2388,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/fit.py": {
-    "mtime": 1792820784.9333289,
-    "seen": 1792877181.7969737,
-    "ast_hash": "5280146b2ea9d40f79f6311ac4cee477",
+    "mtime": 1792878522.6389942,
+    "seen": 1792878993.7362993,
+    "ast_hash": "e544c2849fc2390e29f14f85c35015d6",
     "semantic_hash": ""
   },
   "src/python/qc3/free_levels.py": {
@@ -2412,9 +2412,9 @@
     "semantic_hash": ""
   },
   "tests/unit/test_m2_step1.py": {
-    "mtime": 1792877159.6897128,
-    "seen": 1792877181.7970204,
-    "ast_hash": "bac4272083d15457940dc34abd4546cd",
+    "mtime": 1792878611.0494895,
+    "seen": 1792878993.736366,
+    "ast_hash": "3e9a20a7d023b1b551cdb9cdaabd407f",
     "semantic_hash": ""
   },
   "results/m2_step1_free_levels_bruteforce.json": {
@@ -2487,6 +2487,12 @@
     "mtime": 1792878357.204862,
     "seen": 1792878398.7993593,
     "ast_hash": "0a1f8b152832fabefabcaf8a04df41b2",
+    "semantic_hash": ""
+  },
+  "tests/unit/test_m2_step5_chi2.py": {
+    "mtime": 1792878517.7057934,
+    "seen": 1792878993.736368,
+    "ast_hash": "d9e75c3620432d15148259e9f058bac0",
     "semantic_hash": ""
   }
 }

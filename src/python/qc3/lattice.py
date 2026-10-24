@@ -152,16 +152,14 @@ def match_levels(E_lattice, E_qc):
     return [(int(a), int(b)) for a, b in zip(il, iq)]
 
 
-def chi2(residual, cov, eig_rel_cut=1e-12):
-    """chi^2 = r^T C^+ r with the eigenvalue pseudo-inverse dropping eigenvalues <= eig_rel_cut * lambda_max.
-
-    Raises ValueError if C is not symmetric (relative 1e-12), has an eigenvalue < -eig_rel_cut*lambda_max
-    (not positive semi-definite) or lambda_max <= 0."""
-    r = np.asarray(residual, dtype=np.float64)
+def cov_eig_pinv(cov, eig_rel_cut=1e-12):
+    """Eigen-decomposition of the covariance for the pseudo-inverse C^+ = U_k diag(1/w_k) U_k^T (eigenvalues <= eig_rel_cut *
+    lambda_max dropped).  Returns (w_keep, U_keep).  Raises ValueError if C is not square / finite / symmetric (relative 1e-12),
+    has an eigenvalue < -eig_rel_cut*lambda_max (not positive semi-definite) or lambda_max <= 0."""
     C = np.asarray(cov, dtype=np.float64)
-    if C.ndim != 2 or C.shape[0] != C.shape[1] or C.shape[0] != r.shape[0]:
-        raise ValueError(f"chi2: shapes inconsistent: residual {r.shape}, cov {C.shape}")
-    if not (np.all(np.isfinite(C)) and np.all(np.isfinite(r))):
+    if C.ndim != 2 or C.shape[0] != C.shape[1]:
+        raise ValueError(f"cov_eig_pinv: covariance shape {C.shape} is not square")
+    if not np.all(np.isfinite(C)):
         raise ValueError("chi2: non-finite residual or covariance")
     scale = np.abs(C).max()
     if np.abs(C - C.T).max() > 1e-12 * scale:
@@ -173,5 +171,20 @@ def chi2(residual, cov, eig_rel_cut=1e-12):
     if w.min() < -eig_rel_cut * wmax:
         raise ValueError(f"chi2: covariance is not positive semi-definite (lambda_min/lambda_max = {w.min()/wmax:.3g})")
     keep = w > eig_rel_cut * wmax
-    proj = U[:, keep].T @ r
-    return float(np.sum(proj ** 2 / w[keep]))
+    return w[keep], U[:, keep]
+
+
+def chi2(residual, cov, eig_rel_cut=1e-12):
+    """chi^2 = r^T C^+ r with the eigenvalue pseudo-inverse dropping eigenvalues <= eig_rel_cut * lambda_max.
+
+    Raises ValueError if C is not symmetric (relative 1e-12), has an eigenvalue < -eig_rel_cut*lambda_max
+    (not positive semi-definite) or lambda_max <= 0."""
+    r = np.asarray(residual, dtype=np.float64)
+    C = np.asarray(cov, dtype=np.float64)
+    if C.ndim != 2 or C.shape[0] != C.shape[1] or C.shape[0] != r.shape[0]:
+        raise ValueError(f"chi2: shapes inconsistent: residual {r.shape}, cov {C.shape}")
+    if not np.all(np.isfinite(r)):
+        raise ValueError("chi2: non-finite residual or covariance")
+    w, U = cov_eig_pinv(C, eig_rel_cut)
+    proj = U.T @ r
+    return float(np.sum(proj ** 2 / w))

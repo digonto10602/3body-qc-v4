@@ -97,12 +97,16 @@ def test_identical_kaons_are_not_double_counted():
 
 
 def test_interface_stubs_raise_not_implemented_and_modules_import():
-    # rootscan.scan_sector / read_labels / score_labels: step 2 (tests/unit/test_rootscan.py); qc3.tracking: step 4 (tests/unit/test_tracking.py)
+    # rootscan.scan_sector / read_labels / score_labels: step 2 (tests/unit/test_rootscan.py); qc3.tracking: step 4 (tests/unit/test_tracking.py);
+    # fit.QCChi2 / make_trackers: step 5 (tests/unit/test_m2_step5_chi2.py); the rest of qc3.fit stays a stub until step 6
     from qc3 import fit, rootscan, tracking
     s = Sector.production("000_A1m")
     calls = [
-        (fit.make_trackers, (("000_A1m",), (0, 0, 0, 0))),
-        (fit.QCChi2, (None, {})),
+        (fit.fit_cutoff, (None, {}, (0, 0, 0, 0))),
+        (fit.verify_fit, (None, {}, None)),
+        (fit.cutoff_scan, (None, 20, (0.335,), (0, 0, 0, 0), "q0_consistent")),
+        (fit.save_results, ([], "x.json")),
+        (fit.main, ([],)),
     ]
     for fn, args in calls:
         with pytest.raises(NotImplementedError, match=r"prompts/003 step \d"):
