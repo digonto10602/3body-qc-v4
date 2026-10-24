@@ -17,6 +17,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+import warnings
+
 import numpy as np
 from scipy.optimize import brentq
 
@@ -170,6 +172,15 @@ def refine_root(evaluate, sector, c, E_left, E_right, xtol=1e-11, max_iter=200, 
     return refine_root_info(evaluate, sector, c, E_left, E_right, xtol, max_iter, "zero", h, D).E
 
 
+def _record_skip(skipped, bracket):
+    """Record a bracket skipped because it contains a dimension jump; warn if the caller passed no list (never silent)."""
+    if skipped is not None:
+        skipped.append(bracket)
+    else:
+        warnings.warn(f"find_sign_changes: skipped bracket {bracket} (dimension jump inside); pass skipped=[] to collect them",
+                      RuntimeWarning, stacklevel=3)
+
+
 def find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-11, h=1e-6, D=4.0, skipped=None):
     """Scan [E_left, E_right] on n_scan equally spaced points, Brent-refine every sign-change bracket and classify it.
     Returns all RootInfo sorted by E (zeros, poles, ambiguous).
@@ -190,8 +201,7 @@ def find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-
         if pts[k][0] * pts[k + 1][0] < 0:
             bracket = (float(Es[k]), float(Es[k + 1]))
             if pts[k][2] != pts[k + 1][2]:
-                if skipped is not None:
-                    skipped.append(bracket)
+                _record_skip(skipped, bracket)
                 continue
             point = _Counter(evaluate, sector, c)
             E = _brent(point, bracket[0], bracket[1], xtol, 200,
@@ -199,8 +209,7 @@ def find_sign_changes(evaluate, sector, c, E_left, E_right, n_scan=241, xtol=1e-
             try:
                 info = _classify(point, E, h, D, bracket, point.n)
             except DimensionJumpError:
-                if skipped is not None:
-                    skipped.append(bracket)
+                _record_skip(skipped, bracket)
                 continue
             out.append(info)
     out.sort(key=lambda r: r.E)

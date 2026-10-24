@@ -6,7 +6,10 @@
 - **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
   - Plan: `prompts/003`. Research: `reports/research/009`.
   - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
-- **Current step:** M2 **step 3** (label-gate script plus the audit N6 fix, main tree) and **step 4** (`qc3.tracking`, builder worktree), in parallel.
+- **Current step:** M2 **step 4** (`qc3.tracking`). Built in a worktree; being merged, then the tester. Then step 5 (`QCChi2`).
+- **M2 step 3 DONE** (light tester PASS; no report file).
+  - `scripts/m2/score_labels.py`: TP=31, FP=0, FN=0, TN=176 (207 scored + bracket 36 excluded), in 96 s; output `results/m2_label_gate.json`, clean tree.
+  - Audit N6: `find_sign_changes` skips a bracket containing a dimension jump. The coordinator added a `RuntimeWarning` when no `skipped` list is passed, so a skip is never silent.
 - **M2 step 2 DONE** (`reports/tests/015`, PASS). **Label gate met: FP = FN = 0** against all 207 scored brackets (+1 excluded, bracket 36) in 7 sectors, scored by the tester's own code. No `even_zero` or `ambiguous` candidates remain.
   - Cost: 5917–9337 evaluations, 6.5–28.6 s per sector on 1 core.
   - The 110_A2 zero next to a pole (at $\vec c_{\rm legacy}$) has slope $+8.35\times10^{-3}$, so it is physical under D9.

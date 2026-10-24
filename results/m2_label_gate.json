@@ -1,7 +1,7 @@
 {
  "description": "M2 step 3 label gate: label-free scan_sector vs human labels, coded_v2, C_BASELINE (prompts/003 section 3)",
- "git_commit": "134c3bb",
- "git_tree_dirty": true,
+ "git_commit": "da1c6fb",
+ "git_tree_dirty": false,
  "core_built_at_commit": "c0334de",
  "machine": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
  "python": "3.13.16",
@@ -51,10 +51,10 @@
    36
   ]
  },
- "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONPATH=src/python python3 scripts/m2/score_labels.py ",
+ "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONPATH=src/python python3 scripts/m2/score_labels.py --out results/m2_label_gate.json",
  "subset": null,
  "gate_passed": true,
- "total_seconds": 99.75861037200048,
+ "total_seconds": 95.8737532340001,
  "sectors": {
   "L20/000_A1m": {
    "tp": 3,
@@ -75,7 +75,7 @@
    },
    "n_evaluations": 5917,
    "n_grid": 5006,
-   "seconds": 6.799299635999887,
+   "seconds": 6.980718761999924,
    "jumps": [
     0.27821324789589547,
     0.3088237451379444,
@@ -378,7 +378,7 @@
    },
    "n_evaluations": 7205,
    "n_grid": 5014,
-   "seconds": 9.779934474000584,
+   "seconds": 9.668189351000365,
    "jumps": [
     0.2653295153055912,
     0.27562370158047717,
@@ -1052,7 +1052,7 @@
    },
    "n_evaluations": 8019,
    "n_grid": 5020,
-   "seconds": 12.148429257000316,
+   "seconds": 11.062217846999374,
    "jumps": [
     0.2721879707617851,
     0.2780403833844391,
@@ -1998,7 +1998,7 @@
    },
    "n_evaluations": 7776,
    "n_grid": 5016,
-   "seconds": 11.702642580999964,
+   "seconds": 11.790381952999269,
    "jumps": [
     0.28872079942573153,
     0.3005299293449426,
@@ -2845,7 +2845,7 @@
    },
    "n_evaluations": 8033,
    "n_grid": 5015,
-   "seconds": 13.782202041000346,
+   "seconds": 12.929593150999608,
    "jumps": [
     0.2631688204946026,
     0.278326028905888,
@@ -3771,7 +3771,7 @@
    },
    "n_evaluations": 6740,
    "n_grid": 5009,
-   "seconds": 16.46042129699981,
+   "seconds": 15.408152048000375,
    "jumps": [
     0.2738229154943097,
     0.2831669021488885,
@@ -4317,7 +4317,7 @@
    },
    "n_evaluations": 9337,
    "n_grid": 5024,
-   "seconds": 28.740589046000423,
+   "seconds": 27.698696940000445,
    "jumps": [
     0.2742638492723575,
     0.2810771035270369,
