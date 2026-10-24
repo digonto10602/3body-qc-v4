@@ -1,0 +1,253 @@
+# 003 — M2: label-free root finding with D8, root tracking for the fit, and the L20 $\mathcal K_{\rm df,3}$ fit
+
+- **Date:** 2026-10-24
+- **Git commit at planning:** `c67854b` (tag `milestone-1` plus a graph refresh); `qc3._core` built at `c0334de`, version `0.5.1-step7.7`.
+- **Trigger:** `notes/STATUS.md` "Next action" 1 (M1 done, tag `milestone-1`; Digonto approved starting M2 on 2026-10-24). Open items carried into M2: D8 detection, fewer evaluations per root, anchor tolerances (audit 001 N4/N5). Reports: `reports/tests/007` (hidden even-order zero at a free level; `refine_root` accepted poles), `008` ($\Delta_h$ discriminant), `011`/`013` (χ² proxy, gate), `reports/audits/001` (N4, N5, N6: `find_sign_changes` aborts on a dimension jump), `reports/benchmarks/001`.
+- **Research:** `reports/research/009-m2-root-finder-tracking-fit-methods.md` — every prototype number quoted below comes from it unless a command is given.
+- **Supersedes:** M2 of `prompts/000` (steps 1–4 there) and `prompts/001` §9 / `prompts/002` §9 (M2 outline). M1 stays locked (`tests/acceptance/m1`, `acceptance-v5`); nothing in it changes.
+- **Acceptance:** 29 new tests in `tests/acceptance/m2/` (§4), to be locked together with the untouched 47 M1 tests as `acceptance-v6` (76 tests).
+
+Jargon used here: **sector** = one $(L/a_s,\mathbf d,\Gamma)$, e.g. `L20/110_A2`; **candidate** = an energy where $\det Q$ vanishes or diverges; **pole** = a divergence of $\det Q$ (a zero eigenvalue of $F_3$), never an energy level; **even-order zero** = $|\det Q|\propto(E-E^*)^m$ with $m$ even, so no sign change; **free level** = non-interacting three-particle energy; **free-level solution** = a zero of the truncated QC sitting exactly at a free level (D8: an artefact); **segment** = an energy interval between two consecutive basis-dimension jumps ($N$ constant); **tracking / continuation** = following a root while the fit parameters $\vec c$ move; **predictor–corrector** = guess the new root from the derivative, then correct with a root solver; **Jacobian** $J_i=\partial E_0/\partial c_i$; **LM** = Levenberg–Marquardt least-squares minimiser (trust region); **Migrad / Hesse** = MINUIT's minimiser and its second-derivative error estimate; **EDM** = MINUIT's estimated distance to the minimum.
+
+## 0. Diagnosis — what M1 left open and why the old approach cannot continue
+
+1. The human labels (invariant 7) are `coded_v2` roots at $\vec c_{\rm base}$. With the production form `q0_consistent` (D7) five of the twelve labelled windows no longer bracket the root (`reports/tests/007`): a fit cannot start from the labels. A root finder that needs no labels is on the critical path.
+2. Sign-change scans miss even-order zeros. The one found in M1 (`110_A2`, $E^*=0.319468828$, $|\det Q|\propto(E-E^*)^4$) is exactly at the free level $K(\mathbf 0)K(0,1,0)\pi(1,0,0)$, multiplicity 2. Digonto's D8 excludes such solutions. The literature says the same (§2.3).
+3. The legacy fit function (`docs/OPEN_ISSUES.md` #6) jumped to $10^{100}$ when a root was lost, never re-centred its windows, and interpolated roots linearly on a grid; Migrad cannot work with that. M1's χ² proxy re-finds each root with Brent in a fixed labelled window (8–9 evaluations per root); it has no way to follow a root that leaves its window.
+4. The v32w cross-check asked for in `prompts/000` M1 step 8 cannot be a tight test: with the repo's `.jack` files, `coded_v2` and the D1 covariance, $\chi^2(\vec c_{\rm v32w})=55.04$, not 11.49 (research 009 §3.3). The residuals are small ($|r/\sigma|\le1.70$); the covariance's correlation structure differs from the `masses`-file covariance v32w used (not in the repo). This needs Digonto (§7).
+
+## 1. Goal of M2
+
+A label-free, complete root finder for every sector over the production range, gated FP = FN = 0 against all 208 labelled brackets; a root tracker that gives the fit exact roots at $\approx6$ QC evaluations per root per parameter change with a smooth, differentiable χ²; and the L20 fits (cutoffs 0.315–0.345, `q0_consistent`, D1, D3, D8) with iminuit errors and correlations, each fit verified by a fresh full scan at its minimum. Everything on one core, no caches.
+
+## 2. Method
+
+### 2.1 Free levels (D8 input) — `qc3.free_levels`
+
+Non-interacting energies with total momentum $\mathbf d$ (any irrep: a conservative superset), $q=2\pi/(\xi L/a_s)$:
+$$E_{\rm lab}=\sqrt{m_K^2+q^2\mathbf n_1^2}+\sqrt{m_K^2+q^2\mathbf n_2^2}+\sqrt{m_\pi^2+q^2\mathbf n_3^2},\quad \mathbf n_1+\mathbf n_2+\mathbf n_3=\mathbf d,\quad E^*=\sqrt{E_{\rm lab}^2-q^2\mathbf d^2}.$$
+Identical kaons: unordered pair, stored as $\mathbf n_1\le\mathbf n_2$ (lexicographic). Levels equal within $10^{-11}$ are merged; the **multiplicity** is the number of distinct momentum assignments (e.g. 2 for the `110_A2` level above). Enumerate $|\mathbf n|\le n_{\max}$ with $n_{\max}=\lceil\sqrt{E_{\max}^2-m_\pi^2}/q\rceil+1$ (a particle cannot carry more momentum than the total energy allows). Same convention as `tools/nonint3body_general_doublecover/` (`docs/METHODS.md` §14). Prototype: 3/3/4/6/5 levels in $[0.26310,0.36]$ for the five L20 sectors.
+
+### 2.2 Label-free root finder — `qc3.rootscan.scan_sector`
+
+Per sector, for a given $\vec c$ and range $[E_{\min},E_{\max}]$ (production: $[0.26310,0.36]$), with $\ell(E)=\ln|\det Q(E)|$ and $s(E)=\mathrm{sign}\det Q$ from `qc3.fast.evaluate_point(..., want=("Q",))`:
+
+1. **Segments.** Split at `qc3.fast.dimension_jumps(sector, E_min, E_max)` (exact thresholds, M1). Inside each segment keep away from the ends by `edge`$=2\times10^{-6}$ (so that $E\pm h$ stays in the segment; labelled zeros are $\ge10^{-4}$ from any jump). $N$ must be constant on the segment's grid (assert; loud).
+2. **Coarse grid.** Points spaced $\le$ `step_rows`$\cdot\Delta E_{\rm grid}$ with `step_rows`$=4$ ($1.94\times10^{-5}$; $\Delta E_{\rm grid}=4.845\times10^{-6}$, `docs/METHODS.md` §10), including both ends. About 5000 points per sector (legacy: 20 000).
+3. **Sign changes** $s_ks_{k+1}<0$ → Brent (`qc3.roots._brent` behaviour: `refine_root_info(kind="any")`, `xtol`$=10^{-11}$) → $\Delta_h$ classification (`prompts/002` §2.5, $h=10^{-6}$, $D=4$): zero / pole / ambiguous.
+4. **Local minima of $\ell$** on the grid ($\ell_k<\ell_{k-1}$, $\ell_k\le\ell_{k+1}$, equal signs at $k-1,k,k+1$) → bounded minimisation of $\ell$ on $[E_{k-1},E_{k+1}]$ (`scipy.optimize.minimize_scalar(method="bounded")`, Brent's `fmin`, Forsythe–Malcolm–Moler 1977; `xatol`$=$ `min_xatol` $=10^{-8}$) → $\Delta_h$ at the minimum: $\le-D$ → zero-like (polish with `xatol`$=10^{-12}$ on $\pm2\times10^{-8}$), else a smooth minimum (discard; 24–37 per sector).
+   Why complete at grid resolution: for an even zero of order $m$ at $E^*$ and the nearest grid point at distance $\delta\le\Delta/2$, the two neighbours are higher by $m\ln(|\delta\pm\Delta|/\delta)\ge0$, which exceeds the smooth background slope over $\Delta$ ($\lesssim\Delta/d_{\rm pole}\approx0.2$). Why $D=4$ separates: a smooth minimum gives $\Delta_h\approx-\tfrac12\ell''h^2\approx-10^{-4}$, an even zero $\Delta_h\le-m\ln(h/x_{\rm atol})=-9.2$ for $m=2$.
+5. **Order estimate** for every zero-like candidate (sign or minimum): with $\Delta_{h}$ at $h_1=10^{-6}$ and $h_2=3\times10^{-6}$,
+   $$m=\frac{\Delta_{h_1}-\Delta_{h_2}}{\ln(h_2/h_1)}\quad(\text{singular part }m\ln(|E_m-E^*|/h)\text{; smooth part cancels to }O(\ell''_{\rm bg}(h_2^2-h_1^2))).$$
+   `order_int`$=\mathrm{round}(m)$; consistent iff $|m-\mathrm{round}(m)|\le$ `order_tol` $=0.3$ and $\mathrm{round}(m)\ge1$. Kind **zero** iff odd order with a sign change at $E_m\pm h_1$; **even_zero** iff even order and no sign change; otherwise **ambiguous** (loud in the fit, §2.6). Prototype: 27 even zeros gave $m=2.0000\pm0.0004$ or $4.0000\pm0.0008$ ($h_2=10^{-5}$); with a pole $3.8\times10^{-6}$ away the estimate is polluted (1.59), which is why $h_2=3\times10^{-6}$ and the free-level rule below take precedence.
+6. **Slope (residue sign).** For every zero-like candidate record `slope`$=u^T Q'(E_m)u$ with $u$ the unit eigenvector of the smallest-$|\lambda|$ eigenvalue of $\bar Q=\tfrac12[Q(E_m+h)+Q(E_m-h)]$ and $Q'=[Q(E_m+h)-Q(E_m-h)]/2h$ (real symmetric $Q$; $V_{\rm sel}$ is identical at $E_m\pm h$). Physical zeros have `slope`$>0$ (arXiv:1901.07095 Sec. 4.4.1 Eq. (64)); all 31 labelled zeros do (prototype: $+1.3\times10^{-4}$ to $+3.0\times10^{-2}$); even zeros have $|{\rm slope}|\lesssim3\times10^{-9}$. **Recorded, not used to drop roots** (a physics rule for Digonto, §7).
+7. **Free-level probe (D8, complete by construction).** For every free level $E_f$ of `qc3.free_levels` in the range, evaluate $\Delta_h(E_f)$ (3 evaluations) and, if $\le-D$, add a candidate at the minimiser-polished position. Then **every zero-like or ambiguous candidate within `free_tol`$=10^{-7}$ of a free level gets kind `free_level`** (with `free_level` set to $E_f$; its order and `sign_change` are kept for the record). Justification of $10^{-7}$: the nearest labelled genuine zero to a free level is $1.09\times10^{-4}$ (L24) / $3.1\times10^{-4}$ (L20), margin $\ge10^3$; the detected free-level solutions sit within $6\times10^{-9}$.
+8. **Fine step near singularities.** Around every candidate (zero, pole, free_level) re-scan $\pm1$ coarse step at `fine_step_rows`$=0.25$ ($1.2\times10^{-6}$) and process new sign changes and minima as above (merging candidates closer than $10\,x_{\rm tol}$). This closes the blind spot for opposite-type pairs down to $1.2\times10^{-6}$ ($4\times$ finer than the labels' grid; the 200_A2 free-level solution $3.8\times10^{-6}$ below a pole is resolved). Remaining blind spot, stated: a zero–pole pair closer than $1.2\times10^{-6}$ with neither partner detected. Expected cost: $\approx+30\%$, i.e. $\lesssim7000$ evaluations per sector; the acceptance cap is 10 000 (half the legacy grid).
+9. **Output.** `ScanResult.candidates` sorted by $E$; `zeros()` returns kind `zero` only (`free_level`, `even_zero`, `pole`, `ambiguous` excluded). Every candidate carries its segment, bracket, $N$, $\Delta_h$, order, slope, `via` (`"sign"|"min"|"free"`) and evaluation count.
+
+Gate (invariant 7, `docs/ROOT_FINDING.md` §3.3): scored against the labels with `coded_v2` at $\vec c_{\rm base}$ (the form and parameters the labels were made with): a labelled TRUE bracket, widened by $\tfrac14$ row on each side, contains exactly one `zero`; a FALSE bracket contains none; no `zero` lies outside all brackets. Prototype: 0 mismatches on 208/208 brackets in 7 sectors (both volumes), FP = FN = 0.
+
+### 2.3 Exact free-level solutions (D8) — what the literature says
+
+arXiv:1901.07095 (Blanton, Romero-López, Sharpe, JHEP 03 (2019) 106) Sec. 4.4.3: when $\mathcal K_2$ is truncated in partial waves, the QC has "free solutions" exactly at the non-interacting energies (their Eq. (49)) for finite-volume states to which the truncated interactions do not couple; in every case found they are double zeros of $F_3^{-1}$ ("only touches the axis", i.e. no sign change) or single zeros with the wrong residue sign; they are unphysical, and the prescription is to ignore all solutions at free energies (also arXiv:2111.12734 Sec. 2.1). The prototype sees exactly this: 27 even-order zeros, all at free levels, orders 2 (one free state) and 4 (two degenerate free states), none elsewhere. D8 is therefore the published treatment, implemented as §2.2 item 7.
+
+### 2.4 Pole/zero discrimination and conventions (unchanged from M1)
+
+$\Delta_h(E^*)=\ell(E^*)-\tfrac12[\ell(E^*-h)+\ell(E^*+h)]$, $h=10^{-6}$, zero iff $\le-4$, pole iff $\ge+4$; measured minimum $|\Delta_h|=11.60$ over all 7 sectors (bound $\ln(h/x_{\rm tol})=11.51$, margin 2.9×). $Q=(L\xi)^{-6}V^\dagger(F_3^{-1}+\mathcal K_{\rm df,3})V$ (invariant 1), $(\mathrm{sign},\ln|\det|)$ by LU (invariant 2), energies $E^*$ in $a_t^{-1}$, production constants of invariant 3 with `k2_pwave_form=q0_consistent` for every fit and `coded_v2` only for the label gate and the v32w code-equivalence number.
+
+### 2.5 Root tracking for the fit — `qc3.tracking.SectorRoots`
+
+$Q(E;\vec c)=\tilde F(E)+\sum_ic_i\tilde B_i(E)$ exactly ($\tilde B_i=V^\dagger B_iV/(L\xi)^6$ from `PointResult.K3_basis` and `Vsel`; prototype $1.7\times10^{-18}$). With $u$ the unit null vector of the real symmetric $Q(E_0)$, the Hellmann–Feynman theorem $\partial\lambda/\partial x=u^T(\partial Q/\partial x)u$ for a simple eigenvalue (Feynman, Phys. Rev. 56 (1939) 340, DOI 10.1103/PhysRev.56.340) and the implicit function theorem on $\lambda(E_0(\vec c),\vec c)=0$ give
+$$J_i\equiv\frac{\partial E_0}{\partial c_i}=-\frac{u^T\tilde B_i\,u}{u^T Q'(E_0)\,u},\qquad Q'(E_0)\approx\frac{Q(E_0+h)-Q(E_0-h)}{2h},\quad h=10^{-6},\quad u\ \text{from}\ \bar Q=\tfrac12[Q(E_0+h)+Q(E_0-h)].\tag{1}$$
+Never evaluate exactly at a converged root: Eigen's LU throws on an exactly zero pivot (`fast: Q is singular`); it happened in the prototype at a root converged to $10^{-11}$ and in tester 008's bisection. The builder maps that C++ error to `qc3.point.SingularQError(ValueError)`; the tracker treats it as an exact root ($\ell=-\infty$, kind zero) — an explicit, documented case, not a silent catch. Prototype accuracy of (1): relative $4\times10^{-8}$–$1.8\times10^{-6}$ against central finite differences of Brent roots; cost 2 evaluations ($E_0\pm h$), which also give the $\Delta_h$ re-classification (with $\ell(E_0)$ taken from the last secant iterate) and `slope`.
+
+**Predictor–corrector continuation** (Allgower & Georg, *Numerical Continuation Methods*, Springer 1990, DOI 10.1007/978-3-642-61257-2, ch. 2–3; tangent predictor, root-solver corrector). `update(c)` from the current $\vec c_{\rm old}$:
+1. Sub-steps: $n_{\rm sub}=\lceil\max_k|J_k\cdot\delta\vec c|/(\text{`max_move_rows`}\,\Delta E_{\rm grid})\rceil$ with `max_move_rows`$=20$ ($10^{-4}$), so the predictor error ($\le15\%$ of the move at 30 % parameter changes) stays below 3 rows, well inside the nearest-pole distance ($\ge9\times10^{-5}$ at the baseline).
+2. Per sub-step and root: $E_{\rm pred}=E_0+J\cdot\delta\vec c$; **secant** on $g(E)=s(E)\,e^{\ell(E)-\ell_{\rm ref}}$ from $E_{\rm pred}$ and $E_{\rm pred}+\max(10^{-8},0.1|J\cdot\delta\vec c|)$ until $|E_{k+1}-E_k|<$ `xtol` $=10^{-11}$ (superlinear, order $\approx1.618$ for a simple zero: Brent 1973 ch. 3–4); return $E_{k+1}$ **without** evaluating there. Then (1) at the new root: $\Delta_h\le-D$ required (`PoleError` otherwise), $J$ and `slope` updated.
+3. Safeguards (any failure → local rescan): no dimension jump and no known pole between $E_0$ and $E_1$; $|E_1-E_{\rm pred}|\le$ `safeguard_factor`$\cdot|J\cdot\delta\vec c|+$`safeguard_abs` ($10,\ 10^{-6}$); secant converged within `max_iter`$=12$; no two tracked roots within $10^{-9}$ (merged/crossed).
+4. **Local rescan**: `scan_sector` on $[E_0-w,E_0+w]$, $w=\max(\text{`local_rows`}\,\Delta E_{\rm grid},3|J\cdot\delta\vec c|)$ (`local_rows`$=60$), successively at `local_steps_rows` $=(4,1,0.25)$ until a zero is found; take the zero nearest $E_{\rm pred}$. Nothing found at the finest step → **full rescan** at $\vec c$ (`scan_sector` on the whole range; the tracked set is replaced). Counters `n_local_rescans`, `n_full_rescans`, `n_substeps`, `n_evaluations` are kept.
+5. Roots above $E_{\max}+$`park_margin` ($0.005$) are **parked** (kept, not returned by `energies()`, re-tracked with the others; `energies()` returns tracked roots $\le E_{\max}$). Roots cannot leave through the bottom (threshold).
+6. `rescan()`: a full `scan_sector` at the current $\vec c$; raises `RootSetChangedError` if its `zeros()` ($\le E_{\max}$) differ from the tracked set in count or by $>10^{-9}$.
+Prototype: 4–7 evaluations per root for the secant plus 2 for (1); root error vs independent Brent $\le2.4\times10^{-12}$ (36 cases, 5–30 % parameter changes); in a 108-call fit: median 114 evaluations per χ² call (19 tracked zeros in 5 sectors), 223 ms, 6 local and 0 full rescans.
+
+Optional later rung (not in M2's steps): the in-memory 3-point matrix stencil (quadratic interpolation of $\tilde F,\tilde B_i$ in $E$, μs-cost LU for any $\vec c$) gives roots to $10^{-15}$–$4\times10^{-11}$ while the root stays within $\pm3\times10^{-6}$ of the stencil centre (research 009 §2.3 c). Useful for Hesse and for the last Migrad iterations; the fit's early steps move roots by $10^{-5}$–$10^{-3}$, so it is not the primary mechanism.
+
+### 2.6 χ², matching, exclusion, gradient — `qc3.fit.QCChi2`
+
+$\chi^2(\vec c)=r^TC^+r$, $r_i=E^{\rm lat}_i-E^{\rm model}_i(\vec c)$, with the D1 covariance and its eigenvalue pseudo-inverse exactly as `qc3.lattice.chi2` (`eig_rel_cut`$=10^{-12}$; `docs/METHODS.md` §11). Per sector: `SectorRoots.update(c)` → `energies()` (kind `zero` only: D8 excludes `free_level`, §2.2) → D3 (`qc3.lattice.match_levels`: sort, lowest $m$). Analytic gradient (exact given $J$):
+$$\frac{\partial\chi^2}{\partial c_i}=-2\,r^TC^+\frac{\partial E^{\rm model}}{\partial c_i},\qquad \frac{\partial E^{\rm model}_k}{\partial c_i}=J_i\ \text{of the matched root}.\tag{2}$$
+A sector with fewer QC zeros ($\le E_{\max}$) than lattice levels ($n<m$) must not abort the minimiser's trial step and must not return $10^{100}$: the missing levels get the finite residual `penalty_sigmas`$\cdot\sigma_k$ ($100\sigma_k$, $+10^4$ to χ² each) with zero gradient, and `n_penalised_calls` is counted. A trust-region step into such a region is then rejected by the minimiser, and the final stage must report `n_penalised_calls_final_stage = 0` (acceptance). Any `even_zero` or `ambiguous` candidate $\le E_{\max}$ in a tracked set raises `AmbiguousRootError` (loud: a physics decision, §7).
+
+### 2.7 Minimiser — `qc3.fit.fit_cutoff`
+
+Two stages, both deterministic:
+1. **LM** (`scipy.optimize.least_squares(method="lm")`, MINPACK `lmder`, Moré 1977, LNM 630, DOI 10.1007/BFb0067700) on the whitened residual $\rho=L^Tr$ with $C^+=LL^T$ (Cholesky of the pseudo-inverse; it is positive definite here, $\kappa\le2.4\times10^3$), analytic Jacobian $-L^TJ_{\rm model}$, `x_scale`$=\sigma_{\rm GN}$ from $H_{\rm GN}=2J_{\rm model}^TC^+J_{\rm model}$ at the start, `ftol`$=10^{-12}$, `xtol`$=10^{-10}$, `gtol`$=10^{-10}$, `max_nfev`$=200$. Prototype at 0.335: 19 residual and 12 Jacobian evaluations, $\chi^2$ 47.9 → 29.61.
+2. **iminuit Migrad + Hesse** (James & Roos, CPC 10 (1975) 343, DOI 10.1016/0010-4655(75)90039-9; iminuit 2.33, DOI 10.5281/zenodo.3949207, https://scikit-hep.org/iminuit/reference.html) from the LM minimum: `Minuit(fcn, c_lm, grad=fcn.grad)`, `errordef = Minuit.LEAST_SQUARES` (1.0), `errors = σ_GN`, `strategy = 1`, `migrad(ncall=2000)`, `hesse()`. Convergence: `fmin.is_valid` and $\mathrm{EDM}<0.002\cdot\mathrm{tol}\cdot\mathrm{errordef}=2\times10^{-4}$ (iminuit notes Migrad may exceed this by 10×). Report `values`, `errors` (Hesse), `covariance`, `correlation`, `fmin.edm`, `nfcn`, `ngrad`, `has_accurate_covar`, plus the Gauss–Newton errors $\sqrt{\mathrm{diag}(2H_{\rm GN}^{-1})}$ for comparison.
+Why not Migrad alone: with the legacy steps $(10^3,10^4,10^3,10^4)$ or with $\sigma_{\rm GN}$ as initial errors, Migrad's first line searches jump to $30\times$ the start values and visit $\vec c$ where a sector loses a level (prototype, twice). LM's trust region does not. Migrad is still the error estimator Digonto asked for.
+3. **Verification at the minimum** (`verify_fit`): a fresh `scan_sector` of every sector at $\vec c_{\rm fit}$; `counts_equal` (zeros $\le E_{\max}$ vs tracked), `max_root_diff`, `chi2_fresh` from the fresh zeros with D3/D8, `chi2_diff`. Acceptance: counts equal, `max_root_diff`$\le10^{-9}$, $|\chi^2_{\rm fresh}-\chi^2|\le$ the bound of §4.
+4. **Protocol for the cutoff table** (step 6): cutoffs 0.315, 0.325, 0.335, 0.345; every fit starts from $\vec c_{\rm base}$ (not warm-started: the prototype's 0.315 fit with 6 levels and 4 free parameters wandered to $K^{\rm iso}_1=2\times10^7$ with 60–100 % errors, and warm-starting 0.325 from it failed); all four parameters free (as legacy); results JSON `results/fit_L20_q0_consistent_<tag>.json` with provenance. A second table with $K_B=K_E=0$ fixed (2 parameters) is a diagnostic for Digonto (§7), produced by the same CLI with `--fix KB KE`.
+
+## 3. Steps (one builder step each; the tester verifies the done-check and the listed test ids)
+
+| step | what | done-check (tester) | acceptance tests that must turn green |
+|---|---|---|---|
+| 1 | Stubs for §5 (modules `qc3.free_levels`, `qc3.rootscan`, `qc3.tracking`, `qc3.fit`; `qc3.point.SingularQError`, raised by `qc3.fast.evaluate_point` for the C++ `Q is singular` error); then **`qc3.free_levels`** (§2.1) with unit tests (small $L$, brute force) | `pytest --collect-only tests/acceptance` collects 76; `pytest -q tests/acceptance/m2` fails only with `NotImplementedError` before the implementation; after it the free-level tests pass; `python3 -m pytest -q tests --ignore=tests/acceptance` green | `tests/acceptance/m2/test_m2_free_levels.py` (11 tests: `test_free_levels_match_brute_force[*]` ×10, `test_threshold_and_the_110_A2_quartic_free_level`) |
+| 2 | **`qc3.rootscan.scan_sector`** (§2.2 items 1–9) + `read_labels`, `score_labels`, `LABEL_FILES`; unit tests on synthetic $\ell(E)$ (fake evaluator: simple/double/quartic zeros, poles, smooth minima, a jump) | `000_A1m` scan at the baseline: 3 zeros, 7 poles, 2 free-level solutions (orders 2 and 4), $\le10\,000$ evaluations, $\le15$ s; the 110_A2 and 200_A2 free-level cases of §2.2 resolved | `test_m2_rootscan.py::test_scan_000_A1m_coded_v2_reproduces_labels`, `::test_free_level_solutions_detected_with_order_110_A2_and_200_A2` |
+| 3 | **Label gate** on all 7 sectors (slow tests), `scripts/m2/score_labels.py` writing `results/rootscan_label_gate_<tag>.json` (per sector: TP/FP/FN/TN, evaluations, seconds, every candidate); audit N6 fix: `qc3.roots.find_sign_changes` skips brackets that contain a jump (`DimensionJumpError` no longer aborts the whole scan) | FP = FN = 0 in 7/7 sectors, 208 brackets scored (bracket 36 of L24/100_A2 excluded and reported), all even zeros at free levels; the q0_consistent scan reproduces the 12 oracle-verified step-9 roots to $10^{-9}$ | `test_m2_rootscan.py::test_scan_L20_sector_FP_FN_zero[*]` (4), `::test_scan_L24_sector_FP_FN_zero[*]` (2), `::test_scan_q0_consistent_finds_the_oracle_verified_roots_without_labels` |
+| 4 | **`qc3.tracking`**: `root_jacobian`, `secant_root`, `SectorRoots` (§2.5) with unit tests (fake evaluator with a movable root; real one-sector smoke) | $J$ vs finite differences $\le10^{-4}$ relative at 3 roots; tracked vs scan $\le10^{-9}$ after seeded 5 %/30 % steps, 0 full rescans; `rescan()` consistent | `test_m2_tracking.py` (6 tests: `test_root_jacobian_matches_finite_difference[*]` ×3, `test_secant_root_from_jacobian_prediction`, `test_sector_roots_track_random_parameter_steps_and_rescan_agrees`, `test_sector_roots_excludes_free_level_solutions_and_reports_them`) |
+| 5 | **`qc3.fit.QCChi2`**, `make_trackers` (§2.6) with unit tests (synthetic levels/trackers: gradient, D3 with $n>m$, penalty path counted, D8 exclusion) | χ² and model energies at $\vec c_{\rm base}$ (coded_v2, 0.315) equal the window-Brent values; gradient vs finite differences $\le10^{-3}$ | `test_m2_fit.py::test_qcchi2_at_baseline_matches_independent_roots_gradient_and_chi2` |
+| 6 | **`qc3.fit.fit_cutoff`, `verify_fit`, `cutoff_scan`, `save_results`**, CLI `python -m qc3.fit` (§2.7); run the production table (4 cutoffs, q0_consistent, from $\vec c_{\rm base}$) → `results/fit_L20_q0_consistent_m2.json`; the v32w code-equivalence number (coded_v2, 0.335, $\chi^2(\vec c_{\rm v32w})$ and a refit from it) → `results/fit_L20_coded_v2_v32w_check_m2.json`; the 2-parameter diagnostic table → `results/fit_L20_q0_consistent_KBKE0_m2.json`; cross-check χ² of the 0.335 fit's model energies with `tools/audit/chi2_covariance_convention_check.py`'s recipe (same residuals → same χ² to $10^{-6}$; the tool must be given the new model energies, not the legacy CSV) | fits valid; verification passes; JSON provenance complete | `test_m2_fit.py::test_cutoff_scan_q0_consistent_0335_two_stage_fit_verifies_and_records`, `::test_v32w_code_equivalence_chi2_at_c_v32w_is_recorded_not_reproduced` |
+| 7 | Docs and hygiene: METHODS §12–§14, §17; ROOT_FINDING §5; `docs/OPEN_ISSUES.md` #5/#6 closed-by notes; `data/README.md` (labels now scored by `scripts/m2/score_labels.py`); `scripts/m1/k2_pwave_shift.py` untouched | docs mention every new module and the gate result with the report path | — |
+| gate | tester `full` (m1+m2, 76 tests incl. slow; unit tests; `acceptance-check`), auditor, tester `benchmark` (§6), tag `milestone-2` | — | all |
+
+Expected per-step cost (1 core): step 1 minutes; step 2 build + 15 s test; step 3 the slow gate ≈ 2.5 min (5 L20 ≈ 50 s, 2 L24 ≈ 40 s, q0 scans ≈ 60 s); step 4 ≈ 1 min of tests; step 5 ≈ 20 s; step 6 the production table ≈ 4 × (2 min scans + 1 min fit + 1 min verification) ≈ 15 min, test ≈ 4 min. Memory < 200 MB.
+
+## 4. Acceptance tests and tolerances (`tests/acceptance/m2/`, 29 tests, locked as `acceptance-v6` with the 47 M1 tests)
+
+| test (file::id) | checks | tolerance | justification |
+|---|---|---|---|
+| `test_m2_free_levels.py::test_free_levels_match_brute_force[irrep-Lbyas]` (10) | sorted distinct $E^*$, multiplicities and state sets vs an independent brute-force enumeration in `m2_helpers`, 5 irreps × $L/a_s\in\{20,24\}$ | $10^{-12}$ | pure float64 arithmetic on three square roots: round-off $\lesssim10^{-16}$ relative; margin $10^3$ |
+| `::test_threshold_and_the_110_A2_quartic_free_level` | lowest 000_A1m level $=2m_K+m_\pi$; 110_A2 level at 0.319468828, multiplicity 2, states $K(\mathbf0)K(010)\pi(100)$, $K(\mathbf0)K(100)\pi(010)$; inclusive/empty ranges | $10^{-14}$; $5\times10^{-10}$ | exact arithmetic; the report quotes 9 digits |
+| `test_m2_rootscan.py::test_scan_000_A1m_coded_v2_reproduces_labels` | segments = `dimension_jumps`; 10 brackets: TP 3, TN 7, FP = FN = 0, no unlabelled zero; zeros $\Delta_h\le-8$, poles $\ge+8$, `order_int`=1, `slope`$>0$; 2 free-level solutions (orders 2, 4) within $10^{-7}$ of a free level; no `ambiguous`/`even_zero`; $\le10\,000$ evaluations; `score_labels` agrees | slack $\tfrac14$ row; $|\Delta_h|\ge8$; free $10^{-7}$ | slack: zeros lie inside their bracket by $\ge1.5\times10^{-8}$, fast-vs-legacy $\le4.4\times10^{-8}$, neighbours $\ge7$ rows apart; $\Delta_h$: bound 11.5, measured $\ge11.60$ (as M1 `DISC_MIN`); free: §2.2 item 7 |
+| `::test_scan_L20_sector_FP_FN_zero[100_A2,110_A2,111_A2,200_A2]` (slow) | same checks; TP = 2/4/5/5, TN = 23/32/25/30 | same | same; prototype 0 mismatches |
+| `::test_scan_L24_sector_FP_FN_zero[000_A1m,100_A2]` (slow) | same at $L/a_s=24$; bracket 36 of 100_A2 excluded | same | same; prototype 0 mismatches |
+| `::test_free_level_solutions_detected_with_order_110_A2_and_200_A2` | 110_A2 $[0.3190,0.3200]$: one `free_level` at 0.319468828, `sign_change` False, order 4 ($|m-4|\le0.05$), $|{\rm slope}|<10^{-6}$, and the labelled zero 0.3191549427 as the only `zero`; 200_A2 $[0.3465,0.3470]$: one `free_level` at the free level, a pole in $(0.34678,0.34679)$, no `zero` | $5\times10^{-10}$; 0.05; $10^{-9}$ | order error $\lesssim\ell''_{\rm bg}(h_2^2-h_1^2)/\ln(h_2/h_1)\approx10^{-3}$ for $d_{\rm pole}\ge10^{-4}$, measured $\le8\times10^{-4}$, margin 60; root tolerance as M1 |
+| `::test_scan_q0_consistent_finds_the_oracle_verified_roots_without_labels` (slow) | production form: 12 zeros $\le0.335$ (1/2/4/2/3 per sector), each step-9 root (oracle-verified to $2\times10^{-12}$) found | $10^{-9}$ | `prompts/001` §4 root tolerance (Brent `xtol` $10^{-11}$, measured $\le2\times10^{-12}$) |
+| `test_m2_tracking.py::test_root_jacobian_matches_finite_difference[*]` (3) | eq. (1) vs central differences of Brent roots, relative step $10^{-3}$; $J_0<0$; $\Delta_h\le-8$, `slope`$>0$ | $10^{-4}$ relative | FD truncation $\sim(10^{-3})^2/6$; measured $4\times10^{-8}$–$1.8\times10^{-6}$; margin $\ge50$ |
+| `::test_secant_root_from_jacobian_prediction` | seed 20261024, 5 %/30 % changes: secant root vs Brent; $\le10$ evaluations; predictor within 30 % of the move | $10^{-9}$ | as above; measured $\le2.4\times10^{-12}$, 4–7 evaluations, predictor $\le15\%$ |
+| `::test_sector_roots_track_random_parameter_steps_and_rescan_agrees` (slow) | 100_A2, 200_A2: five seeded steps; tracked roots vs windowed `scan_sector`; evaluations $\le12$ per root per sub-step ($+400$ per local rescan); no-op update costs nothing; `rescan()` agrees; 0 full rescans | $10^{-9}$ | budget from 4–7 + 2 measured; $400\approx$ one windowed scan at 4-row step over 120 rows plus Brent |
+| `::test_sector_roots_excludes_free_level_solutions_and_reports_them` | 110_A2 $[0.3190,0.3200]$: one tracked zero, one reported free-level solution | $10^{-9}$, $5\times10^{-10}$ | D8 |
+| `test_m2_fit.py::test_qcchi2_at_baseline_matches_independent_roots_gradient_and_chi2` | cutoff 0.315 (6 levels), coded_v2, $\vec c_{\rm base}$, tracked range $[E_0,0.32]$: model energies = window-Brent roots; χ² = `lattice.chi2` of those; eq. (2) vs central differences (relative step $10^{-4}$); `errordef` 1; no penalised call; `J_model[:,0]<0` | $10^{-9}$; $10^{-4}$; $10^{-3}$ relative | roots as M1; χ²: rigorous bound $|\delta\chi^2|\le2\sqrt{\chi^2}\sqrt q+q$, $q=m\,\delta E^2/\lambda_{\min}(C)$, $=1.3\times10^{-5}$ for $\delta E=10^{-11}$ (research 009 §3.4), margin 8; gradient: truncation $\sim10^{-8}$, round-off $\sim10^{-6}$ |
+| `::test_cutoff_scan_q0_consistent_0335_two_stage_fit_verifies_and_records` (slow) | 12 levels, $\nu=8$; valid; $\mathrm{EDM}<2\times10^{-3}$; $\chi^2\le\chi^2_{\rm start}$, $\chi^2\le\chi^2_{\rm LM}+10^{-6}$, $\chi^2_{\rm LM}-\chi^2\le2\times10^{-3}$; errors $>0$, Hesse vs Gauss–Newton within ×3; covariance SPD, correlation unit diagonal; `n_penalised_calls_final_stage` = 0; verification: counts equal, roots $\le10^{-9}$, $|\chi^2_{\rm fresh}-\chi^2|\le$ bound; JSON provenance (commit, core commit, numpy/scipy/iminuit, machine, constants incl. form, D1/D3 strings, seeds, `is_a_fit`) | as listed | EDM: iminuit's $2\times10^{-4}$ with the documented 10× slack; χ² bound: $1.3\times10^{-3}$ at $\delta E=10^{-9}$ (evaluated from the actual covariance in the test); Hesse/GN: prototype 15–60 % apart (GN drops the residual×curvature term) |
+| `::test_v32w_code_equivalence_chi2_at_c_v32w_is_recorded_not_reproduced` (slow) | coded_v2, 0.335, 12 levels at $\vec c_{\rm v32w}$: finite, no penalty, D3 with $n>m$ in 000_A1m/111_A2 uses the lowest roots; model energies vs Brent; χ² vs `lattice.chi2` | $10^{-9}$; $10^{-4}$ | as above. **Not** compared with 11.4897 (inputs differ, §0 item 4) |
+
+Tolerance changes go through the planner only. If a locked test cannot be met because the **labels** are found wrong (a labelled TRUE bracket without a zero, or a zero outside every bracket that is not a free-level solution), stop and report to Digonto; do not loosen.
+
+## 5. Interface (what the acceptance tests import; the builder creates stubs raising `NotImplementedError` in step 1)
+
+Package `src/python/qc3/`. Arrays float64, energies $E^*$ in $a_t^{-1}$. `evaluate` always has the M1 signature `evaluate(sector, E, c, want=("Q",)) -> PointResult`.
+
+### 5.0 `qc3.point` (addition) and `qc3.fast`
+```python
+class SingularQError(ValueError): ...   # qc3.fast.evaluate_point raises it (instead of a bare ValueError) when the C++ LU reports an exactly zero pivot
+```
+
+### 5.1 `qc3.free_levels`
+```python
+@dataclass(frozen=True)
+class FreeLevel: E: float; multiplicity: int; states: tuple   # states: tuple of (n_K1, n_K2, n_pi), each an int 3-tuple, n_K1 <= n_K2 lexicographic
+def free_levels(sector: Sector, E_min: float, E_max: float) -> np.ndarray          # sorted distinct E* in [E_min, E_max] (inclusive), any irrep, total momentum sector.nnP
+def free_level_states(sector: Sector, E_min: float, E_max: float) -> list[FreeLevel]
+```
+
+### 5.2 `qc3.rootscan`
+```python
+SCAN_DEFAULTS = dict(step_rows=4.0, fine_step_rows=0.25, edge=2e-6, h=1e-6, h2=3e-6, D=4.0, xtol=1e-11, min_xatol=1e-8, free_tol=1e-7, order_tol=0.3)
+KINDS = ("zero", "pole", "even_zero", "free_level", "ambiguous")
+LABEL_FILES: dict[tuple[int, str], str]        # (Lbyas, irrep) -> path relative to the data root, the 7 files of data/labels
+@dataclass
+class RootCandidate:
+    E: float; kind: str; order: float | None; order_int: int | None; sign_change: bool; discriminant: float
+    slope: float | None       # u^T Q'(E) u (zero-like kinds), None for poles
+    N: int; segment: tuple[float, float]; bracket: tuple[float, float]; via: str   # "sign" | "min" | "free"
+    free_level: float | None; n_evaluations: int
+@dataclass
+class ScanResult:
+    sector: Sector; c: tuple; E_min: float; E_max: float; candidates: list[RootCandidate]   # sorted by E
+    jumps: np.ndarray; segments: list[tuple[float, float]]; n_evaluations: int; n_grid: int; seconds: float; options: dict
+    def zeros(self) -> np.ndarray          # E of kind == "zero", sorted
+    def poles(self) -> np.ndarray
+    def of_kind(self, kind: str) -> list[RootCandidate]
+def scan_sector(evaluate, sector: Sector, c, E_min: float, E_max: float, options: dict | None = None) -> ScanResult
+def read_labels(path) -> list[dict]           # absolute path, or relative to qc3.lattice.default_data_dir() (as the LABEL_FILES values); rows {"bracket_id": int, "E_left": float, "E_right": float, "label": "true"|"false"|""}
+def score_labels(result: ScanResult, labels: list[dict], slack_rows: float = 0.25, exclude_ids=()) -> dict
+    # {"tp","fp","fn","tn": int, "mismatches": list[dict], "unlabelled_zeros": list[RootCandidate], "excluded": list[int]}
+```
+
+### 5.3 `qc3.tracking`
+```python
+TRACK_DEFAULTS = dict(h=1e-6, D=4.0, xtol=1e-11, max_iter=12, max_move_rows=20.0, safeguard_factor=10.0, safeguard_abs=1e-6,
+                      local_rows=60, local_steps_rows=(4.0, 1.0, 0.25), park_margin=0.005)
+class RootSetChangedError(MissingRootError): ...
+@dataclass
+class TrackedRoot: E: float; J: np.ndarray; slope: float; discriminant: float; N: int; segment: tuple[float, float]
+def root_jacobian(evaluate, sector, c, E0: float, h=1e-6, D=4.0, lnabsdet_at_root: float | None = None) -> TrackedRoot
+    # eq. (1); 2 evaluations at E0 +- h (+1 at E0 if lnabsdet_at_root is None, SingularQError there = exact root); raises PoleError/AmbiguousRootError/DimensionJumpError
+def secant_root(evaluate, sector, c, E_pred: float, scale: float, xtol=1e-11, max_iter=12) -> tuple[float, float, int]
+    # (E, lnabsdet of the last evaluated iterate, n_evaluations); never evaluates at the returned E; SingularQError at an iterate returns that iterate
+class SectorRoots:
+    def __init__(self, sector, c0, E_min, E_max, evaluate=qc3.fast.evaluate_point, scan_options=None, track_options=None)
+    sector: Sector; c: np.ndarray; E_min: float; E_max: float; scan: ScanResult; roots: list[TrackedRoot]   # tracked zeros (incl. parked), sorted
+    free_level_solutions: list[RootCandidate]; n_evaluations: int; n_local_rescans: int; n_full_rescans: int; n_substeps: int
+    def update(self, c) -> np.ndarray      # section 2.5; returns energies()
+    def energies(self) -> np.ndarray       # tracked zeros with E <= E_max, sorted
+    def jacobian(self) -> np.ndarray       # (len(energies()), 4), same order
+    def rescan(self) -> ScanResult         # full scan at self.c; RootSetChangedError if zeros() differ (count or > 1e-9)
+```
+
+### 5.4 `qc3.fit`
+```python
+C_V32W = (34470.228772793678, -1035173.9140440958, 253921.14757953485, -961680.91711685632); V32W_CHI2 = 11.489748255611568
+class QCChi2:
+    errordef = 1.0
+    def __init__(self, levels: LevelSet, trackers: dict[str, SectorRoots], penalty_sigmas: float = 100.0)
+    Cinv: np.ndarray; n_calls: int; n_grad_calls: int; n_penalised_calls: int
+    def __call__(self, c) -> float
+    def grad(self, c) -> np.ndarray                      # eq. (2), shape (4,)
+    def model(self, c) -> tuple[np.ndarray, np.ndarray]  # (E_model aligned with levels.labels, J_model (m, 4))
+@dataclass
+class FitResult:
+    cutoff: float; k2_pwave_form: str; Lbyas: int; labels: list; E_lat: np.ndarray; sigma: np.ndarray; cov_lattice: np.ndarray
+    E_model: np.ndarray; residual_over_sigma: np.ndarray; c_start: tuple; c: np.ndarray; errors: np.ndarray; errors_gauss_newton: np.ndarray
+    covariance: np.ndarray; correlation: np.ndarray; chi2: float; chi2_start: float; chi2_lm: float; ndof: int; chi2_per_dof: float
+    edm: float; valid: bool; accurate: bool; nfcn: int; ngrad: int; n_evaluations: int; n_local_rescans: int; n_full_rescans: int
+    n_penalised_calls: int; n_penalised_calls_final_stage: int; seconds: float; minimizer: str; verification: dict | None
+def make_trackers(irreps, c0, Lbyas=20, k2_pwave_form=K2_PWAVE_FORM_DEFAULT, E_min=GRID_E0, E_max=0.36, evaluate=qc3.fast.evaluate_point) -> dict[str, SectorRoots]
+def fit_cutoff(levels: LevelSet, trackers: dict, c_start, *, minimizer="lm+migrad", strategy=1, ncall=2000, lm_options=None, fixed=(), verify=True) -> FitResult
+def verify_fit(fit: FitResult, trackers: dict, levels: LevelSet) -> dict
+    # {"counts_equal": bool, "max_root_diff": float, "chi2_fresh": float, "chi2_diff": float, "n_evaluations": int, "seconds": float, "per_sector": {irrep: {"tracked": [...], "fresh": [...]}}}
+def cutoff_scan(data_dir, Lbyas, cutoffs, c_start, k2_pwave_form, irreps=IRREPS, E_min=GRID_E0, E_max=0.36, out_json=None, verify=True, fixed=(), evaluate=qc3.fast.evaluate_point) -> list[FitResult]
+    # trackers built once at c_start; every cutoff starts from c_start (section 2.7 item 4); writes save_results if out_json
+def save_results(fits: list[FitResult], path, extra: dict | None = None) -> None
+    # JSON: {"kind": "qc3.fit", "is_a_fit": True, "provenance": {git_commit, git_tree_dirty, core_built_at_commit, core_version, numpy, scipy, iminuit, date, machine, command},
+    #        "constants": {"production": PRODUCTION, "k2_pwave_form", "c_start", "covariance": "D1 ...", "matching": "D3 ...", "exclusion": "D8 ...", "grid"}, "seeds": {"stochastic_inputs": None, "note": ...}, "fits": [asdict(FitResult)...]}
+# CLI: python -m qc3.fit --cutoffs 0.315 0.325 0.335 0.345 --form q0_consistent --out results/fit_L20_q0_consistent_<tag>.json [--fix KB KE] [--c-start baseline|v32w]
+```
+
+## 6. Benchmark protocol (tester, mode `benchmark`, after the audit; `reports/benchmarks/002-*.md`, `results/bench_m2_*.json`)
+
+1 core, `OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1`, pinned, minima and medians over repeats, same machine description as `reports/benchmarks/001`. Report: (a) full `scan_sector` per L20 sector at the baseline (evaluations, seconds; compare with 20 000 legacy rows); (b) χ² evaluation cost: median/min/max evaluations and ms per `QCChi2` call over the Migrad+Hesse stage of the 0.335 fit (prototype 114 evaluations, 223 ms) and the same with only the lowest $m+1$ roots per sector tracked if implemented; (c) wall time of one `cutoff_scan` at 0.335 split into scans / LM / Migrad+Hesse / verification (prototype ≈110 / ≈10 / ≈30 / ≈47 s); (d) the M1 χ² proxy for continuity (0.122 s). Compare with the legacy numbers: 1.4 s per direct FCN, 24 ms per hot-window FCN after 300–1570 s of cache building per sector.
+
+## 7. Decisions and questions for Digonto (the coordinator asks; none blocks steps 1–5)
+
+1. **v32w cross-check (needed before step 6 is called "done").** With the repo's `.jack` files, `coded_v2`, D1 covariance and 12 levels at 0.335, $\chi^2(\vec c_{\rm v32w})=55.04$ (prototype), v32w reported 11.49 with a covariance built from the `masses` files of the two-point analysis. Options: (a) accept that the v32w number is not reproducible from the repo and record the code-equivalence check as done (what step 6 does); (b) provide the `masses` files (or the v32w output `*_fit_levels.dat` with its covariance) so that the comparison can be made properly.
+2. **Fit quality and parameter freedom.** Prototype `q0_consistent` fits: 0.335, 12 levels: $\chi^2/\nu=3.70$ with $\vec c=(6.2\times10^5,5.8\times10^5,-1.60\times10^6,4.96\times10^6)$, Hesse errors $(2.4,4.9,5.0,16)\times10^5$, $K_B$–$K_E$ correlation $-0.955$; 0.315, 6 levels: $\chi^2/\nu=1.32$ but $\vec c$ runs to $(3.1\times10^6,2.2\times10^7,-6.0\times10^6,-6.9\times10^6)$ with 60–100 % errors. Should the low cutoffs fix $K_B=K_E=0$ (or $K^{\rm iso}_1$)? Should parameter limits be imposed? Step 6 produces both the 4-parameter table and the $K_B=K_E=0$ table so that Digonto can decide with numbers.
+3. **Residue-sign rule (proposed D9).** Zeros with `slope`$<0$ are unphysical by arXiv:1901.07095 Eq. (64). All 31 labelled zeros have `slope`$>0$. Proposal: record now (done in M2), exclude from matching only after Digonto confirms; if confirmed, the kind becomes `"unphysical_zero"` in a later plan.
+4. **Anchor tolerances $10^{-10}/10^{-9}$** (audit N4/N5): unchanged in M2 (same machine). Proposal for the next machine change: compare roots at $10^{-9}$ instead of $\ln|\det|$ at ill-conditioned anchors ($\kappa\gtrsim10^{12}$), or scale the $\ln|\det|$ tolerance as $10\,\kappa(Q)\,\varepsilon$. Not changed here.
+5. **Unlabelled or ambiguous candidates during a fit.** An `even_zero` or `ambiguous` candidate away from any free level raises and stops the fit (loud). Digonto decides case by case; none occurred in the prototypes.
+6. **L24.** The L24 labels are scored (gate), but no L24 fit is possible without the L24 `.jack` files (M3).
+
+## 8. Do-not-retry list (additions to `prompts/001` §6 and `prompts/002` §6)
+
+- Migrad as the first-stage minimiser (with legacy steps or with $\sigma_{\rm GN}$ as initial errors): its line searches jump to $30\times$ the start values and lose levels (two prototype runs).
+- Returning $10^{100}$ (or raising) for a missing level inside the fit function: breaks Migrad's Hessian / aborts LM trial steps; use the finite penalty of §2.6 and count it.
+- Evaluating $\det Q$ exactly at a converged root for the null vector or the classification: exact zero pivot (`Q is singular`).
+- Secant corrector from a prediction more than ~20 rows away from the true root without sub-stepping: crosses poles / other roots (prototype 30 % steps needed the fallback).
+- Local rescans with `qc3.roots.find_zeros` across a dimension jump: `DimensionJumpError` aborts the whole scan (audit N6); use `scan_sector` on the window (it splits at jumps).
+- Taking the null vector from the smallest-$|\lambda|$ eigenvector of $Q(E_0+h)$ alone: at 110_A2 n=2 the next eigenvalue is only $2.3\times10^{-7}$; use $\bar Q$ of eq. (1).
+- Warm-starting a cutoff from the previous (lower) cutoff's 4-parameter minimum (prototype: 0.325 from the 0.315 minimum at $K^{\rm iso}_1=2\times10^7$ failed with `MissingRootError`).
+- Interpolating roots on a fixed energy grid inside the fit function (legacy: discontinuous χ²).
+- Eigenvalue-branch tracking across the energy range to find roots (`docs/ROOT_FINDING.md` §2, v29–v31b).
+- The order estimate with $h_2=10^{-5}$ when a pole is within $10^{-5}$ (polluted; 200_A2 case) — use $h_2=3\times10^{-6}$ and the free-level rule.
+
+## 9. Risks and stop conditions
+
+- **Labels wrong or a genuine unlabelled zero** (a `zero` outside every bracket that is not a free-level solution): stop, report to Digonto (invariant 7 says the labels are ground truth; a disagreement is a physics question).
+- **Blind spot** (opposite-type pair closer than $1.2\times10^{-6}$): if `verify_fit` ever reports `counts_equal=False` with the tracked set larger than the fresh scan, suspect this first; the fix is a finer `fine_step_rows`, a method change only if that fails (planner).
+- **Fits**: `MissingRootError` ($n<m$) at the start vector, more than 5 full rescans in one fit, or a Migrad stage with penalised calls → report; after two failed builder attempts on the same fit, fixer; a method change (e.g. parameter limits) is Digonto's call (§7.2).
+- **Cost**: a full scan is ≈10 s per L20 sector; a fit at 0.335 ≈ 4 min end to end. If a step's test exceeds 10 min, re-plan the test, not the tolerance.
+- Stop and ask Digonto when: any locked test is believed wrong; a fit converges to a χ² that contradicts the step-9 level shifts (e.g. levels moving the wrong way for an attractive $a_1$); or L24 data / cluster time would be needed.
+
+## 10. Expected cost
+
+Builder: steps 1–2 half a day each; 3–6 one day each; 7 hours. Tester per step: 1–5 min (non-slow) + 2–4 min slow; the gate ≈ 15 min of tests. Production table (step 6) ≈ 15 min on one core, < 200 MB. No GPU, no cluster, no new data.
