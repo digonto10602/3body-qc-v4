@@ -205,3 +205,17 @@ def test_lm_trial_point_with_an_ambiguous_candidate_is_rejected_counted_and_repo
     tr2 = {"000_A1m": FlakyTracker("000_A1m"), "100_A2": Tracker("100_A2")}
     with pytest.raises(AmbiguousRootError):                                    # the switch restores the loud behaviour
         fit.fit_cutoff(lv, tr2, start, verify=False, reject_ambiguous_trials=False)
+
+
+def test_error_gap_flag_synthetic():
+    err = np.array([1.0, 2.0, 0.0, 4.0])
+    ok = np.array([1.1, 1.8, 0.0, 4.4])                       # ratios 1.1, 0.9, (fixed), 1.1: inside [1/1.2, 1.2]
+    gap, dis, names = fit.error_gap_flags(err, ok, (0, 1, 3))
+    assert np.allclose(gap[[0, 1, 3]], [1.1, 0.9, 1.1]) and np.isnan(gap[2]) and not dis and names == []
+    bad = np.array([1.3, 2.0, 0.0, 3.0])                      # 1.3 > 1.2 ; 0.75 < 1/1.2 ; middle one fine
+    gap, dis, names = fit.error_gap_flags(err, bad, (0, 1, 3))
+    assert dis and names == [fit.PARAM_NAMES[0], fit.PARAM_NAMES[3]]
+    gap, dis, names = fit.error_gap_flags(err, np.full(4, np.nan), (0, 1, 3))      # FD Hessian failed: cannot confirm -> flagged
+    assert dis and len(names) == 3
+    gap, dis, names = fit.error_gap_flags(err, bad, (1,))      # only the free parameter counts
+    assert not dis and names == []

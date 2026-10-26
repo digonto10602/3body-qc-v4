@@ -254,6 +254,10 @@ class FitResult:
     fd_hessian_rel: float | None = None       # step (in units of sigma) that gave errors_fd_hessian; None if all failed
     fd_hessian_note: str = ""                 # why a larger step failed (e.g. a level moved across a basis-dimension jump)
     ambiguous_trials_lm: list = field(default_factory=list)   # LM trial points rejected because a scan candidate was ambiguous (see fit_cutoff)
+    # Digonto 2026-10-26: report BOTH error estimates and flag gaps (diagnostic only, no effect on chi2 or the fit)
+    error_gap: np.ndarray = field(default_factory=lambda: np.full(4, np.nan))   # errors_fd_hessian / errors (Hesse); NaN for fixed parameters or if either is unavailable
+    errors_disagree: bool = False             # True if any free parameter has error_gap outside [1/ERROR_GAP_TOL, ERROR_GAP_TOL] (or NaN)
+    errors_disagree_params: list = field(default_factory=list)   # names of those parameters
 
 
 def make_trackers(irreps, c0, Lbyas=20, k2_pwave_form=K2_PWAVE_FORM_DEFAULT, E_min=GRID_E0, E_max=0.36,
@@ -308,6 +312,25 @@ def _fd_hessian_errors(fcn: QCChi2, c, errors, free, rels=(0.02, 0.002)) -> tupl
         out[fr] = np.sqrt(np.diag(2.0 * np.linalg.inv(0.5 * (H + H.T))))
         return out, rel, last
     return np.full(4, np.nan), None, last
+
+
+ERROR_GAP_TOL = 1.2
+
+
+def error_gap_flags(errors, errors_fd, free, tol=ERROR_GAP_TOL) -> tuple:
+    """(error_gap, errors_disagree, errors_disagree_params).  error_gap[i] = errors_fd[i] / errors[i] (NaN for fixed parameters).
+    A free parameter disagrees if the ratio is outside [1/tol, tol]; a NaN / non-finite ratio of a free parameter (FD Hessian failed,
+    zero Hesse error) also counts as disagreeing, because the cross-check could not confirm the Hesse error."""
+    errors = np.asarray(errors, dtype=float)
+    errors_fd = np.asarray(errors_fd, dtype=float)
+    gap = np.full(4, np.nan)
+    bad = []
+    with np.errstate(divide="ignore", invalid="ignore"):
+        for i in free:
+            gap[i] = errors_fd[i] / errors[i]
+            if not (np.isfinite(gap[i]) and 1.0 / tol <= gap[i] <= tol):
+                bad.append(PARAM_NAMES[i])
+    return gap, len(bad) > 0, bad
 
 
 def _unconstrained(names_free, c, errors, correlation, accurate) -> list:
@@ -455,6 +478,7 @@ def fit_cutoff(levels: LevelSet, trackers: dict, c_start, *, minimizer="lm+migra
         lm_nfev=int(lm.nfev), lm_njev=int(lm.njev or 0), seconds_lm=seconds_lm, seconds_migrad=seconds_migrad,
         E_max_tracked=E_max_tracked, migrad_calls=migrad_calls, ambiguous_trials_lm=ambiguous_trials,
         errors_fd_hessian=errors_fd, fd_hessian_rel=fd_rel, fd_hessian_note=fd_msg)
+    res.error_gap, res.errors_disagree, res.errors_disagree_params = error_gap_flags(errors, errors_fd, free)
     res.unconstrained_reasons = _unconstrained(list(free), c, errors, correlation, accurate)
     res.unconstrained = len(res.unconstrained_reasons) > 0
     if verify:
@@ -603,18 +627,21 @@ def save_results(fits: list, path, extra: dict | None = None) -> None:
 
 
 def format_fit(r: FitResult) -> str:
-    """Plain-text summary of one fit (chi2, chi2/nu, values +- Hesse errors, correlation, flags, D9 warnings)."""
+    """Plain-text summary of one fit (chi2, chi2/nu, values +- Hesse and FD-Hessian errors with their ratio and a disagreement marker, correlation, flags, D9 warnings)."""
     free = [i for i, n in enumerate(PARAM_NAMES) if n not in r.fixed]
     lines = [f"cutoff {r.cutoff:.3f}  form {r.k2_pwave_form}  m={len(r.labels)} levels  n_free={r.n_free}  ndof={r.ndof}  "
              f"chi2={r.chi2:.4f}  chi2/nu={r.chi2_per_dof:.4f}  (start {r.chi2_start:.3f}, LM {r.chi2_lm:.4f})  valid={r.valid}  "
              f"EDM={r.edm:.2e}  accurate_cov={r.accurate}"]
     for i in range(4):
         tag = ("fixed" if PARAM_NAMES[i] in r.fixed else
-               f"+- {r.errors[i]:.4g} (GN {r.errors_gauss_newton[i]:.4g}, FD-Hessian {r.errors_fd_hessian[i]:.4g})")
+               f"+- {r.errors[i]:.4g} [Hesse]  +- {r.errors_fd_hessian[i]:.4g} [FD-Hessian]  ratio FD/Hesse {r.error_gap[i]:.3f} "
+               f"(GN {r.errors_gauss_newton[i]:.4g})" + ("  <-- ERRORS DISAGREE" if PARAM_NAMES[i] in r.errors_disagree_params else ""))
         lines.append(f"    {PARAM_NAMES[i]:6s} = {r.c[i]: .6e} {tag}")
     if len(free) > 1:
         lines.append("    correlation (free): " + "; ".join(f"{PARAM_NAMES[i]},{PARAM_NAMES[j]}={r.correlation[i, j]:+.3f}"
                                                             for a, i in enumerate(free) for j in free[a + 1:]))
+    if r.errors_disagree:
+        lines.append(f"    WARNING: Hesse and FD-Hessian errors disagree by more than a factor {ERROR_GAP_TOL} for {r.errors_disagree_params}")
     lines.append(f"    unconstrained={r.unconstrained} {r.unconstrained_reasons}")
     lines.append(f"    max|r/sigma|={np.max(np.abs(r.residual_over_sigma)):.2f}  nfcn={r.nfcn} ngrad={r.ngrad} chi2_calls={r.n_chi2_calls} "
                  f"QC_evals={r.n_evaluations} local/full rescans={r.n_local_rescans}/{r.n_full_rescans} "
