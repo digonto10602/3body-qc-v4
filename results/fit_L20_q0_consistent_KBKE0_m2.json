@@ -2,17 +2,17 @@
  "kind": "qc3.fit",
  "is_a_fit": true,
  "provenance": {
-  "git_commit": "e9d0215",
-  "git_tree_dirty": true,
-  "core_built_at_commit": "a93e308",
+  "git_commit": "9911237",
+  "git_tree_dirty": false,
+  "core_built_at_commit": "9911237",
   "core_version": "0.5.1-step7.7",
   "numpy": "2.5.3",
   "scipy": "1.18.1",
-  "date": "2026-10-24T23:08:18+00:00",
+  "date": "2026-10-26T18:27:50+00:00",
   "build_flags": "see build.sh COMMON (-std=c++17 -O3 -fopenmp); not introspectable from the module",
   "iminuit": "2.33.0",
   "machine": {
-   "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+   "cpu_model": "Intel(R) Xeon(R) Processor @ 2.80GHz",
    "cores_online": 4,
    "cores_allowed": 4,
    "platform": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
@@ -287,7 +287,7 @@
    "n_full_rescans": 0,
    "n_penalised_calls": 0,
    "n_penalised_calls_final_stage": 0,
-   "seconds": 3.9634250580002117,
+   "seconds": 5.696250629000019,
    "minimizer": "lm+migrad",
    "verification": {
     "counts_equal": true,
@@ -297,7 +297,7 @@
     "chi2_bound": 0.0003338053080731976,
     "ok": true,
     "n_evaluations": 15467,
-    "seconds": 13.344666658000278,
+    "seconds": 16.804891723000082,
     "margin": 0.002,
     "per_sector": {
      "000_A1m": {
@@ -369,9 +369,9 @@
    "lm_status": 2,
    "lm_nfev": 19,
    "lm_njev": 12,
-   "seconds_scan": 13.491633763000209,
-   "seconds_lm": 1.3635001679995185,
-   "seconds_migrad": 2.5990245589982806,
+   "seconds_scan": 17.77101719799998,
+   "seconds_lm": 1.9635669399999642,
+   "seconds_migrad": 3.7320913290000135,
    "E_max_tracked": 0.32,
    "migrad_calls": 1,
    "errors_fd_hessian": [
@@ -392,7 +392,15 @@
      ],
      "message": "local rescan [0.2910106, 0.2915920]: 1 candidate(s) of kind ambiguous/even_zero in sector 100_A2, first at E=0.2913028156890069 (kind ambiguous, order 1.741135731241332, Delta_h -19.786); a physics decision, not dropped silently (prompts/003 section 2.6)"
     }
-   ]
+   ],
+   "error_gap": [
+    0.9979256626706172,
+    0.9967671973060213,
+    "nan",
+    "nan"
+   ],
+   "errors_disagree": false,
+   "errors_disagree_params": []
   },
   {
    "cutoff": 0.325,
@@ -672,7 +680,7 @@
    "n_full_rescans": 0,
    "n_penalised_calls": 0,
    "n_penalised_calls_final_stage": 0,
-   "seconds": 3.9037013899996964,
+   "seconds": 5.591830979999941,
    "minimizer": "lm+migrad",
    "verification": {
     "counts_equal": true,
@@ -682,7 +690,7 @@
     "chi2_bound": 0.0006929859079789731,
     "ok": true,
     "n_evaluations": 23328,
-    "seconds": 22.138529468000343,
+    "seconds": 27.73468552999998,
     "margin": 0.002,
     "per_sector": {
      "000_A1m": {
@@ -766,9 +774,9 @@
    "lm_status": 2,
    "lm_nfev": 19,
    "lm_njev": 12,
-   "seconds_scan": 21.522278714001004,
-   "seconds_lm": 1.3926332099999854,
-   "seconds_migrad": 2.51055217099929,
+   "seconds_scan": 29.485041403999958,
+   "seconds_lm": 2.211194631000012,
+   "seconds_migrad": 3.3797720280000476,
    "E_max_tracked": 0.33,
    "migrad_calls": 1,
    "errors_fd_hessian": [
@@ -798,7 +806,15 @@
      ],
      "message": "local rescan [0.2910133, 0.2915948]: 1 candidate(s) of kind ambiguous/even_zero in sector 100_A2, first at E=0.2913057694151272 (kind ambiguous, order -0.013504529676110977, Delta_h -13.941); a physics decision, not dropped silently (prompts/003 section 2.6)"
     }
-   ]
+   ],
+   "error_gap": [
+    1.0012148325770154,
+    1.0010869752213432,
+    "nan",
+    "nan"
+   ],
+   "errors_disagree": false,
+   "errors_disagree_params": []
   },
   {
    "cutoff": 0.335,
@@ -1171,7 +1187,7 @@
    "n_full_rescans": 1,
    "n_penalised_calls": 0,
    "n_penalised_calls_final_stage": 0,
-   "seconds": 12.863411631000417,
+   "seconds": 16.48899299499999,
    "minimizer": "lm+migrad",
    "verification": {
     "counts_equal": true,
@@ -1181,7 +1197,7 @@
     "chi2_bound": 0.0009814545660807614,
     "ok": true,
     "n_evaluations": 28063,
-    "seconds": 28.79516925900134,
+    "seconds": 36.32364216299993,
     "margin": 0.002,
     "per_sector": {
      "000_A1m": {
@@ -1271,9 +1287,9 @@
    "lm_status": 2,
    "lm_nfev": 11,
    "lm_njev": 6,
-   "seconds_scan": 28.934370183000283,
-   "seconds_lm": 8.974519022000095,
-   "seconds_migrad": 3.888218763999248,
+   "seconds_scan": 38.32561055000008,
+   "seconds_lm": 11.704469820999975,
+   "seconds_migrad": 4.783969178000007,
    "E_max_tracked": 0.34,
    "migrad_calls": 1,
    "errors_fd_hessian": [
@@ -1284,7 +1300,15 @@
    ],
    "fd_hessian_rel": 0.02,
    "fd_hessian_note": "",
-   "ambiguous_trials_lm": []
+   "ambiguous_trials_lm": [],
+   "error_gap": [
+    0.9921466518188168,
+    0.9922722675077655,
+    "nan",
+    "nan"
+   ],
+   "errors_disagree": false,
+   "errors_disagree_params": []
   },
   {
    "cutoff": 0.345,
@@ -1607,36 +1631,36 @@
     ]
    ],
    "E_model": [
-    0.2688422450278238,
-    0.2910817574228442,
-    0.29998123247851044,
-    0.30649227566080045,
-    0.3154543803426179,
-    0.3188357896354233,
-    0.3284774690821266,
-    0.3191520816671125,
-    0.333946613717745,
-    0.3379138231830942,
-    0.34367608733110233,
-    0.28586332795822506,
-    0.2987814909479171,
-    0.33068859639410053
+    0.26884224501681403,
+    0.2910817574143135,
+    0.2999812324690399,
+    0.30649227565658027,
+    0.3154543803345762,
+    0.3188357896348586,
+    0.3284774690516519,
+    0.31915208166408887,
+    0.33394661371698686,
+    0.3379138231689523,
+    0.34367608732733385,
+    0.28586332795523856,
+    0.2987814909372934,
+    0.33068859638688664
    ],
    "residual_over_sigma": [
-    0.7458944902912963,
-    1.090656755868192,
-    0.14633831379052123,
-    1.684488145205953,
-    1.9795102062317398,
-    -0.7983965978490618,
-    1.373630598546126,
-    2.2545474303743966,
-    0.3720253168143671,
-    1.1901356210014489,
-    0.9222419812889564,
-    1.4653975052726038,
-    1.1008591734587867,
-    0.5497310039060462
+    0.7458945116571403,
+    1.0906567727576424,
+    0.14633833001627983,
+    1.6844881532611258,
+    1.9795102218320513,
+    -0.7983965971160976,
+    1.3736306574257664,
+    2.2545474357603306,
+    0.3720253177995409,
+    1.1901356457846781,
+    0.9222419877849052,
+    1.4653975101767112,
+    1.1008591916743462,
+    0.5497310157183943
    ],
    "c_start": [
     73735.84089401191,
@@ -1645,33 +1669,33 @@
     0.0
    ],
    "c": [
-    465510.88128390734,
-    -1123551.2843869035,
+    465510.89170274476,
+    -1123551.2902602868,
     0.0,
     0.0
    ],
    "errors": [
-    576548.2929351196,
-    906746.8575952764,
+    135862.6738422274,
+    212067.75270203323,
     0.0,
     0.0
    ],
    "errors_gauss_newton": [
-    187965.8935586164,
-    293560.5485051235,
+    187965.89495529738,
+    293560.5506926814,
     0.0,
     0.0
    ],
    "covariance": [
     [
-     332407934086.40045,
-     -521752252079.1156,
+     18458666143.55946,
+     -27767613735.68498,
      0.0,
      0.0
     ],
     [
-     -521752252079.1156,
-     822189863758.9086,
+     -27767613735.68498,
+     44972731736.09072,
      0.0,
      0.0
     ],
@@ -1690,13 +1714,13 @@
    ],
    "correlation": [
     [
-     1.0,
-     -0.9980276709538228,
+     0.9999999999999998,
+     -0.9637486168965104,
      0.0,
      0.0
     ],
     [
-     -0.9980276709538228,
+     -0.9637486168965104,
      1.0,
      0.0,
      0.0
@@ -1714,108 +1738,108 @@
      0.0
     ]
    ],
-   "chi2": 55.22327559792226,
+   "chi2": 55.2232755982949,
    "chi2_start": 232.54614398738323,
-   "chi2_lm": 55.223275607352804,
+   "chi2_lm": 55.22327560731134,
    "ndof": 12,
-   "chi2_per_dof": 4.601939633160188,
-   "edm": 8.035300935078503e-09,
+   "chi2_per_dof": 4.601939633191241,
+   "edm": 2.325021472653629e-10,
    "valid": true,
-   "accurate": false,
+   "accurate": true,
    "nfcn": 56,
    "ngrad": 1,
-   "n_evaluations": 41017,
+   "n_evaluations": 40724,
    "n_local_rescans": 4,
    "n_full_rescans": 0,
    "n_penalised_calls": 0,
    "n_penalised_calls_final_stage": 0,
-   "seconds": 12.989676426001097,
+   "seconds": 18.668106154000043,
    "minimizer": "lm+migrad",
    "verification": {
     "counts_equal": true,
     "max_root_diff": 1.6366352717511745e-12,
-    "chi2_fresh": 55.223275736165824,
-    "chi2_diff": 1.382435641517077e-07,
-    "chi2_bound": 0.0013843462636425182,
+    "chi2_fresh": 55.223275736181236,
+    "chi2_diff": 1.378863387913043e-07,
+    "chi2_bound": 0.0013843462636471888,
     "ok": true,
-    "n_evaluations": 32380,
-    "seconds": 38.75474722299987,
+    "n_evaluations": 32437,
+    "seconds": 51.67393248199994,
     "margin": 0.002,
     "per_sector": {
      "000_A1m": {
       "tracked": [
-       0.2688422450278238,
-       0.3454247215314454
+       0.26884224501681403,
+       0.34542472151567843
       ],
       "fresh": [
-       0.2688422450278287,
-       0.3454247215314457
+       0.2688422450168189,
+       0.34542472151567866
       ],
-      "E_compare_max": 0.2708422450278238,
+      "E_compare_max": 0.27084224501681403,
       "n_fresh_above_compare": 1,
       "counts_equal": true
      },
      "100_A2": {
       "tracked": [
-       0.2910817574228442,
-       0.29998123247851044
+       0.2910817574143135,
+       0.2999812324690399
       ],
       "fresh": [
-       0.2910817574240714,
-       0.29998123247787495
+       0.2910817574155401,
+       0.2999812324684027
       ],
-      "E_compare_max": 0.30198123247851044,
+      "E_compare_max": 0.3019812324690399,
       "n_fresh_above_compare": 0,
       "counts_equal": true
      },
      "110_A2": {
       "tracked": [
-       0.30649227566080045,
-       0.3154543803426179,
-       0.3188357896354233,
-       0.3284774690821266
+       0.30649227565658027,
+       0.3154543803345762,
+       0.3188357896348586,
+       0.3284774690516519
       ],
       "fresh": [
-       0.30649227566080206,
-       0.31545438034262213,
-       0.31883578963549175,
-       0.32847746908213227
+       0.30649227565658227,
+       0.31545438033459766,
+       0.3188357896349249,
+       0.32847746905165764
       ],
-      "E_compare_max": 0.3304774690821266,
+      "E_compare_max": 0.33047746905165193,
       "n_fresh_above_compare": 0,
       "counts_equal": true
      },
      "111_A2": {
       "tracked": [
-       0.3191520816671125,
-       0.333946613717745,
-       0.3379138231830942,
-       0.34367608733110233
+       0.31915208166408887,
+       0.33394661371698686,
+       0.3379138231689523,
+       0.34367608732733385
       ],
       "fresh": [
-       0.3191520816678729,
-       0.33394661371739365,
-       0.33791382318292723,
-       0.34367608733110183
+       0.3191520816648486,
+       0.33394661371664225,
+       0.33791382316878416,
+       0.34367608732733324
       ],
-      "E_compare_max": 0.34567608733110233,
+      "E_compare_max": 0.34567608732733385,
       "n_fresh_above_compare": 0,
       "counts_equal": true
      },
      "200_A2": {
       "tracked": [
-       0.28586332795822506,
-       0.2987814909479171,
-       0.33068859639410053,
-       0.347527172688847
+       0.28586332795523856,
+       0.2987814909372934,
+       0.33068859638688664,
+       0.34752717268587724
       ],
       "fresh": [
-       0.28586332795821856,
-       0.29878149094817047,
-       0.33068859639573717,
-       0.34752717268860994
+       0.28586332795523195,
+       0.2987814909375536,
+       0.33068859638852327,
+       0.3475271726856467
       ],
-      "E_compare_max": 0.33268859639410053,
+      "E_compare_max": 0.33268859638688664,
       "n_fresh_above_compare": 1,
       "counts_equal": true
      }
@@ -1827,27 +1851,23 @@
     "KE"
    ],
    "n_free": 2,
-   "unconstrained": true,
-   "unconstrained_reasons": [
-    "hesse_not_accurate",
-    "error_exceeds_value:Kiso0",
-    "correlation_ge_0.99:Kiso0,Kiso1"
-   ],
+   "unconstrained": false,
+   "unconstrained_reasons": [],
    "wrong_sign_zeros": [],
    "n_wrong_sign_zeros": 0,
    "n_chi2_calls": 59,
    "n_calls_with_wrong_sign": 0,
-   "lm_status": 3,
-   "lm_nfev": 22,
-   "lm_njev": 14,
-   "seconds_scan": 37.498655846000474,
-   "seconds_lm": 5.5096444219998375,
-   "seconds_migrad": 7.479574873999809,
+   "lm_status": 2,
+   "lm_nfev": 19,
+   "lm_njev": 13,
+   "seconds_scan": 48.589276272999996,
+   "seconds_lm": 7.482062808000023,
+   "seconds_migrad": 11.185503919999974,
    "E_max_tracked": 0.35,
    "migrad_calls": 1,
    "errors_fd_hessian": [
-    162899.5990756465,
-    253629.16873762928,
+    162870.98468290747,
+    253561.14523257455,
     0.0,
     0.0
    ],
@@ -1856,14 +1876,22 @@
    "ambiguous_trials_lm": [
     {
      "c": [
-      511678.57149448927,
-      -1396081.1221314943,
+      511678.5714476613,
+      -1396081.1220588787,
       0.0,
       0.0
      ],
-     "message": "local rescan [0.2910135, 0.2915950]: 1 candidate(s) of kind ambiguous/even_zero in sector 100_A2, first at E=0.2913057438556203 (kind ambiguous, order -0.009910854195983903, Delta_h -14.051); a physics decision, not dropped silently (prompts/003 section 2.6)"
+     "message": "local rescan [0.2910135, 0.2915950]: 1 candidate(s) of kind ambiguous/even_zero in sector 100_A2, first at E=0.29130574385563696 (kind ambiguous, order -0.009910856431173969, Delta_h -14.042); a physics decision, not dropped silently (prompts/003 section 2.6)"
     }
-   ]
+   ],
+   "error_gap": [
+    1.198791250583246,
+    1.1956610187162298,
+    "nan",
+    "nan"
+   ],
+   "errors_disagree": false,
+   "errors_disagree_params": []
   }
  ]
 }
