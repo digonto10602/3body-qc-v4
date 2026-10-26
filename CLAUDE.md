@@ -53,6 +53,7 @@ graphify update .                              # rebuild graphify-out/ for this 
 - **D6:** "graphical manipulation" means symbolic manipulation. No GPU; minimise the single-core time per energy point, always compared with the oracle.
 - **D7:** the production p-wave $\mathcal K_2^{-1}$ form is `q0_consistent` (HadSpec $k^3\cot\delta_1=1/a_1$). `coded_v2` is kept for regression.
 - **D8:** exact free-level solutions of the QC are excluded from D3 level matching.
+- **D9:** zeros with a wrong-sign residue ($u^\top Q'u<0$, arXiv:1901.07095 Eq. 64) are flagged loudly but kept in D3 matching; Digonto decides case by case.
 
 ## Things that are known to be wrong or unverified (see `docs/OPEN_ISSUES.md`)
 - **Do not quote any χ² or parameter from `results/legacy_*`.** The covariance is wrong by $(N-1)^2$ (confirmed by D1).

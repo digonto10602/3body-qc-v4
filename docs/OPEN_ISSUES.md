@@ -134,6 +134,13 @@ Nothing listed here has been fixed in the code yet. The code in `src/` is copied
 - **Impact:** none in production (`eig_tol` is fixed at 0.05; the oracle clears the cache on every call). Matters only if Sector overrides are mixed in one process.
 - **Status:** the fast path no longer uses this cache (prompts/002 sub-step 7.0: fast-owned cache with a complete key, `tests/acceptance/m1/test_m1_fast_v2.py::test_projector_cache_key_complete`). The legacy key is left as is because the file is in the oracle's include chain (the oracle must stay byte-unchanged); fix it only together with a retirement of the legacy fitter.
 
+### 14. HIGH (physics, open) — M2 L20 fit quality, error reliability and L24 (added 2026-10-26; `reports/tests/018`, `notes/STATUS.md`)
+
+- **Poor fit at the higher cutoffs.** Table A ($\chi^2/\nu$ at cutoffs 0.315 / 0.325 / 0.335 / 0.345): 1.32 / 3.34 / 3.70 / 3.55; Table B ($K_B=K_E=0$): 2.56 / 3.74 / 3.66 / 4.60. $\chi^2/\nu\approx3.5$ at 0.335–0.345 means the model does not describe the data within the stated errors. Causes **not yet investigated**; candidates: truncation of the $\mathcal K_{\rm df,3}$ expansion (four terms) or of the partial waves; uncertainty of the $\mathcal K_2$ inputs $(4.04,-43.2,4.12)$ and of $\xi,a_tm_K,a_tm_\pi$, which are held fixed (D2, M5); missing systematic errors (lattice discretisation, $\mathcal K_2$ form `q0_consistent` vs `coded_v2`, the cutoff function $H$). Do not quote a fit parameter as physics before this is understood.
+- **$\chi^2$ walls.** $\chi^2(\vec c)$ is piecewise smooth: a zero crossing a pole (110_A2 $n=1$ at A/0.335, $+0.115\sigma$ in $K_0$, jump $\approx0.2$), a level at a dimension jump (200_A2 at A/0.345), a pole wall near 0.29130 in 100_A2 (Table B). The LM-only rejection of ambiguous trial points acts as a wall and can pick the local minimum on the start's side (Digonto 2026-10-26: kept).
+- **Hesse errors unreliable.** By the $\Delta\chi^2=1$ test Hesse is off by 0.28–1.64× at A/0.335, A/0.345 and B/0.345; only B/0.335 is reliable. The finite-difference Hessian errors are trustworthy where they differ (`reports/tests/018` (b)). Report both, flag gaps above $\sim20\%$; with walls within $1\sigma$ the parabolic errors remain approximate (a profile of $\chi^2$ would be the honest interval).
+- **L24 data still missing** (D4/invariant list): the L24 `.jack` files are not in the repo, so no L24 fit and no two-volume constraint; the L24 rootscan gate used the labels only.
+
 ### 12. Historical warnings (do not reuse these results)
 
 - v32e–v32p read the L=24 lattice files while computing at L=20, so their fits are invalid.

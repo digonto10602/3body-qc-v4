@@ -738,9 +738,9 @@
     "semantic_hash": ""
   },
   "docs/METHODS.md": {
-    "mtime": 1792874135.285533,
-    "seen": 1792877181.797046,
-    "ast_hash": "a9c55e7ecb8c3b7cdd1de12f85339f35",
+    "mtime": 1793038581.6744947,
+    "seen": 1793038582.344614,
+    "ast_hash": "16f16ec5d3cd4aaa85a485b318b9ffd7",
     "semantic_hash": ""
   },
   "docs/OPEN_ISSUES.md": {
@@ -768,9 +768,9 @@
     "semantic_hash": ""
   },
   "docs/ROOT_FINDING.md": {
-    "mtime": 1792820456.5008557,
-    "seen": 1792877181.7970505,
-    "ast_hash": "1d73d8fb9c586f046aa355cfcbf85ce7",
+    "mtime": 1793038581.4467454,
+    "seen": 1793038582.3446236,
+    "ast_hash": "267cc45495bd4197e6a3623a9e95991f",
     "semantic_hash": ""
   },
   "docs/original_handoffs/3body_quantization_v3_README.md": {
@@ -2388,9 +2388,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/fit.py": {
-    "mtime": 1792883057.1492915,
-    "seen": 1792884038.1752691,
-    "ast_hash": "a9f7d8cd9ba2bd4af0af5d60c82a70f7",
+    "mtime": 1793038559.9678802,
+    "seen": 1793038582.3444643,
+    "ast_hash": "2e61600f2a45c4a49ea6f4e602a6dd28",
     "semantic_hash": ""
   },
   "src/python/qc3/free_levels.py": {
@@ -2532,9 +2532,9 @@
     "semantic_hash": ""
   },
   "tests/unit/test_m2_step6_fit.py": {
-    "mtime": 1792882079.3879414,
-    "seen": 1792882264.626673,
-    "ast_hash": "12b36dd3736ee9f433185977252b5160",
+    "mtime": 1793038559.9686055,
+    "seen": 1793038582.344576,
+    "ast_hash": "0ade1c72af355fa9e0c9256ca816d73e",
     "semantic_hash": ""
   },
   "results/fit_L20_coded_v2_code_equivalence_m2.json": {
