@@ -6,7 +6,21 @@
 - **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
   - Plan: `prompts/003`. Research: `reports/research/009`.
   - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
-- **Current step:** M2 **step 6**: `fit_cutoff`, `verify_fit`, `cutoff_scan`, `save_results`, the CLI, the production tables A (4-par) and B ($K_B=K_E=0$), and the v32w/legacy code-equivalence.
+- **Current step:** M2 **step 7** (docs; planner), plus a small builder change: an error-gap flag on the Hesse vs FD-Hessian errors. Then regenerate the fit JSONs from a clean tree, then the M2 gate.
+- **M2 step 6 DONE** (`reports/tests/018`, PASS). Fits use `q0_consistent`, D1, D3, D8; there are no wrong-sign zeros (D9).
+  - **Table A** (4 free), χ²/ν at cutoffs 0.315 / 0.325 / 0.335 / 0.345: 1.32 / 3.34 / 3.70 / 3.55 (ν = 2 / 5 / 8 / 10).
+  - **Table B** ($K_B=K_E=0$): 2.56 / 3.74 / 3.66 / 4.60.
+  - Code-equivalence, `coded_v2`: χ²($\vec c_{\rm v32w}$) = 55.04 and χ²($\vec c_{\rm legacy,0.335}$) = 50.01. Zeros vs legacy `model_Ecm`: $\le4\times10^{-8}$, or $6.1\times10^{-7}$ next to a pole.
+  - The independent χ² agrees to $\le2.3\times10^{-9}$, and the gradient is zero at every minimum.
+  - **Errors:** the FD-Hessian errors are trustworthy, by the $\Delta\chi^2=1$ test; the Hesse errors are off by a factor 0.28–1.64 at A/0.335, A/0.345 and B/0.345. Only B/0.335 has reliable Hesse errors.
+  - **χ² walls near the minima:**
+    - At A/0.335, the 110_A2 n=1 level sits 5 rows above a pole; a zero crosses it at $+0.115\sigma$ in $K_0$.
+    - At A/0.345, the 200_A2 level is at a dimension jump.
+    - In Table B, 100_A2 has a pole wall near 0.29130.
+  - The audit tool differs only by its convention (it converts each configuration to $E^*$, where D1 converts each resample).
+- **Digonto 2026-10-26:**
+  - Keep the LM-only rejection of ambiguous trial points; the minimum and the verification still raise.
+  - Report both Hesse and FD-Hessian errors, and flag gaps above ~20%.
 - **M2 step 5 DONE** (`reports/tests/017`, PASS), with the tracker fallback fix.
   - Independent χ² agrees to $\le3\times10^{-9}$: `coded_v2` 53.890297, `q0_consistent` 47.942626 at `C_BASELINE`.
   - The gradient agrees with finite differences to $\le3.5\times10^{-5}$ (bar $10^{-4}$).
