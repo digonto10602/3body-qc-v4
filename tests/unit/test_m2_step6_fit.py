@@ -74,6 +74,8 @@ def test_four_parameter_fit_finds_the_exact_minimum_and_errors():
     assert r.chi2 <= r.chi2_lm + 1e-6 and r.chi2 <= r.chi2_start and r.n_penalised_calls_final_stage == 0
     assert np.allclose(r.errors_fd_hessian, err_ref, rtol=1e-6)                       # FD of the analytic gradient is exact here
     assert r.chi2_per_dof * r.ndof == pytest.approx(r.chi2, abs=1e-12)
+    assert np.allclose(r.error_gap, r.errors_fd_hessian / r.errors) and not r.errors_disagree and r.errors_disagree_params == []
+    assert "[FD-Hessian]" in fit.format_fit(r) and "DISAGREE" not in fit.format_fit(r)
     assert np.allclose(np.diag(r.correlation), 1.0) and np.allclose(np.sqrt(np.diag(r.covariance)), r.errors)
     assert r.unconstrained == (len(r.unconstrained_reasons) > 0)
     assert r.n_wrong_sign_zeros == 0 and r.wrong_sign_zeros == [] and r.verification is None

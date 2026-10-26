@@ -684,9 +684,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792774184.6542265,
-    "seen": 1792877181.797038,
-    "ast_hash": "8c1ba5a988ba05e5f2626b66f944a773",
+    "mtime": 1793038634.847866,
+    "seen": 1793038657.193262,
+    "ast_hash": "959ab437e2b4edce5c1e0af62f22df70",
     "semantic_hash": ""
   },
   "README.md": {
@@ -744,9 +744,9 @@
     "semantic_hash": ""
   },
   "docs/OPEN_ISSUES.md": {
-    "mtime": 1792774802.203439,
-    "seen": 1792877181.7970471,
-    "ast_hash": "e882ec7bea975f172bc1b2b18fd93d3b",
+    "mtime": 1793038597.2060049,
+    "seen": 1793038657.193275,
+    "ast_hash": "e431779ea57e2970f7c5ecc18d5a9b9c",
     "semantic_hash": ""
   },
   "docs/PIPELINE.md": {
@@ -768,9 +768,9 @@
     "semantic_hash": ""
   },
   "docs/ROOT_FINDING.md": {
-    "mtime": 1793038581.4467454,
-    "seen": 1793038582.3446236,
-    "ast_hash": "267cc45495bd4197e6a3623a9e95991f",
+    "mtime": 1793038634.8264172,
+    "seen": 1793038657.1932793,
+    "ast_hash": "33c54852f80c858916abff6740fc0334",
     "semantic_hash": ""
   },
   "docs/original_handoffs/3body_quantization_v3_README.md": {
@@ -2376,9 +2376,9 @@
     "semantic_hash": ""
   },
   "prompts/003-m2-label-free-roots-tracking-fit.md": {
-    "mtime": 1792874247.3262146,
-    "seen": 1792877181.7970836,
-    "ast_hash": "663df3c15c75fba9741a5b9056800110",
+    "mtime": 1793038597.2069504,
+    "seen": 1793038657.193324,
+    "ast_hash": "55cd27764e11b0458a64bfc4c40cac2d",
     "semantic_hash": ""
   },
   "reports/research/009-m2-root-finder-tracking-fit-methods.md": {
@@ -2532,9 +2532,9 @@
     "semantic_hash": ""
   },
   "tests/unit/test_m2_step6_fit.py": {
-    "mtime": 1793038559.9686055,
-    "seen": 1793038582.344576,
-    "ast_hash": "0ade1c72af355fa9e0c9256ca816d73e",
+    "mtime": 1793038674.0128627,
+    "seen": 1793038769.5322652,
+    "ast_hash": "fb5b23b51f987b797d5dc4438f71341d",
     "semantic_hash": ""
   },
   "results/fit_L20_coded_v2_code_equivalence_m2.json": {
