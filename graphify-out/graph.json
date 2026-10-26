@@ -155712,6 +155712,18 @@
     },
     {
       "source": "tests_unit_test_m2_step6_fit",
+      "target": "src_python_qc3_init",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/unit/test_m2_step6_fit.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_unit_test_m2_step6_fit",
       "target": "src_python_qc3_point",
       "relation": "imports_from",
       "_origin": "ast",
@@ -234912,18 +234924,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_unit_test_m2_step6_fit_make_levels",
-      "target": "src_python_qc3_point_levelset",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "call",
-      "source_file": "tests/unit/test_m2_step6_fit.py",
-      "source_location": "L46",
-      "weight": 1.0
-    },
-    {
       "source": "tests_unit_test_rootscan_test_read_labels_relative_and_absolute_paths",
       "target": "src_python_qc3_lattice_default_data_dir",
       "relation": "calls",
@@ -235688,6 +235688,50 @@
       "weight": 0.8
     },
     {
+      "source": "tests_unit_test_m2_step6_fit_flakytracker",
+      "target": "src_python_qc3_roots_ambiguousrooterror",
+      "relation": "uses",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "tests/unit/test_m2_step6_fit.py",
+      "source_location": "L193",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_unit_test_m2_step6_fit_make_levels",
+      "target": "src_python_qc3_point_levelset",
+      "relation": "uses",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "tests/unit/test_m2_step6_fit.py",
+      "source_location": "L46",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_unit_test_m2_step6_fit_test_lm_trial_point_with_an_ambiguous_candidate_is_rejected_counted_and_reported",
+      "target": "src_python_qc3_roots_ambiguousrooterror",
+      "relation": "uses",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "tests/unit/test_m2_step6_fit.py",
+      "source_location": "L208",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_unit_test_m2_step6_fit_test_start_vector_with_a_missing_level_raises_loudly",
+      "target": "src_python_qc3_point_missingrooterror",
+      "relation": "uses",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "tests/unit/test_m2_step6_fit.py",
+      "source_location": "L115",
+      "weight": 0.8
+    },
+    {
       "source": "tests_unit_test_qc_lattice_roots_test_find_sign_changes_and_zeros_synthetic",
       "target": "src_python_qc3_point_missingrooterror",
       "relation": "uses",
@@ -235887,5 +235931,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1c940f0fc417669b993eba3f9716c630915eae61"
+  "built_at_commit": "e79feda2dedd914701e9320433ffff67c6647198"
 }
