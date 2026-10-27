@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1793071616.8229425,
-    "seen": 1793071623.4081643,
-    "ast_hash": "827d04ca58774090017598989330710c",
+    "mtime": 1793074116.6658401,
+    "seen": 1793074123.7734077,
+    "ast_hash": "2a1c3183c0a823438f9f796b564cfe15",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -2637,6 +2637,108 @@
     "mtime": 1793071737.2583272,
     "seen": 1793071943.7066274,
     "ast_hash": "16bb5d3926b1bc17d14fc4426d64a4e1",
+    "semantic_hash": ""
+  },
+  "results/bench_m2_gate.json": {
+    "mtime": 1793073550.0915315,
+    "seen": 1793074123.772977,
+    "ast_hash": "f5c3a54565b3cc90d7272e9658a4a000",
+    "semantic_hash": ""
+  },
+  "results/bench_m2_gate_fit0335.json": {
+    "mtime": 1793074010.093834,
+    "seen": 1793074123.7729802,
+    "ast_hash": "3acd72fafdf93440fd0ff38412f3b4f0",
+    "semantic_hash": ""
+  },
+  "results/bench_m2_gate_rerun1.json": {
+    "mtime": 1793073551.8309915,
+    "seen": 1793074123.7729821,
+    "ast_hash": "f68d5bd33d77fc774fdaf31a96a6b495",
+    "semantic_hash": ""
+  },
+  "results/bench_m2_gate_rerun2.json": {
+    "mtime": 1793073553.604058,
+    "seen": 1793074123.7729833,
+    "ast_hash": "b6455854334c8fc5de0386432372856f",
+    "semantic_hash": ""
+  },
+  "results/bench_m2_gate_scan_chi2.json": {
+    "mtime": 1793073836.7995265,
+    "seen": 1793074123.7729845,
+    "ast_hash": "6d681d9e7ff7e9142b7a8ae6b391f5ba",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_freelevel_c_independence.json": {
+    "mtime": 1793072685.8560946,
+    "seen": 1793074123.7731817,
+    "ast_hash": "79aae7dd156f45474fbf5f1132584a8f",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_freelevel_fine.json": {
+    "mtime": 1793072753.6617591,
+    "seen": 1793074123.7731829,
+    "ast_hash": "b66accd012a3c6cdeb9e146a4475c82b",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_freelevel_meta.json": {
+    "mtime": 1793073542.846175,
+    "seen": 1793074123.7731838,
+    "ast_hash": "8600f214aaba495f29b6ea94aa981910",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_freelevel_quartic_fit.json": {
+    "mtime": 1793072770.239263,
+    "seen": 1793074123.7731845,
+    "ast_hash": "6ad7b555345d40dab5d84066b15b9413",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_label_gate.json": {
+    "mtime": 1793074037.3293695,
+    "seen": 1793074123.7731853,
+    "ast_hash": "b825e62d4530a1a2c514e1c0e2a630ad",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_scripts/bench_fit.py": {
+    "mtime": 1793074037.327258,
+    "seen": 1793074123.7731862,
+    "ast_hash": "a456ca708cfacf2fe248384af23e92e8",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_scripts/bench_m2.py": {
+    "mtime": 1793074037.3272235,
+    "seen": 1793074123.7731872,
+    "ast_hash": "422a415e89b98672632a8ff7b27ce9bb",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_scripts/freecheck.py": {
+    "mtime": 1793073542.8520658,
+    "seen": 1793074123.7731879,
+    "ast_hash": "a579a4183ed025a7506b2d4b8b9df9b6",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_scripts/freecheck2.py": {
+    "mtime": 1793073542.8521266,
+    "seen": 1793074123.7731886,
+    "ast_hash": "d83415a6465034d0430397dc7f5b3feb",
+    "semantic_hash": ""
+  },
+  "results/tester_m2gate_scripts/freecheck3.py": {
+    "mtime": 1793073542.852173,
+    "seen": 1793074123.7731895,
+    "ast_hash": "0b7c297941b5df95c944c44a263e8aa8",
+    "semantic_hash": ""
+  },
+  "reports/benchmarks/002-m2-fit.md": {
+    "mtime": 1793074075.7425985,
+    "seen": 1793074123.7734165,
+    "ast_hash": "b0e7537b4465cb8aad514213df963ed7",
+    "semantic_hash": ""
+  },
+  "reports/tests/020-m2-gate-full-rerun.md": {
+    "mtime": 1793074043.7026832,
+    "seen": 1793074123.7734451,
+    "ast_hash": "cdd69effb99f3ac9189df14be0bdbaf1",
     "semantic_hash": ""
   }
 }
