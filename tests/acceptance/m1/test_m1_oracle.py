@@ -6,8 +6,8 @@ import pytest
 from m1_helpers import (C_BASELINE, C_ZERO, PRODUCTION, anchor_points, as_c, basis_list, E_lab_of, L_BOX,
                         LBYAS, NNP, oracle_point, rel_frob)
 
-TOL_LNDET_ANCHOR = 1e-10      # same code, same flags; only the LU library differs (~1e-13 measured)
-TOL_LNDET_BASELINE = 1e-9     # anchor K3 from the reference (9e-16 agreement with the port); sensitivity <= 100 eps
+TOL_LNDET_ANCHOR = 1e-10      # FLOOR since acceptance-v8 (see anchor_tolerance); same code, same flags; only the LU library differs (~1e-13 measured)
+TOL_LNDET_BASELINE = 1e-9     # FLOOR since acceptance-v8; anchor K3 from the reference (9e-16 agreement with the port); sensitivity <= 100 eps
 
 # Amendment acceptance-v5 (audit 001 ISSUE D): NumPy slogdet(Q) vs the oracle's INDEPENDENT Eigen partial-pivot LU
 # (metadata "lnabsdet_eigen_lu", "sign_eigen_lu"; C++ assembles its own Q from the same F3inv, K3, Vsel).  The two
@@ -27,12 +27,36 @@ def eigen_lu_tolerance(Q):
     return max(EIGEN_LU_FLOOR, EIGEN_LU_KAPPA_FACTOR * kappa * np.finfo(float).eps), kappa
 
 
-def _check_anchor(p, c, tol):
+# Amendment acceptance-v8 (2026-10-27, prompts/001 section 4): the anchor comparisons below used FIXED bounds
+# (1e-10 for c = 0, 1e-9 for the baseline c), which are under the BLAS round-off floor at ill-conditioned points.  The
+# anchors were produced on another CPU; the oracle's ln|det Q| is NumPy slogdet(Q) = sum ln|diag LU|, and a different
+# OpenBLAS kernel changes the summation order of F, G, F3^{-1}, the projection V^dagger (.) V and the LU.  First-order
+# analysis: Q = s V^dagger (F3^{-1} + K3) V; a perturbation dQ with ||dQ|| ~ u ||Q|| (u = 2^-53 ~ 1.1e-16, eps = 2.2e-16)
+# moves ln|det Q| by Re tr(Q^{-1} dQ), |.| <= N_proj ||Q^{-1}|| ||dQ||, i.e. <~ sqrt(N_proj N) kappa_2(Q) u for
+# random-sign rounding (same estimate as test D above).  The operative condition number is kappa_2(Q) of the matrix
+# whose LU is taken, NOT kappa(F3): Q adds K3 and projects, and at 100_A2 0.2915561 with the baseline c, kappa(F3) = 9.0e6
+# but kappa(Q) = 3.8e12 and the observed deviation is 1.1e-9 (Sandybridge kernel), which kappa(F3) would not cover and
+# kappa(Q) does.  At c = 0 the two coincide or differ by <= 5 (measured).  Bound: max(fixed, 50 kappa_2(Q) eps), K = 50
+# as in test D; measured deviation/(kappa eps) <= 0.2 at all 17 (point, c) pairs and both kernels tested (Haswell,
+# Sandybridge), so the margin is >= 250 at every point.  The sign must match exactly (a flip needs a relative
+# perturbation >= 1/kappa(Q) >> u).  The fixed bounds are kept as floors, so nothing is tighter than before anywhere.
+ANCHOR_KAPPA_FACTOR = 50.0
+
+
+def anchor_tolerance(Q, fixed):
+    """kappa-aware bound on |ln|det Q|_oracle - ln|det Q|_anchor|: max(fixed, 50 kappa_2(Q) eps); returns (tol, kappa)."""
+    kappa = float(np.linalg.cond(np.asarray(Q, dtype=np.complex128)))
+    return max(fixed, ANCHOR_KAPPA_FACTOR * kappa * np.finfo(float).eps), kappa
+
+
+def _check_anchor(p, c, fixed_tol):
     r = oracle_point(p["irrep"], p["Ecm"], c)
     assert (r.N1, r.N2, r.N, r.Nproj) == (p["N1"], p["N2"], p["N"], p["Nproj"]), (p["irrep"], p["Ecm"])
     ref = p["K3_zero"] if tuple(c) == C_ZERO else p["K3_baseline"]
-    assert int(r.sign) == ref["sign"], (p["irrep"], p["Ecm"], r.sign, ref["sign"])
-    assert abs(r.lnabsdet - ref["lnabsdet"]) <= tol, (p["irrep"], p["Ecm"], r.lnabsdet, ref["lnabsdet"])
+    tol, kappa = anchor_tolerance(as_c(r.Q), fixed_tol)
+    tag = (p["irrep"], p["Ecm"], "kappa", kappa, "tol", tol)
+    assert int(r.sign) == ref["sign"], (tag, r.sign, ref["sign"])
+    assert abs(r.lnabsdet - ref["lnabsdet"]) <= tol, (tag, r.lnabsdet, ref["lnabsdet"])
 
 
 def test_oracle_anchors_small_points():
