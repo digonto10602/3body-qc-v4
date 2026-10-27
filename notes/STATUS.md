@@ -2,7 +2,7 @@
 
 - **Updated:** 2026-10-27 (M2 gate)
 - **Prompt in force:** `prompts/003-m2-label-free-roots-tracking-fit.md` (M2). M1 plans: `prompts/001`, `prompts/002`.
-- **Acceptance tag:** `acceptance-v7` = `6e789e9` (79 tests = 47 M1 + 32 M2). v7 = v6 plus the free-level helper fix, 2 tests for Digonto's M2 answers and 1 zero-pole-pair scan test. Earlier tags: `-v6` = `b3c7f28`, `-v5` = `e384ce6`, `-v4` = `504a689`, `-v3` = `e74f94b`, `-v2` = `bcf12cd`, `-v1` = `7801d97`, `milestone-1` = `191530d`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing.
+- **Acceptance tag:** `acceptance-v8` = `5321176` (79 tests; v8 = v7 plus κ-scaled M1 anchor tolerances, Digonto 2026-10-27). `-v7` = `6e789e9`. v7 = v6 plus the free-level helper fix, 2 tests for Digonto's M2 answers and 1 zero-pole-pair scan test. Earlier tags: `-v6` = `b3c7f28`, `-v5` = `e384ce6`, `-v4` = `504a689`, `-v3` = `e74f94b`, `-v2` = `bcf12cd`, `-v1` = `7801d97`, `milestone-1` = `191530d`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing.
 - **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
   - Plan: `prompts/003`. Research: `reports/research/009`.
   - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
