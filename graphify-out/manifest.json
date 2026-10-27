@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "notes/STATUS.md": {
-    "mtime": 1793070925.6088583,
-    "seen": 1793070932.9913895,
-    "ast_hash": "e4624663d026647d610303b290477a2f",
+    "mtime": 1793071616.8229425,
+    "seen": 1793071623.4081643,
+    "ast_hash": "827d04ca58774090017598989330710c",
     "semantic_hash": ""
   },
   "prompts/000-consolidation-and-roadmap.md": {
@@ -1344,9 +1344,9 @@
     "semantic_hash": ""
   },
   "prompts/001-m1-cache-free-single-energy-qc.md": {
-    "mtime": 1792689944.335025,
-    "seen": 1792877181.797082,
-    "ast_hash": "28e1d31a3d6efcc99166002fdb859c17",
+    "mtime": 1793071596.1216905,
+    "seen": 1793071623.4081666,
+    "ast_hash": "65f5dacb5dba0d350939715f3de39cbc",
     "semantic_hash": ""
   },
   "tests/acceptance/conftest.py": {
@@ -1404,9 +1404,9 @@
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_oracle.py": {
-    "mtime": 1793071246.3756416,
-    "seen": 1793071311.1590557,
-    "ast_hash": "8a2a355c5026b1a35cd7f393e5fb8c85",
+    "mtime": 1793071526.542266,
+    "seen": 1793071623.4080617,
+    "ast_hash": "1c21cc4d1ce28c0ee7a23bd737e05e71",
     "semantic_hash": ""
   },
   "tests/acceptance/m1/test_m1_portability.py": {
@@ -2376,9 +2376,9 @@
     "semantic_hash": ""
   },
   "prompts/003-m2-label-free-roots-tracking-fit.md": {
-    "mtime": 1793038597.2069504,
-    "seen": 1793038657.193324,
-    "ast_hash": "55cd27764e11b0458a64bfc4c40cac2d",
+    "mtime": 1793071561.9728382,
+    "seen": 1793071623.4081686,
+    "ast_hash": "b9120403b5c639812410b27092e26e12",
     "semantic_hash": ""
   },
   "reports/research/009-m2-root-finder-tracking-fit-methods.md": {
@@ -2388,9 +2388,9 @@
     "semantic_hash": ""
   },
   "src/python/qc3/fit.py": {
-    "mtime": 1793038559.9678802,
-    "seen": 1793038582.3444643,
-    "ast_hash": "2e61600f2a45c4a49ea6f4e602a6dd28",
+    "mtime": 1793071626.4859796,
+    "seen": 1793071626.9211738,
+    "ast_hash": "f04953d5b9080f0f637c16aa16ad6561",
     "semantic_hash": ""
   },
   "src/python/qc3/free_levels.py": {
@@ -2400,15 +2400,15 @@
     "semantic_hash": ""
   },
   "src/python/qc3/rootscan.py": {
-    "mtime": 1792875013.1841705,
-    "seen": 1792877181.796981,
-    "ast_hash": "ede4f5e838eba831bca0322d6d7ab086",
+    "mtime": 1793071482.5823562,
+    "seen": 1793071623.4080272,
+    "ast_hash": "ae32e775460225b96646d500a7adbbb2",
     "semantic_hash": ""
   },
   "src/python/qc3/tracking.py": {
-    "mtime": 1792879180.5326023,
-    "seen": 1792880018.7286425,
-    "ast_hash": "2531bf1e1e2373c6f3a0014b375097d7",
+    "mtime": 1793071566.6237025,
+    "seen": 1793071623.4080303,
+    "ast_hash": "44d419a523ccd6bfe7b29f4eddcbb412",
     "semantic_hash": ""
   },
   "tests/unit/test_m2_step1.py": {

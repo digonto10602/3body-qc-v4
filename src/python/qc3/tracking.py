@@ -20,6 +20,7 @@ the method (secant not converged, landed on a pole, dimension jump on the path, 
 from __future__ import annotations
 
 import bisect
+import warnings
 from dataclasses import dataclass
 
 import numpy as np
@@ -179,7 +180,9 @@ class _CountingEvaluate:
 class SectorRoots:
     """Tracked zeros of one sector.  Attributes: sector, c, E_min, E_max, scan (the initial scan, kept), roots (all tracked zeros
     including parked ones, sorted), free_level_solutions (D8, kept apart, never tracked or matched), n_evaluations,
-    n_local_rescans, n_full_rescans (continuation fallbacks), n_verify_rescans (explicit `rescan()` calls), n_substeps."""
+    n_local_rescans, n_full_rescans (continuation fallbacks), n_verify_rescans (explicit `rescan()` calls), n_substeps,
+    n_full_rescan_changes / full_rescan_events (audit 002 N3: full rescans that changed the root count or moved a root away from
+    its tangent prediction by more than the safeguard tolerance; each event is a dict and a RuntimeWarning was issued)."""
 
     def __init__(self, sector: Sector, c0, E_min: float, E_max: float, evaluate=_fast.evaluate_point,
                  scan_options: dict | None = None, track_options: dict | None = None):
@@ -199,6 +202,8 @@ class SectorRoots:
         self.scan_options = dict(scan_options) if scan_options else None
         self._ev = _CountingEvaluate(evaluate)
         self.n_local_rescans = self.n_full_rescans = self.n_verify_rescans = self.n_substeps = 0
+        self.n_full_rescan_changes = 0
+        self.full_rescan_events: list = []
         self.roots: list = []
         self.free_level_solutions: list = []
         self._poles: list = []
@@ -305,7 +310,9 @@ class SectorRoots:
                 tr = self._local_rescan(cs, E_pred, scale, new)
             if tr is None:
                 self.n_full_rescans += 1
+                before = [(r.E, r.E + float(r.J @ dc_s)) for r in self.roots]     # (E at the old c, tangent prediction at c_s)
                 self._load_full_scan(cs)
+                self._note_full_rescan(cs, before)
                 self.c = c_s.copy()
                 return
             new.append(tr)
@@ -315,6 +322,31 @@ class SectorRoots:
                 raise RootSetChangedError(f"tracked roots merged: {a.E!r}, {b.E!r} (sector {self.sector.irrep})")
         self.roots = new
         self.c = c_s.copy()
+
+    def _note_full_rescan(self, cs, before):
+        """Audit 002 N3.  The full rescan replaced the tracked set.  Compare it with the tangent predictions of the roots it replaced
+        (those predicted <= E_max, the range the scan covers): a different count, or a root more than the corrector's safeguard
+        tolerance (safeguard_factor |dE_pred| + safeguard_abs) from its prediction, is recorded in `full_rescan_events` and warned.
+        Roots predicted above E_max (parked / tracked beyond the scan range) are not in the new set; they are listed, not warned."""
+        t = self.track
+        inside = sorted((p, e0) for e0, p in before if p <= self.E_max)
+        parked = [p for e0, p in before if p > self.E_max]
+        new = [r.E for r in self.roots if r.E <= self.E_max]
+        ev = {"c": [float(x) for x in cs], "sector": self.sector.irrep, "n_before": len(inside), "n_after": len(new),
+              "predicted": [p for p, _ in inside], "new": new, "dropped_parked_predictions": parked, "max_deviation": None,
+              "count_changed": len(inside) != len(new)}
+        bad = ev["count_changed"]
+        if not bad and new:
+            dev = [abs(n - p) for n, (p, e0) in zip(new, inside)]
+            tol = [t["safeguard_factor"] * abs(p - e0) + t["safeguard_abs"] for p, e0 in inside]
+            ev["max_deviation"] = float(max(dev))
+            bad = any(d > tl for d, tl in zip(dev, tol))
+        if bad:
+            self.n_full_rescan_changes += 1
+            self.full_rescan_events.append(ev)
+            warnings.warn(f"tracking {self.sector.irrep}: a full rescan at c={ev['c']} changed the tracked set: {len(inside)} -> {len(new)} "
+                          f"roots <= E_max, max |new - predicted| = {ev['max_deviation']}; predicted {ev['predicted']}, new {new}",
+                          RuntimeWarning, stacklevel=3)
 
     def _distinct(self, E, taken):
         return all(abs(E - x.E) >= _DISTINCT for x in taken)

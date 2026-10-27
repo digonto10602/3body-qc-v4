@@ -42,6 +42,10 @@ TRACK_MARGIN = 0.005       # trackers cover [E_min, cutoff + TRACK_MARGIN]; just
 VERIFY_MARGIN = 0.002      # verify_fit compares tracked and fresh zeros up to (highest matched root + VERIFY_MARGIN)
 EDM_MAX = 2e-3             # Migrad: EDM < 10 x 0.002 * tol * errordef (iminuit documents that Migrad may exceed edm_max by 10x)
 VERIFY_ROOT_TOL = 1e-9
+MULTISTART_SEED = 20261027  # audit 002 N1: seed of the opt-in multi-start robustness check
+MULTISTART_REL = 1e-6       # relative perturbation of each free parameter at the minimum
+MULTISTART_CHI2_TOL = 0.1   # a start whose Migrad minimum differs from the fit's chi2 by more than this is "a different minimum"
+GAP_NEAR_FACTOR = 1.1       # a Hesse/FD error ratio beyond 1.1 (but inside ERROR_GAP_TOL) is reported as near the disagreement threshold
 
 
 class QCChi2:
@@ -258,6 +262,14 @@ class FitResult:
     error_gap: np.ndarray = field(default_factory=lambda: np.full(4, np.nan))   # errors_fd_hessian / errors (Hesse); NaN for fixed parameters or if either is unavailable
     errors_disagree: bool = False             # True if any free parameter has error_gap outside [1/ERROR_GAP_TOL, ERROR_GAP_TOL] (or NaN)
     errors_disagree_params: list = field(default_factory=list)   # names of those parameters
+    # audit 002 (N1, N3, N4): honest reporting; none of these changes chi2 or the minimum
+    invalid_reasons: list = field(default_factory=list)   # why valid is False ("edm_above_max", "verification_failed: ..."); empty if valid
+    caveats: list = field(default_factory=list)           # plain-English limits of this result (error scaling, Hesse reliability, piecewise-smooth chi2, multi-start)
+    multistart: int = 0                                   # number of seeded multi-start checks requested (0 = none run)
+    multistart_seed: int | None = None
+    multistart_results: list = field(default_factory=list)   # one dict per perturbed start: c_start, c, chi2, delta_chi2, edm, valid, or error
+    n_full_rescan_changes: int = 0                        # full rescans (all sectors) that changed the tracked root set (tracking.SectorRoots.full_rescan_events)
+    full_rescan_events: list = field(default_factory=list)
 
 
 def make_trackers(irreps, c0, Lbyas=20, k2_pwave_form=K2_PWAVE_FORM_DEFAULT, E_min=GRID_E0, E_max=0.36,
@@ -333,6 +345,94 @@ def error_gap_flags(errors, errors_fd, free, tol=ERROR_GAP_TOL) -> tuple:
     return gap, len(bad) > 0, bad
 
 
+def _multistart(fcn: QCChi2, c, chi2, free, errors0, fixed, n, strategy, ncall) -> list:
+    """Audit 002 N1, opt-in.  n Migrad runs started from the minimum `c` with each free parameter perturbed by a relative
+    MULTISTART_REL * N(0,1) (seed MULTISTART_SEED; a parameter equal to 0 is perturbed relative to its error).  Each result is
+    a dict (never dropped): the perturbed start, the minimum found, its chi2 and chi2 - chi2_fit, EDM, validity, or the error
+    text of a tracker failure.  Leaves the trackers displaced (the caller re-positions them)."""
+    from iminuit import Minuit
+    rng = np.random.default_rng(MULTISTART_SEED)
+    out = []
+    for k in range(int(n)):
+        z = rng.standard_normal(4)
+        c0 = np.array(c, dtype=float)
+        for i in free:
+            c0[i] += MULTISTART_REL * z[i] * (abs(c0[i]) if c0[i] != 0.0 else float(errors0[i]))
+        e = {"index": k, "seed": MULTISTART_SEED, "c_start": c0.tolist()}
+        try:
+            mm = Minuit(fcn, c0, grad=fcn.grad, name=PARAM_NAMES)
+            mm.errors = errors0
+            mm.strategy = int(strategy)
+            for nm in fixed:
+                mm.fixed[nm] = True
+            mm.migrad(ncall=int(ncall))
+            e.update(valid=bool(mm.fmin.is_valid), c=[float(x) for x in mm.values], chi2=float(mm.fval), edm=float(mm.fmin.edm),
+                     delta_chi2=float(mm.fval) - float(chi2), nfcn=int(mm.nfcn))
+        except (MissingRootError, AmbiguousRootError, RuntimeError) as exc:    # recorded, and turned into a caveat by the caller
+            e.update(valid=False, error=f"{type(exc).__name__}: {str(exc)[:300]}")
+        out.append(e)
+    return out
+
+
+def _piecewise_smooth_items(fcn: QCChi2, trackers: dict, E_model) -> list:
+    """Matched levels with a pole of det Q or a basis-dimension jump within 1 sigma of the lattice level of the model energy (chi^2 is
+    only piecewise smooth there; Hesse is then unreliable).  Poles are those known to the tracker (last scans)."""
+    items = []
+    for k, (irrep, n) in enumerate(fcn.labels):
+        tr, w, E = trackers[irrep], float(fcn.sigma[k]), float(E_model[k])
+        poles = [p for p in getattr(tr, "_poles", []) if abs(p - E) <= w]
+        jumps = [float(j) for j in tr.scan.jumps if abs(j - E) <= w]
+        if poles or jumps:
+            items.append({"level": [irrep, int(n)], "E_model": E, "sigma": w, "poles": poles, "jumps": jumps})
+    return items
+
+
+def _make_caveats(res: FitResult, fcn: QCChi2, trackers: dict, free) -> list:
+    """Audit 002 N1/N3 caveats (plain English; each is a limit of the result, not a failure)."""
+    cv = [f"errors are nominal Delta chi2 = 1 (errordef 1) and are NOT rescaled by chi2/ndof = {res.chi2_per_dof:.3g} "
+          f"(p-value-level misfit is flagged in docs/OPEN_ISSUES.md #14); several parameters may have error ~ value"]
+    if res.errors_disagree:
+        cv.append(f"Hesse errors unreliable: FD-Hessian and Hesse errors disagree by more than a factor {ERROR_GAP_TOL} for "
+                  f"{res.errors_disagree_params}; quote the FD-Hessian errors")
+    else:
+        near = [PARAM_NAMES[i] for i in free if np.isfinite(res.error_gap[i])
+                and (res.error_gap[i] >= GAP_NEAR_FACTOR or res.error_gap[i] <= 1.0 / GAP_NEAR_FACTOR)]
+        if near:
+            cv.append(f"Hesse/FD-Hessian error ratio beyond {GAP_NEAR_FACTOR} (threshold {ERROR_GAP_TOL}) for {near}: "
+                      f"agreement is marginal, Hesse errors may depend on where Migrad stopped")
+    ps = _piecewise_smooth_items(fcn, trackers, res.E_model)
+    if ps:
+        cv.append("chi2 is only piecewise smooth near the minimum (a pole or basis-dimension jump within 1 sigma of a matched model level): "
+                  + "; ".join(f"{p['level'][0]} #{p['level'][1]} E={p['E_model']:.6f} (sigma {p['sigma']:.1e}, poles {[round(x, 7) for x in p['poles']]}, jumps {[round(x, 7) for x in p['jumps']]})" for p in ps[:8])
+                  + (f"; ... {len(ps) - 8} more" if len(ps) > 8 else ""))
+    if res.multistart <= 0:
+        cv.append("no multi-start / global-minimum check was run (--multistart N); other local minima are not excluded")
+    else:
+        diff = [e for e in res.multistart_results if "error" not in e and e["valid"] and abs(e["delta_chi2"]) > MULTISTART_CHI2_TOL]
+        bad = [e for e in res.multistart_results if "error" in e or not e["valid"]]
+        if diff:
+            cv.append(f"minimum not robust: {len(diff)} of {res.multistart} perturbed starts (relative {MULTISTART_REL:g}, seed {MULTISTART_SEED}) ended at chi2 = "
+                      f"{[round(e['chi2'], 4) for e in diff]} vs {res.chi2:.4f}" + (" (LOWER minimum found)" if any(e["delta_chi2"] < 0 for e in diff) else ""))
+        if bad:
+            cv.append(f"multi-start: {len(bad)} of {res.multistart} perturbed starts did not give a valid minimum: "
+                      + "; ".join(e.get("error", "Migrad not valid") for e in bad)[:400])
+        if not diff and not bad:
+            cv.append(f"multi-start check passed: {res.multistart} perturbed starts (relative {MULTISTART_REL:g}, seed {MULTISTART_SEED}) returned to chi2 within {MULTISTART_CHI2_TOL} of {res.chi2:.4f} (not a global-minimum proof)")
+    if res.n_full_rescan_changes:
+        cv.append(f"{res.n_full_rescan_changes} full rescan(s) during the fit changed the tracked root set (count or position); see full_rescan_events")
+    v = res.verification
+    if v is None:
+        cv.append("the final roots were not verified by a fresh scan (verify=False)")
+    else:
+        sc = [(ir, b) for ir, d in v["per_sector"].items() for b in d.get("dead_band_sign_changes", [])]
+        if sc:
+            cv.append(f"verification scan: det Q changes sign across an unscanned dead band in {sorted({ir for ir, _ in sc})} (a zero or pole next to a dimension jump)")
+        rl = [(ir, r) for ir, d in v["per_sector"].items() for r in d.get("relabelled_sign_change_zeros", [])]
+        if rl:
+            cv.append(f"verification scan: sign-change zero(s) relabelled free_level (D8) and excluded: {[(ir, r['E']) for ir, r in rl]}")
+    return cv
+
+
 def _unconstrained(names_free, c, errors, correlation, accurate) -> list:
     """Reporting flags only (prompts/003 section 2.7 item 4): not pass/fail criteria."""
     reasons = []
@@ -350,7 +450,7 @@ def _unconstrained(names_free, c, errors, correlation, accurate) -> list:
 
 
 def fit_cutoff(levels: LevelSet, trackers: dict, c_start, *, minimizer="lm+migrad", strategy=1, ncall=2000,
-               lm_options=None, fixed=(), verify=True, reject_ambiguous_trials=True) -> FitResult:
+               lm_options=None, fixed=(), verify=True, reject_ambiguous_trials=True, multistart=0) -> FitResult:
     """Two-stage fit at one cutoff (prompts/003 section 2.7): LM from `c_start` on the whitened residual with the analytic
     Jacobian (the fixed parameters removed from the LM vector), then iminuit Migrad + Hesse from the LM minimum (`fixed` fixed in
     Migrad).  `trackers` must sit at `c_start` (as built by `make_trackers(..., c_start, ...)`).  Loud: a start vector with fewer
@@ -363,7 +463,12 @@ def fit_cutoff(levels: LevelSet, trackers: dict, c_start, *, minimizer="lm+migra
     c = (4.8e5, -1.25e6, 0, 0): zero 2.8e-6 below a pole).  With `reject_ambiguous_trials` (default) such a trial point is given the
     all-levels-penalised residual (a finite, huge chi^2), so LM shrinks its trust region; every event is listed in
     `ambiguous_trials_lm` (c and the message), counted, and printed as a WARNING.  Only the LM stage does this; Migrad, the start
-    vector, the minimum and the verification still raise AmbiguousRootError."""
+    vector, the minimum and the verification still raise AmbiguousRootError.
+
+    Audit 002: `multistart=N>0` (default 0) adds N seeded Migrad restarts from the minimum with relative-1e-6 perturbations
+    (`_multistart`); their results are stored and a "minimum not robust" caveat is added if any ends at a chi2 differing by more
+    than MULTISTART_CHI2_TOL.  The reported fit is never replaced by a multi-start result.  A failed verification, or EDM above
+    EDM_MAX, sets `valid=False` with `invalid_reasons` and prints a WARNING; `caveats` lists the limits of the result."""
     import scipy.optimize
     from iminuit import Minuit
     if minimizer != "lm+migrad":
@@ -455,6 +560,7 @@ def fit_cutoff(levels: LevelSet, trackers: dict, c_start, *, minimizer="lm+migra
     seconds = time.perf_counter() - t_fit
 
     errors_fd, fd_rel, fd_msg = _fd_hessian_errors(fcn, c, errors, free)
+    ms_results = _multistart(fcn, c, float(m.fval), free, np.where(sig_gn > 0, sig_gn, 1.0), fixed, multistart, strategy, ncall) if multistart else []
     # ---- the model at the minimum (re-positions the trackers at c: Hesse and the FD Hessian end at displaced points)
     chi2 = fcn(c)
     E_model, J_fit = fcn.model(c)
@@ -477,12 +583,28 @@ def fit_cutoff(levels: LevelSet, trackers: dict, c_start, *, minimizer="lm+migra
         n_chi2_calls=fcn.n_calls, n_calls_with_wrong_sign=fcn.n_calls_with_wrong_sign, lm_status=int(lm.status),
         lm_nfev=int(lm.nfev), lm_njev=int(lm.njev or 0), seconds_lm=seconds_lm, seconds_migrad=seconds_migrad,
         E_max_tracked=E_max_tracked, migrad_calls=migrad_calls, ambiguous_trials_lm=ambiguous_trials,
-        errors_fd_hessian=errors_fd, fd_hessian_rel=fd_rel, fd_hessian_note=fd_msg)
+        errors_fd_hessian=errors_fd, fd_hessian_rel=fd_rel, fd_hessian_note=fd_msg,
+        multistart=int(multistart), multistart_seed=MULTISTART_SEED if multistart else None, multistart_results=ms_results,
+        n_full_rescan_changes=sum(trackers[ir].n_full_rescan_changes for ir in fcn.irreps),
+        full_rescan_events=[e for ir in fcn.irreps for e in trackers[ir].full_rescan_events])
     res.error_gap, res.errors_disagree, res.errors_disagree_params = error_gap_flags(errors, errors_fd, free)
     res.unconstrained_reasons = _unconstrained(list(free), c, errors, correlation, accurate)
     res.unconstrained = len(res.unconstrained_reasons) > 0
     if verify:
         res.verification = verify_fit(res, trackers, levels)
+    res.n_full_rescan_changes = sum(trackers[ir].n_full_rescan_changes for ir in fcn.irreps)      # verification may add events
+    res.full_rescan_events = [e for ir in fcn.irreps for e in trackers[ir].full_rescan_events]
+    # audit 002 N4: a fit that fails its own verification (or whose EDM is above the limit) is never reported as valid
+    if not np.isfinite(edm) or edm >= EDM_MAX or not fm.is_valid:
+        res.invalid_reasons.append(f"migrad_edm_or_validity: is_valid={bool(fm.is_valid)} edm={edm:.3e} (limit {EDM_MAX:g})")
+    if res.verification is not None and not res.verification["ok"]:
+        v = res.verification
+        res.invalid_reasons.append(f"verification_failed: counts_equal={v['counts_equal']} max_root_diff={v['max_root_diff']:.3e} "
+                                   f"(tol {VERIFY_ROOT_TOL:g}) |chi2_fresh-chi2|={v['chi2_diff']:.3e} (bound {v['chi2_bound']:.3e})")
+    if res.invalid_reasons:
+        res.valid = False
+        _log(f"WARNING: fit at cutoff {res.cutoff} is INVALID (valid=False): {'; '.join(res.invalid_reasons)}")
+    res.caveats = _make_caveats(res, fcn, trackers, free)
     return res
 
 
@@ -495,7 +617,9 @@ def verify_fit(fit: FitResult, trackers: dict, levels: LevelSet, margin: float =
     those <= E_max) with the same D3 matching.  An ambiguous / even-order candidate <= E_cmp raises AmbiguousRootError (loud).
     Returns {"counts_equal", "max_root_diff" (inf if the counts differ), "chi2_fresh", "chi2_diff" (absolute), "chi2_bound"
     (rigorous bound for root differences of VERIFY_ROOT_TOL), "ok", "n_evaluations", "seconds", "margin", "per_sector":
-    {irrep: {"tracked", "fresh", "E_compare_max", "n_fresh_above_compare", "counts_equal"}}, "wrong_sign_zeros_fresh"}."""
+    {irrep: {"tracked", "fresh", "E_compare_max", "n_fresh_above_compare", "counts_equal", + the fresh scan's audit-002 records:
+    "relabelled_free_levels", "relabelled_sign_change_zeros", "dead_band_sign_changes", "n_dead_bands", "skipped_free_levels"}},
+    "wrong_sign_zeros_fresh"}.  It returns the dict even when "ok" is False; `fit_cutoff` then marks the FitResult invalid."""
     from . import rootscan as _rootscan
     fcn = QCChi2(levels, trackers)
     t0 = time.perf_counter()
@@ -524,7 +648,10 @@ def verify_fit(fit: FitResult, trackers: dict, levels: LevelSet, margin: float =
         if eq and len(tk):
             max_diff = max(max_diff, float(np.max(np.abs(tk - fr))))
         per_sector[irrep] = {"tracked": tracked.tolist(), "fresh": fz.tolist(), "E_compare_max": E_cmp,
-                             "n_fresh_above_compare": int(np.sum(fz > E_cmp)), "counts_equal": bool(eq)}
+                             "n_fresh_above_compare": int(np.sum(fz > E_cmp)), "counts_equal": bool(eq),
+                             "relabelled_free_levels": scan.relabelled_free_levels, "dead_band_sign_changes": scan.dead_band_sign_changes(),
+                             "n_dead_bands": len(scan.dead_bands), "skipped_free_levels": scan.skipped_free_levels,
+                             "relabelled_sign_change_zeros": scan.relabelled_sign_change_zeros()}
         wrong_fresh += [{"irrep": irrep, "E": float(c.E), "slope": float(c.slope)} for c in scan.of_kind("zero")
                         if c.slope is not None and c.slope < 0.0]
     chi2_fresh, _ = fcn.chi2_from_roots(fresh_all)
@@ -543,7 +670,7 @@ def _log(msg):
 
 
 def cutoff_scan(data_dir, Lbyas, cutoffs, c_start, k2_pwave_form, irreps=IRREPS, E_min=GRID_E0, E_max=0.36, out_json=None,
-                verify=True, fixed=(), evaluate=_fast.evaluate_point) -> list:
+                verify=True, fixed=(), evaluate=_fast.evaluate_point, multistart=0) -> list:
     """One `fit_cutoff` per cutoff, every one from `c_start` (not warm-started: prompts/003 section 2.7 item 4 and section 8).
     Fresh trackers per cutoff over [E_min, min(E_max, cutoff + TRACK_MARGIN)] for the sectors that have levels at that cutoff.
     Writes `save_results` if `out_json` is given."""
@@ -556,9 +683,11 @@ def cutoff_scan(data_dir, Lbyas, cutoffs, c_start, k2_pwave_form, irreps=IRREPS,
         trackers = make_trackers(used, c_start, Lbyas=Lbyas, k2_pwave_form=k2_pwave_form, E_min=E_min, E_max=e_hi, evaluate=evaluate)
         t_scan = time.perf_counter() - t0
         _log(f"[cutoff {cutoff}] {len(lv.labels)} levels in {used}; scans to E_max={e_hi:.4f} took {t_scan:.1f} s")
-        r = fit_cutoff(lv, trackers, c_start, fixed=fixed, verify=verify)
+        r = fit_cutoff(lv, trackers, c_start, fixed=fixed, verify=verify, multistart=multistart)
         r.seconds_scan = t_scan
         fits.append(r)
+        if not r.valid:
+            _log(f"WARNING [cutoff {cutoff}]: fit is INVALID (valid=False): {'; '.join(r.invalid_reasons) or 'Migrad not valid'}")
         _log(f"[cutoff {cutoff}] chi2={r.chi2:.4f} ndof={r.ndof} valid={r.valid} edm={r.edm:.2e} fit {r.seconds:.1f} s"
              + (f" verify ok={r.verification['ok']} {r.verification['seconds']:.1f} s" if r.verification else ""))
         if out_json is not None:
@@ -642,6 +771,8 @@ def format_fit(r: FitResult) -> str:
                                                             for a, i in enumerate(free) for j in free[a + 1:]))
     if r.errors_disagree:
         lines.append(f"    WARNING: Hesse and FD-Hessian errors disagree by more than a factor {ERROR_GAP_TOL} for {r.errors_disagree_params}")
+    if not r.valid:
+        lines.append(f"    WARNING: INVALID FIT (valid=False): {'; '.join(r.invalid_reasons) or 'Migrad not valid'}")
     lines.append(f"    unconstrained={r.unconstrained} {r.unconstrained_reasons}")
     lines.append(f"    max|r/sigma|={np.max(np.abs(r.residual_over_sigma)):.2f}  nfcn={r.nfcn} ngrad={r.ngrad} chi2_calls={r.n_chi2_calls} "
                  f"QC_evals={r.n_evaluations} local/full rescans={r.n_local_rescans}/{r.n_full_rescans} "
@@ -660,6 +791,10 @@ def format_fit(r: FitResult) -> str:
     if r.verification:
         for w in r.verification["wrong_sign_zeros_fresh"]:
             lines.append(f"    WARNING: wrong-sign zero (fresh scan) {w['irrep']} E={w['E']:.9f} slope={w['slope']:.3e}")
+    for e in r.full_rescan_events:
+        lines.append(f"    WARNING: full rescan changed the tracked set in {e['sector']}: {e['n_before']} -> {e['n_after']} roots, max dev {e['max_deviation']}")
+    for cv in r.caveats:
+        lines.append(f"    CAVEAT: {cv}")
     return "\n".join(lines)
 
 
@@ -735,6 +870,8 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--fix", nargs="+", default=[], metavar="NAME", help=f"parameters to fix, from {PARAM_NAMES}")
     ap.add_argument("--c-start", nargs="+", default=["baseline"], help="baseline | v32w | legacy0335 | four floats")
     ap.add_argument("--no-verify", action="store_true")
+    ap.add_argument("--multistart", type=int, default=0, metavar="N",
+                    help=f"opt-in robustness check: N extra Migrad runs from the minimum, relative {MULTISTART_REL:g} perturbations, seed {MULTISTART_SEED} (default 0 = none)")
     ap.add_argument("--code-equivalence", action="store_true",
                     help="coded_v2 code-equivalence record at 0.335 (c_v32w and c_legacy0335); ignores --cutoffs/--form/--fix")
     ap.add_argument("--data-dir", default=None)
@@ -773,10 +910,14 @@ def main(argv=None) -> int:
     fixed, _ = _free_indices(args.fix) if args.fix else ((), None)
     c_start = _start_vector(args.c_start, fixed)
     fits = cutoff_scan(data_dir, args.Lbyas, args.cutoffs, c_start, args.form, E_max=args.e_max, out_json=args.out,
-                       verify=not args.no_verify, fixed=fixed)
+                       verify=not args.no_verify, fixed=fixed, multistart=args.multistart)
     print(f"c_start={c_start} fixed={fixed} form={args.form}")
     for r in fits:
         print(format_fit(r))
+    invalid = [r.cutoff for r in fits if not r.valid]
+    if invalid:
+        print(f"WARNING: INVALID fit(s) at cutoff(s) {invalid} (see invalid_reasons); exit status 1", file=sys.stderr)
+        return 1
     return 0
 
 

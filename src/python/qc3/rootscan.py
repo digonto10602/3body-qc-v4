@@ -20,7 +20,8 @@ from __future__ import annotations
 import csv
 import pathlib
 import time
-from dataclasses import dataclass
+import warnings
+from dataclasses import dataclass, field
 
 import numpy as np
 from scipy.optimize import minimize_scalar
@@ -39,6 +40,7 @@ _ZERO_LIKE = ("zero", "even_zero", "ambiguous")
 _POLISH_HALF_WIDTH = 2e-8       # item 4: polish the minimum on +-2e-8
 _POLISH_XATOL = 1e-12
 _PROBE_OFFSET = 2.5e-9          # free-level probe: centre point offset from E_f (an even zero is within ~6e-9 of it)
+_DEAD_PROBE = 1e-9              # dead-band probe: the outer end is evaluated this far inside the segment end
 
 # (Lbyas, irrep) -> path relative to qc3.lattice.default_data_dir(): the 7 human true-zero label files of data/labels
 LABEL_FILES: dict = {
@@ -83,6 +85,18 @@ class ScanResult:
     seconds: float
     options: dict
     grid: np.ndarray           # the coarse grid energies of all segments, sorted; n_grid == len(grid)
+    # Audit 002 N2: nothing the scan does to a candidate or leaves unscanned is silent
+    relabelled_free_levels: list = field(default_factory=list)   # dicts {"E_orig","E","kind_orig","sign_change","order","slope","free_level"}: zero-like candidates relabelled "free_level" (D8)
+    dead_bands: list = field(default_factory=list)               # dicts, one per unscanned band next to a segment end (see _dead_band_records)
+    skipped_free_levels: list = field(default_factory=list)      # dicts {"E","reason"}: free levels the probe (item 7) could not examine
+
+    def dead_band_sign_changes(self) -> list:
+        """Dead bands across which det Q changes sign between the probe points (an odd number of zeros + poles inside)."""
+        return [b for b in self.dead_bands if b.get("sign_change")]
+
+    def relabelled_sign_change_zeros(self) -> list:
+        """Relabelled free-level entries that were sign-change (odd-order) candidates."""
+        return [r for r in self.relabelled_free_levels if r["sign_change"]]
 
     def zeros(self) -> np.ndarray:
         """E of kind == "zero", sorted."""
@@ -290,6 +304,52 @@ class _Scan:
         return n_fine
 
 
+def _dead_band_records(ev, segments, segs, grid_ends, o) -> list:
+    """Audit 002 N2b.  The bands [a, a+edge] and [b-edge, b] of every segment (a, b) (dimension jumps and range ends) are not on
+    the coarse grid.  Each band is recorded; its outer end (_DEAD_PROBE inside the segment end) is evaluated and compared with the
+    inner end (the first / last coarse grid point, already evaluated), so a sign change across the band is detected.  A sign
+    change is NOT turned into a candidate (the neighbourhood of a jump is not classifiable with +-h steps): it is recorded and a
+    RuntimeWarning is issued.  A band pair of zeros (no net sign change) stays undetectable and is stated as such.
+    A segment shorter than 2*edge is wholly unscanned: recorded, probed at both ends if longer than 2*_DEAD_PROBE, warned always."""
+    edge = o["edge"]
+    out = []
+    scanned = {(sg[0], sg[1]): sg for sg in segs}
+    for (a, b) in segments:
+        sg = scanned.get((a, b))
+        if sg is None:
+            rec = {"kind": "whole_segment", "lo": a, "hi": b, "segment": (a, b), "probed": False, "sign_change": None, "error": None}
+            if b - a > 2.0 * _DEAD_PROBE:
+                try:
+                    s1, l1, N1 = ev(a + _DEAD_PROBE)
+                    s2, l2, N2 = ev(b - _DEAD_PROBE)
+                    rec.update(probed=True, sign_change=bool(s1 * s2 < 0), N=(N1, N2))
+                except SingularQError as e:
+                    rec["error"] = f"SingularQError at a probe point: {e}"
+            out.append(rec)
+            warnings.warn(f"scan_sector: segment ({a!r}, {b!r}) is shorter than 2*edge={2*edge:g} and is not scanned at all"
+                          + (f"; probe ends sign_change={rec['sign_change']}" if rec["probed"] else ""), RuntimeWarning, stacklevel=3)
+            continue
+        ge = grid_ends[(a, b)]                   # (s_first, N_first, s_last, N_last) of the coarse grid in this segment
+        for side, lo, hi, probe, s_in, N_in in (("low", a, a + edge, a + _DEAD_PROBE, ge[0], ge[1]),
+                                               ("high", b - edge, b, b - _DEAD_PROBE, ge[2], ge[3])):
+            rec = {"kind": f"{side}_end", "lo": lo, "hi": hi, "segment": (a, b), "probed": False, "sign_change": None, "error": None}
+            try:
+                s_out, _, N_out = ev(probe)
+                rec.update(probed=True, sign_change=bool(s_out * s_in < 0), N=(N_out, N_in))
+                if N_out != N_in:
+                    rec["error"] = f"basis dimension differs between the band ends ({N_out} vs {N_in})"
+            except SingularQError as e:
+                rec["error"] = f"SingularQError at the probe point {probe!r}: {e}"
+            out.append(rec)
+            if rec["sign_change"]:
+                warnings.warn(f"scan_sector: det Q changes sign across the unscanned band [{lo!r}, {hi!r}] next to the segment end of "
+                              f"({a!r}, {b!r}): an odd number of zeros + poles lies in it (not classified; recorded in ScanResult.dead_bands)",
+                              RuntimeWarning, stacklevel=3)
+            elif rec["error"]:
+                warnings.warn(f"scan_sector: dead band [{lo!r}, {hi!r}] could not be probed: {rec['error']}", RuntimeWarning, stacklevel=3)
+    return out
+
+
 def _dedupe(found, tol):
     out = []
     for c in found:
@@ -325,7 +385,7 @@ def scan_sector(evaluate, sector: Sector, c, E_min: float, E_max: float, options
     segs = [(a, b, a + o["edge"], b - o["edge"]) for a, b in segments if b - o["edge"] > a + o["edge"]]
     scan = _Scan(ev, o, step, fine_step, segs)
 
-    grids = []
+    grids, grid_ends = [], {}
     for seg in segs:
         lo, hi = seg[2], seg[3]
         n = int(np.ceil((hi - lo) / step - 1e-9)) + 1
@@ -334,15 +394,19 @@ def scan_sector(evaluate, sector: Sector, c, E_min: float, E_max: float, options
         s = np.array([p[0] for p in pts]); l = np.array([p[1] for p in pts]); N = np.array([p[2] for p in pts])
         scan.block(Es, s, l, N, seg, fine=False)
         grids.append(Es)
+        grid_ends[(seg[0], seg[1])] = (int(s[0]), int(N[0]), int(s[-1]), int(N[-1]))
     grid = np.concatenate(grids) if grids else np.zeros(0)
     n_after_coarse = ev.n
+    dead_bands = _dead_band_records(ev, segments, segs, grid_ends, o)
 
     # item 7: free-level probe -- a free-level solution that the grid rules missed
     free_E = _free_levels(sector, E_min, E_max)
+    skipped_free = []
     for Ef in free_E:
         Ef = float(Ef)
         seg = next((sg for sg in segs if sg[2] + o["h2"] <= Ef <= sg[3] - o["h2"]), None)
         if seg is None:
+            skipped_free.append({"E": Ef, "reason": "within h2 of a scanned-segment end or inside a dead band / unscanned segment: not probed"})
             continue
         if any(abs(k.E - Ef) <= o["free_tol"] and k.kind in _ZERO_LIKE for k in scan.found):
             continue
@@ -357,6 +421,7 @@ def scan_sector(evaluate, sector: Sector, c, E_min: float, E_max: float, options
     scan.fine_rescan()
 
     found = _dedupe(scan.found, 10.0 * o["xtol"])
+    relabelled = []
     for cnd in found:                                             # item 7: the D8 labelling
         if cnd.kind in _ZERO_LIKE and free_E.size:
             j = int(np.argmin(np.abs(free_E - cnd.E)))
@@ -364,10 +429,18 @@ def scan_sector(evaluate, sector: Sector, c, E_min: float, E_max: float, options
                 # An even-order zero is only located to ~3e-10 (ln|det Q| has a round-off floor at ~x^m; the minimum is a
                 # plateau), while the free level is exact to ~1e-16 and the solution sits exactly on it (arXiv:1901.07095
                 # Sec. 4.4.3): E is set to the free-level energy.  The other fields (order, slope, discriminant) are kept.
+                rec = {"E_orig": float(cnd.E), "E": float(free_E[j]), "kind_orig": cnd.kind, "sign_change": bool(cnd.sign_change),
+                       "order": cnd.order, "slope": cnd.slope, "free_level": float(free_E[j])}
+                relabelled.append(rec)
+                if cnd.sign_change:      # a simple (odd-order) zero removed from zeros() by D8: must not pass unseen (audit 002 N2a)
+                    warnings.warn(f"scan_sector: sign-change zero (kind {cnd.kind}, order {cnd.order}, slope {cnd.slope}) at E={cnd.E!r} in "
+                                  f"{sector.irrep} relabelled free_level (free level {float(free_E[j])!r}, |dE|={abs(free_E[j] - cnd.E):.2e} "
+                                  f"<= free_tol {o['free_tol']:g}); excluded from zeros() by D8", RuntimeWarning, stacklevel=2)
                 cnd.kind, cnd.free_level, cnd.E = "free_level", float(free_E[j]), float(free_E[j])
     found.sort(key=lambda t: t.E)
     return ScanResult(sector=sector, c=c, E_min=E_min, E_max=E_max, candidates=found, jumps=jumps, segments=segments,
-                      n_evaluations=ev.n, n_grid=int(len(grid)), seconds=time.perf_counter() - t0, options=o, grid=grid)
+                      n_evaluations=ev.n, n_grid=int(len(grid)), seconds=time.perf_counter() - t0, options=o, grid=grid,
+                      relabelled_free_levels=relabelled, dead_bands=dead_bands, skipped_free_levels=skipped_free)
 
 
 # ---------------------------------------------------------------------------------------------------------------------
