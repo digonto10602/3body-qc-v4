@@ -37,7 +37,7 @@ def eigen_lu_tolerance(Q):
 # whose LU is taken, NOT kappa(F3): Q adds K3 and projects, and at 100_A2 0.2915561 with the baseline c, kappa(F3) = 9.0e6
 # but kappa(Q) = 3.8e12 and the observed deviation is 1.1e-9 (Sandybridge kernel), which kappa(F3) would not cover and
 # kappa(Q) does.  At c = 0 the two coincide or differ by <= 5 (measured).  Bound: max(fixed, 50 kappa_2(Q) eps), K = 50
-# as in test D; measured deviation/(kappa eps) <= 0.2 at all 17 (point, c) pairs and both kernels tested (Haswell,
+# as in test D; measured deviation/(kappa eps) <= 0.2 at all 16 (point, c) pairs and both kernels tested (Haswell,
 # Sandybridge), so the margin is >= 250 at every point.  The sign must match exactly (a flip needs a relative
 # perturbation >= 1/kappa(Q) >> u).  The fixed bounds are kept as floors, so nothing is tighter than before anywhere.
 ANCHOR_KAPPA_FACTOR = 50.0
