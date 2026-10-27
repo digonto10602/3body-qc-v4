@@ -141,6 +141,14 @@ Nothing listed here has been fixed in the code yet. The code in `src/` is copied
 - **Hesse errors unreliable.** By the $\Delta\chi^2=1$ test Hesse is off by 0.28–1.64× at A/0.335, A/0.345 and B/0.345; only B/0.335 is reliable. The finite-difference Hessian errors are trustworthy where they differ (`reports/tests/018` (b)). Report both, flag gaps above $\sim20\%$; with walls within $1\sigma$ the parabolic errors remain approximate (a profile of $\chi^2$ would be the honest interval).
 - **L24 data still missing** (D4/invariant list): the L24 `.jack` files are not in the repo, so no L24 fit and no two-volume constraint; the L24 rootscan gate used the labels only.
 
+- **Update 2026-10-27 (tester 019, audit 002).**
+  - Fits are bit-reproducible on a fixed machine. But **Hesse errors depend on where Migrad stops**, because χ² is piecewise smooth (poles and dimension jumps lie within 1σ).
+    - B/0.345: the Hesse $K_0$ error is 1.1–3.5e5 under $10^{-10}$ start perturbations; the FD-Hessian gives a stable 1.63e5. The committed FD/Hesse = 1.199 sits just under the 1.2 flag.
+    - A/0.345: 2 of 5 perturbed starts end in another local minimum (χ²=3876).
+  - **Quote the FD-Hessian errors at 0.345**, and treat the 0.345 minima as not robust.
+  - Errors are nominal $\Delta\chi^2=1$ and are not rescaled by χ²/ν≈3.5.
+  - The audit's dense 1-row scan at the fitted minima (`q0_consistent`) agrees with `scan_sector` in all 5 sectors. The label gate covers only `coded_v2` at the baseline.
+
 ### 12. Historical warnings (do not reuse these results)
 
 - v32e–v32p read the L=24 lattice files while computing at L=20, so their fits are invalid.
