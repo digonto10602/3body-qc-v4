@@ -381,7 +381,7 @@ def _piecewise_smooth_items(fcn: QCChi2, trackers: dict, E_model) -> list:
     for k, (irrep, n) in enumerate(fcn.labels):
         tr, w, E = trackers[irrep], float(fcn.sigma[k]), float(E_model[k])
         poles = [p for p in getattr(tr, "_poles", []) if abs(p - E) <= w]
-        jumps = [float(j) for j in tr.scan.jumps if abs(j - E) <= w]
+        jumps = [float(j) for j in getattr(getattr(tr, "scan", None), "jumps", []) if abs(j - E) <= w]
         if poles or jumps:
             items.append({"level": [irrep, int(n)], "E_model": E, "sigma": w, "poles": poles, "jumps": jumps})
     return items
@@ -585,15 +585,15 @@ def fit_cutoff(levels: LevelSet, trackers: dict, c_start, *, minimizer="lm+migra
         E_max_tracked=E_max_tracked, migrad_calls=migrad_calls, ambiguous_trials_lm=ambiguous_trials,
         errors_fd_hessian=errors_fd, fd_hessian_rel=fd_rel, fd_hessian_note=fd_msg,
         multistart=int(multistart), multistart_seed=MULTISTART_SEED if multistart else None, multistart_results=ms_results,
-        n_full_rescan_changes=sum(trackers[ir].n_full_rescan_changes for ir in fcn.irreps),
-        full_rescan_events=[e for ir in fcn.irreps for e in trackers[ir].full_rescan_events])
+        n_full_rescan_changes=sum(getattr(trackers[ir], "n_full_rescan_changes", 0) for ir in fcn.irreps),
+        full_rescan_events=[e for ir in fcn.irreps for e in getattr(trackers[ir], "full_rescan_events", [])])
     res.error_gap, res.errors_disagree, res.errors_disagree_params = error_gap_flags(errors, errors_fd, free)
     res.unconstrained_reasons = _unconstrained(list(free), c, errors, correlation, accurate)
     res.unconstrained = len(res.unconstrained_reasons) > 0
     if verify:
         res.verification = verify_fit(res, trackers, levels)
-    res.n_full_rescan_changes = sum(trackers[ir].n_full_rescan_changes for ir in fcn.irreps)      # verification may add events
-    res.full_rescan_events = [e for ir in fcn.irreps for e in trackers[ir].full_rescan_events]
+    res.n_full_rescan_changes = sum(getattr(trackers[ir], "n_full_rescan_changes", 0) for ir in fcn.irreps)      # verification may add events
+    res.full_rescan_events = [e for ir in fcn.irreps for e in getattr(trackers[ir], "full_rescan_events", [])]
     # audit 002 N4: a fit that fails its own verification (or whose EDM is above the limit) is never reported as valid
     if not np.isfinite(edm) or edm >= EDM_MAX or not fm.is_valid:
         res.invalid_reasons.append(f"migrad_edm_or_validity: is_valid={bool(fm.is_valid)} edm={edm:.3e} (limit {EDM_MAX:g})")
