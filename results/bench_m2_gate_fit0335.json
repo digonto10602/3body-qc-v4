@@ -1,0 +1,40 @@
+{
+ "commit": "9a37450",
+ "core_commit": "9a37450",
+ "cutoff": 0.335,
+ "table": "A (4 free parameters)",
+ "form": "q0_consistent",
+ "c_start": [
+  73735.84089401191,
+  -972421.1406075779,
+  347174.0554811695,
+  -1226756.7068845264
+ ],
+ "wall_total_s": 75.87115713399999,
+ "seconds_scan": 31.446246368000175,
+ "seconds_fit_cutoff": 12.45255433300008,
+ "seconds_lm": 4.542436883000391,
+ "seconds_migrad": 7.909476885000004,
+ "seconds_verify": 30.872256878999906,
+ "seconds_other_in_fit": 0.0006405649996850116,
+ "n_chi2_calls": 81,
+ "n_evaluations": 36811,
+ "nfcn": 78,
+ "lm_nfev": 18,
+ "lm_njev": 13,
+ "chi2": 29.614722295044174,
+ "ndof": 8,
+ "edm": 8.357804330627163e-12,
+ "valid": true,
+ "accurate": false,
+ "c": [
+  619542.3381687982,
+  584239.806700753,
+  -1601766.9521537556,
+  4960423.2379430095
+ ],
+ "n_local_rescans": 4,
+ "n_full_rescans": 0,
+ "verification_ok": true,
+ "seed": null
+}

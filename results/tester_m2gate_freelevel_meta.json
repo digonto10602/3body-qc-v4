@@ -1,0 +1,4 @@
+{"commit": "9a37450", "report": "reports/tests/020-m2-gate-full-rerun.md", "sector": "L20 110_A2", "free_level_E_f": 0.31946882819441,
+ "forms": ["coded_v2", "q0_consistent"], "c_set": "baseline (constants.C_BASELINE), A/0.335 minimum of results/fit_L20_q0_consistent_m2.json, two baseline*(1+U(-0.1,0.1)^4) draws, c=0",
+ "seed": 20261027, "rng": "numpy default_rng, rand1 then rand2", "files": ["tester_m2gate_freelevel_c_independence.json", "tester_m2gate_freelevel_fine.json", "tester_m2gate_freelevel_quartic_fit.json"],
+ "scripts": "scratchpad g2/freecheck.py, freecheck2.py, freecheck3.py (copied to results/tester_m2gate_scripts/)", "env": "OMP/OPENBLAS threads 1, taskset core 1"}

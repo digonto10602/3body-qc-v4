@@ -1,0 +1,98 @@
+........................................................................ [ 91%]
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+tests/acceptance/m2/test_m2_fit.py::test_cutoff_scan_q0_consistent_0335_fixed_KB_KE_two_parameter_fit_records_flags
+  /home/user/3body-qc-v4/src/python/qc3/tracking.py:291: RuntimeWarning: tracking 111_A2: a full rescan at c=[298146.8511970747, -1072064.978638879, 0.0, 0.0] changed the tracked set: 3 -> 2 roots <= E_max, max |new - predicted| = None; predicted [0.3192086809093517, 0.33396089728859435, 0.33820674863120503], new [0.3192086792857572, 0.33396083822324363]
+    self._substep(c_s)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+____ test_cutoff_scan_q0_consistent_0335_two_stage_fit_verifies_and_records ____
+----------------------------- Captured stderr call -----------------------------
+[cutoff 0.335] 12 levels in ['000_A1m', '100_A2', '110_A2', '111_A2', '200_A2']; scans to E_max=0.3400 took 31.4 s
+[cutoff 0.335] chi2=29.6147 ndof=8 valid=True edm=8.36e-12 fit 11.9 s verify ok=True 30.3 s
+_ test_cutoff_scan_q0_consistent_0335_fixed_KB_KE_two_parameter_fit_records_flags _
+----------------------------- Captured stderr call -----------------------------
+[cutoff 0.335] 12 levels in ['000_A1m', '100_A2', '110_A2', '111_A2', '200_A2']; scans to E_max=0.3400 took 30.3 s
+[cutoff 0.335] chi2=36.5865 ndof=10 valid=True edm=7.60e-08 fit 12.7 s verify ok=True 30.0 s
+=========================== short test summary info ============================
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_projector_cache_key_complete
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_projector_orbit_matches_eigen_and_oracle_subspace
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_projector_cold_build_is_fast
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_options_projector_values
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_dimension_jumps_match_rule_and_N
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_basis_all_signatures_vs_reference
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_tail_consistent_with_numpy_and_want_subset
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_single_thread_cpu_time
+PASSED tests/acceptance/m1/test_m1_fast_v2.py::test_fast_speedup_single_thread_largest_point_ge_150x
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_vs_oracle_small_points
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_basis_identical_to_oracle
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_metadata_and_timings
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_vs_oracle_all_anchor_points
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_vs_oracle_random_energies_all_irreps
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_root_vs_oracle_100_A2_windows
+PASSED tests/acceptance/m1/test_m1_fast_vs_oracle.py::test_fast_speedup_single_thread_ge_20x
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_read_jack_and_resample_synthetic
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_jackknife_mean_cov_equals_sample_cov_over_N
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_load_levels_conversion_order_matches_legacy_reader
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_real_file_000_A1m_n0_vs_independent_numpy
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_level_counts_per_cutoff_L20
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_covariance_symmetric_psd_and_correlated
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_match_levels_D3
+PASSED tests/acceptance/m1/test_m1_lattice.py::test_chi2_pseudoinverse
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_anchors_small_points
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_anchors_all_points
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_anchors_k3_baseline_small_points
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_reality_hermiticity_isometry
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_metadata_has_production_constants
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_basis_rule_and_order
+PASSED tests/acceptance/m1/test_m1_oracle.py::test_oracle_timings_present
+PASSED tests/acceptance/m1/test_m1_portability.py::test_no_absolute_home_paths_in_m1_code
+PASSED tests/acceptance/m1/test_m1_portability.py::test_data_root_env_var
+PASSED tests/acceptance/m1/test_m1_production_default.py::test_production_default_k2_pwave_form_is_q0_consistent
+PASSED tests/acceptance/m1/test_m1_qc_identities.py::test_project_Q_matches_definition
+PASSED tests/acceptance/m1/test_m1_qc_identities.py::test_slogdet_matches_numpy_and_sign_is_integer
+PASSED tests/acceptance/m1/test_m1_qc_identities.py::test_lndet_invariant_under_unitary_mixing_of_Vsel
+PASSED tests/acceptance/m1/test_m1_qc_identities.py::test_scale_applies_to_matrix_not_determinant
+PASSED tests/acceptance/m1/test_m1_reference.py::test_F_G_K2inv_vs_reference_small_points
+PASSED tests/acceptance/m1/test_m1_reference.py::test_K2inv_pwave_both_forms_vs_reference
+PASSED tests/acceptance/m1/test_m1_reference.py::test_K3_basis_vs_reference_small_points
+PASSED tests/acceptance/m1/test_m1_reference.py::test_K3_basis_symmetric_and_linear
+PASSED tests/acceptance/m1/test_m1_reference.py::test_ingredients_vs_reference_large_points
+PASSED tests/acceptance/m1/test_m1_roots.py::test_classify_sign_change_on_step9_cases
+PASSED tests/acceptance/m1/test_m1_roots.py::test_refine_root_rejects_pole_110_A2_n1_q0
+PASSED tests/acceptance/m1/test_m1_roots.py::test_refine_root_classifies_12_coded_v2_zeros
+PASSED tests/acceptance/m1/test_m1_roots.py::test_find_zeros_recovers_hidden_zeros
+PASSED tests/acceptance/m2/test_m2_fit.py::test_qcchi2_at_baseline_matches_independent_roots_gradient_and_chi2
+PASSED tests/acceptance/m2/test_m2_fit.py::test_cutoff_scan_q0_consistent_0335_two_stage_fit_verifies_and_records
+PASSED tests/acceptance/m2/test_m2_fit.py::test_v32w_code_equivalence_chi2_at_c_v32w_is_recorded_not_reproduced
+PASSED tests/acceptance/m2/test_m2_fit.py::test_cutoff_scan_q0_consistent_0335_fixed_KB_KE_two_parameter_fit_records_flags
+PASSED tests/acceptance/m2/test_m2_fit.py::test_legacy_0335_fit_levels_code_equivalence_at_c_legacy
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[000_A1m-20]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[000_A1m-24]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[100_A2-20]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[100_A2-24]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[110_A2-20]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[110_A2-24]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[111_A2-20]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[111_A2-24]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[200_A2-20]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_free_levels_match_brute_force[200_A2-24]
+PASSED tests/acceptance/m2/test_m2_free_levels.py::test_threshold_and_the_110_A2_quartic_free_level
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_scan_000_A1m_coded_v2_reproduces_labels
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_scan_L20_sector_FP_FN_zero[100_A2]
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_scan_L20_sector_FP_FN_zero[110_A2]
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_scan_L20_sector_FP_FN_zero[111_A2]
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_scan_L20_sector_FP_FN_zero[200_A2]
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_scan_L24_sector_FP_FN_zero[000_A1m]
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_scan_L24_sector_FP_FN_zero[100_A2]
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_free_level_solutions_detected_with_order_110_A2_and_200_A2
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_scan_q0_consistent_finds_the_oracle_verified_roots_without_labels
+PASSED tests/acceptance/m2/test_m2_rootscan.py::test_scan_resolves_zero_pole_pair_inside_one_coarse_step_110_A2
+PASSED tests/acceptance/m2/test_m2_tracking.py::test_root_jacobian_matches_finite_difference[000_A1m-0.26932269974456263]
+PASSED tests/acceptance/m2/test_m2_tracking.py::test_root_jacobian_matches_finite_difference[100_A2-0.2915560996081883]
+PASSED tests/acceptance/m2/test_m2_tracking.py::test_root_jacobian_matches_finite_difference[200_A2-0.28624436431121125]
+PASSED tests/acceptance/m2/test_m2_tracking.py::test_secant_root_from_jacobian_prediction
+PASSED tests/acceptance/m2/test_m2_tracking.py::test_sector_roots_track_random_parameter_steps_and_rescan_agrees
+PASSED tests/acceptance/m2/test_m2_tracking.py::test_sector_roots_excludes_free_level_solutions_and_reports_them
+79 passed, 1 warning in 794.27s (0:13:14)
