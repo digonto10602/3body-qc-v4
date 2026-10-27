@@ -1,12 +1,22 @@
 # STATUS
 
-- **Updated:** 2026-10-24 (M2 kickoff)
+- **Updated:** 2026-10-27 (M2 gate)
 - **Prompt in force:** `prompts/003-m2-label-free-roots-tracking-fit.md` (M2). M1 plans: `prompts/001`, `prompts/002`.
 - **Acceptance tag:** `acceptance-v7` = `6e789e9` (79 tests = 47 M1 + 32 M2). v7 = v6 plus the free-level helper fix, 2 tests for Digonto's M2 answers and 1 zero-pole-pair scan test. Earlier tags: `-v6` = `b3c7f28`, `-v5` = `e384ce6`, `-v4` = `504a689`, `-v3` = `e74f94b`, `-v2` = `bcf12cd`, `-v1` = `7801d97`, `milestone-1` = `191530d`. Tags exist **only locally** (tag push gives HTTP 403); recreate them with `git tag -a <tag> <commit> -m ...` if they are missing.
 - **Current milestone:** **M2**: label-free root finding, root tracking, and the L20 fit.
   - Plan: `prompts/003`. Research: `reports/research/009`.
   - Planner's prototype: **FP = FN = 0 on all 208 labelled brackets** in 7 sectors (5×L20, 2×L24), `coded_v2`, $\vec c$ = baseline. It found 27 even-order zeros, all at free levels (D8, arXiv:1901.07095 §4.4.3).
-- **Current step:** M2 **step 7** (docs; planner), plus a small builder change: an error-gap flag on the Hesse vs FD-Hessian errors. Then regenerate the fit JSONs from a clean tree, then the M2 gate.
+- **Current step:** **M2 gate.**
+  - Tester `full`: `reports/tests/019-m2-gate-full.md` — **FAIL 78/79**. The one failure is the machine-dependent M1 anchor `test_oracle_anchors_all_points`.
+    - On the new CPU (2.8 GHz Xeon, different OpenBLAS kernels), 200_A2 0.34738 ($\kappa(F_3)=4.8\times10^8$) is off by $4.5\times10^{-10}$ against a tolerance of $10^{-10}$.
+    - The oracle source is unchanged.
+  - **Digonto 2026-10-27:** replace the fixed anchor tolerances with a κ-scaled bound, as for test D. Planner, then re-lock as `acceptance-v8`.
+  - Everything else passes: unit tests 154; label gate FP=FN=0; `_core` = HEAD.
+  - Hesse reproducibility (019): runs are bit-identical on a fixed machine. Hesse depends on where Migrad stops, because χ² is piecewise smooth.
+    - B/0.345: Hesse $K_0$ error ranges 1.1–3.5e5 under $10^{-10}$ start perturbations; the FD-Hessian is stable at 1.63e5.
+    - A/0.345: 2 of 5 perturbed starts reach a different local minimum (χ²=3876).
+    - So **FD-Hessian errors are the ones to quote at 0.345.** The 0.345 minima are not robust.
+- **M2 steps 7, error-gap flag, results regeneration DONE.** The JSONs are clean at `9911237`.
 - **M2 step 6 DONE** (`reports/tests/018`, PASS). Fits use `q0_consistent`, D1, D3, D8; there are no wrong-sign zeros (D9).
   - **Table A** (4 free), χ²/ν at cutoffs 0.315 / 0.325 / 0.335 / 0.345: 1.32 / 3.34 / 3.70 / 3.55 (ν = 2 / 5 / 8 / 10).
   - **Table B** ($K_B=K_E=0$): 2.56 / 3.74 / 3.66 / 4.60.
