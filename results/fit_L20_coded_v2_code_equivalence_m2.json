@@ -2,20 +2,20 @@
  "kind": "qc3.fit",
  "is_a_fit": true,
  "provenance": {
-  "git_commit": "9911237",
+  "git_commit": "98738b0",
   "git_tree_dirty": false,
-  "core_built_at_commit": "9911237",
+  "core_built_at_commit": "98738b0",
   "core_version": "0.5.1-step7.7",
   "numpy": "2.5.3",
   "scipy": "1.18.1",
-  "date": "2026-10-26T18:26:40+00:00",
+  "date": "2026-10-27T03:38:08+00:00",
   "build_flags": "see build.sh COMMON (-std=c++17 -O3 -fopenmp); not introspectable from the module",
   "iminuit": "2.33.0",
   "machine": {
-   "cpu_model": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+   "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
    "cores_online": 4,
    "cores_allowed": 4,
-   "platform": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
+   "platform": "Linux-6.18.44-fc-v165-x86_64-with-glibc2.39",
    "python": "3.13.16"
   },
   "command": "/home/user/3body-qc-v4/src/python/qc3/fit.py --code-equivalence --out results/fit_L20_coded_v2_code_equivalence_m2.json",
@@ -447,12 +447,12 @@
    "accurate": true,
    "nfcn": 80,
    "ngrad": 0,
-   "n_evaluations": 42775,
+   "n_evaluations": 42905,
    "n_local_rescans": 4,
    "n_full_rescans": 1,
    "n_penalised_calls": 0,
    "n_penalised_calls_final_stage": 0,
-   "seconds": 22.778087173000017,
+   "seconds": 18.587994879000007,
    "minimizer": "lm+migrad",
    "verification": {
     "counts_equal": true,
@@ -461,8 +461,8 @@
     "chi2_diff": 6.023903864615932e-08,
     "chi2_bound": 0.0009125943612860602,
     "ok": true,
-    "n_evaluations": 28073,
-    "seconds": 39.028211988000066,
+    "n_evaluations": 28165,
+    "seconds": 32.04396419799991,
     "margin": 0.002,
     "per_sector": {
      "000_A1m": {
@@ -474,7 +474,22 @@
       ],
       "E_compare_max": 0.27090027286377877,
       "n_fresh_above_compare": 0,
-      "counts_equal": true
+      "counts_equal": true,
+      "relabelled_free_levels": [
+       {
+        "E_orig": 0.33533865593695644,
+        "E": 0.33533865771796334,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 2.0000073590876086,
+        "slope": -2.0973973692810927e-09,
+        "free_level": 0.33533865771796334
+       }
+      ],
+      "dead_band_sign_changes": [],
+      "n_dead_bands": 8,
+      "skipped_free_levels": [],
+      "relabelled_sign_change_zeros": []
      },
      "100_A2": {
       "tracked": [
@@ -487,7 +502,31 @@
       ],
       "E_compare_max": 0.3018855302130321,
       "n_fresh_above_compare": 0,
-      "counts_equal": true
+      "counts_equal": true,
+      "relabelled_free_levels": [
+       {
+        "E_orig": 0.2849338700965627,
+        "E": 0.28493387009530935,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 4.000025661092692,
+        "slope": -3.2203182519707427e-10,
+        "free_level": 0.28493387009530935
+       },
+       {
+        "E_orig": 0.2945720671955089,
+        "E": 0.2945720671965895,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 2.000005369711238,
+        "slope": -1.5734013016077686e-09,
+        "free_level": 0.2945720671965895
+       }
+      ],
+      "dead_band_sign_changes": [],
+      "n_dead_bands": 22,
+      "skipped_free_levels": [],
+      "relabelled_sign_change_zeros": []
      },
      "110_A2": {
       "tracked": [
@@ -504,7 +543,49 @@
       ],
       "E_compare_max": 0.33084914405708266,
       "n_fresh_above_compare": 0,
-      "counts_equal": true
+      "counts_equal": true,
+      "relabelled_free_levels": [
+       {
+        "E_orig": 0.30094702042058163,
+        "E": 0.3009470242219958,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 4.000033668320811,
+        "slope": -2.1713098963130686e-08,
+        "free_level": 0.3009470242219958
+       },
+       {
+        "E_orig": 0.3095320598762594,
+        "E": 0.30953205711532567,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 2.000009562861235,
+        "slope": 8.773796520474691e-09,
+        "free_level": 0.30953205711532567
+       },
+       {
+        "E_orig": 0.3148847773093211,
+        "E": 0.3148847772123781,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 2.000014759889706,
+        "slope": 1.2921893416395491e-09,
+        "free_level": 0.3148847772123781
+       },
+       {
+        "E_orig": 0.3194688280544951,
+        "E": 0.31946882819441086,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 3.999998218500759,
+        "slope": -7.443693247509084e-11,
+        "free_level": 0.31946882819441086
+       }
+      ],
+      "dead_band_sign_changes": [],
+      "n_dead_bands": 24,
+      "skipped_free_levels": [],
+      "relabelled_sign_change_zeros": []
      },
      "111_A2": {
       "tracked": [
@@ -518,7 +599,58 @@
       ],
       "E_compare_max": 0.33610284875056373,
       "n_fresh_above_compare": 1,
-      "counts_equal": true
+      "counts_equal": true,
+      "relabelled_free_levels": [
+       {
+        "E_orig": 0.3139066968131482,
+        "E": 0.3139066968396595,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 4.000056582477032,
+        "slope": -1.860462096880955e-10,
+        "free_level": 0.3139066968396595
+       },
+       {
+        "E_orig": 0.3274675792726416,
+        "E": 0.3274675790861219,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 4.000009888520033,
+        "slope": 2.1738011348246657e-10,
+        "free_level": 0.3274675790861219
+       },
+       {
+        "E_orig": 0.3305735599373318,
+        "E": 0.3305735598616763,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 2.000039029059244,
+        "slope": 9.645660366611186e-08,
+        "free_level": 0.3305735598616763
+       },
+       {
+        "E_orig": 0.3376458285090133,
+        "E": 0.3376458250808612,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 4.000021333655784,
+        "slope": -1.3048021239425028e-08,
+        "free_level": 0.3376458250808612
+       },
+       {
+        "E_orig": 0.3305735597309553,
+        "E": 0.3305735598616763,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 2.0000390605071283,
+        "slope": 9.322066907291315e-08,
+        "free_level": 0.3305735598616763
+       }
+      ],
+      "dead_band_sign_changes": [],
+      "n_dead_bands": 20,
+      "skipped_free_levels": [],
+      "relabelled_sign_change_zeros": []
      },
      "200_A2": {
       "tracked": [
@@ -533,7 +665,40 @@
       ],
       "E_compare_max": 0.33283179448331274,
       "n_fresh_above_compare": 0,
-      "counts_equal": true
+      "counts_equal": true,
+      "relabelled_free_levels": [
+       {
+        "E_orig": 0.28136839442608014,
+        "E": 0.2813683944653434,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 2.000002514559572,
+        "slope": -3.1460454345821898e-09,
+        "free_level": 0.2813683944653434
+       },
+       {
+        "E_orig": 0.2922642835407061,
+        "E": 0.29226428315801756,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 4.000005905040923,
+        "slope": 1.246447124449168e-09,
+        "free_level": 0.29226428315801756
+       },
+       {
+        "E_orig": 0.3249407190219878,
+        "E": 0.32494072016389536,
+        "kind_orig": "even_zero",
+        "sign_change": false,
+        "order": 4.000014184581545,
+        "slope": -6.562151154063112e-09,
+        "free_level": 0.32494072016389536
+       }
+      ],
+      "dead_band_sign_changes": [],
+      "n_dead_bands": 18,
+      "skipped_free_levels": [],
+      "relabelled_sign_change_zeros": []
      }
     },
     "wrong_sign_zeros_fresh": []
@@ -549,9 +714,9 @@
    "lm_status": 2,
    "lm_nfev": 18,
    "lm_njev": 14,
-   "seconds_scan": 38.82228286099996,
-   "seconds_lm": 13.272788535000018,
-   "seconds_migrad": 9.504557629000033,
+   "seconds_scan": 31.858824123999966,
+   "seconds_lm": 11.304852157000141,
+   "seconds_migrad": 7.282613805999972,
    "E_max_tracked": 0.34,
    "migrad_calls": 1,
    "errors_fd_hessian": [
@@ -570,7 +735,44 @@
     1.1469905452268894
    ],
    "errors_disagree": false,
-   "errors_disagree_params": []
+   "errors_disagree_params": [],
+   "invalid_reasons": [],
+   "caveats": [
+    "errors are nominal Delta chi2 = 1 (errordef 1) and are NOT rescaled by chi2/ndof = 3.95 (p-value-level misfit is flagged in docs/OPEN_ISSUES.md #14); several parameters may have error ~ value",
+    "Hesse/FD-Hessian error ratio beyond 1.1 (threshold 1.2) for ['Kiso1', 'KB', 'KE']: agreement is marginal, Hesse errors may depend on where Migrad stopped",
+    "chi2 is only piecewise smooth near the minimum (a pole or basis-dimension jump within 1 sigma of a matched model level): 100_A2 #0 E=0.291004 (sigma 5.1e-04, poles [0.2911774], jumps []); 110_A2 #1 E=0.315587 (sigma 5.2e-04, poles [0.3153899, 0.3159472], jumps []); 111_A2 #0 E=0.319212 (sigma 5.6e-04, poles [0.319514], jumps []); 200_A2 #2 E=0.330832 (sigma 6.1e-04, poles [], jumps [0.3304785])",
+    "no multi-start / global-minimum check was run (--multistart N); other local minima are not excluded",
+    "1 full rescan(s) during the fit changed the tracked root set (count or position); see full_rescan_events"
+   ],
+   "multistart": 0,
+   "multistart_seed": null,
+   "multistart_results": [],
+   "n_full_rescan_changes": 1,
+   "full_rescan_events": [
+    {
+     "c": [
+      223552.8353775543,
+      250800.57568672427,
+      -912655.1554978108,
+      2726284.0416236925
+     ],
+     "sector": "111_A2",
+     "n_before": 3,
+     "n_after": 2,
+     "predicted": [
+      0.3193169963350603,
+      0.33412324811442096,
+      0.33819793945342697
+     ],
+     "new": [
+      0.31931727857088243,
+      0.33412382907755594
+     ],
+     "dropped_parked_predictions": [],
+     "max_deviation": null,
+     "count_changed": true
+    }
+   ]
   }
  ],
  "code_equivalence": {
